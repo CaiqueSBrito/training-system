@@ -1,0 +1,15 @@
+[project]
+name = "training-contracts"
+version = "0.1.0"
+description = "Contratos entre pacotes: modelos Pydantic e JSON Schema da pipeline de chat e da ingestão."
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "pydantic>=2.14,<3",
+]
+
+[project.scripts]
+exportar-schema-contratos = "training_contracts.schema:main"
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"

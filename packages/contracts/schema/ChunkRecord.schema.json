@@ -1,0 +1,89 @@
+{
+  "additionalProperties": false,
+  "description": "Chunk com proveniência; imutável depois de criado.",
+  "properties": {
+    "chunk_id": {
+      "description": "Identificador opaco do registro.",
+      "minLength": 1,
+      "title": "Chunk Id",
+      "type": "string"
+    },
+    "document_version_id": {
+      "description": "Identificador opaco do registro.",
+      "minLength": 1,
+      "title": "Document Version Id",
+      "type": "string"
+    },
+    "chunker_version": {
+      "description": "Identificador opaco do registro.",
+      "minLength": 1,
+      "title": "Chunker Version",
+      "type": "string"
+    },
+    "page": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Page"
+    },
+    "section_path": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Section Path",
+      "type": "array"
+    },
+    "start_offset": {
+      "minimum": 0,
+      "title": "Start Offset",
+      "type": "integer"
+    },
+    "end_offset": {
+      "minimum": 0,
+      "title": "End Offset",
+      "type": "integer"
+    },
+    "text": {
+      "description": "Texto com ao menos um caractere visível.",
+      "pattern": "\\S",
+      "title": "Text",
+      "type": "string"
+    },
+    "injection_flagged": {
+      "default": false,
+      "title": "Injection Flagged",
+      "type": "boolean"
+    },
+    "injection_reason": {
+      "anyOf": [
+        {
+          "description": "Texto com ao menos um caractere visível.",
+          "pattern": "\\S",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Injection Reason"
+    }
+  },
+  "required": [
+    "chunk_id",
+    "document_version_id",
+    "chunker_version",
+    "start_offset",
+    "end_offset",
+    "text"
+  ],
+  "title": "ChunkRecord",
+  "type": "object"
+}

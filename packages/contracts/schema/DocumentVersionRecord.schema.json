@@ -1,0 +1,50 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "document_version_id": {
+      "description": "Identificador opaco do registro.",
+      "minLength": 1,
+      "title": "Document Version Id",
+      "type": "string"
+    },
+    "document_id": {
+      "description": "Identificador opaco do registro.",
+      "minLength": 1,
+      "title": "Document Id",
+      "type": "string"
+    },
+    "owner_id": {
+      "description": "Identificador opaco do registro.",
+      "minLength": 1,
+      "title": "Owner Id",
+      "type": "string"
+    },
+    "sha256": {
+      "description": "sha256 em hexadecimal minúsculo.",
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Sha256",
+      "type": "string"
+    },
+    "parser_version": {
+      "description": "Identificador opaco do registro.",
+      "minLength": 1,
+      "title": "Parser Version",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "document_version_id",
+    "document_id",
+    "owner_id",
+    "sha256",
+    "parser_version",
+    "created_at"
+  ],
+  "title": "DocumentVersionRecord",
+  "type": "object"
+}

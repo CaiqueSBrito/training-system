@@ -1,0 +1,3 @@
+$ uv run validar-governanca
+governança OK: 1 mudança(s), 1 tarefa(s), 0 requisito(s) na spec viva
+exit: 0

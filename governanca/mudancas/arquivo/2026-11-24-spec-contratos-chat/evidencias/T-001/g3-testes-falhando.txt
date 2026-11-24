@@ -1,0 +1,46 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 0 items / 3 errors
+
+==================================== ERRORS ====================================
+_______ ERROR collecting packages/contracts/tests/test_classificacao.py ________
+ImportError while importing test module '/home/caique-brito/Documentos/Caique/Training System/packages/contracts/tests/test_classificacao.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/contracts/tests/test_classificacao.py:6: in <module>
+    from training_contracts import Classification, Intent, RetrievalMode
+E   ImportError: cannot import name 'Classification' from 'training_contracts' (/home/caique-brito/Documentos/Caique/Training System/packages/contracts/src/training_contracts/__init__.py)
+___________ ERROR collecting packages/contracts/tests/test_itens.py ____________
+ImportError while importing test module '/home/caique-brito/Documentos/Caique/Training System/packages/contracts/tests/test_itens.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/contracts/tests/test_itens.py:6: in <module>
+    from training_contracts import Citation, Flashcard, Question
+E   ImportError: cannot import name 'Citation' from 'training_contracts' (/home/caique-brito/Documentos/Caique/Training System/packages/contracts/src/training_contracts/__init__.py)
+___________ ERROR collecting packages/contracts/tests/test_plano.py ____________
+ImportError while importing test module '/home/caique-brito/Documentos/Caique/Training System/packages/contracts/tests/test_plano.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/contracts/tests/test_plano.py:6: in <module>
+    from training_contracts import BloomLevel, SearchPlan
+E   ImportError: cannot import name 'BloomLevel' from 'training_contracts' (/home/caique-brito/Documentos/Caique/Training System/packages/contracts/src/training_contracts/__init__.py)
+=========================== short test summary info ============================
+ERROR packages/contracts/tests/test_classificacao.py
+ERROR packages/contracts/tests/test_itens.py
+ERROR packages/contracts/tests/test_plano.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!
+============================== 3 errors in 0.09s ===============================
+exit code: 2

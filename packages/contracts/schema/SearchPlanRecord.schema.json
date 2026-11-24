@@ -1,0 +1,67 @@
+{
+  "$defs": {
+    "BloomLevel": {
+      "description": "Níveis da taxonomia de Bloom revisada (RAG-PLN-001).",
+      "enum": [
+        "lembrar",
+        "compreender",
+        "aplicar",
+        "analisar",
+        "avaliar",
+        "criar"
+      ],
+      "title": "BloomLevel",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "objetivos": {
+      "description": "Objetivos de aprendizagem.",
+      "items": {
+        "description": "Texto com ao menos um caractere visível.",
+        "pattern": "\\S",
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Objetivos",
+      "type": "array"
+    },
+    "bloom_level": {
+      "$ref": "#/$defs/BloomLevel"
+    },
+    "consultas": {
+      "description": "De 1 a 3 consultas reescritas para a recuperação.",
+      "items": {
+        "description": "Texto com ao menos um caractere visível.",
+        "pattern": "\\S",
+        "type": "string"
+      },
+      "maxItems": 3,
+      "minItems": 1,
+      "title": "Consultas",
+      "type": "array"
+    },
+    "search_plan_id": {
+      "description": "Identificador opaco do registro.",
+      "minLength": 1,
+      "title": "Search Plan Id",
+      "type": "string"
+    },
+    "chat_turn_id": {
+      "description": "Identificador opaco do registro.",
+      "minLength": 1,
+      "title": "Chat Turn Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "objetivos",
+    "bloom_level",
+    "consultas",
+    "search_plan_id",
+    "chat_turn_id"
+  ],
+  "title": "SearchPlanRecord",
+  "type": "object"
+}

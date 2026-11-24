@@ -1,0 +1,75 @@
+{
+  "$defs": {
+    "ContextChunk": {
+      "additionalProperties": false,
+      "description": "Um chunk do contexto entregue à geração: `[C3] (p. 12, 2.3 Fase clara) …texto…`.",
+      "properties": {
+        "ref": {
+          "description": "Referência ao chunk no contexto numerado da geração: C1, C2, ...",
+          "examples": [
+            "C3"
+          ],
+          "pattern": "^C[1-9][0-9]*$",
+          "title": "Ref",
+          "type": "string"
+        },
+        "chunk_id": {
+          "description": "Identificador opaco do registro.",
+          "minLength": 1,
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        },
+        "section_path": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Section Path",
+          "type": "array"
+        },
+        "text": {
+          "description": "Texto com ao menos um caractere visível.",
+          "pattern": "\\S",
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ref",
+        "chunk_id",
+        "text"
+      ],
+      "title": "ContextChunk",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Contexto numerado de E7 para E8: refs C1..Cn, na ordem e sem lacunas (RAG-GEN-001).",
+  "properties": {
+    "chunks": {
+      "items": {
+        "$ref": "#/$defs/ContextChunk"
+      },
+      "minItems": 1,
+      "title": "Chunks",
+      "type": "array"
+    }
+  },
+  "required": [
+    "chunks"
+  ],
+  "title": "NumberedContext",
+  "type": "object"
+}

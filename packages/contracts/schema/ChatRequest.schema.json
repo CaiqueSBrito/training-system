@@ -1,0 +1,24 @@
+{
+  "additionalProperties": false,
+  "description": "Mensagem enviada pelo usuário. A identidade do usuário vem da autenticação, não do corpo.",
+  "properties": {
+    "session_id": {
+      "description": "Identificador opaco do registro.",
+      "minLength": 1,
+      "title": "Session Id",
+      "type": "string"
+    },
+    "mensagem": {
+      "description": "Texto com ao menos um caractere visível.",
+      "pattern": "\\S",
+      "title": "Mensagem",
+      "type": "string"
+    }
+  },
+  "required": [
+    "session_id",
+    "mensagem"
+  ],
+  "title": "ChatRequest",
+  "type": "object"
+}

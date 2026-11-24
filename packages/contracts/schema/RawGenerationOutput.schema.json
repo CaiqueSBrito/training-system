@@ -1,0 +1,25 @@
+{
+  "$defs": {
+    "JsonValue": {}
+  },
+  "additionalProperties": false,
+  "description": "Saída da geração (E8) como recebida: só o envelope é validado.\n\nUm item inválido não derruba o lote; E9 valida cada item com `validar_item` e\nrejeita ou repara individualmente (RAG-VAL-001, RAG-VAL-002, RAG-JUI-003).",
+  "properties": {
+    "itens": {
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "description": "Item como recebido da geração, ainda não validado contra `Item`.",
+        "type": "object"
+      },
+      "title": "Itens",
+      "type": "array"
+    }
+  },
+  "required": [
+    "itens"
+  ],
+  "title": "RawGenerationOutput",
+  "type": "object"
+}

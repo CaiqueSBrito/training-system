@@ -1,0 +1,97 @@
+"""Contratos entre os pacotes da pipeline de chat e da ingestão.
+
+Nomes de campo seguem a fonte na arquitetura (`docs/arquitetura/pipeline-rag.md`):
+saídas dos agentes e mensagem de chat em português (§2), itens em inglês (§2.2),
+registros de linhagem com os nomes de entidade da §7.
+"""
+
+from training_contracts.agentes import Classification, InputVerdict, SearchPlan
+from training_contracts.chat import (
+    ChatRequest,
+    ChatResponse,
+    ChatStatus,
+    DeliveredItem,
+    MotivoRecusa,
+    Omission,
+    Source,
+)
+from training_contracts.comum import BloomLevel, Intent, MotivoRejeicao, RetrievalMode
+from training_contracts.geracao import (
+    Citation,
+    ContextChunk,
+    Flashcard,
+    GenerationOutput,
+    Item,
+    ItemBruto,
+    NumberedContext,
+    Question,
+    RawGenerationOutput,
+    validar_item,
+)
+from training_contracts.linhagem import (
+    MOTIVOS_SEM_ITEM_VALIDO,
+    ChatTurnRecord,
+    ChunkRecord,
+    CitationLineage,
+    CitationRecord,
+    DocumentVersionRecord,
+    ItemLineage,
+    ItemRecord,
+    ItemStatus,
+    RetrievalCandidate,
+    RetrievalRunRecord,
+    SearchPlanRecord,
+    VerdictOrigin,
+    VerdictRecord,
+)
+from training_contracts.vereditos import (
+    MOTIVOS_E9,
+    DeterministicVerdict,
+    OutputJudgeResult,
+    OutputJudgeVerdict,
+)
+
+__all__ = [
+    "BloomLevel",
+    "ChatRequest",
+    "ChatResponse",
+    "ChatStatus",
+    "ChatTurnRecord",
+    "ChunkRecord",
+    "Citation",
+    "CitationLineage",
+    "CitationRecord",
+    "Classification",
+    "ContextChunk",
+    "DeliveredItem",
+    "DeterministicVerdict",
+    "DocumentVersionRecord",
+    "Flashcard",
+    "GenerationOutput",
+    "InputVerdict",
+    "Intent",
+    "Item",
+    "ItemBruto",
+    "ItemLineage",
+    "ItemRecord",
+    "ItemStatus",
+    "MOTIVOS_E9",
+    "MOTIVOS_SEM_ITEM_VALIDO",
+    "MotivoRecusa",
+    "MotivoRejeicao",
+    "NumberedContext",
+    "Omission",
+    "OutputJudgeResult",
+    "OutputJudgeVerdict",
+    "Question",
+    "RawGenerationOutput",
+    "RetrievalCandidate",
+    "RetrievalMode",
+    "RetrievalRunRecord",
+    "SearchPlan",
+    "SearchPlanRecord",
+    "Source",
+    "VerdictOrigin",
+    "VerdictRecord",
+    "validar_item",
+]
