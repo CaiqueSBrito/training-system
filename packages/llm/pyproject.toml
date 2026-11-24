@@ -1,0 +1,12 @@
+[project]
+name = "training-llm"
+version = "0.1.0"
+description = "Acesso a modelos fora do ADK: AI Studio (gemini/) e OpenRouter (openrouter/) via LiteLLM."
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "litellm>=1.109,<2",
+]
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"

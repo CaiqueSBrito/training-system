@@ -1,0 +1,12 @@
+[tool.uv.workspace]
+members = ["packages/*", "apps/*", "tools/*"]
+
+[tool.uv]
+# Carência de 7 dias para versões novas (ADR-0007).
+exclude-newer = "7 days"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["packages", "apps", "tools"]
