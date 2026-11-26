@@ -1,0 +1,260 @@
+# Infraestrutura local do Training System (OBS-INF-001, OBS-INF-002).
+#
+# Subida completa (todos os 8 serviços):
+#   docker compose -f infra/compose.yaml --env-file .env --profile "*" up -d --wait
+#
+# Subida parcial por perfil:
+#   - Apenas núcleo da aplicação (Qdrant + Postgres da linhagem):
+#       docker compose -f infra/compose.yaml --env-file .env --profile core up -d --wait
+#   - Apenas observabilidade (pilha self-hosted do Langfuse):
+#       docker compose -f infra/compose.yaml --env-file .env --profile langfuse up -d --wait
+
+name: training-system-infra
+
+x-langfuse-depends-on: &langfuse-depends-on
+  langfuse-postgres:
+    condition: service_healthy
+  clickhouse:
+    condition: service_healthy
+  redis:
+    condition: service_healthy
+  minio:
+    condition: service_healthy
+
+x-langfuse-common-env: &langfuse-common-env
+  NEXTAUTH_URL: ${LANGFUSE_HOST:?Defina LANGFUSE_HOST no .env}
+  DATABASE_URL: postgresql://${LANGFUSE_POSTGRES_USER:?Defina LANGFUSE_POSTGRES_USER no .env}:${LANGFUSE_POSTGRES_PASSWORD:?Defina LANGFUSE_POSTGRES_PASSWORD no .env}@langfuse-postgres:5432/${LANGFUSE_POSTGRES_DB:?Defina LANGFUSE_POSTGRES_DB no .env}
+  SALT: ${LANGFUSE_SALT:?Defina LANGFUSE_SALT no .env}
+  ENCRYPTION_KEY: ${LANGFUSE_ENCRYPTION_KEY:?Defina LANGFUSE_ENCRYPTION_KEY no .env}
+  TELEMETRY_ENABLED: "false"
+  LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES: "false"
+  CLICKHOUSE_MIGRATION_URL: clickhouse://clickhouse:9000
+  CLICKHOUSE_URL: http://clickhouse:8123
+  CLICKHOUSE_USER: ${LANGFUSE_CLICKHOUSE_USER:?Defina LANGFUSE_CLICKHOUSE_USER no .env}
+  CLICKHOUSE_PASSWORD: ${LANGFUSE_CLICKHOUSE_PASSWORD:?Defina LANGFUSE_CLICKHOUSE_PASSWORD no .env}
+  CLICKHOUSE_CLUSTER_ENABLED: "false"
+  CLICKHOUSE_CLUSTER_NAME: default
+  LANGFUSE_S3_EVENT_UPLOAD_BUCKET: langfuse
+  LANGFUSE_S3_EVENT_UPLOAD_REGION: auto
+  LANGFUSE_S3_EVENT_UPLOAD_ACCESS_KEY_ID: ${LANGFUSE_MINIO_ROOT_USER:?Defina LANGFUSE_MINIO_ROOT_USER no .env}
+  LANGFUSE_S3_EVENT_UPLOAD_SECRET_ACCESS_KEY: ${LANGFUSE_MINIO_ROOT_PASSWORD:?Defina LANGFUSE_MINIO_ROOT_PASSWORD no .env}
+  LANGFUSE_S3_EVENT_UPLOAD_ENDPOINT: http://minio:9000
+  LANGFUSE_S3_EVENT_UPLOAD_FORCE_PATH_STYLE: "true"
+  LANGFUSE_S3_EVENT_UPLOAD_PREFIX: events/
+  LANGFUSE_S3_MEDIA_UPLOAD_BUCKET: langfuse
+  LANGFUSE_S3_MEDIA_UPLOAD_REGION: auto
+  LANGFUSE_S3_MEDIA_UPLOAD_ACCESS_KEY_ID: ${LANGFUSE_MINIO_ROOT_USER:?Defina LANGFUSE_MINIO_ROOT_USER no .env}
+  LANGFUSE_S3_MEDIA_UPLOAD_SECRET_ACCESS_KEY: ${LANGFUSE_MINIO_ROOT_PASSWORD:?Defina LANGFUSE_MINIO_ROOT_PASSWORD no .env}
+  LANGFUSE_S3_MEDIA_UPLOAD_ENDPOINT: http://minio:9000
+  LANGFUSE_S3_MEDIA_UPLOAD_FORCE_PATH_STYLE: "true"
+  LANGFUSE_S3_MEDIA_UPLOAD_PREFIX: media/
+  LANGFUSE_S3_BATCH_EXPORT_ENABLED: "false"
+  LANGFUSE_S3_BATCH_EXPORT_BUCKET: langfuse
+  LANGFUSE_S3_BATCH_EXPORT_PREFIX: exports/
+  LANGFUSE_S3_BATCH_EXPORT_REGION: auto
+  LANGFUSE_S3_BATCH_EXPORT_ENDPOINT: http://minio:9000
+  LANGFUSE_S3_BATCH_EXPORT_EXTERNAL_ENDPOINT: http://localhost:${LANGFUSE_MINIO_API_PORT:?Defina LANGFUSE_MINIO_API_PORT no .env}
+  LANGFUSE_S3_BATCH_EXPORT_ACCESS_KEY_ID: ${LANGFUSE_MINIO_ROOT_USER:?Defina LANGFUSE_MINIO_ROOT_USER no .env}
+  LANGFUSE_S3_BATCH_EXPORT_SECRET_ACCESS_KEY: ${LANGFUSE_MINIO_ROOT_PASSWORD:?Defina LANGFUSE_MINIO_ROOT_PASSWORD no .env}
+  LANGFUSE_S3_BATCH_EXPORT_FORCE_PATH_STYLE: "true"
+  REDIS_HOST: redis
+  REDIS_PORT: "6379"
+  REDIS_AUTH: ${LANGFUSE_REDIS_AUTH:?Defina LANGFUSE_REDIS_AUTH no .env}
+
+services:
+  # --------------------------------------------------------------------------
+  # Perfil core: Qdrant (ADR-0002) e Postgres da linhagem da aplicação (ADR-0008)
+  # --------------------------------------------------------------------------
+  qdrant:
+    image: docker.io/qdrant/qdrant:v1.20.2
+    profiles: ["core"]
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${QDRANT_HTTP_PORT:?Defina QDRANT_HTTP_PORT no .env}:6333"
+      - "127.0.0.1:${QDRANT_GRPC_PORT:?Defina QDRANT_GRPC_PORT no .env}:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "bash",
+          "-c",
+          "exec 3<>/dev/tcp/127.0.0.1/6333 && printf 'GET /readyz HTTP/1.1\\r\\nHost: localhost\\r\\nConnection: close\\r\\n\\r\\n' >&3 && grep -q 'HTTP/1.1 200' <&3",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
+
+  app-postgres:
+    image: docker.io/postgres:17.11-alpine
+    profiles: ["core"]
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${APP_POSTGRES_DB:?Defina APP_POSTGRES_DB no .env}
+      POSTGRES_USER: ${APP_POSTGRES_USER:?Defina APP_POSTGRES_USER no .env}
+      POSTGRES_PASSWORD: ${APP_POSTGRES_PASSWORD:?Defina APP_POSTGRES_PASSWORD no .env}
+      TZ: UTC
+      PGTZ: UTC
+    ports:
+      - "127.0.0.1:${APP_POSTGRES_PORT:?Defina APP_POSTGRES_PORT no .env}:5432"
+    volumes:
+      - app_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
+
+  # --------------------------------------------------------------------------
+  # Perfil langfuse: Langfuse self-hosted e dependências (ADR-0005)
+  # --------------------------------------------------------------------------
+  langfuse-postgres:
+    image: docker.io/postgres:17.11-alpine
+    profiles: ["langfuse"]
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${LANGFUSE_POSTGRES_DB:?Defina LANGFUSE_POSTGRES_DB no .env}
+      POSTGRES_USER: ${LANGFUSE_POSTGRES_USER:?Defina LANGFUSE_POSTGRES_USER no .env}
+      POSTGRES_PASSWORD: ${LANGFUSE_POSTGRES_PASSWORD:?Defina LANGFUSE_POSTGRES_PASSWORD no .env}
+      TZ: UTC
+      PGTZ: UTC
+    ports:
+      - "127.0.0.1:${LANGFUSE_POSTGRES_PORT:?Defina LANGFUSE_POSTGRES_PORT no .env}:5432"
+    volumes:
+      - langfuse_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
+
+  clickhouse:
+    image: docker.io/clickhouse/clickhouse-server:26.3.62.3
+    profiles: ["langfuse"]
+    restart: unless-stopped
+    user: "101:101"
+    environment:
+      CLICKHOUSE_DB: ${LANGFUSE_CLICKHOUSE_DB:?Defina LANGFUSE_CLICKHOUSE_DB no .env}
+      CLICKHOUSE_USER: ${LANGFUSE_CLICKHOUSE_USER:?Defina LANGFUSE_CLICKHOUSE_USER no .env}
+      CLICKHOUSE_PASSWORD: ${LANGFUSE_CLICKHOUSE_PASSWORD:?Defina LANGFUSE_CLICKHOUSE_PASSWORD no .env}
+    ports:
+      - "127.0.0.1:${LANGFUSE_CLICKHOUSE_HTTP_PORT:?Defina LANGFUSE_CLICKHOUSE_HTTP_PORT no .env}:8123"
+      - "127.0.0.1:${LANGFUSE_CLICKHOUSE_NATIVE_PORT:?Defina LANGFUSE_CLICKHOUSE_NATIVE_PORT no .env}:9000"
+    volumes:
+      - langfuse_clickhouse_data:/var/lib/clickhouse
+      - langfuse_clickhouse_logs:/var/log/clickhouse-server
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:8123/ping || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
+
+  redis:
+    image: docker.io/redis:7.4.12-alpine
+    profiles: ["langfuse"]
+    restart: unless-stopped
+    environment:
+      REDISCLI_AUTH: ${LANGFUSE_REDIS_AUTH:?Defina LANGFUSE_REDIS_AUTH no .env}
+    command:
+      - redis-server
+      - --requirepass
+      - ${LANGFUSE_REDIS_AUTH:?Defina LANGFUSE_REDIS_AUTH no .env}
+      - --maxmemory-policy
+      - noeviction
+    ports:
+      - "127.0.0.1:${LANGFUSE_REDIS_PORT:?Defina LANGFUSE_REDIS_PORT no .env}:6379"
+    volumes:
+      - langfuse_redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 3s
+
+  minio:
+    image: cgr.dev/chainguard/minio@sha256:9f0aab4471ebb181be3cfabea21b719303ec583cd9abdb7779f9e53032b844f7
+    profiles: ["langfuse"]
+    restart: unless-stopped
+    entrypoint: sh
+    command:
+      - -c
+      - "mkdir -p /data/langfuse && minio server --address ':9000' --console-address ':9001' /data"
+    environment:
+      MINIO_ROOT_USER: ${LANGFUSE_MINIO_ROOT_USER:?Defina LANGFUSE_MINIO_ROOT_USER no .env}
+      MINIO_ROOT_PASSWORD: ${LANGFUSE_MINIO_ROOT_PASSWORD:?Defina LANGFUSE_MINIO_ROOT_PASSWORD no .env}
+    ports:
+      - "127.0.0.1:${LANGFUSE_MINIO_API_PORT:?Defina LANGFUSE_MINIO_API_PORT no .env}:9000"
+      - "127.0.0.1:${LANGFUSE_MINIO_CONSOLE_PORT:?Defina LANGFUSE_MINIO_CONSOLE_PORT no .env}:9001"
+    volumes:
+      - langfuse_minio_data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 3s
+      timeout: 5s
+      retries: 12
+      start_period: 3s
+
+  langfuse-worker:
+    image: docker.langfuse.com/langfuse/langfuse-worker:4.81.0
+    profiles: ["langfuse"]
+    restart: unless-stopped
+    depends_on: *langfuse-depends-on
+    ports:
+      - "127.0.0.1:${LANGFUSE_WORKER_PORT:?Defina LANGFUSE_WORKER_PORT no .env}:3030"
+    environment: *langfuse-common-env
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider \"http://$$HOSTNAME:3030/api/health\" || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+  langfuse-web:
+    image: docker.langfuse.com/langfuse/langfuse:4.81.0
+    profiles: ["langfuse"]
+    restart: unless-stopped
+    depends_on: *langfuse-depends-on
+    ports:
+      - "127.0.0.1:${LANGFUSE_PORT:?Defina LANGFUSE_PORT no .env}:3000"
+    environment:
+      <<: *langfuse-common-env
+      NEXTAUTH_SECRET: ${LANGFUSE_NEXTAUTH_SECRET:?Defina LANGFUSE_NEXTAUTH_SECRET no .env}
+      LANGFUSE_S3_MEDIA_UPLOAD_ENDPOINT: http://localhost:${LANGFUSE_MINIO_API_PORT:?Defina LANGFUSE_MINIO_API_PORT no .env}
+      LANGFUSE_S3_MEDIA_UPLOAD_INTERNAL_ENDPOINT: http://minio:9000
+      LANGFUSE_INIT_ORG_ID: ${LANGFUSE_INIT_ORG_ID}
+      LANGFUSE_INIT_ORG_NAME: ${LANGFUSE_INIT_ORG_NAME}
+      LANGFUSE_INIT_PROJECT_ID: ${LANGFUSE_INIT_PROJECT_ID}
+      LANGFUSE_INIT_PROJECT_NAME: ${LANGFUSE_INIT_PROJECT_NAME}
+      LANGFUSE_INIT_PROJECT_PUBLIC_KEY: ${LANGFUSE_PUBLIC_KEY}
+      LANGFUSE_INIT_PROJECT_SECRET_KEY: ${LANGFUSE_SECRET_KEY}
+      LANGFUSE_INIT_USER_EMAIL: ${LANGFUSE_INIT_USER_EMAIL}
+      LANGFUSE_INIT_USER_NAME: ${LANGFUSE_INIT_USER_NAME}
+      LANGFUSE_INIT_USER_PASSWORD: ${LANGFUSE_INIT_USER_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider \"http://$$HOSTNAME:3000/api/public/health?failIfDatabaseUnavailable=true\" || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 25
+      start_period: 25s
+
+volumes:
+  qdrant_data:
+    driver: local
+  app_postgres_data:
+    driver: local
+  langfuse_postgres_data:
+    driver: local
+  langfuse_clickhouse_data:
+    driver: local
+  langfuse_clickhouse_logs:
+    driver: local
+  langfuse_redis_data:
+    driver: local
+  langfuse_minio_data:
+    driver: local

@@ -1,0 +1,19 @@
+[project]
+name = "training-observability"
+version = "0.1.0"
+description = "Observabilidade com OpenTelemetry e Langfuse, instrumentação do Google ADK e spans manuais."
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "langfuse>=5.2,<6",
+    "opentelemetry-sdk>=1.45,<2",
+    "openinference-instrumentation-google-adk>=1.1,<2",
+]
+
+[dependency-groups]
+dev = [
+    "google-adk>=2.10,<3",
+]
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
