@@ -1,0 +1,282 @@
+{
+  "$defs": {
+    "JudgeMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "provider": {
+          "enum": [
+            "google",
+            "openai",
+            "anthropic",
+            "openrouter"
+          ],
+          "title": "Provider",
+          "type": "string"
+        },
+        "model": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Model",
+          "type": "string"
+        },
+        "config_version": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Config Version",
+          "type": "string"
+        },
+        "config_sha256": {
+          "description": "sha256 em hexadecimal minúsculo.",
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Config Sha256",
+          "type": "string"
+        },
+        "prompt_version": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Prompt Version",
+          "type": "string"
+        },
+        "prompt_sha256": {
+          "description": "sha256 em hexadecimal minúsculo.",
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Prompt Sha256",
+          "type": "string"
+        },
+        "request_id": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Request Id"
+        },
+        "result": {
+          "enum": [
+            "injection",
+            "safe",
+            "error"
+          ],
+          "title": "Result",
+          "type": "string"
+        },
+        "error_kind": {
+          "anyOf": [
+            {
+              "enum": [
+                "provider",
+                "invalid_output",
+                "timeout",
+                "configuration",
+                "storage",
+                "conflict",
+                "stale_generation",
+                "legacy_insufficient",
+                "index_divergent"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Error Kind"
+        }
+      },
+      "required": [
+        "provider",
+        "model",
+        "config_version",
+        "config_sha256",
+        "prompt_version",
+        "prompt_sha256",
+        "request_id",
+        "result",
+        "error_kind"
+      ],
+      "title": "JudgeMetadata",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "event_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Event Id",
+      "type": "string"
+    },
+    "attempt_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Attempt Id",
+      "type": "string"
+    },
+    "owner_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Owner Id",
+      "type": "string"
+    },
+    "document_version_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Document Version Id",
+      "type": "string"
+    },
+    "chunk_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Chunk Id",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "title": "Sequence",
+      "type": "integer"
+    },
+    "stage": {
+      "enum": [
+        "triage",
+        "judge",
+        "decision"
+      ],
+      "title": "Stage",
+      "type": "string"
+    },
+    "policy_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "input_sha256": {
+      "description": "sha256 em hexadecimal minúsculo.",
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Input Sha256",
+      "type": "string"
+    },
+    "heuristic_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Heuristic Version",
+      "type": "string"
+    },
+    "heuristic_rule_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": "\\S",
+        "type": "string"
+      },
+      "title": "Heuristic Rule Ids",
+      "type": "array"
+    },
+    "judge_metadata": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/JudgeMetadata"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "outcome": {
+      "enum": [
+        "clean",
+        "suspect",
+        "safe",
+        "injection",
+        "error",
+        "allowed",
+        "blocked",
+        "unavailable"
+      ],
+      "title": "Outcome",
+      "type": "string"
+    },
+    "reason_code": {
+      "enum": [
+        "suspected",
+        "rule_block",
+        "judge_block",
+        "judge_release",
+        "no_suspicion",
+        "judge_unavailable",
+        "legacy_insufficient"
+      ],
+      "title": "Reason Code",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "triage_event_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Triage Event Id"
+    },
+    "judge_event_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Judge Event Id"
+    },
+    "supersedes_decision_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Supersedes Decision Id"
+    }
+  },
+  "required": [
+    "event_id",
+    "attempt_id",
+    "owner_id",
+    "document_version_id",
+    "chunk_id",
+    "sequence",
+    "stage",
+    "policy_version",
+    "input_sha256",
+    "heuristic_version",
+    "heuristic_rule_ids",
+    "judge_metadata",
+    "outcome",
+    "reason_code",
+    "created_at",
+    "supersedes_decision_id"
+  ],
+  "title": "IngestionAuditEvent",
+  "type": "object"
+}

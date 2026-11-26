@@ -28,6 +28,24 @@ from training_contracts.geracao import (
     RawGenerationOutput,
     validar_item,
 )
+from training_contracts.ingestao import (
+    CanonicalTextRecord,
+    CanonicalSpan,
+    ChunkProvenanceRecord,
+    CitationSpanSelection,
+    EmbeddingInputRecord,
+    IngestionReservation,
+    JudgeMetadata,
+    IngestionAuditEvent,
+    EffectiveChunkDecision,
+    ReconciliationJob,
+    OrphanInventoryEntry,
+    ResolvedSpan,
+    TextRange,
+    validate_canonical_spans,
+    validate_chunk_provenance,
+    resolve_citation_spans,
+)
 from training_contracts.linhagem import (
     MOTIVOS_SEM_ITEM_VALIDO,
     ChatTurnRecord,
@@ -52,6 +70,23 @@ from training_contracts.vereditos import (
 )
 
 __all__ = [
+    "CanonicalTextRecord",
+    "CanonicalSpan",
+    "ChunkProvenanceRecord",
+    "CitationSpanSelection",
+    "EmbeddingInputRecord",
+    "IngestionReservation",
+    "JudgeMetadata",
+    "IngestionAuditEvent",
+    "EffectiveChunkDecision",
+    "ReconciliationJob",
+    "OrphanInventoryEntry",
+    "ResolvedSpan",
+    "TextRange",
+    "validate_canonical_spans",
+    "validate_chunk_provenance",
+    "resolve_citation_spans",
+
     "BloomLevel",
     "ChatRequest",
     "ChatResponse",

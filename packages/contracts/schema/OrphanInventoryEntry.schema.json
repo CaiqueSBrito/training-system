@@ -1,0 +1,101 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "inventory_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Inventory Id",
+      "type": "string"
+    },
+    "point_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Point Id",
+      "type": "string"
+    },
+    "collection": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Collection",
+      "type": "string"
+    },
+    "owner_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Owner Id"
+    },
+    "version_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Version Id"
+    },
+    "observed_at": {
+      "format": "date-time",
+      "title": "Observed At",
+      "type": "string"
+    },
+    "payload_digest": {
+      "description": "sha256 em hexadecimal minúsculo.",
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Payload Digest",
+      "type": "string"
+    },
+    "source_db_identity": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$",
+      "title": "Source Db Identity",
+      "type": "string"
+    },
+    "fixture_manifest_ref": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Fixture Manifest Ref"
+    },
+    "classification": {
+      "enum": [
+        "unknown",
+        "active",
+        "fixture_proven"
+      ],
+      "title": "Classification",
+      "type": "string"
+    }
+  },
+  "required": [
+    "inventory_id",
+    "point_id",
+    "collection",
+    "owner_id",
+    "version_id",
+    "observed_at",
+    "payload_digest",
+    "source_db_identity",
+    "fixture_manifest_ref",
+    "classification"
+  ],
+  "title": "OrphanInventoryEntry",
+  "type": "object"
+}

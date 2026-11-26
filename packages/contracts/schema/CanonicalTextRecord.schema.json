@@ -1,0 +1,56 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "canonical_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Canonical Id",
+      "type": "string"
+    },
+    "document_version_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Document Version Id",
+      "type": "string"
+    },
+    "canonical_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Canonical Version",
+      "type": "string"
+    },
+    "parser_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Parser Version",
+      "type": "string"
+    },
+    "text": {
+      "minLength": 1,
+      "title": "Text",
+      "type": "string"
+    },
+    "text_sha256": {
+      "description": "sha256 em hexadecimal minúsculo.",
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Text Sha256",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "canonical_id",
+    "document_version_id",
+    "canonical_version",
+    "parser_version",
+    "text",
+    "text_sha256",
+    "created_at"
+  ],
+  "title": "CanonicalTextRecord",
+  "type": "object"
+}

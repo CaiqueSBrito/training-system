@@ -1,0 +1,93 @@
+{
+  "additionalProperties": false,
+  "description": "Identidade/fencing de consistência; Procrastinate mantém execução e retries.",
+  "properties": {
+    "reservation_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Reservation Id",
+      "type": "string"
+    },
+    "owner_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Owner Id",
+      "type": "string"
+    },
+    "source_sha256": {
+      "description": "sha256 em hexadecimal minúsculo.",
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Sha256",
+      "type": "string"
+    },
+    "document_version_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Document Version Id",
+      "type": "string"
+    },
+    "phase": {
+      "enum": [
+        "reserved",
+        "parsing",
+        "persisted",
+        "indexing",
+        "ready",
+        "failed"
+      ],
+      "title": "Phase",
+      "type": "string"
+    },
+    "generation": {
+      "minimum": 1,
+      "title": "Generation",
+      "type": "integer"
+    },
+    "lease_until": {
+      "format": "date-time",
+      "title": "Lease Until",
+      "type": "string"
+    },
+    "attempt_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Attempt Id",
+      "type": "string"
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "enum": [
+            "provider",
+            "invalid_output",
+            "timeout",
+            "configuration",
+            "storage",
+            "conflict",
+            "stale_generation",
+            "legacy_insufficient",
+            "index_divergent"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Error Code"
+    }
+  },
+  "required": [
+    "reservation_id",
+    "owner_id",
+    "source_sha256",
+    "document_version_id",
+    "phase",
+    "generation",
+    "lease_until",
+    "attempt_id",
+    "error_code"
+  ],
+  "title": "IngestionReservation",
+  "type": "object"
+}

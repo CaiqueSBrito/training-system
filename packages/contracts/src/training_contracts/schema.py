@@ -9,6 +9,20 @@ from pathlib import Path
 from pydantic import BaseModel
 
 from training_contracts import (
+    CanonicalTextRecord,
+    CanonicalSpan,
+    ChunkProvenanceRecord,
+    CitationSpanSelection,
+    EmbeddingInputRecord,
+    IngestionReservation,
+    JudgeMetadata,
+    IngestionAuditEvent,
+    EffectiveChunkDecision,
+    ReconciliationJob,
+    OrphanInventoryEntry,
+    ResolvedSpan,
+    TextRange,
+
     ChatRequest,
     ChatResponse,
     ChatTurnRecord,
@@ -32,6 +46,20 @@ from training_contracts import (
 
 # Modelos raiz; Flashcard, Question e Citation entram como $defs de quem os usa.
 MODELOS: tuple[type[BaseModel], ...] = (
+    CanonicalTextRecord,
+    CanonicalSpan,
+    ChunkProvenanceRecord,
+    CitationSpanSelection,
+    EmbeddingInputRecord,
+    IngestionReservation,
+    JudgeMetadata,
+    IngestionAuditEvent,
+    EffectiveChunkDecision,
+    ReconciliationJob,
+    OrphanInventoryEntry,
+    ResolvedSpan,
+    TextRange,
+
     ChatRequest,
     ChatResponse,
     InputVerdict,

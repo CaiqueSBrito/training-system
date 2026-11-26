@@ -1,0 +1,48 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "chunk_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Chunk Id",
+      "type": "string"
+    },
+    "owner_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Owner Id",
+      "type": "string"
+    },
+    "decision_event_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Decision Event Id",
+      "type": "string"
+    },
+    "revision": {
+      "minimum": 1,
+      "title": "Revision",
+      "type": "integer"
+    },
+    "allowed": {
+      "title": "Allowed",
+      "type": "boolean"
+    },
+    "policy_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Policy Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "chunk_id",
+    "owner_id",
+    "decision_event_id",
+    "revision",
+    "allowed",
+    "policy_version"
+  ],
+  "title": "EffectiveChunkDecision",
+  "type": "object"
+}

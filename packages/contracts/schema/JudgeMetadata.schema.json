@@ -1,0 +1,101 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "provider": {
+      "enum": [
+        "google",
+        "openai",
+        "anthropic",
+        "openrouter"
+      ],
+      "title": "Provider",
+      "type": "string"
+    },
+    "model": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Model",
+      "type": "string"
+    },
+    "config_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Config Version",
+      "type": "string"
+    },
+    "config_sha256": {
+      "description": "sha256 em hexadecimal minúsculo.",
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Config Sha256",
+      "type": "string"
+    },
+    "prompt_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Prompt Version",
+      "type": "string"
+    },
+    "prompt_sha256": {
+      "description": "sha256 em hexadecimal minúsculo.",
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Prompt Sha256",
+      "type": "string"
+    },
+    "request_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Request Id"
+    },
+    "result": {
+      "enum": [
+        "injection",
+        "safe",
+        "error"
+      ],
+      "title": "Result",
+      "type": "string"
+    },
+    "error_kind": {
+      "anyOf": [
+        {
+          "enum": [
+            "provider",
+            "invalid_output",
+            "timeout",
+            "configuration",
+            "storage",
+            "conflict",
+            "stale_generation",
+            "legacy_insufficient",
+            "index_divergent"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Error Kind"
+    }
+  },
+  "required": [
+    "provider",
+    "model",
+    "config_version",
+    "config_sha256",
+    "prompt_version",
+    "prompt_sha256",
+    "request_id",
+    "result",
+    "error_kind"
+  ],
+  "title": "JudgeMetadata",
+  "type": "object"
+}

@@ -1,0 +1,92 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "start": {
+      "minimum": 0,
+      "title": "Start",
+      "type": "integer"
+    },
+    "end": {
+      "minimum": 0,
+      "title": "End",
+      "type": "integer"
+    },
+    "span_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Span Id",
+      "type": "string"
+    },
+    "canonical_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Canonical Id",
+      "type": "string"
+    },
+    "page": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Page"
+    },
+    "section_path": {
+      "items": {
+        "minLength": 1,
+        "pattern": "\\S",
+        "type": "string"
+      },
+      "title": "Section Path",
+      "type": "array"
+    },
+    "h1_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "pattern": "\\S",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "H1 Id"
+    },
+    "kind": {
+      "enum": [
+        "heading",
+        "paragraph",
+        "table",
+        "separator"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "provenance": {
+      "enum": [
+        "exact",
+        "unknown"
+      ],
+      "title": "Provenance",
+      "type": "string"
+    }
+  },
+  "required": [
+    "start",
+    "end",
+    "span_id",
+    "canonical_id",
+    "page",
+    "section_path",
+    "h1_id",
+    "kind",
+    "provenance"
+  ],
+  "title": "CanonicalSpan",
+  "type": "object"
+}

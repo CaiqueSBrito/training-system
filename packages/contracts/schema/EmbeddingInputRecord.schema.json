@@ -1,0 +1,72 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "input_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Input Id",
+      "type": "string"
+    },
+    "chunk_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Chunk Id",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "section_context": {
+      "items": {
+        "minLength": 1,
+        "pattern": "\\S",
+        "type": "string"
+      },
+      "title": "Section Context",
+      "type": "array"
+    },
+    "text_sha256": {
+      "description": "sha256 em hexadecimal minúsculo.",
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Text Sha256",
+      "type": "string"
+    },
+    "format_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Format Version",
+      "type": "string"
+    },
+    "embedding_key": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Embedding Key",
+      "type": "string"
+    },
+    "input_sha256": {
+      "description": "sha256 em hexadecimal minúsculo.",
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Input Sha256",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "input_id",
+    "chunk_id",
+    "title",
+    "section_context",
+    "text_sha256",
+    "format_version",
+    "embedding_key",
+    "input_sha256",
+    "created_at"
+  ],
+  "title": "EmbeddingInputRecord",
+  "type": "object"
+}
