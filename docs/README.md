@@ -25,5 +25,6 @@
 | [0014](adr/0014-contratos-openapi.md) | Contratos publicados pelo OpenAPI (substitui o JSON Schema exportado) | Aceita |
 | [0015](adr/0015-canonico-decisoes-indice.md) | Texto canônico, decisões imutáveis e índice derivado reparável | Aprovada para implementação; aceite integral pendente |
 | [0016](adr/0016-prompts-versionados-offline-chat.md) | Prompts reais versionados offline enquanto Langfuse está desligado | Decisão sob autonomia; revisão pendente |
+| [0017](adr/0017-autenticacao-propria.md) | Autenticação própria: `fastapi-users` + Argon2id, sessão no Postgres por cookie, CSRF e limite de tentativas | Aceita |
 
 Nova ADR: próximo número livre, com as seções Estado, Contexto, Decisão, Alternativas e Consequências. Uma ADR aceita não é editada; uma mudança de decisão gera uma ADR nova que a substitui.

@@ -215,4 +215,4 @@ Contratos: o OpenAPI da `apps/api` é o artefato publicado dos modelos de `packa
 | 8 | Mascaramento de conteúdo nos traces em produção | observabilidade |
 | 9 | Quantos candidatos e qual corte (E5–E7), conforme latência medida | E5–E7 |
 | 10 | ~~Estilo arquitetural, framework HTTP, entrega do progresso, fila de jobs, stack do front e publicação dos contratos~~ **Resolvido** no G1 de `2026-11-24-arquitetura-aplicacao`: monólito modular, FastAPI + Uvicorn com SSE, Procrastinate no Postgres da aplicação, Next.js + React + TypeScript, contratos pelo OpenAPI ([ADR-0010](../adr/0010-monolito-modular.md) a [ADR-0014](../adr/0014-contratos-openapi.md)) | — |
-| 11 | Autenticação e identificação do usuário na API | mudança da `apps/api` |
+| 11 | ~~Autenticação e identificação do usuário na API~~ **Resolvido** no G1 de `2026-11-26-apps-api-autenticacao`: contas próprias no Postgres da aplicação com `fastapi-users`, Argon2id, sessão no banco por cookie `HttpOnly`/`Secure`/`SameSite=Lax`, CSRF por token de sessão e limite de tentativas; `owner_id` só da sessão ([ADR-0017](../adr/0017-autenticacao-propria.md)) | — |
