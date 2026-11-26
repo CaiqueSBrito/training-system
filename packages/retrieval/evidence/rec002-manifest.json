@@ -1,0 +1,15 @@
+{
+  "governanca/mudancas/2026-11-24-pipeline-chat-rag/tarefas/T-018.md": "4c4e30979a74da5c07a282bc7cf2f39546267445d26adc802c670a7adaf3217c",
+  "packages/ingestion/src/training_ingestion/retrieval/eligibility.py": "845cfc90c5268dfddea45c3d3c87534996f8e997f07cb153b7da8fe68440cbb1",
+  "packages/retrieval/README.md": "3abd23a2ded98137911b0dee04bb8ce1d6d8bcad7150cc6a5e490f7e90ca98de",
+  "packages/retrieval/calibration/bge-v1.json": "f824b7e67c06fba2110a184569daf40617ca5c316eccab413c9f20ce2923d9e2",
+  "packages/retrieval/evidence/rec002-correction.txt": "0c3af2673c02fb5aa68260c92ac637cf96581f4399e2f11b1d435b2a1d284283",
+  "packages/retrieval/evidence/rec002-final-correction.txt": "a19485042f0eec067cc2c839ae0e3656e8674c525e87c4e4c39035a118391441",
+  "packages/retrieval/evidence/rec002-large-section.txt": "2bc1aa8cbfb7e2762ad8c2d22267cf5279dcb30556ff9ba011004a8db2f4a4e6",
+  "packages/retrieval/evidence/rec002-red.txt": "c27e17a681453549131fc0ec9a1ca9900682647f6c1829a8efca87d2897fd9f4",
+  "packages/retrieval/evidence/rec002-review-fix.md": "780c8bf5349e74807e8a73e6a49fda0023d1ab2a6a183beffc3c9340c38b0fc8",
+  "packages/retrieval/evidence/rec002-validator.txt": "67abe39607f19d9f08168806efdd1b6f3d1976df1159e7b49b452242930738bf",
+  "packages/retrieval/src/training_retrieval/coverage.py": "6ed9a37399064ed4f8cb1c6cda44873b5fcbb6334e032fc769b7ebf69385ed55",
+  "packages/retrieval/src/training_retrieval/service.py": "1d9b8288c9ea7d1b49e7b21d4942afff2c3219ff251c0e11e3257fc9eee05f87",
+  "packages/retrieval/tests/test_retrieval.py": "54dfba321f4a0d0335883def45282b87747f33c58b4ce1a3deadb7bc24398de2"
+}

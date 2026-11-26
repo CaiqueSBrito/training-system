@@ -1,0 +1,22 @@
+{
+  "packages/retrieval/README.md": "df51a7479fdd5686182919aee9452abdd9862bb0bce071c10002d8823a8310b2",
+  "packages/retrieval/calibration/bge-v1.json": "f824b7e67c06fba2110a184569daf40617ca5c316eccab413c9f20ce2923d9e2",
+  "packages/retrieval/evidence/baseline-before-v1.0.1.json": "f0b5e3b60373fa30d9da2c65ef580f1c42a682b9af634b2925b5e2cc75e4edad",
+  "packages/retrieval/evidence/baseline-sha256.txt": "85c015a746bd78d8f0b3c405d1f7e272f36d4490dda7ca8f8a6b7dbd24fc93fc",
+  "packages/retrieval/evidence/calibration-separation.json": "c1942ef36282c47cb9a1c8f0ed5dd859d068d62255652160fe1fd1e6491ffd24",
+  "packages/retrieval/evidence/focal-correction.txt": "4a45cecbcea23cf7b7fe22fc6f2285a93b4919123f14396a674b598e08ed09ae",
+  "packages/retrieval/evidence/focal.txt": "f10d62b2c5a62a72a46e7e2876eaa01ff2e41bf0a188b966af25c457afcfe5a4",
+  "packages/retrieval/evidence/lock-before.json": "a6dad8e6ef6defdeb75716e3717e57647920e2540c7af2f7fca3399aa0a7f7ce",
+  "packages/retrieval/evidence/result.md": "9a5f1035be594c896de463d3a8bd8ba0a986e47c580129d13e076f814b2e8064",
+  "packages/retrieval/evidence/static-verification.json": "1240bd53702aef21ef2cc875db3172cfb7281fc7b02f51935eb3b74d7759abf0",
+  "packages/retrieval/evidence/uv-sync.txt": "56cf4ccef110e2223b5646e313637556ac048f7b7b0c93f9f9c0cc461c6f1eb6",
+  "packages/retrieval/evidence/validator.txt": "67abe39607f19d9f08168806efdd1b6f3d1976df1159e7b49b452242930738bf",
+  "packages/retrieval/pyproject.toml": "b1be7de295e4c0a8b87d81f74bdc612101f8cafae1fde4d7d2928591885d9044",
+  "packages/retrieval/src/training_retrieval/__init__.py": "9d4d19dae8a5c70ed4e3214df4ce9463af841af4dd42c5d012da23051c0f2358",
+  "packages/retrieval/src/training_retrieval/reranker.py": "a16cb8e64d493072be3ca8b8ca6ab362fabceb87235e192f43f554a4267bfd63",
+  "packages/retrieval/src/training_retrieval/service.py": "b005f5845b300cabc264ec235aebed2c1151e8f3a705ecae82489a4f8eb8ff28",
+  "packages/retrieval/tests/test_retrieval.py": "21954a8e98ef195d9d22e381ac143b4a63230290ebc756271a09a978f4061982",
+  "uv.lock": "738f317be75438ef325ac03434e5bbce78c8493bbe9a5e567cd3b7114b53e794",
+  "packages/ingestion/src/training_ingestion/retrieval/eligibility.py": "845cfc90c5268dfddea45c3d3c87534996f8e997f07cb153b7da8fe68440cbb1",
+  "governanca/mudancas/2026-11-24-pipeline-chat-rag/tarefas/T-018.md": "be3e1ab1c58c5bb3d6f186bb23757285a742b4fedaff4360118e8c134567ec79"
+}

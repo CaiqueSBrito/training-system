@@ -1,0 +1,17 @@
+Resolved 241 packages in 670ms
+   Building training-generation @ file:///home/caique-brito/Documentos/Caique/Training%20System/packages/generation
+   Building training-retrieval @ file:///home/caique-brito/Documentos/Caique/Training%20System/packages/retrieval
+      Built training-generation @ file:///home/caique-brito/Documentos/Caique/Training%20System/packages/generation
+      Built training-retrieval @ file:///home/caique-brito/Documentos/Caique/Training%20System/packages/retrieval
+Downloading scikit-learn (8.7MiB)
+ Downloaded scikit-learn
+Prepared 5 packages in 169ms
+Installed 8 packages in 6ms
+ + cloudpickle==3.1.2
+ + joblib==1.6.0
+ + narwhals==2.29.0
+ + scikit-learn==1.9.1
+ + sentence-transformers==5.7.0
+ + threadpoolctl==3.8.0
+ + training-generation==0.1.0 (from file:///home/caique-brito/Documentos/Caique/Training%20System/packages/generation)
+ + training-retrieval==0.1.0 (from file:///home/caique-brito/Documentos/Caique/Training%20System/packages/retrieval)

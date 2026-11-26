@@ -1,0 +1,19 @@
+{
+  "status": "Passou",
+  "existing_version_changes": {},
+  "added_packages": {
+    "cloudpickle": "3.1.2",
+    "joblib": "1.6.0",
+    "narwhals": "2.29.0",
+    "scikit-learn": "1.9.1",
+    "sentence-transformers": "5.7.0",
+    "threadpoolctl": "3.8.0",
+    "training-generation": "0.1.0",
+    "training-retrieval": "0.1.0"
+  },
+  "exclude_newer": "7 days",
+  "baseline_before_sha256": "f0b5e3b60373fa30d9da2c65ef580f1c42a682b9af634b2925b5e2cc75e4edad",
+  "lsp_status": "Bloqueado: no pyright or pylsp binary available; AST parse and local references used",
+  "executor": "OpenAI/Codex",
+  "dispatch": "ctx_bdc63d216c9e"
+}

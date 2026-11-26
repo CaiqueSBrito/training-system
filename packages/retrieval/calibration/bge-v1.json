@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "dataset_id": "t018-bge-calibration-pt-v1",
+  "dataset_sha256": "e4ba735372b4c85902b1ecfbde5253a1d7faa2434d6faa8c2ccf07f00926ffa8",
+  "model": "BAAI/bge-reranker-v2-m3",
+  "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+  "score_domain": "sigmoid-logit:0..1:not-calibrated-probability",
+  "samples": [
+    {
+      "query": "Qual é a função da membrana celular?",
+      "passage": "A membrana celular delimita a célula e controla a entrada e a saída de substâncias.",
+      "positive": true
+    },
+    {
+      "query": "Qual é a função da membrana celular?",
+      "passage": "A capital da França é Paris. O rio Sena atravessa a cidade.",
+      "positive": false
+    },
+    {
+      "query": "Como se calcula a área de um triângulo?",
+      "passage": "A área de um triângulo é o produto da base pela altura dividido por dois.",
+      "positive": true
+    },
+    {
+      "query": "Como se calcula a área de um triângulo?",
+      "passage": "Uma orquestra sinfônica reúne instrumentos de cordas, sopros e percussão.",
+      "positive": false
+    },
+    {
+      "query": "O que causa as estações do ano?",
+      "passage": "A inclinação do eixo terrestre combinada com a translação em torno do Sol causa as estações do ano.",
+      "positive": true
+    },
+    {
+      "query": "O que causa as estações do ano?",
+      "passage": "O pão cresce porque a fermentação das leveduras libera dióxido de carbono na massa.",
+      "positive": false
+    },
+    {
+      "query": "O que significa democracia representativa?",
+      "passage": "Na democracia representativa, os cidadãos elegem representantes para tomar decisões políticas em seu nome.",
+      "positive": true
+    },
+    {
+      "query": "O que significa democracia representativa?",
+      "passage": "A evaporação converte água líquida em vapor mediante absorção de energia.",
+      "positive": false
+    }
+  ],
+  "scores": [
+    0.9969911575317383,
+    1.635901935514994e-05,
+    0.999852180480957,
+    1.5988560335244983e-05,
+    0.9994520545005798,
+    3.5869063140125945e-05,
+    0.9708504676818848,
+    1.6361906091333367e-05
+  ],
+  "status": "Passou",
+  "cutoff": 0.48544316837251245,
+  "method": "midpoint(max_negative,min_positive); disjoint authored references; initial calibration only",
+  "runtime": {
+    "sentence-transformers": "5.7.0",
+    "torch": "2.15.0",
+    "device": "cpu",
+    "batch_size": 2,
+    "max_length": 512
+  },
+  "manifest_sha256": "65e0ac016c6fe7baecf5e7c043d3c18aae073ecf8da3ab5c173f1012057b2d7b"
+}

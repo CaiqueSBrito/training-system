@@ -1,0 +1,13 @@
+{
+  "status": "Passou",
+  "calibration_dataset_id": "t018-bge-calibration-pt-v1",
+  "calibration_dataset_sha256": "e4ba735372b4c85902b1ecfbde5253a1d7faa2434d6faa8c2ccf07f00926ffa8",
+  "calibration_positive_count": 4,
+  "calibration_negative_count": 4,
+  "evaluation_documents": {
+    "sistemas_distribuidos.md": "051ea014d49681eeed2c9fd6a67ed01f0a2d973937c62531409d1aed1ece897f",
+    "seguranca_ia_educacional.md": "529a4f42a15172a738a4d4a60d7f29ce8660a4fdd28155336163189e2a48ec4a",
+    "biologia_celular.md": "8858d0764eefd7cbe548f4d13f4c2467be89329d12f1d0701a6ce4d2954aed49"
+  },
+  "method": "Authored calibration samples; none of the complete calibration passages occurs verbatim in evaluation documents; no evaluation labels used to choose cutoff."
+}

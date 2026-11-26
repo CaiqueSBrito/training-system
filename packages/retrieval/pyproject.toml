@@ -1,0 +1,16 @@
+[project]
+name = "training-retrieval"
+version = "0.1.0"
+description = "Recuperação híbrida autorizada, cobertura e cross-encoder local."
+requires-python = ">=3.13,<3.14"
+dependencies = ["training-contracts", "training-lineage", "training-ingestion", "training-observability", "sentence-transformers>=5.1,<6"]
+
+[tool.uv.sources]
+training-contracts = { workspace = true }
+training-lineage = { workspace = true }
+training-ingestion = { workspace = true }
+training-observability = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"

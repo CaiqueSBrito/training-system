@@ -1,0 +1,14 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_coverage_proportional_full_canonical_subsections_not_top_n ________
+packages/retrieval/tests/test_retrieval.py:293: in test_coverage_proportional_full_canonical_subsections_not_top_n
+    assert {a.section_path:a.count for a in result.allocations}=={
+E   AssertionError: assert {('Livro', 'C...'Pequena'): 3} == {('Livro', 'C...'Pequena'): 2}
+E     
+E     Differing items:
+E     {('Livro', 'Capítulo', 'Grande'): 5} != {('Livro', 'Capítulo', 'Grande'): 6}
+E     {('Livro', 'Capítulo', 'Pequena'): 3} != {('Livro', 'Capítulo', 'Pequena'): 2}
+E     Use -v to get more diff
+=========================== short test summary info ============================
+FAILED packages/retrieval/tests/test_retrieval.py::test_coverage_proportional_full_canonical_subsections_not_top_n
+1 failed, 9 deselected in 2.65s
