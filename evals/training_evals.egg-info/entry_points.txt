@@ -1,0 +1,3 @@
+[console_scripts]
+executar-avaliacao-geracao = evals.runner_geracao:main
+executar-avaliacao-ressalvas = evals.runner_ressalvas:main

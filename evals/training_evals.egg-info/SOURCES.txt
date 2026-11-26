@@ -1,0 +1,13 @@
+__init__.py
+pyproject.toml
+./__init__.py
+./runner_geracao.py
+./runner_ressalvas.py
+tests/test_geracao_runner.py
+tests/test_ressalvas_runner.py
+training_evals.egg-info/PKG-INFO
+training_evals.egg-info/SOURCES.txt
+training_evals.egg-info/dependency_links.txt
+training_evals.egg-info/entry_points.txt
+training_evals.egg-info/requires.txt
+training_evals.egg-info/top_level.txt

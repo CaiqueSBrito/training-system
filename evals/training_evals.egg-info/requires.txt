@@ -1,0 +1,6 @@
+ragas<0.5,>=0.4
+training-contracts
+training-lineage
+training-ingestion
+training-llm
+training-generation

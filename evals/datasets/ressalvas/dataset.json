@@ -1,0 +1,214 @@
+{
+  "dataset_id": "ressalvas-recuperacao-segura-v1",
+  "dataset_version": "1.0.1",
+  "scope": "ingestao_consulta_segura_sem_geracao",
+  "status": "proposto_aguardando_aprovacao_humana",
+  "description": "Dataset educacional verificavel e sintetico para avaliacao RAGAS do escopo disponivel (ingestao, chunking estrutural, triagem/juiz de injecao, reconciliacao e consulta segura via SafeRetriever). Sem dados pessoais.",
+  "chunk_config": {
+    "target_tokens": 120,
+    "max_tokens": 260,
+    "overlap_tokens": 25
+  },
+  "retrieval_top_k": 3,
+  "applicable_metrics": [
+    "context_precision_with_reference",
+    "context_recall"
+  ],
+  "not_applicable_metrics": {
+    "faithfulness": {
+      "status": "Não se aplica",
+      "reason": "Escopo atual possui apenas ingestão, linhagem, reconciliação e consulta segura (SafeRetriever); o estágio de geração de itens (E8) ainda não está implementado e respostas simuladas são proibidas."
+    }
+  },
+  "documents": [
+    {
+      "doc_id": "doc-bio-001",
+      "title": "Biologia Celular e Bioenergética",
+      "relative_path": "docs/biologia_celular.md",
+      "sha256": "8858d0764eefd7cbe548f4d13f4c2467be89329d12f1d0701a6ce4d2954aed49",
+      "owner_id": "eval-owner-ressalvas-v1"
+    },
+    {
+      "doc_id": "doc-sys-001",
+      "title": "Sistemas Distribuídos e Bancos de Dados Relacionais",
+      "relative_path": "docs/sistemas_distribuidos.md",
+      "sha256": "051ea014d49681eeed2c9fd6a67ed01f0a2d973937c62531409d1aed1ece897f",
+      "owner_id": "eval-owner-ressalvas-v1"
+    },
+    {
+      "doc_id": "doc-sec-001",
+      "title": "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+      "relative_path": "docs/seguranca_ia_educacional.md",
+      "sha256": "529a4f42a15172a738a4d4a60d7f29ce8660a4fdd28155336163189e2a48ec4a",
+      "owner_id": "eval-owner-ressalvas-v1"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "EVAL-RES-001",
+      "doc_id": "doc-bio-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input": "Em quais compartimentos celulares ocorrem a glicólise, o ciclo do ácido cítrico e a fosforilação oxidativa, e como a força próton-motriz sintetiza ATP?",
+      "reference": "A glicólise ocorre no citosol produzindo piruvato, o ciclo do ácido cítrico (Krebs) opera na matriz mitocondrial e a fosforilação oxidativa realiza-se nas cristas da membrana mitocondrial interna. O transporte de elétrons do NADH e FADH2 bombeia prótons para o espaço intermembranas gerando força próton-motriz (quimiosmose), que aciona a síntese de ATP pela ATP sintase.",
+      "expected_section_paths": [
+        [
+          "Biologia Celular e Bioenergética",
+          "Mitocôndrias e Respiração Aeróbica"
+        ],
+        [
+          "Biologia Celular e Bioenergética",
+          "Mitocôndrias e Respiração Aeróbica",
+          "Balanço Energético e Gradiente de Prótons"
+        ]
+      ],
+      "expected_evidence_substrings": [
+        "A glicólise ocorre no citosol e produz piruvato",
+        "bombeia prótons para o espaço intermembranas"
+      ],
+      "tags": [
+        "biologia",
+        "h2_h3_grouping",
+        "recuperacao"
+      ]
+    },
+    {
+      "case_id": "EVAL-RES-002",
+      "doc_id": "doc-bio-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input": "Qual é a diferença de localização e função entre a fase fotoquímica nos tilacoides e o ciclo de Calvin no estroma dos cloroplastos?",
+      "reference": "A fase fotoquímica ocorre nas membranas dos tilacoides, onde os fotossistemas II e I absorvem fótons pela clorofila, realizam a fotólise da água liberando O2 e produzem ATP e NADPH. O ciclo de Calvin ocorre no estroma do cloroplasto, onde a enzima RuBisCO fixa CO2 na RuBP e utiliza o ATP e o NADPH para produzir gliceraldeído-3-fosfato (G3P).",
+      "expected_section_paths": [
+        [
+          "Fotossíntese nos Cloroplastos",
+          "Fase Fotoquímica nos Tilacoides"
+        ],
+        [
+          "Fotossíntese nos Cloroplastos",
+          "Ciclo de Calvin no Estroma"
+        ]
+      ],
+      "expected_evidence_substrings": [
+        "membranas dos tilacoides",
+        "enzima RuBisCO catalisa a carboxilação"
+      ],
+      "tags": [
+        "biologia",
+        "h1_boundary",
+        "recuperacao"
+      ]
+    },
+    {
+      "case_id": "EVAL-RES-003",
+      "doc_id": "doc-sys-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input": "Por que transações abertas com BEGIN não devem ser mantidas durante chamadas remotas e como reservas duráveis com fencing garantem consistência?",
+      "reference": "Manter transação aberta com BEGIN durante operações de rede ou CPU retém locks e conexões do pool, reduzindo vazão e causando contenção. Protocolos duráveis usam transações curtas de reserva com compare-and-swap (CAS), liberam a conexão durante chamadas remotas e confirmam o avanço em transação curta validada por geração monotônica (fencing token).",
+      "expected_section_paths": [
+        [
+          "Sistemas Distribuídos e Bancos de Dados Relacionais",
+          "Isolamento, Locks e Transações Curtas"
+        ]
+      ],
+      "expected_evidence_substrings": [
+        "Manter uma transação aberta com BEGIN",
+        "geração monotônica (fencing token)"
+      ],
+      "tags": [
+        "sistemas",
+        "transacao_curta",
+        "ING-TXN-001"
+      ]
+    },
+    {
+      "case_id": "EVAL-RES-004",
+      "doc_id": "doc-sys-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input": "Como o sistema concilia o índice vetorial Qdrant com o PostgreSQL na ausência de transação distribuída atômica (2PC)?",
+      "reference": "Como não existe commit atômico distribuído (2PC) entre PostgreSQL e Qdrant, o PostgreSQL é a fonte autoritativa das versões e decisões de segurança, enquanto o Qdrant é uma projeção derivada reparável. Antes de entregar candidatos ao consumidor, o sistema revalida no PostgreSQL se a versão está ready, se o dono coincide e se a decisão efetiva na maior revisão permite o chunk.",
+      "expected_section_paths": [
+        [
+          "Índices Vetoriais Derivados e Reconciliação",
+          "Autoridade da Linhagem e Reconciliação Idempotente"
+        ]
+      ],
+      "expected_evidence_substrings": [
+        "fonte de verdade autoritativa",
+        "projeção derivada reparável"
+      ],
+      "tags": [
+        "sistemas",
+        "reconciliacao",
+        "ING-REP-001"
+      ]
+    },
+    {
+      "case_id": "EVAL-RES-005",
+      "doc_id": "doc-sec-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input": "Como a defesa em profundidade protege contra injeção indireta de prompt (OWASP LLM01) sem bloquear menções jurídicas ou técnicas legítimas como juiz, user: root e system_error?",
+      "reference": "A defesa combina triagem determinística (normalização NFKD, detecção de caracteres invisíveis, tags Unicode, controles bidirecionais e padrões léxicos) com avaliação por um juiz independente nos trechos suspeitos e delimitação do documento como dado não confiável. Termos jurídicos como 'Cabe ao juiz decidir' ou artefatos técnicos como 'user: root' e '#include <system_error>' não são ordens ao verificador e são diferenciados de ataques ativos pelo juiz semântico.",
+      "expected_section_paths": [
+        [
+          "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+          "Defesa em Profundidade na Ingestão e Recuperação"
+        ],
+        [
+          "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+          "Defesa em Profundidade na Ingestão e Recuperação",
+          "Contexto Jurídico e Técnico Legítimo"
+        ]
+      ],
+      "expected_evidence_substrings": [
+        "triagem determinística",
+        "Cabe ao juiz decidir"
+      ],
+      "tags": [
+        "seguranca",
+        "falso_positivo_controlado",
+        "SEC-ATQ-001"
+      ]
+    },
+    {
+      "case_id": "EVAL-RES-006",
+      "doc_id": "doc-sec-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input": "Quais medidas evitam o vazamento de chaves, prompts e conteúdo de documentos em falhas de LLM ou configurações de log?",
+      "reference": "Falhas de provedores ou validação de schema são sanitizadas para nunca expor chaves de API, prompts completos nem conteúdo bruto em logs, tracebacks, stdout ou stderr. Além disso, a execução é bloqueada preventivamente caso níveis de depuração inseguros como LITELLM_LOG=DEBUG ou callbacks não autorizados estejam ativos.",
+      "expected_section_paths": [
+        [
+          "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+          "Sanitização de Diagnósticos e Proteção de Segredos"
+        ]
+      ],
+      "expected_evidence_substrings": [
+        "não podem expor chaves de API",
+        "LITELLM_LOG=DEBUG"
+      ],
+      "tags": [
+        "seguranca",
+        "sanitizacao_logs",
+        "OBS-DIA-001",
+        "SEC-LOG-001"
+      ]
+    }
+  ],
+  "security_regression_reference": {
+    "requirement_id": "SEC-ATQ-001",
+    "case_group": "C09",
+    "attacks_ids": [
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "A06",
+      "A07",
+      "A08",
+      "A09"
+    ],
+    "legitimate_controls_count": 11,
+    "canonical_source": "packages/ingestion/tests/test_indexing.py",
+    "evidence_ref": "governanca/mudancas/2026-11-24-ingestao/evidencias/T-008/juiz-real-ressalvas.json",
+    "note": "Os 9 ataques R3_ATTACKS e 11 controles legítimos R3_LEGITIMATE pertencem à verificação de ingestão de backend; o runner referencia e valida a integridade da evidência sem repetir chamadas ao juiz de ingestão."
+  }
+}

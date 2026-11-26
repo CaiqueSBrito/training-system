@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: training-evals
+Version: 0.1.0
+Summary: Avaliação guiada e harness RAGAS para o Training System (ADR-0006).
+Requires-Python: <3.14,>=3.13
+Requires-Dist: ragas<0.5,>=0.4
+Requires-Dist: training-contracts
+Requires-Dist: training-lineage
+Requires-Dist: training-ingestion
+Requires-Dist: training-llm
+Requires-Dist: training-generation

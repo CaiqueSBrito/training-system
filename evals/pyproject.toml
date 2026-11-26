@@ -1,0 +1,32 @@
+[project]
+name = "training-evals"
+version = "0.1.0"
+description = "Avaliação guiada e harness RAGAS para o Training System (ADR-0006)."
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "ragas>=0.4,<0.5",
+    "training-contracts",
+    "training-lineage",
+    "training-ingestion",
+    "training-llm",
+    "training-generation",
+]
+
+[project.scripts]
+executar-avaliacao-ressalvas = "evals.runner_ressalvas:main"
+executar-avaliacao-geracao = "evals.runner_geracao:main"
+
+[tool.uv.sources]
+training-contracts = { workspace = true }
+training-lineage = { workspace = true }
+training-ingestion = { workspace = true }
+training-llm = { workspace = true }
+training-generation = { workspace = true }
+
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "evals" = "." }
+packages = ["evals"]
