@@ -20,6 +20,7 @@ def attempt_secret():
 class ApiSettings:
     database_url: URL | str
     attempt_key_secret: str = field(default_factory=attempt_secret, repr=False)
+    password_hash_concurrency: int = field(default_factory=lambda: max(2, os.cpu_count() or 2))
     cookie_secure: bool = True
     docs_enabled: bool = True
     session_idle_seconds: int = 3600
@@ -66,6 +67,8 @@ class ApiSettings:
             if key not in values or field.name == 'database_url':
                 continue
             value = values[key]
+            if field.name == 'password_hash_concurrency' and not value.strip():
+                continue
             if field.name == 'attempt_key_secret':
                 kwargs[field.name] = value
             elif field.name in ('cookie_secure', 'docs_enabled'):

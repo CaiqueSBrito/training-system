@@ -165,11 +165,13 @@ def test_A10_attempt_secret_required(monkeypatch, tmp_path):
         ApiSettings.from_env(tmp_path / 'missing.env')
 
 
-def test_A10_opportunistic_purge(api, alice, database):
+def test_A10_opportunistic_purge(api, alice, app, database):
     session = api.login('alice@example.com')
     with database.begin() as connection:
         connection.execute(text("UPDATE auth_access_token SET created_at=now()-interval '8 days'"))
         connection.execute(text("INSERT INTO auth_attempt(kind,scope,key,created_at) VALUES ('login_failure','origin',:key,now()-interval '2 days'), ('register','origin',:key,now()-interval '2 days')"), {'key': 'a' * 64})
+    # R4: torna a purga periódica elegível sem esperar um minuto.
+    app.state.next_auth_purge = 0
     assert api.login_response('absent@example.com', 'incorrect-123').status_code == 400
     with database.connect() as connection:
         assert connection.scalar(text('SELECT count(*) FROM auth_access_token')) == 0

@@ -3,10 +3,11 @@
 from hashlib import sha256
 import hmac
 from ipaddress import ip_address, ip_network
+from time import monotonic
 
 from fastapi import HTTPException, Request
-from sqlalchemy import delete, func, insert, select, text, or_, and_
-from training_lineage.tables import auth_access_token, auth_attempt
+from sqlalchemy import delete, func, insert, select, text
+from training_lineage.tables import auth_attempt
 
 
 def digest(value: str) -> str:
@@ -35,16 +36,38 @@ def seconds_ago(seconds):
     return func.clock_timestamp() - func.make_interval(0, 0, 0, 0, 0, 0, seconds)
 
 
-async def purge_expired(session, settings):
-    """Purga oportunística, transacional, nas tentativas e requisições autenticadas."""
-    await session.execute(delete(auth_attempt).where(or_(
-        and_(auth_attempt.c.kind == 'login_failure', auth_attempt.c.created_at <= seconds_ago(settings.login_window_seconds)),
-        and_(auth_attempt.c.kind == 'register', auth_attempt.c.created_at <= seconds_ago(settings.register_window_seconds)),
-    )))
-    await session.execute(delete(auth_access_token).where(or_(
-        auth_access_token.c.created_at <= seconds_ago(settings.session_lifetime_seconds),
-        auth_access_token.c.last_seen_at <= seconds_ago(settings.session_idle_seconds),
-    )))
+async def purge_expired(session, settings, batch_size=100):
+    """Até um lote por tabela; linhas ocupadas são ignoradas sem esperar locks."""
+    await session.execute(text("""
+        DELETE FROM auth_attempt WHERE ctid IN (
+            SELECT ctid FROM auth_attempt
+            WHERE (kind='login_failure' AND created_at <= clock_timestamp()-make_interval(secs => :login_window))
+               OR (kind='register' AND created_at <= clock_timestamp()-make_interval(secs => :register_window))
+            LIMIT :batch_size FOR UPDATE SKIP LOCKED
+        )
+    """), {'login_window': settings.login_window_seconds,
+            'register_window': settings.register_window_seconds, 'batch_size': batch_size})
+    await session.execute(text("""
+        DELETE FROM auth_access_token WHERE ctid IN (
+            SELECT ctid FROM auth_access_token
+            WHERE created_at <= clock_timestamp()-make_interval(secs => :lifetime)
+               OR last_seen_at <= clock_timestamp()-make_interval(secs => :idle)
+            LIMIT :batch_size FOR UPDATE SKIP LOCKED
+        )
+    """), {'lifetime': settings.session_lifetime_seconds,
+            'idle': settings.session_idle_seconds, 'batch_size': batch_size})
+
+
+async def maybe_purge_expired(request: Request):
+    # Marca antes do await: não há fila de purgas concorrentes por requisição.
+    # O lock local também cobre apps exercitadas por mais de um loop/thread.
+    with request.app.state.auth_purge_lock:
+        now = monotonic()
+        if now < request.app.state.next_auth_purge:
+            return
+        request.app.state.next_auth_purge = now + 60
+    async with request.app.state.auth_sessions.begin() as session:
+        await purge_expired(session, request.app.state.settings)
 
 
 async def lock(session, kind, scope, key):
@@ -72,9 +95,9 @@ async def record(session, kind, scope, key):
 async def register_attempt(request: Request):
     settings = request.app.state.settings
     key = origin_key(request)
+    await maybe_purge_expired(request)
     async with request.app.state.auth_sessions.begin() as session:
         await lock(session, 'register', 'origin', key)
-        await purge_expired(session, settings)
         await check(session, 'register', 'origin', key, settings.register_window_seconds, settings.register_max_per_origin)
         await record(session, 'register', 'origin', key)
 
@@ -82,13 +105,13 @@ async def register_attempt(request: Request):
 async def reserve_login(request: Request, email: str):
     settings = request.app.state.settings
     origin = origin_key(request)
+    await maybe_purge_expired(request)
     async with request.app.state.auth_sessions.begin() as session:
         # Mesma função/collation usada pela busca e pelo índice único de app_user.
         normalized = await session.scalar(select(func.lower(email)))
         account = attempt_key(request, normalized)
         await lock(session, 'login_failure', 'account', account)
         await lock(session, 'login_failure', 'origin', origin)
-        await purge_expired(session, settings)
         reservations = []
         for scope, key, maximum in (
             ('account', account, settings.login_max_failures_per_account),

@@ -1,6 +1,9 @@
 """Adaptador HTTP da autenticação própria (ADR-0017)."""
 
 from contextlib import asynccontextmanager
+from threading import Lock
+
+from anyio import CapacityLimiter, CancelScope
 
 from fastapi import Depends, FastAPI, HTTPException, Request, Response
 from fastapi.responses import JSONResponse
@@ -55,6 +58,9 @@ def create_app(settings: ApiSettings) -> FastAPI:
                   docs_url='/docs' if settings.docs_enabled else None,
                   redoc_url='/redoc' if settings.docs_enabled else None)
     app.state.settings = settings
+    app.state.password_limiter = CapacityLimiter(settings.password_hash_concurrency)
+    app.state.auth_purge_lock = Lock()
+    app.state.next_auth_purge = 0
     app.state.auth_engine = engine
     app.state.auth_sessions = async_sessionmaker(engine, expire_on_commit=False)
     transport = cookie_transport(settings)
@@ -84,18 +90,23 @@ def create_app(settings: ApiSettings) -> FastAPI:
         strategy: DatabaseStrategy = Depends(get_strategy),
     ):
         reservations = await reserve_login(request, credentials.username)
-        user = await manager.authenticate(credentials)
-        if user is None or not user.is_active:
-            raise HTTPException(400, 'LOGIN_BAD_CREDENTIALS')
-        token = await strategy.write_token(user)
-        # Finaliza a criação sob lock de conta antes de pedir outra conexão.
-        await manager.user_db.session.commit()
-        await release_login(request, reservations)
-        response = JSONResponse({'csrf_token': strategy.csrf_token})
-        cookie = await transport.get_login_response(token)
-        response.headers['set-cookie'] = cookie.headers['set-cookie']
-        response.headers['cache-control'] = 'no-store'
-        return response
+        try:
+            user = await manager.authenticate(credentials)
+            if user is None or not user.is_active:
+                raise HTTPException(400, 'LOGIN_BAD_CREDENTIALS')
+            token = await strategy.write_token(user)
+            await manager.user_db.session.commit()
+            response = JSONResponse({'csrf_token': strategy.csrf_token})
+            cookie = await transport.get_login_response(token)
+            response.headers['set-cookie'] = cookie.headers['set-cookie']
+            response.headers['cache-control'] = 'no-store'
+            return response
+        finally:
+            if manager.password_verified:
+                # Libera inclusive após NOWAIT/erro, antes de pedir outra conexão.
+                with CancelScope(shield=True):
+                    await manager.user_db.session.rollback()
+                    await release_login(request, reservations)
 
     @app.get('/users/me', response_model=UserRead)
     async def me(response: Response, user: User = Depends(current_user)):
@@ -133,30 +144,34 @@ def create_app(settings: ApiSettings) -> FastAPI:
         if not valid:
             raise HTTPException(400, 'INVALID_CURRENT_PASSWORD')
         try:
-            await manager.validate_password(body.new_password, snapshot)
-        except exceptions.InvalidPasswordException as exc:
-            await release_login(request, reservations)
-            raise invalid_password(exc) from None
-        new_hash = await manager.hash_password(body.new_password)
-        try:
-            locked = await session.scalar(select(User).where(User.id == user_id).with_for_update(nowait=True)
-                                          .execution_options(populate_existing=True))
-        except DBAPIError as exc:
-            if getattr(exc.orig, 'sqlstate', None) == '55P03':
-                raise HTTPException(429, 'Too Many Requests') from None
-            raise
-        # Revalida a sessão após a thread e o lock: outra troca pode tê-la revogado.
-        strategy = await get_strategy(request, session)
-        still_valid = await strategy.read_token(request.cookies[SESSION_COOKIE], manager)
-        if locked is None or not locked.is_active or still_valid is None:
-            raise HTTPException(401, 'Unauthorized')
-        if locked.hashed_password != old_hash:
-            raise HTTPException(400, 'INVALID_CURRENT_PASSWORD')
-        await manager.user_db.update(locked, {'hashed_password': new_hash})
-        await session.execute(delete(AccessToken).where(AccessToken.user_id == locked.id))
-        await session.commit()
-        await release_login(request, reservations)
-        return await transport.get_logout_response()
+            try:
+                await manager.validate_password(body.new_password, snapshot)
+            except exceptions.InvalidPasswordException as exc:
+                raise invalid_password(exc) from None
+            new_hash = await manager.hash_password(body.new_password)
+            try:
+                locked = await session.scalar(select(User).where(User.id == user_id).with_for_update(nowait=True)
+                                              .execution_options(populate_existing=True))
+            except DBAPIError as exc:
+                if getattr(exc.orig, 'sqlstate', None) == '55P03':
+                    raise HTTPException(429, 'Too Many Requests') from None
+                raise
+            # Revalida a sessão após a thread e o lock: outra troca pode tê-la revogado.
+            strategy = await get_strategy(request, session)
+            still_valid = await strategy.read_token(request.cookies[SESSION_COOKIE], manager)
+            if locked is None or not locked.is_active or still_valid is None:
+                raise HTTPException(401, 'Unauthorized')
+            if locked.hashed_password != old_hash:
+                raise HTTPException(400, 'INVALID_CURRENT_PASSWORD')
+            await manager.user_db.update(locked, {'hashed_password': new_hash})
+            await session.execute(delete(AccessToken).where(AccessToken.user_id == locked.id))
+            await session.commit()
+            return await transport.get_logout_response()
+        finally:
+            # Senha atual já foi verificada: 429/401 não consomem orçamento.
+            with CancelScope(shield=True):
+                await session.rollback()
+                await release_login(request, reservations)
 
     return app
 

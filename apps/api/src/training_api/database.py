@@ -9,7 +9,7 @@ from sqlalchemy import func, select, update
 from sqlalchemy.orm import DeclarativeBase
 from training_lineage.tables import app_user, auth_access_token
 
-from .limits import digest, purge_expired, seconds_ago
+from .limits import digest, seconds_ago
 
 
 class Base(DeclarativeBase):
@@ -77,7 +77,6 @@ class TokenDatabase(SQLAlchemyAccessTokenDatabase):
                 AccessToken.token == access.token,
                 AccessToken.last_seen_at <= seconds_ago(60),
             ).values(last_seen_at=func.clock_timestamp()).execution_options(synchronize_session=False))
-            await purge_expired(self.session, self.settings)
         return access
 
     async def create(self, create_dict):

@@ -23,6 +23,9 @@ def test_auth_head_is_0006_and_occupied_downgrade_preserves_data():
     engine = create_engine(admin.url.set(database=name), hide_parameters=True)
     try:
         migrate(engine, 'head')
+        from training_lineage.tables import auth_access_token
+        assert [column['name'] for column in inspect(engine).get_columns('auth_access_token')] == list(auth_access_token.c.keys())
+        assert 'auth_access_token_last_seen_at' in {index['name'] for index in inspect(engine).get_indexes('auth_access_token')}
         user_id = uuid4()
         with engine.begin() as connection:
             connection.execute(text("INSERT INTO app_user(id,email,hashed_password) VALUES (:id,'migration@example.com','$argon2id$test-only')"), {'id': user_id})

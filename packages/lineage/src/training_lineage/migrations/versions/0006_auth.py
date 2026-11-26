@@ -1,4 +1,4 @@
-"""ADR-0017: contas, sessões opacas e tentativas; snapshot aditivo imutável."""
+"""ADR-0017: contas, sessões opacas e tentativas; revisão aditiva ajustável antes da primeira aplicação persistente."""
 
 from alembic import op
 
@@ -27,6 +27,7 @@ def upgrade():
         created_at TIMESTAMPTZ NOT NULL DEFAULT now()
     )""")
     op.execute('CREATE INDEX auth_access_token_created_at ON auth_access_token (created_at)')
+    op.execute('CREATE INDEX auth_access_token_last_seen_at ON auth_access_token (last_seen_at)')
     op.execute("""CREATE TABLE auth_attempt (
         id BIGSERIAL PRIMARY KEY, kind TEXT NOT NULL, scope TEXT NOT NULL,
         key TEXT NOT NULL, created_at TIMESTAMPTZ NOT NULL DEFAULT now(),

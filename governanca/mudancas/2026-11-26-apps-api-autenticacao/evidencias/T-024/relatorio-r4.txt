@@ -1,0 +1,78 @@
+T-024 — rodada 4 — correções N1–N4 — 2026-11-26
+Executor: OpenAI/Codex, rag-backend; task_c986454ddf1b / ctx_5cfe9f5d8242.
+Fonte: revisao-seguranca-llm-r2.md, aprovado com ressalvas.
+Relatório do executor; não constitui revisão independente nem aceite G4.
+
+PROVA FINAL ÚNICA
+Comando: uv run pytest apps/api packages/lineage -q
+Status: Passou
+Resultado: 183 passed, 1 warning in 48.58s; exit 0.
+Saída integral: pytest-r4.txt; nenhuma repetição da suíte nesta rodada.
+Os 174 casos anteriores e 9 novos passaram. Testes novos escritos no arquivo test_api_auth_r4.py antes das correções principais do produto.
+O aviso PydanticSerializerUnexpectedValue é preexistente no teste do chat (enum status serializado como string), preservado na saída.
+Postgres real da infra local, com bancos descartáveis; infra compartilhada preservada.
+API_ATTEMPT_KEY_SECRET foi fornecido somente ao subprocesso de teste, com valor efêmero aleatório não gravado; .env inalterado.
+
+N1 — corrigido; Passou.
+Aplicação possui CapacityLimiter próprio e compartilhado entre todos os UserManager das requisições.
+API_PASSWORD_HASH_CONCURRENCY configura um inteiro positivo; ausente ou vazio usa max(2, os.cpu_count() or 2).
+As duas chamadas to_thread.run_sync (hash e verify_and_update) recebem limiter= explicitamente.
+Nenhuma conexão é retida enquanto se espera vaga para Argon2, preservando o fluxo R3.
+Teste novo dispara 40 logins simultâneos com barreira e dublê lento de hash somente no teste, limite configurado 2: 40 chamadas alcançam o hasher, todas retornam falha de credencial esperada e pico medido é exatamente 2.
+Para que todos os 40 fluxos alcancem o hasher, o teste N1 eleva o orçamento por origem e repete somente a reserva que recebe 429 por disputa de lock; isto ocorre em wrapper exclusivo do teste, sem alterar aplicação ou substituir PostgreSQL.
+O teste real anterior com disputa/429 continua intacto e passou; o novo teste isola a concorrência do hasher.
+Teste de configuração também prova mínimo padrão 2 com um núcleo, valor vazio, override 3 e recusa de zero.
+
+N2 — corrigido; Passou.
+Purge_expired foi removida de TokenDatabase e das transações de reserva.
+Maybe_purge_expired inicia sessão/transação própria e curta antes da reserva ou da leitura de autenticação, sem conexão/lock da requisição adquirido nesse momento.
+Elegibilidade controlada por monotonic com intervalo de 60 segundos por instância da aplicação no processo; lock local protege a marcação entre loops/threads e nunca atravessa await.
+Cada DELETE usa ctid IN (SELECT ... LIMIT 100 FOR UPDATE SKIP LOCKED), para no máximo 100 tentativas e 100 sessões por execução. Não há varredura com DELETE ilimitado nem espera por linhas já ocupadas.
+Índice auth_access_token_last_seen_at adicionado na 0006 e metadata, preservando o índice created_at.
+Current_user confirma explicitamente a sessão de autenticação após ler usuário/token; require_csrf confirma após a leitura/verificação da sessão antes de retornar ao endpoint.
+Testes provam: linha expirada travada é pulada sem bloquear login; nova chamada imediata não repete a purga; após elegibilidade renovada a linha é removida; lote de 105 linhas antigas deixa exatamente 5; dependências de autenticação e CSRF retornam com AsyncSession.in_transaction() falso antes do endpoint.
+A rota de observação existe somente no app montado pelo teste, nunca no produto.
+Teste não congelado A10 da rodada R3 foi ajustado para tornar a purga elegível após inserir os registros antigos, sem espera artificial de um minuto e sem afrouxar a verificação de exclusão.
+Sem tráfego, acúmulo grande ou linhas ocupadas, a limpeza continua em chamadas elegíveis posteriores, como documentado.
+
+N3 — corrigido; Passou.
+UserManager registra internamente quando a senha foi verificada corretamente.
+Login remove reservas em finally após esse ponto, inclusive em NOWAIT/429 ou erro posterior. Troca de senha usa finally equivalente após senha atual válida, inclusive em sessão revogada/401.
+Antes da limpeza, a sessão principal confirma o sucesso ou sofre rollback, liberando conexão e locks; só então a sessão curta de release_login é aberta.
+CancelScope(shield=True) protege rollback/liberação da reserva contra cancelamento.
+Senha incorreta preserva as reservas, mantendo os limites previamente aprovados.
+Testes com lock real de app_user provocam 429 no login e na troca de senha e confirmam zero reservas de login restantes; teste revoga a sessão durante a troca após verificação e prova 401 com reserva removida.
+
+N4 — corrigido; Passou.
+A docstring da 0006 esclarece que a revisão é ajustável antes da primeira aplicação persistente, sem afirmar snapshot imutável.
+Last_seen_at agora é declarado na posição correspondente à migração, sem append_column; ordem: token, user_id, csrf_token, last_seen_at, created_at.
+Teste existente não congelado de migração foi ampliado com igualdade exata da ordem de colunas e presença do novo índice no catálogo real; downgrade com conta continua provando recusa e preservação integral.
+A autorização permite editar 0006 no lugar pois não foi aplicada a banco persistente; migrações 0001–0005 permanecem intactas.
+
+VALIDAÇÃO E INTEGRIDADE
+Passou — 3/3 SHA-256 G3 conferem exatamente com casos_aprovados; valores/caminhos em casos-intactos-r4.txt.
+Passou — uv run validar-governanca: governança OK: 7 mudança(s), 26 tarefa(s), 28 requisito(s) na spec viva; exit 0; saída em validador-r4.txt.
+Passou — git diff --check sem erros.
+training_session e a interface HTTP aprovados preservados.
+Sem dependência nova, alteração de contracts/generation/infra/frontmatter ou provas anteriores.
+Sem commit, push, merge ou deploy.
+
+ARQUIVOS ALTERADOS
+.env.example
+apps/api/README.md
+apps/api/src/training_api/app.py
+apps/api/src/training_api/auth.py
+apps/api/src/training_api/config.py
+apps/api/src/training_api/csrf.py
+apps/api/src/training_api/database.py
+apps/api/src/training_api/limits.py
+apps/api/tests/test_api_auth_r4.py (novo)
+apps/api/tests/test_api_auth_hardening.py (caso não congelado de purga)
+packages/lineage/src/training_lineage/migrations/versions/0006_auth.py
+packages/lineage/src/training_lineage/tables.py
+packages/lineage/tests/test_auth_migration.py (caso não congelado ampliado)
+Evidências: pytest-r4.txt, casos-intactos-r4.txt, validador-r4.txt e este relatório.
+
+PENDÊNCIAS
+Nova revisão do snapshot corrigido e G4 pelo humano, a cargo do orquestrador.
+A7/A11 e configuração do proxy público continuam nas decisões humanas/deploy já registradas; não alterados nesta rodada.

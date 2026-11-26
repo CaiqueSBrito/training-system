@@ -3,7 +3,7 @@
 from uuid import UUID
 import secrets
 
-from anyio import to_thread
+from anyio import CapacityLimiter, to_thread
 
 from fastapi import Depends, HTTPException, Request
 from fastapi_users import BaseUserManager, UUIDIDMixin, exceptions, schemas
@@ -13,7 +13,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from sqlalchemy.exc import DBAPIError
 
-from .limits import digest
+from .limits import digest, maybe_purge_expired
 
 from .database import AccessToken, TokenDatabase, User, UserDatabase, get_session
 
@@ -29,9 +29,11 @@ class UserCreate(schemas.BaseUserCreate):
 
 
 class UserManager(UUIDIDMixin, BaseUserManager[User, UUID]):
-    def __init__(self, database, settings):
+    def __init__(self, database, settings, password_limiter=None):
         super().__init__(database)
         self.settings = settings
+        self.password_limiter = password_limiter or CapacityLimiter(settings.password_hash_concurrency)
+        self.password_verified = False
 
     async def validate_password(self, password, user):
         if not self.settings.password_min_length <= len(password) <= 1024:
@@ -40,10 +42,10 @@ class UserManager(UUIDIDMixin, BaseUserManager[User, UUID]):
             )
 
     async def hash_password(self, password):
-        return await to_thread.run_sync(self.password_helper.hash, password)
+        return await to_thread.run_sync(self.password_helper.hash, password, limiter=self.password_limiter)
 
     async def verify_password(self, password, hashed):
-        return await to_thread.run_sync(self.password_helper.verify_and_update, password, hashed)
+        return await to_thread.run_sync(self.password_helper.verify_and_update, password, hashed, limiter=self.password_limiter)
 
     async def create(self, user_create, safe=False, request=None):
         await self.validate_password(user_create.password, user_create)
@@ -60,6 +62,7 @@ class UserManager(UUIDIDMixin, BaseUserManager[User, UUID]):
         return user
 
     async def authenticate(self, credentials):
+        self.password_verified = False
         if len(credentials.password) > 1024:
             return None
         user = await self.user_db.get_by_email(credentials.username)
@@ -72,6 +75,7 @@ class UserManager(UUIDIDMixin, BaseUserManager[User, UUID]):
         valid, upgraded_hash = await self.verify_password(credentials.password, old_hash)
         if not valid:
             return None
+        self.password_verified = True
         try:
             locked = await self.user_db.session.scalar(
                 select(User).where(User.id == user.id).with_for_update(nowait=True)
@@ -101,7 +105,8 @@ class HashedDatabaseStrategy(DatabaseStrategy):
 async def get_user_manager(
     request: Request, session: AsyncSession = Depends(get_session, scope='function'),
 ):
-    return UserManager(UserDatabase(session, User), request.app.state.settings)
+    return UserManager(UserDatabase(session, User), request.app.state.settings,
+                       request.app.state.password_limiter)
 
 
 async def get_strategy(
@@ -131,7 +136,10 @@ async def current_user(
     # Limita entrada antes da consulta VARCHAR e nunca tenta interpretar como JWT.
     if not token or len(token) != 43:
         raise HTTPException(401, 'Unauthorized')
+    await maybe_purge_expired(request)
     user = await strategy.read_token(token, manager)
+    # Fecha autenticação antes de entregar controle a rotas longas (SSE).
+    await manager.user_db.session.commit()
     if user is None or not user.is_active:
         raise HTTPException(401, 'Unauthorized')
     return user

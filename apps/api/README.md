@@ -55,12 +55,33 @@ mantêm os valores brutos. Além da validade absoluta, há expiração por inati
 (`API_SESSION_IDLE_SECONDS`, 3600 por padrão); `last_seen_at` avança no máximo uma
 vez por minuto. O relógio de leitura vem do Postgres. A função
 `training_api.limits.purge_expired` remove tentativas fora de suas janelas e sessões
-fora da validade absoluta ou de inatividade. Ela é chamada oportunisticamente nas
-transações de reserva/cadastro e no uso de sessão válida; sem tráfego, a limpeza
-fica para a próxima chamada. Não há serviço ou scheduler novo.
+fora da validade absoluta ou de inatividade. Ela é chamada oportunisticamente antes das
+transações de reserva/cadastro e no uso de sessão válida, em sessão própria e com
+a periodicidade/lotes descritos na R4 abaixo; sem tráfego, a limpeza fica para a
+próxima chamada. Não há serviço ou scheduler novo.
 
 `/users/me` e o login enviam `Cache-Control: no-store`.
 `API_DOCS_ENABLED=false` desliga `/docs` e `/redoc`, preservando `/openapi.json`.
 A 0006 foi ajustada antes de aplicação em banco real; bancos descartáveis de teste
 são recriados. O nome do cookie e a decisão sobre lista local de senhas comuns
 permanecem sujeitos à decisão humana registrada na rodada de revisão.
+
+Rodada R4: hash e verificação compartilham um `anyio.CapacityLimiter` exclusivo da
+aplicação. `API_PASSWORD_HASH_CONCURRENCY` define o máximo simultâneo; quando não
+configurado, o padrão é o número de núcleos, com mínimo de 2. A fila desse
+limitador não retém conexões do banco. Dimensione o limite de acordo com memória
+e CPU disponíveis (cada Argon2 usa memória própria).
+
+A purga agora roda em sessão própria curta, fora das transações de reserva e de
+autenticação. A execução oportunística ocorre no máximo uma vez por minuto por
+instância de aplicação no processo, com um lote de até 100 linhas por tabela;
+`FOR UPDATE SKIP LOCKED` pula linhas ocupadas. Há índice em `last_seen_at` além de
+`created_at`. Sem tráfego ou com grande acúmulo, o restante fica para os lotes dos
+minutos seguintes. `current_user` e `require_csrf` confirmam sua transação antes
+de retornar, permitindo iniciar SSE sem reter a conexão da autenticação.
+
+Depois de verificar a senha correta, login e troca de senha removem a reserva
+também em disputa NOWAIT, revogação concorrente da sessão ou outro erro posterior.
+Antes dessa remoção, confirmam ou desfazem a transação de autenticação para liberar
+qualquer conexão/lock; a limpeza é protegida de cancelamento. Senhas incorretas
+continuam registradas no orçamento até o vencimento da janela.

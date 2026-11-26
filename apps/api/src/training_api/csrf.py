@@ -18,6 +18,7 @@ async def require_csrf(
     if request.method not in ('POST', 'PUT', 'PATCH', 'DELETE'):
         return
     token = await strategy.database.get_by_token(request.cookies[SESSION_COOKIE])
+    await strategy.database.session.commit()
     supplied = request.headers.get('X-CSRF-Token', '')
     if (token is None or not supplied or len(supplied) > 64
             or not secrets.compare_digest(digest(supplied), token.csrf_token)):
