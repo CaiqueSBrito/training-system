@@ -1,8 +1,12 @@
 """ING-LIN-001: integração real, em bancos temporários exclusivos dos testes."""
 
 from datetime import datetime, timezone, timedelta
+from pathlib import Path
 from uuid import uuid4
 
+from alembic.config import Config
+from alembic.script import ScriptDirectory
+import training_lineage.migration as migration_module
 from training_lineage import LineageRepository, create_lineage_engine, database_url, migrate
 from training_lineage.tables import chunk, document_version
 
@@ -11,6 +15,13 @@ from sqlalchemy import create_engine, inspect, text, update
 from sqlalchemy.exc import IntegrityError, DBAPIError
 from pydantic import ValidationError
 from training_contracts.linhagem import DocumentVersionRecord, ChunkRecord
+
+
+@pytest.fixture
+def migration_head():
+    config = Config()
+    config.set_main_option("script_location", str(Path(migration_module.__file__).with_name("migrations")))
+    return ScriptDirectory.from_config(config).get_current_head()
 
 
 @pytest.fixture
@@ -190,15 +201,18 @@ def test_ING_LIN_001_database_constraints(engine, changes):
         connection.execute(chunk.insert().values(**(record().model_dump() | changes)))
 
 
-def test_ING_LIN_001_migration_upgrade_downgrade_empty_database(empty_database):
+def test_ING_LIN_001_migration_upgrade_downgrade_empty_database(empty_database, migration_head):
     assert inspect(empty_database).get_table_names() == []
     migrate(empty_database, "head")
     assert {"document_version", "chunk", "alembic_version", "canonical_text", "canonical_span",
             "chunk_provenance", "embedding_input", "ingestion_audit_event",
             "effective_chunk_decision", "ingestion_reservation", "reconciliation_job",
-            "index_ack"} == set(inspect(empty_database).get_table_names())
+            "index_ack", "chat_turn", "chat_plan", "chat_retrieval", "chat_candidate",
+            "chat_item", "chat_citation", "chat_verdict", "chat_continuation", "chat_rate_event",
+            "chat_input_audit", "chat_generation_call", "chat_generation_attempt",
+            "app_user", "auth_access_token", "auth_attempt"} == set(inspect(empty_database).get_table_names())
     with empty_database.connect() as connection:
-        assert connection.execute(text("SELECT version_num FROM alembic_version")).scalar_one() == "0003"
+        assert connection.execute(text("SELECT version_num FROM alembic_version")).scalar_one() == migration_head
     migrate(empty_database, "base")
     assert set(inspect(empty_database).get_table_names()) <= {"alembic_version"}
     with empty_database.connect() as connection:
@@ -287,14 +301,14 @@ def test_ING_LIN_001_intermediate_roundtrip_and_trigger_lifecycle(empty_database
 
 
 @pytest.mark.parametrize('target', ['unknown', '000', '-1', '+1', '0001:0002', 'head;DROP TABLE chunk', '', None])
-def test_ING_LIN_001_invalid_target_preserves_data(engine, target):
+def test_ING_LIN_001_invalid_target_preserves_data(engine, target, migration_head):
     with engine.begin() as c:
         LineageRepository(c).insert_document_version(version())
         LineageRepository(c).insert_chunk(record())
     with pytest.raises(ValueError, match='Revisão de migração inválida'):
         migrate(engine, target)
     with engine.connect() as c:
-        assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+        assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == migration_head
         assert LineageRepository(c).get_document_version('v1') == version()
         assert LineageRepository(c).get_chunk('c1') == record()
 

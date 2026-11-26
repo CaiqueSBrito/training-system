@@ -2,11 +2,46 @@
 
 from sqlalchemy import (
     MetaData, Table, Column, Text, DateTime, BigInteger, Boolean, CheckConstraint,
-    ForeignKey, ForeignKeyConstraint, UniqueConstraint, Index,
+    ForeignKey, ForeignKeyConstraint, UniqueConstraint, Index, String, Uuid, func, text,
 )
 from sqlalchemy.dialects.postgresql import ARRAY, JSONB
 
 metadata = MetaData()
+
+# ADR-0017: autenticação compartilha o banco, não o pool nem as transações.
+app_user = Table(
+    'app_user', metadata,
+    Column('id', Uuid, primary_key=True),
+    Column('email', String(320), nullable=False),
+    Column('hashed_password', String(1024), nullable=False),
+    Column('is_active', Boolean, nullable=False, server_default=text('true')),
+    Column('is_superuser', Boolean, nullable=False, server_default=text('false')),
+    Column('is_verified', Boolean, nullable=False, server_default=text('false')),
+    Column('created_at', DateTime(timezone=True), nullable=False, server_default=func.now()),
+    CheckConstraint("hashed_password LIKE '$argon2id$%'", name='app_user_argon2id'),
+)
+Index('app_user_email_lower_unique', func.lower(app_user.c.email), unique=True)
+auth_access_token = Table(
+    'auth_access_token', metadata,
+    Column('token', String(43), primary_key=True),
+    Column('user_id', Uuid, ForeignKey('app_user.id', ondelete='CASCADE'), nullable=False),
+    Column('csrf_token', String(64), nullable=False, unique=True),
+    Column('created_at', DateTime(timezone=True), nullable=False, server_default=func.now()),
+)
+Index('auth_access_token_created_at', auth_access_token.c.created_at)
+auth_attempt = Table(
+    'auth_attempt', metadata,
+    Column('id', BigInteger, primary_key=True),
+    Column('kind', Text, nullable=False),
+    Column('scope', Text, nullable=False),
+    Column('key', Text, nullable=False),
+    Column('created_at', DateTime(timezone=True), nullable=False, server_default=func.now()),
+    CheckConstraint("kind IN ('login_failure','register')", name='auth_attempt_kind'),
+    CheckConstraint("scope IN ('account','origin')", name='auth_attempt_scope'),
+    CheckConstraint("key ~ '^[0-9a-f]{64}$'", name='auth_attempt_key_sha256'),
+)
+Index('auth_attempt_window', auth_attempt.c.kind, auth_attempt.c.scope,
+      auth_attempt.c.key, auth_attempt.c.created_at)
 
 document_version = Table(
     "document_version", metadata,

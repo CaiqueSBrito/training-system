@@ -1,0 +1,44 @@
+T-024 — correção autorizada das expectativas antigas — 2026-11-26
+Dispatch: ctx_283cbbb6916a; tarefa Orca task_958aee3c2f66.
+
+Autorização recebida: os 12 casos de linhagem não estão congelados; atualizar só expectativas de versão/catálogo, mantendo preservação, recusa e downgrade.
+
+ARQUIVOS ALTERADOS NESTA RODADA
+packages/lineage/tests/test_lineage.py
+packages/lineage/tests/test_ressalvas_persistencia.py
+Evidências adicionais: pytest-r2.txt, validador-r2.txt, casos-intactos-r2.txt e este relatório.
+Nenhum produto, caso G3 da API, migração ou frontmatter alterado nesta rodada.
+
+MUDANÇA
+Asserções de revisão atual nos 12 casos agora usam get_current_head() do ScriptDirectory configurado com o diretório real de migrações do pacote.
+A igualdade exata do catálogo inclui as tabelas explícitas de chat das revisões 0004/0005 e app_user/auth_access_token/auth_attempt da 0006.
+Preservadas as asserções de dados, recusa dos oito alvos inválidos, autorização de candidatos e downgrade/roundtrip; nenhuma asserção foi removida ou convertida em subconjunto mais permissivo.
+
+PROVA R2 — ÚNICA EXECUÇÃO
+Comando: uv run pytest apps/api packages/lineage -q
+Status: Passou
+Resultado: 153 passed, 1 warning in 35.38s; exit 0.
+O aviso Pydantic vem de test_e1_error_and_final_failure_atomic (enum status serializado como string); consta integralmente na saída e não foi ocultado.
+Postgres real da infra local, com bancos descartáveis das fixtures.
+AUT-CAD-001: Passou — 5 casos.
+AUT-SES-001: Passou — 3 casos.
+AUT-SES-002: Passou — 9 casos.
+AUT-CSR-001: Passou — 12 casos, no recorte T-024.
+AUT-LIM-001: Passou — 5 casos.
+AUT-OWN-001: Passou — 7 casos, no recorte T-024.
+Linhagem: Passou — 112 casos, inclusive os 12 corrigidos.
+Os cenários HTTP de chat/linhagem da T-025 continuam fora deste recorte.
+
+INTEGRIDADE
+Passou — os três hashes G3 conferem com casos_aprovados, conforme casos-intactos-r2.txt.
+Passou — pytest.txt da primeira execução permanece intacto, com SHA-256 0830eab33869dfd7cca687d03ae03f23c605d1d584cc1cf08057e80de45b7136.
+A prova inicial continua Falhou (12 failed, 141 passed); não foi sobrescrita nem reinterpretada.
+O relatório inicial também permanece histórico; a pendência dos casos obsoletos foi resolvida por esta autorização/correção e pela prova R2.
+
+VALIDADOR
+Passou — governança OK: 7 mudança(s), 26 tarefa(s), 28 requisito(s) na spec viva; exit 0.
+Saída preservada em validador-r2.txt.
+
+PENDÊNCIAS
+Revisões independente e de segurança pelo orquestrador e aceite G4 humano; este relatório não os substitui.
+Nenhum commit, push, deploy ou alteração da infra compartilhada.

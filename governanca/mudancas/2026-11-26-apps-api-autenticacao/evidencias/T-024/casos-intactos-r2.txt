@@ -1,0 +1,8 @@
+c770ed17b86b91d3c32a872a14b1c859420b01b33883c228a67429cd78e8c4d5  apps/api/tests/conftest.py
+Passou
+eea4696cb8cfb007bcf7b6f0f60791ad507de44d771ae8713464dabd1591b9ce  apps/api/tests/api_auth_support.py
+Passou
+cb7be2439cfa093f4f7dea48863fc99eee192e43efd23675964c3531b7d0faf5  apps/api/tests/test_api_auth.py
+Passou
+0830eab33869dfd7cca687d03ae03f23c605d1d584cc1cf08057e80de45b7136  governanca/mudancas/2026-11-26-apps-api-autenticacao/evidencias/T-024/pytest.txt
+Passou

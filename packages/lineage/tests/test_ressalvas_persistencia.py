@@ -7,6 +7,8 @@ from threading import Barrier
 from uuid import uuid4
 
 import pytest
+from alembic.config import Config
+from alembic.script import ScriptDirectory
 from sqlalchemy import create_engine, inspect, text, select
 from sqlalchemy.exc import DBAPIError
 from training_contracts.ingestao import (
@@ -15,11 +17,19 @@ from training_contracts.ingestao import (
 )
 from training_contracts.linhagem import DocumentVersionRecord, ChunkRecord
 from training_lineage import LineageRepository, create_lineage_engine, migrate
+import training_lineage.migration as migration_module
 from training_llm import document_input
 
 NOW = datetime(2026, 11, 24, tzinfo=timezone.utc)
 KEY = 'gemini-embedding-2@3072@fmt-v1'
 HISTORY = ('canonical_text', 'canonical_span', 'chunk_provenance', 'embedding_input', 'ingestion_audit_event')
+
+
+@pytest.fixture
+def migration_head():
+    config = Config()
+    config.set_main_option('script_location', str(Path(migration_module.__file__).with_name('migrations')))
+    return ScriptDirectory.from_config(config).get_current_head()
 
 
 def digest(value):
@@ -109,7 +119,7 @@ def formatted(records):
 
 
 @pytest.mark.parametrize('initial', ['base','0001','0002'])
-def test_C01_upgrade_preserves_old_records(empty_database, initial):
+def test_C01_upgrade_preserves_old_records(empty_database, initial, migration_head):
     if initial != 'base':
         migrate(empty_database, initial)
         with empty_database.begin() as c:
@@ -118,7 +128,7 @@ def test_C01_upgrade_preserves_old_records(empty_database, initial):
     migrate(empty_database)
     migrate(empty_database)
     with empty_database.connect() as c:
-        assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+        assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == migration_head
         if initial != 'base':
             assert LineageRepository(c).get_document_version('v1') == bundle()[0]
             assert LineageRepository(c).get_chunk('c-v1') == bundle()[3]

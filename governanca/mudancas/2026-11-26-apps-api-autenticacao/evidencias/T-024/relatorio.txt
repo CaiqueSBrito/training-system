@@ -1,0 +1,67 @@
+T-024 — implementação da autenticação — 2026-11-26
+Executor efetivo: OpenAI/Codex. Casos G3: Anthropic, aprovados pelo humano.
+Não constitui revisão independente nem aceite G4.
+
+PROVA ÚNICA
+Comando: uv run pytest apps/api packages/lineage -q
+Status: Falhou
+Resultado: 12 failed, 141 passed, 1 warning in 41.33s; exit 1.
+Saída completa preservada em pytest.txt; não houve repetição nem alteração de casos.
+Ambiente: Postgres real da infra local saudável; bancos descartáveis das fixtures.
+Infra compartilhada preservada, sem commit/push/deploy.
+
+API POR REQUISITO (41/41 casos congelados passaram)
+AUT-CAD-001: Passou — 5 casos; Argon2id, duplicidade case-insensitive, política e privilégios.
+AUT-SES-001: Passou — 3 casos; sessão persistida, cookie seguro, resposta uniforme e token novo.
+AUT-SES-002: Passou — 9 casos; logout, revogação total na troca, política, expiração e token inválido.
+AUT-CSR-001: Passou — 12 casos no recorte T-024; sessão antes do CSRF, token ligado à sessão, sem efeito ao recusar.
+AUT-LIM-001: Passou — 5 casos; login por conta/origem, cadastro por origem e resposta uniforme.
+AUT-OWN-001: Passou — 7 casos no recorte T-024; dono da sessão, corpo/query sem autoridade, 401 e rotas restritas ausentes.
+AUT-CSR-001 / AUT-OWN-001 no chat e na linhagem HTTP: Não executado — pertencem à T-025, conforme interface G3.
+
+FALHAS DA LINHAGEM (12; todas preservadas)
+1. test_ING_LIN_001_migration_upgrade_downgrade_empty_database: lista literal de tabelas da 0003 diverge das tabelas de chat 0004/0005 e autenticação 0006.
+2–9. test_ING_LIN_001_invalid_target_preserves_data (8 parâmetros): assert literal '0003', banco corretamente em '0006'.
+10–12. test_C01_upgrade_preserves_old_records (base, 0001, 0002): assert literal '0003', banco corretamente em '0006'.
+A obsolescência dessas expectativas já alcança as migrações 0004/0005 preexistentes; não foi executada baseline para alegar um resultado anterior.
+A causa observada nesta prova é a divergência explícita de versão/lista, não uma falha de autenticação.
+A correção dos casos antigos exige encaminhamento do orquestrador/humano; os casos foram preservados.
+
+MIGRAÇÃO E TRANSAÇÕES
+0006 aditiva com app_user, auth_access_token e auth_attempt; 0001–0005 intactas.
+As verificações existentes de compare_metadata passaram nesta suíte.
+Downgrades vazios exercitados pelos casos existentes passaram, exceto a verificação literal de catálogo indicada acima.
+Downgrade com conta existente: Não executado — não há caso G3 específico; proteção implementada com lock exclusivo e exceção antes de qualquer DROP.
+Concorrência entre processos: Não executado — há locks transacionais PostgreSQL para limites e locks de conta para login/troca de senha; os casos G3 não lançam processos concorrentes.
+Senha nova e revogação de todas as sessões compartilham a mesma transação.
+As tentativas usam transações separadas, preservando contadores nas recusas.
+Engine async postgresql+psycopg com pool próprio (5 + 5 overflow) e descarte no lifespan.
+Nenhuma dependência nova adicionada; dependências aprovadas e lock preexistentes preservados.
+
+HASHES
+Passou — os três SHA-256 conferem integralmente com casos_aprovados.
+Valores e caminhos: casos-intactos.txt.
+
+VALIDADOR
+Passou — governança OK: 7 mudança(s), 26 tarefa(s), 28 requisito(s) na spec viva; exit 0.
+Saída: validador.txt.
+
+ARQUIVOS DO PRODUTO
+.env.example
+apps/api/README.md
+apps/api/src/training_api/__init__.py
+apps/api/src/training_api/config.py
+apps/api/src/training_api/database.py
+apps/api/src/training_api/auth.py
+apps/api/src/training_api/csrf.py
+apps/api/src/training_api/limits.py
+apps/api/src/training_api/app.py
+packages/lineage/src/training_lineage/tables.py
+packages/lineage/src/training_lineage/migrations/versions/0006_auth.py
+
+PENDÊNCIAS
+Suíte conjunta: Falhou; encaminhar os 12 casos obsoletos ao responsável, sem aprovar sua alteração nesta entrega.
+Revisão Anthropic da implementação: Não executado — responsabilidade do orquestrador.
+Revisão de segurança obrigatória: Não executado — responsabilidade do orquestrador.
+Aceite humano G4: Não executado.
+Frontmatter e casos congelados preservados.

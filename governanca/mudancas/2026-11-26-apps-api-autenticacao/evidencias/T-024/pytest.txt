@@ -1,0 +1,298 @@
+........................................................................ [ 47%]
+........F.........FFFFFFFF..............FFF............................. [ 94%]
+.........                                                                [100%]
+=================================== FAILURES ===================================
+_________ test_ING_LIN_001_migration_upgrade_downgrade_empty_database __________
+
+empty_database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_lineage_7969f4ba4372481ba41f9c33621cb8ec)
+
+    def test_ING_LIN_001_migration_upgrade_downgrade_empty_database(empty_database):
+        assert inspect(empty_database).get_table_names() == []
+        migrate(empty_database, "head")
+>       assert {"document_version", "chunk", "alembic_version", "canonical_text", "canonical_span",
+                "chunk_provenance", "embedding_input", "ingestion_audit_event",
+                "effective_chunk_decision", "ingestion_reservation", "reconciliation_job",
+                "index_ack"} == set(inspect(empty_database).get_table_names())
+E       AssertionError: assert {'alembic_ver...version', ...} == {'alembic_ver...al_text', ...}
+E         
+E         Extra items in the right set:
+E         'chat_plan'
+E         'chat_candidate'
+E         'chat_citation'
+E         'app_user'
+E         'chat_rate_event'...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+packages/lineage/tests/test_lineage.py:196: AssertionError
+___________ test_ING_LIN_001_invalid_target_preserves_data[unknown] ____________
+
+engine = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_lineage_ed9654b381cd4c84a10f86efe63adfb1)
+target = 'unknown'
+
+    @pytest.mark.parametrize('target', ['unknown', '000', '-1', '+1', '0001:0002', 'head;DROP TABLE chunk', '', None])
+    def test_ING_LIN_001_invalid_target_preserves_data(engine, target):
+        with engine.begin() as c:
+            LineageRepository(c).insert_document_version(version())
+            LineageRepository(c).insert_chunk(record())
+        with pytest.raises(ValueError, match='Revisão de migração inválida'):
+            migrate(engine, target)
+        with engine.connect() as c:
+>           assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E           AssertionError: assert '0006' == '0003'
+E             
+E             - 0003
+E             ?    ^
+E             + 0006
+E             ?    ^
+
+packages/lineage/tests/test_lineage.py:297: AssertionError
+_____________ test_ING_LIN_001_invalid_target_preserves_data[000] ______________
+
+engine = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_lineage_6ef5c93022704c2dbaa7b85f8d361b0c)
+target = '000'
+
+    @pytest.mark.parametrize('target', ['unknown', '000', '-1', '+1', '0001:0002', 'head;DROP TABLE chunk', '', None])
+    def test_ING_LIN_001_invalid_target_preserves_data(engine, target):
+        with engine.begin() as c:
+            LineageRepository(c).insert_document_version(version())
+            LineageRepository(c).insert_chunk(record())
+        with pytest.raises(ValueError, match='Revisão de migração inválida'):
+            migrate(engine, target)
+        with engine.connect() as c:
+>           assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E           AssertionError: assert '0006' == '0003'
+E             
+E             - 0003
+E             ?    ^
+E             + 0006
+E             ?    ^
+
+packages/lineage/tests/test_lineage.py:297: AssertionError
+______________ test_ING_LIN_001_invalid_target_preserves_data[-1] ______________
+
+engine = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_lineage_74b88a06532c4330bf2c7b9a27af1872)
+target = '-1'
+
+    @pytest.mark.parametrize('target', ['unknown', '000', '-1', '+1', '0001:0002', 'head;DROP TABLE chunk', '', None])
+    def test_ING_LIN_001_invalid_target_preserves_data(engine, target):
+        with engine.begin() as c:
+            LineageRepository(c).insert_document_version(version())
+            LineageRepository(c).insert_chunk(record())
+        with pytest.raises(ValueError, match='Revisão de migração inválida'):
+            migrate(engine, target)
+        with engine.connect() as c:
+>           assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E           AssertionError: assert '0006' == '0003'
+E             
+E             - 0003
+E             ?    ^
+E             + 0006
+E             ?    ^
+
+packages/lineage/tests/test_lineage.py:297: AssertionError
+______________ test_ING_LIN_001_invalid_target_preserves_data[+1] ______________
+
+engine = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_lineage_d323b954a33b489d805d76694ce4ffa2)
+target = '+1'
+
+    @pytest.mark.parametrize('target', ['unknown', '000', '-1', '+1', '0001:0002', 'head;DROP TABLE chunk', '', None])
+    def test_ING_LIN_001_invalid_target_preserves_data(engine, target):
+        with engine.begin() as c:
+            LineageRepository(c).insert_document_version(version())
+            LineageRepository(c).insert_chunk(record())
+        with pytest.raises(ValueError, match='Revisão de migração inválida'):
+            migrate(engine, target)
+        with engine.connect() as c:
+>           assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E           AssertionError: assert '0006' == '0003'
+E             
+E             - 0003
+E             ?    ^
+E             + 0006
+E             ?    ^
+
+packages/lineage/tests/test_lineage.py:297: AssertionError
+__________ test_ING_LIN_001_invalid_target_preserves_data[0001:0002] ___________
+
+engine = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_lineage_e6fab6d2f9bd49b985decad953e6308a)
+target = '0001:0002'
+
+    @pytest.mark.parametrize('target', ['unknown', '000', '-1', '+1', '0001:0002', 'head;DROP TABLE chunk', '', None])
+    def test_ING_LIN_001_invalid_target_preserves_data(engine, target):
+        with engine.begin() as c:
+            LineageRepository(c).insert_document_version(version())
+            LineageRepository(c).insert_chunk(record())
+        with pytest.raises(ValueError, match='Revisão de migração inválida'):
+            migrate(engine, target)
+        with engine.connect() as c:
+>           assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E           AssertionError: assert '0006' == '0003'
+E             
+E             - 0003
+E             ?    ^
+E             + 0006
+E             ?    ^
+
+packages/lineage/tests/test_lineage.py:297: AssertionError
+____ test_ING_LIN_001_invalid_target_preserves_data[head;DROP TABLE chunk] _____
+
+engine = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_lineage_63f7104981fd426cb430fd2e84102732)
+target = 'head;DROP TABLE chunk'
+
+    @pytest.mark.parametrize('target', ['unknown', '000', '-1', '+1', '0001:0002', 'head;DROP TABLE chunk', '', None])
+    def test_ING_LIN_001_invalid_target_preserves_data(engine, target):
+        with engine.begin() as c:
+            LineageRepository(c).insert_document_version(version())
+            LineageRepository(c).insert_chunk(record())
+        with pytest.raises(ValueError, match='Revisão de migração inválida'):
+            migrate(engine, target)
+        with engine.connect() as c:
+>           assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E           AssertionError: assert '0006' == '0003'
+E             
+E             - 0003
+E             ?    ^
+E             + 0006
+E             ?    ^
+
+packages/lineage/tests/test_lineage.py:297: AssertionError
+_______________ test_ING_LIN_001_invalid_target_preserves_data[] _______________
+
+engine = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_lineage_1986c72106c446deba2ab35c997c1ab3)
+target = ''
+
+    @pytest.mark.parametrize('target', ['unknown', '000', '-1', '+1', '0001:0002', 'head;DROP TABLE chunk', '', None])
+    def test_ING_LIN_001_invalid_target_preserves_data(engine, target):
+        with engine.begin() as c:
+            LineageRepository(c).insert_document_version(version())
+            LineageRepository(c).insert_chunk(record())
+        with pytest.raises(ValueError, match='Revisão de migração inválida'):
+            migrate(engine, target)
+        with engine.connect() as c:
+>           assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E           AssertionError: assert '0006' == '0003'
+E             
+E             - 0003
+E             ?    ^
+E             + 0006
+E             ?    ^
+
+packages/lineage/tests/test_lineage.py:297: AssertionError
+_____________ test_ING_LIN_001_invalid_target_preserves_data[None] _____________
+
+engine = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_lineage_b3da0438e8404de7bd8f487fd9c670eb)
+target = None
+
+    @pytest.mark.parametrize('target', ['unknown', '000', '-1', '+1', '0001:0002', 'head;DROP TABLE chunk', '', None])
+    def test_ING_LIN_001_invalid_target_preserves_data(engine, target):
+        with engine.begin() as c:
+            LineageRepository(c).insert_document_version(version())
+            LineageRepository(c).insert_chunk(record())
+        with pytest.raises(ValueError, match='Revisão de migração inválida'):
+            migrate(engine, target)
+        with engine.connect() as c:
+>           assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E           AssertionError: assert '0006' == '0003'
+E             
+E             - 0003
+E             ?    ^
+E             + 0006
+E             ?    ^
+
+packages/lineage/tests/test_lineage.py:297: AssertionError
+_________________ test_C01_upgrade_preserves_old_records[base] _________________
+
+empty_database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_t011_075faa7b572e40af9017b0da24d4c98b)
+initial = 'base'
+
+    @pytest.mark.parametrize('initial', ['base','0001','0002'])
+    def test_C01_upgrade_preserves_old_records(empty_database, initial):
+        if initial != 'base':
+            migrate(empty_database, initial)
+            with empty_database.begin() as c:
+                repo = LineageRepository(c)
+                repo.insert_document_version(bundle()[0]); repo.insert_chunk(bundle()[3])
+        migrate(empty_database)
+        migrate(empty_database)
+        with empty_database.connect() as c:
+>           assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E           AssertionError: assert '0006' == '0003'
+E             
+E             - 0003
+E             ?    ^
+E             + 0006
+E             ?    ^
+
+packages/lineage/tests/test_ressalvas_persistencia.py:121: AssertionError
+_________________ test_C01_upgrade_preserves_old_records[0001] _________________
+
+empty_database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_t011_a4feee0af15042e7b5856bdc56668c91)
+initial = '0001'
+
+    @pytest.mark.parametrize('initial', ['base','0001','0002'])
+    def test_C01_upgrade_preserves_old_records(empty_database, initial):
+        if initial != 'base':
+            migrate(empty_database, initial)
+            with empty_database.begin() as c:
+                repo = LineageRepository(c)
+                repo.insert_document_version(bundle()[0]); repo.insert_chunk(bundle()[3])
+        migrate(empty_database)
+        migrate(empty_database)
+        with empty_database.connect() as c:
+>           assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E           AssertionError: assert '0006' == '0003'
+E             
+E             - 0003
+E             ?    ^
+E             + 0006
+E             ?    ^
+
+packages/lineage/tests/test_ressalvas_persistencia.py:121: AssertionError
+_________________ test_C01_upgrade_preserves_old_records[0002] _________________
+
+empty_database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_t011_9ffea416a9ba423faf7f10231fb79de2)
+initial = '0002'
+
+    @pytest.mark.parametrize('initial', ['base','0001','0002'])
+    def test_C01_upgrade_preserves_old_records(empty_database, initial):
+        if initial != 'base':
+            migrate(empty_database, initial)
+            with empty_database.begin() as c:
+                repo = LineageRepository(c)
+                repo.insert_document_version(bundle()[0]); repo.insert_chunk(bundle()[3])
+        migrate(empty_database)
+        migrate(empty_database)
+        with empty_database.connect() as c:
+>           assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E           AssertionError: assert '0006' == '0003'
+E             
+E             - 0003
+E             ?    ^
+E             + 0006
+E             ?    ^
+
+packages/lineage/tests/test_ressalvas_persistencia.py:121: AssertionError
+=============================== warnings summary ===============================
+packages/lineage/tests/test_chat.py::test_e1_error_and_final_failure_atomic
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/main.py:520: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `enum` - serialized value may not be as expected [field_name='status', input_value='erro', input_type=str])
+    return self.__pydantic_serializer__.to_python(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED packages/lineage/tests/test_lineage.py::test_ING_LIN_001_migration_upgrade_downgrade_empty_database
+FAILED packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[unknown]
+FAILED packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[000]
+FAILED packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[-1]
+FAILED packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[+1]
+FAILED packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[0001:0002]
+FAILED packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[head;DROP TABLE chunk]
+FAILED packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[]
+FAILED packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[None]
+FAILED packages/lineage/tests/test_ressalvas_persistencia.py::test_C01_upgrade_preserves_old_records[base]
+FAILED packages/lineage/tests/test_ressalvas_persistencia.py::test_C01_upgrade_preserves_old_records[0001]
+FAILED packages/lineage/tests/test_ressalvas_persistencia.py::test_C01_upgrade_preserves_old_records[0002]
+12 failed, 141 passed, 1 warning in 41.33s
+
+Exit code: 1
