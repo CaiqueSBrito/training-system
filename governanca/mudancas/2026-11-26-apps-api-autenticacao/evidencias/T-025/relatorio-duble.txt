@@ -1,0 +1,9 @@
+Estabilização do dublê de questões — ctx_15bf802ea1f6
+
+Passou: alteração única no dublê APIs.generate de packages/generation/tests/test_chat_integration.py: enunciado usa chunk.chunk_id completo em vez de chunk.chunk_id[:8]. Não muda opções, explicação, citações, seleção de contexto, reparos, cenários ou asserções. Comparação AST com 47270ee confirma as 33 funções test_* integralmente idênticas (assertivas-duble-intactas.json). Produto e apps/ não foram alterados.
+
+Passou: análise offline com exatamente os mesmos 256 UUIDs versão 4 e fonte do diagnóstico anterior, mantendo E9 real e DUPLICATE_RATIO=0.9. Antes: 244 aprovados/12 duplicatas; agora: 256 aprovados/0 duplicatas. Receita dos hashes validada contra os 3 chunks observados; resultados completos analise-duble-questoes.json e resumo analise-duble-questoes.txt. Script reproduzível: uv run python packages/generation/tests/analisar_duble_questoes.py. Artefatos do diagnóstico anterior preservados.
+
+Passou: UMA execução de uv run pytest packages/generation/tests/test_chat_integration.py -q; 41 passed, 1 warning in 47.21s, exit 0. Saída integral pytest-dublê.txt. Postgres/Qdrant descartáveis reais pelas fixtures existentes; sem chamada real de LLM (chaves vazias somente no subprocesso), sem repetição para obter sucesso.
+
+Passou: uv run validar-governanca, 7 mudanças/26 tarefas/28 requisitos; saída validador-duble.txt. git diff --check passou. Sem dependência nova, alteração de limiar, enfraquecimento de deduplicação, commit, push ou deploy. Revisão em curso do produto no commit 47270ee preservada.

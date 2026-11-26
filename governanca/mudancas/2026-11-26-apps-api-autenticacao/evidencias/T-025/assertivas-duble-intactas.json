@@ -1,0 +1,6 @@
+{
+  "status": "Passou",
+  "base": "47270ee",
+  "test_functions_unchanged": 33,
+  "comparison": "AST integral de todas as funções test_* idêntico"
+}

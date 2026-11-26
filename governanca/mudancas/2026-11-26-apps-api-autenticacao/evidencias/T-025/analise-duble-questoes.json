@@ -1,0 +1,4641 @@
+{
+  "same_256_versions_as_diagnostic": true,
+  "previous_experiment_counts": {
+    "accepted": 244,
+    "duplicate": 12
+  },
+  "chunk_hash_recipe_matches_all_recorded_chunks": true,
+  "duplicate_threshold_unchanged": 0.9,
+  "actual_diagnostic_pair": {
+    "version": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+    "prefixes": [
+      "46191423",
+      "ec2707aa"
+    ],
+    "stems": [
+      "O que é descrito por 46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56?",
+      "O que é descrito por ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180?"
+    ],
+    "similarity": 0.49038461538461536,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": true,
+      "motivo": null,
+      "detalhe": null
+    }
+  },
+  "closed_experiment": [
+    {
+      "version": "00000000-0000-4000-8000-000000000001",
+      "prefixes": [
+        "dfec7959",
+        "24f93645"
+      ],
+      "stems": [
+        "O que é descrito por dfec7959878352a71bc551993b8e56f6f5a7793eff14a90dbe8b2302d1d3ad4a?",
+        "O que é descrito por 24f93645b43e222b9861f890a1576ae98fa663fee648d30bac1125126006fa56?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000002",
+      "prefixes": [
+        "58257a18",
+        "f3217b80"
+      ],
+      "stems": [
+        "O que é descrito por 58257a187e9d537c1ba93e507bb75d271910c3ae09dbfa04245ad8bcbac3d85a?",
+        "O que é descrito por f3217b80df47bd939f8fc7aa2d88f481cb90ce43681708875a880cd55300e586?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000003",
+      "prefixes": [
+        "4f52360f",
+        "bf499f5b"
+      ],
+      "stems": [
+        "O que é descrito por 4f52360f426558b26eb676d4588ecb3bf181a2a6ded947a676943d3db21182f5?",
+        "O que é descrito por bf499f5b4b336adb4beef295cbc5abb213aac33c55271251f6c43295c6c0b8dc?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000004",
+      "prefixes": [
+        "6baef68e",
+        "c2a6a4b7"
+      ],
+      "stems": [
+        "O que é descrito por 6baef68e8180c708b6e369a764431a5cf5e9ef0b83b1911321218b690522986d?",
+        "O que é descrito por c2a6a4b70e3b18dd34e17097406d2aa003c42294f579978907afa705cb2301b9?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000005",
+      "prefixes": [
+        "9efe5b49",
+        "103b5ac2"
+      ],
+      "stems": [
+        "O que é descrito por 9efe5b499ef9845afc8f605f8771852ba04e33e824d1a1be25aa3501be7b0f47?",
+        "O que é descrito por 103b5ac2577cf40a18879193d025827bcdb8d6ab5911379573b0778e260ec3b4?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000006",
+      "prefixes": [
+        "112b1100",
+        "29033c5d"
+      ],
+      "stems": [
+        "O que é descrito por 112b1100375694fb7e1235a188d008cf224d0a5df31a21657260a3471143c08e?",
+        "O que é descrito por 29033c5dda928075c8c1e28e8dad9e53467d287abd1ff5e4f8749a9add721e0b?"
+      ],
+      "similarity": 0.46153846153846156,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000007",
+      "prefixes": [
+        "76d8f73c",
+        "f8af6ac9"
+      ],
+      "stems": [
+        "O que é descrito por 76d8f73ccad23fb44bd307d0c047693f43d8d3ab788d5aba597627a88c9355fe?",
+        "O que é descrito por f8af6ac9b6f336c49efdea2d6ca0239b408b67c7ce16d7e1afde391f148bb06a?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000008",
+      "prefixes": [
+        "a2622e0e",
+        "7d2994c3"
+      ],
+      "stems": [
+        "O que é descrito por a2622e0e147f4e71268f350e28e87a07083196d9c77c6549c4595c9d6866fd26?",
+        "O que é descrito por 7d2994c371efe1d0c1662f39cc6d5e5e6d9417b488e63e7ca62dfa68a17f30b5?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000009",
+      "prefixes": [
+        "5a7b7de4",
+        "dfe8b8ad"
+      ],
+      "stems": [
+        "O que é descrito por 5a7b7de4a67c9c3d0da0081d492b6826dbd17f0808073d3210cab580d86f9b63?",
+        "O que é descrito por dfe8b8ad382b0bfdf83dd6f62cf28eab6a9bf054bd842c50d1ad311c80266fe6?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000a",
+      "prefixes": [
+        "61b22853",
+        "5fd12f00"
+      ],
+      "stems": [
+        "O que é descrito por 61b22853525075e620abb808344d5e1924b0a7b08a1968ba9b46797f35ce4106?",
+        "O que é descrito por 5fd12f00138efe021783a2188c394050d8674b1b1adaad7c67a00ad00d0729ff?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000b",
+      "prefixes": [
+        "c0200a1d",
+        "6feca7b8"
+      ],
+      "stems": [
+        "O que é descrito por c0200a1d2d9d9bee02d661221cfe6ae46a4dc9a743117e6e28b22a1f6b0219ea?",
+        "O que é descrito por 6feca7b8b239f7ce0e937af6553a2285aa6259747c851699a3f12eb0dc8ca7cf?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000c",
+      "prefixes": [
+        "2d22e046",
+        "8ef39228"
+      ],
+      "stems": [
+        "O que é descrito por 2d22e046bc917376cd269a824d51fddacda7dd0ee3661d0792c63676e655f785?",
+        "O que é descrito por 8ef392285d307c3c3d0745bb5a102fd6e5c8846fb6fa46c994e6a88833684f13?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000d",
+      "prefixes": [
+        "327f6a02",
+        "e1444072"
+      ],
+      "stems": [
+        "O que é descrito por 327f6a0216becc553275ae432ff2b05e25ffe579a2833a883bb800a00531fb65?",
+        "O que é descrito por e14440720bd900519454fcc2e40d8078fec624c9186137211639662c24737568?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000e",
+      "prefixes": [
+        "60a06aa9",
+        "2654bd70"
+      ],
+      "stems": [
+        "O que é descrito por 60a06aa9813425c459c2b26bba1bdc32f1ffe969bb20ecef9795eae2a68c03d9?",
+        "O que é descrito por 2654bd7084635c912581465289962f6ad60e2ff6890cf2ceaf27aa011d53e95a?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000f",
+      "prefixes": [
+        "63bc321d",
+        "1d8af12e"
+      ],
+      "stems": [
+        "O que é descrito por 63bc321daeb0e63b43b4005a19dfa0db66870f6ea7ce1a769cf67ce09db58297?",
+        "O que é descrito por 1d8af12e94ffb69972365ad882562db417c50dccb8ea0a3a67ce259af8abe395?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000010",
+      "prefixes": [
+        "74782c21",
+        "9810174d"
+      ],
+      "stems": [
+        "O que é descrito por 74782c21ee8dfaf098923140e260f45e6e40a1b21d65beff153e152b841464bc?",
+        "O que é descrito por 9810174d3c993068f7ebaf13dac68ac328e8a221795cc0142ed8edb8f39783e4?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000011",
+      "prefixes": [
+        "4ecd5126",
+        "50b6df59"
+      ],
+      "stems": [
+        "O que é descrito por 4ecd5126bf159d0397f2048aafdb6ea0c6e94f790f692ddda5109b8fb1df3728?",
+        "O que é descrito por 50b6df59a69d9a7206bc40893ccb20660d710eb72daf7d1d48232004101bcc59?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000012",
+      "prefixes": [
+        "50b7ee74",
+        "60db7e63"
+      ],
+      "stems": [
+        "O que é descrito por 50b7ee747cd5be16f2be38432a31948eac5b1c9376152dbb5eb5a6ff78b56041?",
+        "O que é descrito por 60db7e631eee80aea18def55dbbf0dd7931eb11f4de8fcf266350aee557407a3?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000013",
+      "prefixes": [
+        "234d4214",
+        "f6689b54"
+      ],
+      "stems": [
+        "O que é descrito por 234d4214791d053841dca44600249b582907efae05340747b304ed44193ead78?",
+        "O que é descrito por f6689b54dc8556f6caf13831a9969db475a4faee9d13770e34dfbf55d5fbaae8?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000014",
+      "prefixes": [
+        "b652b963",
+        "bbd27e77"
+      ],
+      "stems": [
+        "O que é descrito por b652b96377f7d518a400e1fedd3d390aec90d559b0f3065f78be43d8c953d2e3?",
+        "O que é descrito por bbd27e77d3c4b1f3fd04f23e3b3738f4c407aec1a8d50d78b91491edbc9898ba?"
+      ],
+      "similarity": 0.5865384615384616,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000015",
+      "prefixes": [
+        "25abf094",
+        "2bfc9573"
+      ],
+      "stems": [
+        "O que é descrito por 25abf0944c1f9666915d003a0ab1da83ef4ef040d1f9e852a3a0620eda11a059?",
+        "O que é descrito por 2bfc957354af7530ba020669544b8401473eb53815acd0cc16c987e9220eda1a?"
+      ],
+      "similarity": 0.6153846153846154,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000016",
+      "prefixes": [
+        "33818e90",
+        "65f81825"
+      ],
+      "stems": [
+        "O que é descrito por 33818e90349c2193dbbd9d8cc6206fd84ad7e772f7fd69affeea2208a34d3ec0?",
+        "O que é descrito por 65f81825dbfd1140ff95cc2caf486e06dbd7e0f2997eb875d41d7df59f7f68d6?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000017",
+      "prefixes": [
+        "e74a7dd0",
+        "9cae852d"
+      ],
+      "stems": [
+        "O que é descrito por e74a7dd0d4b1b32d9a9c4d8707f0973dbb824c16a735f26556a404a950577125?",
+        "O que é descrito por 9cae852d96ef780683c74d1408f99d3fafd4d7a8d0f9f1b30adc4ffd52944af3?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000018",
+      "prefixes": [
+        "924f220c",
+        "36531a43"
+      ],
+      "stems": [
+        "O que é descrito por 924f220c1db1479fac48528f472e335b8fb06837ea7838110de32b4a8299c3dd?",
+        "O que é descrito por 36531a43502eead80e93a592124036e3f8de789cb681d1aa5df3921c9094ba3b?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000019",
+      "prefixes": [
+        "18716f79",
+        "d38bdfea"
+      ],
+      "stems": [
+        "O que é descrito por 18716f797ac38c4460c991368038b4c0f322e7a208edf432fe17c4f6b3624e68?",
+        "O que é descrito por d38bdfea2f39d766e25e20636f039a387eafcd3446cff450fcd52c6bb8196590?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001a",
+      "prefixes": [
+        "e512b2a3",
+        "f09e0e94"
+      ],
+      "stems": [
+        "O que é descrito por e512b2a35d6ff819eb367e8d2f20be20540c817e9cd6b73e20c6d90044d9bb84?",
+        "O que é descrito por f09e0e94099a2c3f6dab487f9103c608c61c70ea67e61d3e67919470d6cd4176?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001b",
+      "prefixes": [
+        "52a48fc4",
+        "57b832d2"
+      ],
+      "stems": [
+        "O que é descrito por 52a48fc4ace11a71b6d71cec0882bbc1027fe4c920fb625278fd1e4a8257652b?",
+        "O que é descrito por 57b832d271595940709b23e40c1c9896e66c9c16057409de49604fb4bc635d98?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001c",
+      "prefixes": [
+        "a90681a6",
+        "d5db3588"
+      ],
+      "stems": [
+        "O que é descrito por a90681a69ae1093ebb9c05d716f7b8659a6393d77a4c755801fbf37fcbf6bb98?",
+        "O que é descrito por d5db3588e5003ec7df865d31f7094b236ffe1eed62192b35a8b452336551cf0b?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001d",
+      "prefixes": [
+        "e5cedb55",
+        "50b19e8e"
+      ],
+      "stems": [
+        "O que é descrito por e5cedb551b87bd060dca504097ab4cb0aad82578daf817b46820fa38b58e821c?",
+        "O que é descrito por 50b19e8eeaf04a221cae6a3118e9c95f8ae2c64670e54d44417cd51dd0dbaa56?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001e",
+      "prefixes": [
+        "9038f952",
+        "28cd4242"
+      ],
+      "stems": [
+        "O que é descrito por 9038f9521703f022836b0f52e4de183fd3a995d58602a62b8c812c545b54c48d?",
+        "O que é descrito por 28cd4242a54a084b71b185c2a83b3bc24990a9040dcef9af8382ba86c06fa70b?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001f",
+      "prefixes": [
+        "1f175941",
+        "6e76d9e9"
+      ],
+      "stems": [
+        "O que é descrito por 1f17594183660273fb716c8ad4989654921bd4acf1ef93f06eaddc6720122245?",
+        "O que é descrito por 6e76d9e905b235cf56ed958029f900d98ff5be73f081a44de53803f9b6df985c?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000020",
+      "prefixes": [
+        "f1d269c7",
+        "51913a3f"
+      ],
+      "stems": [
+        "O que é descrito por f1d269c74ce8ee941774bac29d610ef6c028b91b8d3ad6d9078693920ea77bae?",
+        "O que é descrito por 51913a3f09c1c28a17276e9497ac757505a880a7adb149b4e554ed3838df0e9e?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000021",
+      "prefixes": [
+        "e0cbdece",
+        "c2c962a9"
+      ],
+      "stems": [
+        "O que é descrito por e0cbdece81b535f5e25c96a9bac0ed22572fdee7bb8b372001fffa5191e96899?",
+        "O que é descrito por c2c962a9c8440a2bc9452ed7631a4767aa060a271ff62d8f8c39bee912d5e177?"
+      ],
+      "similarity": 0.6057692307692307,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000022",
+      "prefixes": [
+        "2c059e54",
+        "ac91bb0e"
+      ],
+      "stems": [
+        "O que é descrito por 2c059e545938af19ef693962b7094bce7ddd06c5a8042a336664f31f02961781?",
+        "O que é descrito por ac91bb0ea62f1d0008565536e27ce27541b025f1da97a972bf5621ead3b97bd5?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000023",
+      "prefixes": [
+        "bc7293eb",
+        "87c8695a"
+      ],
+      "stems": [
+        "O que é descrito por bc7293ebacc962e8d7763c71de3431c8d3f2e5c7b6a54c19a1d85044adffeb16?",
+        "O que é descrito por 87c8695afbe99dacffd48b3a66852cf95e8f473b9e7acc1491664b5f91355804?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000024",
+      "prefixes": [
+        "57659283",
+        "3fafcdb1"
+      ],
+      "stems": [
+        "O que é descrito por 57659283891434e0b851e9de7312750651d789ff7d7ac8e3a1d4b177113fd9ce?",
+        "O que é descrito por 3fafcdb1319caba86593c40ffd4253ddd64d9095e0285711e9ee3f1074cecede?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000025",
+      "prefixes": [
+        "dc6793dd",
+        "2e96926f"
+      ],
+      "stems": [
+        "O que é descrito por dc6793dd0bd13eac85c6b843c71652be5499cdd295bd3a8b657cdd059f07f5df?",
+        "O que é descrito por 2e96926f3a9753f0b08a2e708baf19bee7ba3b697658efbed2ef569c2f1a32b9?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000026",
+      "prefixes": [
+        "07fd66f2",
+        "0c50d4c4"
+      ],
+      "stems": [
+        "O que é descrito por 07fd66f23aeb067dd658765b8506e4f88f28d89564eeec00bc5c807f3f00ffc8?",
+        "O que é descrito por 0c50d4c4e2220c00b3bf646f57512bff354ae21bfe02b9b92ffed1ab367e10e8?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000027",
+      "prefixes": [
+        "946d9aa0",
+        "863a4e60"
+      ],
+      "stems": [
+        "O que é descrito por 946d9aa06dc9a7ba09b2ca5d5e8b731ddd2d24c0765bc2e0fa6c6199a3f8dccd?",
+        "O que é descrito por 863a4e60c34b9a05691c8ed27b49a1cd0e01c2adc5ffcd37e7cceb87dcaa352c?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000028",
+      "prefixes": [
+        "cff8c83e",
+        "86ed292e"
+      ],
+      "stems": [
+        "O que é descrito por cff8c83edc974ba101211eb2edef4a37bd16ffa2088df689ac33ef95033ba4c0?",
+        "O que é descrito por 86ed292e7e8d3fb48ea081758ca1541eb3582029c7669071aaac9545e9a26da0?"
+      ],
+      "similarity": 0.5865384615384616,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000029",
+      "prefixes": [
+        "24b049a3",
+        "87e555f0"
+      ],
+      "stems": [
+        "O que é descrito por 24b049a3a9623fa07c3c1da0e4d5e7aaa988e6b9874257b7aedac0cbef248daf?",
+        "O que é descrito por 87e555f0699d52626c1722d8516f00c876e3782ffb7c34b4a18da784df7b42eb?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002a",
+      "prefixes": [
+        "d54784e1",
+        "681c7b05"
+      ],
+      "stems": [
+        "O que é descrito por d54784e11cc519430226ad8cbc4d99053654610336a9606ac8833d9e27d5455a?",
+        "O que é descrito por 681c7b0555c741c41b8c02ac1400c3b239bed37d754f86279ca83147e11cc71b?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002b",
+      "prefixes": [
+        "e61d8588",
+        "2ab26287"
+      ],
+      "stems": [
+        "O que é descrito por e61d8588b12591cddc56fce74b8aa51b84e84e1d3a6daee7b8cd9099d50ca64b?",
+        "O que é descrito por 2ab26287498dc490b6abae258a46a4fdd721924685c32e0f42a5621972b7c0eb?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002c",
+      "prefixes": [
+        "d01abd52",
+        "fd8b5294"
+      ],
+      "stems": [
+        "O que é descrito por d01abd523fe982270cdd0b8cdcb76f2f867de9df94e1deacc3cdd6a1fdfda06e?",
+        "O que é descrito por fd8b52944274a40ef5712e09c5fbf6c711769cab27c38681dffd491c55aff7b6?"
+      ],
+      "similarity": 0.4423076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002d",
+      "prefixes": [
+        "f84d5629",
+        "df001766"
+      ],
+      "stems": [
+        "O que é descrito por f84d562942c5009ad252858910fbf2728a63451f2c50242c627313569f61bd4c?",
+        "O que é descrito por df001766c78f38adfb07dca44857134bce31f3464b28a7ef5228bcde73ae4687?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002e",
+      "prefixes": [
+        "b1f133eb",
+        "57e541aa"
+      ],
+      "stems": [
+        "O que é descrito por b1f133ebbc30fd2854d2d0226da65165e36113fb84f1dfe753b94bb6aa3423f4?",
+        "O que é descrito por 57e541aa24c7d9556e279f3d9c715d69bdd17d2dcedd561d03f3d6b710959a78?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002f",
+      "prefixes": [
+        "5efbe9a1",
+        "d77b3991"
+      ],
+      "stems": [
+        "O que é descrito por 5efbe9a1bc66c9409cad262ac063af8f030d9301c2fc8ea4bfaf4308ce0c0893?",
+        "O que é descrito por d77b3991d10e22895045e33cde22b7ab8a6613613918bd9657a3a530f58758aa?"
+      ],
+      "similarity": 0.46153846153846156,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000030",
+      "prefixes": [
+        "8c568db7",
+        "02702df6"
+      ],
+      "stems": [
+        "O que é descrito por 8c568db79c0313bd1673a1339e3594efb2a05f4b36ad0252f4b845ff16d403f8?",
+        "O que é descrito por 02702df697842ba3cfaadbfb9ce1032be793b4ac8f6e6fbe968e8bfe0e298478?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000031",
+      "prefixes": [
+        "5ee1a286",
+        "01aad146"
+      ],
+      "stems": [
+        "O que é descrito por 5ee1a2869a18f1321d70cc1f4bc2bbea4b97850ee42702c33e7c5c672138a83e?",
+        "O que é descrito por 01aad1469022aff6266723611307b8b6c44e47130ed377919b182c7ecccf1b63?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000032",
+      "prefixes": [
+        "29290ca4",
+        "3fda5b1e"
+      ],
+      "stems": [
+        "O que é descrito por 29290ca416e7d8624ec7e4b721c5246e1c8c593cf07b1d282402d50476d1a8d9?",
+        "O que é descrito por 3fda5b1e714a07f35ffb07c605a6d8f561a5ec0c845a82e5ce26b28ba42d79f5?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000033",
+      "prefixes": [
+        "958ec976",
+        "2e97734e"
+      ],
+      "stems": [
+        "O que é descrito por 958ec9763cc3b6ab63338c6b2b4a0eb6bfb6d6ea43936db7e82cc4093f1414e4?",
+        "O que é descrito por 2e97734e2999d67dd2068e8734b2e8050ef7b1e219af7c3e5d868ad58ed18cba?"
+      ],
+      "similarity": 0.46153846153846156,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000034",
+      "prefixes": [
+        "8d49ac73",
+        "52be1128"
+      ],
+      "stems": [
+        "O que é descrito por 8d49ac7302316d0c226dc2b08da3d850fce212ee5b7651cdf2194515537cc3f1?",
+        "O que é descrito por 52be11285aba3d66b69a374422fb20e13bef587bae9ab68c207b13be1b93e4b6?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000035",
+      "prefixes": [
+        "b8b2b900",
+        "3c151ade"
+      ],
+      "stems": [
+        "O que é descrito por b8b2b9003e18ea3036a817f802fb58196ada97cbb3d2466f8ae2e6cf9893ccb9?",
+        "O que é descrito por 3c151adedcff0ef6f3f10de154ec75e95218d4aa6cb2b28429c3333a6dc4ac3a?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000036",
+      "prefixes": [
+        "9d9dc205",
+        "b33189a3"
+      ],
+      "stems": [
+        "O que é descrito por 9d9dc205da81fa0b8908abb14753b7b4a9ec8c5095389473fcb4993babd91c20?",
+        "O que é descrito por b33189a3b5aba5dcf81476c119e70ee56f28bced4565ce71fe0fc83c2ce3a5d7?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000037",
+      "prefixes": [
+        "40bf0dba",
+        "bd0d14f1"
+      ],
+      "stems": [
+        "O que é descrito por 40bf0dba57d795419ed652b398f8ff1009db91ae047fa29bb26699d74ebeadd2?",
+        "O que é descrito por bd0d14f18afc1c0768e824ed7398e4c2ca1cebb728b36ece8993937524a7a293?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000038",
+      "prefixes": [
+        "498a3b52",
+        "2352cd34"
+      ],
+      "stems": [
+        "O que é descrito por 498a3b52fbcf5bb934d99bdf461365d19075e2cd65c905c14f5e5cb4bcd2d4c6?",
+        "O que é descrito por 2352cd34f887dc39b47c52036b4afac2634d44d369bbefed63fcc6bfec124aa3?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000039",
+      "prefixes": [
+        "415428ba",
+        "e565e624"
+      ],
+      "stems": [
+        "O que é descrito por 415428baaf5cb0a7e49e5c2f5ed6b2b10c324d0f05b815d095665f37c1a164d3?",
+        "O que é descrito por e565e62415863c280c8e4278f3e2281bebda2315f190d0ffb927212a41fc0450?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003a",
+      "prefixes": [
+        "d9be7aba",
+        "0cf2a97a"
+      ],
+      "stems": [
+        "O que é descrito por d9be7aba23409ec48f721f887cb221153232408a84bc5e0a65d78d7e9b6812c0?",
+        "O que é descrito por 0cf2a97aa7d14663eb326f7962ef9e4434333bfd635587e8d976961c5e033621?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003b",
+      "prefixes": [
+        "fcdc1b82",
+        "cccbcad5"
+      ],
+      "stems": [
+        "O que é descrito por fcdc1b82aa31d7a12aa4f0d50842fd33f8c2a9c43635c6f4f6ec9d5018a02729?",
+        "O que é descrito por cccbcad508558f5f6adf25ec585a90e15d4cd99515ea77895db5203ea4631feb?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003c",
+      "prefixes": [
+        "42ec4613",
+        "d654461e"
+      ],
+      "stems": [
+        "O que é descrito por 42ec4613527692386b68ae4f105566320ddef3983a639d49a6a03e08659ceb7a?",
+        "O que é descrito por d654461eadfc0e4264f060284edb61452e04a403acf296ff3f5f51b76349fe61?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003d",
+      "prefixes": [
+        "a5cc1ff3",
+        "2bcc3cbf"
+      ],
+      "stems": [
+        "O que é descrito por a5cc1ff35dcd5c506b65ec30c77b380724bf043efaa6175d463563ea7d942f99?",
+        "O que é descrito por 2bcc3cbf8b0167d2b756513cc8b7223dc72a03a2c11565ca5303c4be36b78027?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003e",
+      "prefixes": [
+        "7f9c9df1",
+        "0b1f9d83"
+      ],
+      "stems": [
+        "O que é descrito por 7f9c9df13dd069eb782843a42502320c11c4b5901fc9f645dfb11bb60afb310b?",
+        "O que é descrito por 0b1f9d83e5c5267ac0a1e97ba0c91f0833d62e3dd774b886f9e3526a96f44dd6?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003f",
+      "prefixes": [
+        "6a140261",
+        "61e3b4c0"
+      ],
+      "stems": [
+        "O que é descrito por 6a140261a51bf3314210ea8d80ba0feae9a187a2575755bfe9211cecaa53bae8?",
+        "O que é descrito por 61e3b4c02c55cb4aa967d67fd1d5044ffc9460f43b8bd68da583fcea4096ad08?"
+      ],
+      "similarity": 0.46153846153846156,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000040",
+      "prefixes": [
+        "a82061f9",
+        "5f8c6204"
+      ],
+      "stems": [
+        "O que é descrito por a82061f996c40ba47dfcb62eae1ffb642593f84962cdf76180d53ba15fe503ba?",
+        "O que é descrito por 5f8c620445efe4e13865730b842d2a7682e969a2f8551b9a8c5a7266bdf73589?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000041",
+      "prefixes": [
+        "a57fd7c1",
+        "b32298a2"
+      ],
+      "stems": [
+        "O que é descrito por a57fd7c1241d27a72ac823e317f11bc652381e00b5f74a99c78d4c1cbdb43a72?",
+        "O que é descrito por b32298a288aad73d2d29fc1790a46c6c824be00a7b588b53b991fc87667ff9a7?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000042",
+      "prefixes": [
+        "09400133",
+        "57ba4065"
+      ],
+      "stems": [
+        "O que é descrito por 094001337b4931a225c281a500ab986013f223013a99e9f4c8098dcd331ac90c?",
+        "O que é descrito por 57ba40658772da145ffb8cf54c95f1bdf31b8d6979be3a0b2ebc89079d3f2da5?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000043",
+      "prefixes": [
+        "deb49826",
+        "f19319a9"
+      ],
+      "stems": [
+        "O que é descrito por deb49826273516c36770b5283239ec3b7649134ab06808bbb9c25d96d55d54ed?",
+        "O que é descrito por f19319a9d40a2e6292a7f22b2fb447aaebe06f039baa37d82d3a1764dafc98c4?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000044",
+      "prefixes": [
+        "32567a29",
+        "771aa71c"
+      ],
+      "stems": [
+        "O que é descrito por 32567a29926fa1b2b35266b12e79ace36838c9728138f72205aa2cecdf032fa9?",
+        "O que é descrito por 771aa71cad348e9b1b3348f4ac45c9bd1badfeb8d120b29b21a5deb1dc636d01?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000045",
+      "prefixes": [
+        "ce52c579",
+        "d7415421"
+      ],
+      "stems": [
+        "O que é descrito por ce52c579c79c6a6d17186800ed19e6af1cec770f1e4a81ed05d3c1e955d77c43?",
+        "O que é descrito por d74154212dd7e5aae9e95801fd4c8208e812b66098042d2887b4bfe6fd9212ef?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000046",
+      "prefixes": [
+        "8425813c",
+        "c5ba4083"
+      ],
+      "stems": [
+        "O que é descrito por 8425813c9e351b96f7ae642d4ed8d782e4de007bbde2df4d1e62ea01e07bd04d?",
+        "O que é descrito por c5ba4083cf38e35c059e48a4aec79a32b58cd25b1cd97f9e75e9c1a15a3740f5?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000047",
+      "prefixes": [
+        "37c9e036",
+        "fca1d00b"
+      ],
+      "stems": [
+        "O que é descrito por 37c9e036b7b024a33c3f060bcad4948fc0d7e5691e74c620e851a16bc4b85dd3?",
+        "O que é descrito por fca1d00b15a9a18a9b0608e034a39e31780eac63064fcb4e46039411b869f0d0?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000048",
+      "prefixes": [
+        "53645bdf",
+        "9b8226f2"
+      ],
+      "stems": [
+        "O que é descrito por 53645bdf6d78490944cbf3454991eacaefa7b49d8c48e3573802fc64898e57d9?",
+        "O que é descrito por 9b8226f2855001c8a89357bb635fd75e7336f4280f7833fb286c6a859b3aeb7c?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000049",
+      "prefixes": [
+        "46228fb2",
+        "6758791a"
+      ],
+      "stems": [
+        "O que é descrito por 46228fb25b29ed570cb49373de2e8a126e48561cf3a7670e75f6dde311fb613f?",
+        "O que é descrito por 6758791ac1dc01447ba5b103136e512b90297139b07f1889745f0219900e05c0?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004a",
+      "prefixes": [
+        "8901ff19",
+        "0e6681ea"
+      ],
+      "stems": [
+        "O que é descrito por 8901ff191cd96ac5a5bf0a79992fcf4da7db9ef7464c16d864bb489c9c90c8a5?",
+        "O que é descrito por 0e6681ea832b83bbb29e525cd620ed0499d6a6faf3aadcfa4155fc5026aa27dd?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004b",
+      "prefixes": [
+        "987bd78a",
+        "cefbe39a"
+      ],
+      "stems": [
+        "O que é descrito por 987bd78a2f3bcec112543b4fff7c19ccb5d1feb15392df30ac51e0c08fd9b0bf?",
+        "O que é descrito por cefbe39a4764f19f9954141a20f5d5466d84690288fda796810077740cb1c8b8?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004c",
+      "prefixes": [
+        "d0b81b4d",
+        "e4b5246d"
+      ],
+      "stems": [
+        "O que é descrito por d0b81b4d43c34d581e6594485a60a3d4a1218d76610f107c4192d2a54d7b493d?",
+        "O que é descrito por e4b5246df663e592d7d14ab120e39629691f274108dc1e7d753537ec33ee4266?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004d",
+      "prefixes": [
+        "f2371955",
+        "6311a5d0"
+      ],
+      "stems": [
+        "O que é descrito por f23719550e309abc3ba75d2ca14899ef70400c93fd424c738fbd7efdc4265cb7?",
+        "O que é descrito por 6311a5d0243fed613e38ecc2a0e8e05426b7b05c32451f9b30bdd6fe153de976?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004e",
+      "prefixes": [
+        "9e042420",
+        "0660d04b"
+      ],
+      "stems": [
+        "O que é descrito por 9e04242097931825e87885cec16dddd2136e11020f0327feb3a7f91fcdb07ab4?",
+        "O que é descrito por 0660d04b17b8e656ba4e8f924fa56314003cc5736c1c2803b9b5ece60072296f?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004f",
+      "prefixes": [
+        "cbb39c9f",
+        "4190fb25"
+      ],
+      "stems": [
+        "O que é descrito por cbb39c9f7593b7eddaad95fdee7daa87dcee5cb202f4da933fdc2d953753db03?",
+        "O que é descrito por 4190fb250818a1a96c027ed790e0469d804aed364543247a834d07714b84424b?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000050",
+      "prefixes": [
+        "24b5e769",
+        "83c068f3"
+      ],
+      "stems": [
+        "O que é descrito por 24b5e769615fa46fbf24d00bbb6db59fe1f9b27dc64ae9545705e736df5e4aea?",
+        "O que é descrito por 83c068f3ae5ff5df0828cf1594ab12d902e792c6c21d0228db2f35cd095ce826?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000051",
+      "prefixes": [
+        "3e4a15a4",
+        "fb457287"
+      ],
+      "stems": [
+        "O que é descrito por 3e4a15a48369743f33cb186aeadadd9ce1203ef139477e736554224a0b6f7f9b?",
+        "O que é descrito por fb45728734fd348ee5227173569f9fb764e02235a9a28b1a0067b5f3e52e20d3?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000052",
+      "prefixes": [
+        "4e3d600a",
+        "6926bc39"
+      ],
+      "stems": [
+        "O que é descrito por 4e3d600ad9f8646ff44a129beab089da51afebc2116063d4baa1d1fd11bbf8c1?",
+        "O que é descrito por 6926bc39bac9960243c602d299a2bf4dbe74c11860a35808ef3c3f88d23af14e?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000053",
+      "prefixes": [
+        "26912c54",
+        "ac82ac70"
+      ],
+      "stems": [
+        "O que é descrito por 26912c546ce0d86a25ee391d353910da41d2f2dfa529ba37bab56bdf770c148a?",
+        "O que é descrito por ac82ac7070366780ceb7829e1c9b0835d0846ea954be74dbb4a841aa89da4a46?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000054",
+      "prefixes": [
+        "0bf91813",
+        "6b79e83e"
+      ],
+      "stems": [
+        "O que é descrito por 0bf91813da73ef4eefd0923ee3502a7a89fe2e57037eaf6584b2ca88826cd37c?",
+        "O que é descrito por 6b79e83e3624ea53f703e75de122e1781e3da0049bb746ebcfe21dd7ddbb9747?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000055",
+      "prefixes": [
+        "9d5e3aeb",
+        "67315563"
+      ],
+      "stems": [
+        "O que é descrito por 9d5e3aeb166774953fe31725fbbf7e5c87ab9788b2e7d42c259318a9e0f4b70d?",
+        "O que é descrito por 67315563e9d7d469595a93ebfabf65000c9a4b34fbabeb7807e83d4dfa47cb7d?"
+      ],
+      "similarity": 0.5865384615384616,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000056",
+      "prefixes": [
+        "069748e4",
+        "c1bd2cb4"
+      ],
+      "stems": [
+        "O que é descrito por 069748e4b5a29053ac39c8702a6c620ba7f6f7a054fa5aa627e70fe0244cf7ce?",
+        "O que é descrito por c1bd2cb4be132aafd6aafc4c56802d9790f270abf1bca2b9708fa4b64a85048f?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000057",
+      "prefixes": [
+        "b39cc50e",
+        "a8e7efc7"
+      ],
+      "stems": [
+        "O que é descrito por b39cc50ee72ec1ed83699793ec1d93b983cde8a05886d78b6bd88a7fa0413516?",
+        "O que é descrito por a8e7efc76e54b7f62f77d15340fd0fa321801e92300f80b70c8395887cb2ebc9?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000058",
+      "prefixes": [
+        "a2f51293",
+        "9ae86c0c"
+      ],
+      "stems": [
+        "O que é descrito por a2f51293650d184f57c4a0e9492b27da84a133ce854cf169a733f16ba57d8286?",
+        "O que é descrito por 9ae86c0cbd35efff1ed6fb75c0b9732e220bf1e4ed17e3c8eaa94ed084181221?"
+      ],
+      "similarity": 0.4230769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000059",
+      "prefixes": [
+        "6c58cc4d",
+        "25d37e6d"
+      ],
+      "stems": [
+        "O que é descrito por 6c58cc4d81dc42b78fe06c3301eb50f21c5e0e12b99a26bfc32c052b8e60354a?",
+        "O que é descrito por 25d37e6d245e63268cb1d10898e5089c89e36863831934ba4aa2b4cb21f313e3?"
+      ],
+      "similarity": 0.46153846153846156,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005a",
+      "prefixes": [
+        "7f6e2c38",
+        "6fd51a98"
+      ],
+      "stems": [
+        "O que é descrito por 7f6e2c3801ad35ca3e0551a0029459ea1aea20b385b5ee99cdef42432de60bcf?",
+        "O que é descrito por 6fd51a98a62f050f1d44890d99877bd4348e4e94a0c01ae26fc5a2b78ec157f4?"
+      ],
+      "similarity": 0.5769230769230769,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005b",
+      "prefixes": [
+        "ee006ce3",
+        "46687cee"
+      ],
+      "stems": [
+        "O que é descrito por ee006ce31cb693073df589281c3c0712d38370a1aeb3df29e9755713968ddaf8?",
+        "O que é descrito por 46687ceee2c0c0b0bf2f857a8a373acccbf5dcea44a0453814f73c78c3adad51?"
+      ],
+      "similarity": 0.4326923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005c",
+      "prefixes": [
+        "7562622f",
+        "39920d9d"
+      ],
+      "stems": [
+        "O que é descrito por 7562622fba76e552b06c377da70ca3f3f6159c2172b2406549166696bccc418d?",
+        "O que é descrito por 39920d9d4c62d593e40147f93fac12742f97a7223614e6e936c3698945292f8d?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005d",
+      "prefixes": [
+        "140b71b3",
+        "248abb7f"
+      ],
+      "stems": [
+        "O que é descrito por 140b71b3f8d9847c46e0e8b5ad180f38208bbb9b8d27c1b64bac19e424976052?",
+        "O que é descrito por 248abb7ffbe9144a109d20ee7d06d53483827ef7d1dc7c38642893a9a4da6699?"
+      ],
+      "similarity": 0.5769230769230769,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005e",
+      "prefixes": [
+        "a1bf0f8e",
+        "8ed70d9d"
+      ],
+      "stems": [
+        "O que é descrito por a1bf0f8ed173f436329d25dc00eb5ed653710d64457c31d393cec641369879d7?",
+        "O que é descrito por 8ed70d9dfa8c9ef07043cf4cdb501d2b07d893ea0444efab8ddcf9eb0c3d5a42?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005f",
+      "prefixes": [
+        "12b35ff8",
+        "4a1d2581"
+      ],
+      "stems": [
+        "O que é descrito por 12b35ff88b574df8dc4b386058ffaeeeda6bf5992a177de00f3bae9ad7ef0b17?",
+        "O que é descrito por 4a1d2581cb0089c7af067592f84d4df2ecbd8500154f6ee1ecc203b2e8585b74?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000060",
+      "prefixes": [
+        "4be97e16",
+        "77218aa0"
+      ],
+      "stems": [
+        "O que é descrito por 4be97e16406bcde30cafa6b278b6b615cde4a6ab49675439afd05a64c95e4947?",
+        "O que é descrito por 77218aa08510a7da032a5127739cd0a62b3cd9dea7dc955b437be08fcd0e1aa3?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000061",
+      "prefixes": [
+        "ee618bbd",
+        "a5dc2838"
+      ],
+      "stems": [
+        "O que é descrito por ee618bbdd7227ef4dec0e50c26f3741c7d38a109fe565879c4e3774181b7e552?",
+        "O que é descrito por a5dc28384b0b7416a0569228190f4f2151831bed95d04de57bc815a3a6522d66?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000062",
+      "prefixes": [
+        "2fedaf9e",
+        "cf1b2d4c"
+      ],
+      "stems": [
+        "O que é descrito por 2fedaf9ea5d96b79272c22d90bbe4a0db5d66e7871f7c8ddfbb07629ee4f78eb?",
+        "O que é descrito por cf1b2d4c379542994945205d410928d0bc737262155964f5330c5484e37762c4?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000063",
+      "prefixes": [
+        "a0a5effd",
+        "aeca2d9c"
+      ],
+      "stems": [
+        "O que é descrito por a0a5effd6e4ca679b8aefb3302cdad1da520802cf9a4d545cfc5d85cb4b2f00b?",
+        "O que é descrito por aeca2d9c54c41d05047497d914ba5ae6737f9fb2651aa5ff213e07a5070aa48b?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000064",
+      "prefixes": [
+        "3502afc3",
+        "c758d9fd"
+      ],
+      "stems": [
+        "O que é descrito por 3502afc3e3066a716751ddafa5914b5c1850c8e502ec1b3fca3fc0c420d3dbdc?",
+        "O que é descrito por c758d9fdba8977afd86293249ac62a059f037bed57517f9274e1c0da3d4102ae?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000065",
+      "prefixes": [
+        "cd36bd80",
+        "682c469a"
+      ],
+      "stems": [
+        "O que é descrito por cd36bd80a18ec86da54f98a58a5fd6e97e464268bb1851747c07ebd1d864a924?",
+        "O que é descrito por 682c469a14435ad35024236c540df4269ff328d555c8f9f7a3c81e361519ee8b?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000066",
+      "prefixes": [
+        "6efdbea4",
+        "f9666e8d"
+      ],
+      "stems": [
+        "O que é descrito por 6efdbea46b1849e69fad96b3ce776b46d4b0b29be8684e8406c2b67adb8e592c?",
+        "O que é descrito por f9666e8d0b71eea02741b728c774f4f957ae27efef8a01693655d63c5eeaadc8?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000067",
+      "prefixes": [
+        "97e12379",
+        "3fca2d17"
+      ],
+      "stems": [
+        "O que é descrito por 97e12379490246a4e5bec5b1f9345bcc1941e920951d661c94336eca72f4db63?",
+        "O que é descrito por 3fca2d17c5b8099b504ce3b2388349857db9cb48104b36ec5d272109208b43f9?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000068",
+      "prefixes": [
+        "07a0c175",
+        "65477ef7"
+      ],
+      "stems": [
+        "O que é descrito por 07a0c17534ec1b73f159b82081b8fa1a6c835f074a27ce2fadd6f71f62e61df4?",
+        "O que é descrito por 65477ef7438fa6176a7155c100fd7d31e4cd2af7ad8a9ce31faae7b8431c1983?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000069",
+      "prefixes": [
+        "f08b6b97",
+        "2a4ca490"
+      ],
+      "stems": [
+        "O que é descrito por f08b6b97db4aeb461b3eb12bac8cbbf19910eab13c0c8e2344536f4d55cafcc0?",
+        "O que é descrito por 2a4ca49005718d58099469596a6dde389debe4ad7c57ca53d4d66598de27af13?"
+      ],
+      "similarity": 0.4423076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006a",
+      "prefixes": [
+        "fc7cd85b",
+        "44197995"
+      ],
+      "stems": [
+        "O que é descrito por fc7cd85bc045a2972afc21ef12c0df6be9b3ff57dc0546128e07a779fcbfdf4b?",
+        "O que é descrito por 44197995ac772d38e47c18bec76e0b6e1a73d550d8cf5b33f71982efb6f936b6?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006b",
+      "prefixes": [
+        "7c5f82c8",
+        "176fe5fb"
+      ],
+      "stems": [
+        "O que é descrito por 7c5f82c8394007e7236cdf530307038188e4dbfa472bf630f010547aedfae910?",
+        "O que é descrito por 176fe5fb7d970bda0f8baeb417411d3f0df268d6459ce0424e93c134d9d35269?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006c",
+      "prefixes": [
+        "a1160ff5",
+        "03f7f513"
+      ],
+      "stems": [
+        "O que é descrito por a1160ff54b7e0bb985d5a5baece4519d1287aa8afb6a9ad6ad369382e510bee1?",
+        "O que é descrito por 03f7f513ad12b09cc9e29a8638a5ca714505cbe0da2f5d76b9f7034c9db1d210?"
+      ],
+      "similarity": 0.5769230769230769,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006d",
+      "prefixes": [
+        "f683aa07",
+        "ecd96236"
+      ],
+      "stems": [
+        "O que é descrito por f683aa076558f7a2810803d044a240f2335990513e67dbe289a7303534dff270?",
+        "O que é descrito por ecd96236bd283e48f04178dd9221dc3bd44b48cbe5c8195da2294547ad5b7a7a?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006e",
+      "prefixes": [
+        "f6b12f92",
+        "35c55fbc"
+      ],
+      "stems": [
+        "O que é descrito por f6b12f920f622791e0e9074a7e614560de9f4b2419eee57d9680c8ac44099c5c?",
+        "O que é descrito por 35c55fbce656c69e674cbb94d7e14ebd718a111ef1b3509f5b5efdb9c29a1026?"
+      ],
+      "similarity": 0.40384615384615385,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006f",
+      "prefixes": [
+        "310c02b6",
+        "90429b75"
+      ],
+      "stems": [
+        "O que é descrito por 310c02b640b0574e00f31d7667017a6d9802b38a4e4e19474e2b876f717ef8cb?",
+        "O que é descrito por 90429b75b10ab4ca48b62db21a40b3a9cd5f00517ef17175e47db1ea5ee2ce59?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000070",
+      "prefixes": [
+        "5996e2db",
+        "a0ccf410"
+      ],
+      "stems": [
+        "O que é descrito por 5996e2db2d1fee0ff81f398b9e835052eb73762ef06a656f64a7663f8dd46e75?",
+        "O que é descrito por a0ccf4104ebae1a896b1cdbfe966b92a31160b7e855fdf7af6965373b66e8956?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000071",
+      "prefixes": [
+        "f901fddd",
+        "b3dc1ae8"
+      ],
+      "stems": [
+        "O que é descrito por f901fddda966cffea27548298e503c2d353557fbcbec76cdf7ffafa4d7937421?",
+        "O que é descrito por b3dc1ae8b7d12178f7ec33276bbb9ee8bc0ace92e5ca50e2c5a4dea81bb4bcdd?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000072",
+      "prefixes": [
+        "a451de00",
+        "0c5990f1"
+      ],
+      "stems": [
+        "O que é descrito por a451de002bcc32d8be447cda75c0cfe3875772d7ca40b33688629d3eb3c28bc9?",
+        "O que é descrito por 0c5990f14f6887401b5738b1101ed5353d890cae6d1054e589b52f0024c5087d?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000073",
+      "prefixes": [
+        "6ffcaba6",
+        "de9a010e"
+      ],
+      "stems": [
+        "O que é descrito por 6ffcaba67dd461629d72a6e45f07f9aa5ecd21e1b40b165daee5fb33b0004d29?",
+        "O que é descrito por de9a010ed2888c277890c6f25e06864ace1a9a082b4eb43c8c1b5534ac3a8447?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000074",
+      "prefixes": [
+        "75a07d18",
+        "3058b997"
+      ],
+      "stems": [
+        "O que é descrito por 75a07d182f720c0ffe5e3293f115106ac546931d919861e3ba0a898f24ff9e7b?",
+        "O que é descrito por 3058b9979479ab0e44b4471bdea4dbe6019a0d6a150e492d322e7dbb6cbd156f?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000075",
+      "prefixes": [
+        "fe80ef05",
+        "5c06cf5a"
+      ],
+      "stems": [
+        "O que é descrito por fe80ef051531e0f068b3a324eafdb6f7a0e58361e4737f1525ade18494c1843a?",
+        "O que é descrito por 5c06cf5aaa9510cdd44f017517eaa33e176d2e2e6d7fadfa13af06a644939ec0?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000076",
+      "prefixes": [
+        "fb887bf4",
+        "b315bb71"
+      ],
+      "stems": [
+        "O que é descrito por fb887bf48017173deecbb479430d61714ecf82ea978b0944650d2b1310dce555?",
+        "O que é descrito por b315bb714a6c1dde2c95a1bad1f5fe2cb057f4f44d88e5b15ab6ee318391df87?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000077",
+      "prefixes": [
+        "e24fec55",
+        "0380a43d"
+      ],
+      "stems": [
+        "O que é descrito por e24fec55e8bc25653fe36dab756fa8ca453d3355d4281ad4eb71e6d22cd36c20?",
+        "O que é descrito por 0380a43d4937169cf715452ba1f8c1672e503f7efce442f8bceeadad2afa6679?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000078",
+      "prefixes": [
+        "42ec4b08",
+        "2593d216"
+      ],
+      "stems": [
+        "O que é descrito por 42ec4b08c45e6ed8f3acacf48800f4e943610d554f08ecdece6ea099d7222cef?",
+        "O que é descrito por 2593d21686b9689ec875d01361701b18e0b0c7a4c4ac08a9069b18ec2ba3cfef?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000079",
+      "prefixes": [
+        "698a1437",
+        "be76acfb"
+      ],
+      "stems": [
+        "O que é descrito por 698a14371fd998cdcdca5fd83959e885bc82bfe162c196d888d4b829d1a32797?",
+        "O que é descrito por be76acfbb0ecc7a9533448b82ede39be5558b730bbbc93962aa989fc21bdbc45?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007a",
+      "prefixes": [
+        "d46249bd",
+        "77fbbe65"
+      ],
+      "stems": [
+        "O que é descrito por d46249bd769289ff8a327d3c9a8b2ae57392a134d14361929798912c2a6678b5?",
+        "O que é descrito por 77fbbe659f5bd9a85d1ee19fa6d8ef3a53d78b96414d31791c73463652aec31b?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007b",
+      "prefixes": [
+        "d9f5c945",
+        "63a5d733"
+      ],
+      "stems": [
+        "O que é descrito por d9f5c9452c78ef48f4c2f3162720e55fe4c6eaeb3ec3f6ba79a7bb9bf8b0d96a?",
+        "O que é descrito por 63a5d7338fc9940db0fa259b9f93f9cf173303fdcd8cfd811e828f79b50575c4?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007c",
+      "prefixes": [
+        "537e6970",
+        "6943e9e1"
+      ],
+      "stems": [
+        "O que é descrito por 537e6970fa3111351025129d826fa79c40b0615419787c92695c983b2676c3bb?",
+        "O que é descrito por 6943e9e12166a74ffbe0b9e593b0ca2e0eb8badc1e926e157535159191766b5b?"
+      ],
+      "similarity": 0.5961538461538461,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007d",
+      "prefixes": [
+        "0e754450",
+        "139780db"
+      ],
+      "stems": [
+        "O que é descrito por 0e75445041cf2055eb4889f464e386c11f6bc0cc961c3cc56e24000076650513?",
+        "O que é descrito por 139780db6ef06f758250743553429fdf449b233d591ac43f8d2ff8a34166afaa?"
+      ],
+      "similarity": 0.40384615384615385,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007e",
+      "prefixes": [
+        "1d8e421e",
+        "7a5e74eb"
+      ],
+      "stems": [
+        "O que é descrito por 1d8e421ef496bdd6cde4ba10e7801fc2240e0496be5816b5ac42bea87a593355?",
+        "O que é descrito por 7a5e74eba94c094071976c2c79d581a0df19dd66bcd783facd76d6daca50015d?"
+      ],
+      "similarity": 0.4423076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007f",
+      "prefixes": [
+        "1a3e9b6d",
+        "6ac8e70e"
+      ],
+      "stems": [
+        "O que é descrito por 1a3e9b6da3a66838f85d8bfe9e55de6880e69bd046347b1409c1559f51d727fd?",
+        "O que é descrito por 6ac8e70e4aacbfb1aaaa83c0afec484238d44e557814f3bccc4e09c2b12752b1?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000080",
+      "prefixes": [
+        "e0987314",
+        "fea462b9"
+      ],
+      "stems": [
+        "O que é descrito por e098731429ae673e8f7cc6cb94cf47a09b9515bf8439b9e6bf4f1da8566efb19?",
+        "O que é descrito por fea462b99b5fc301fc135d162609c1d40a4d3856b0ff66c13eed1806632dc78d?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000081",
+      "prefixes": [
+        "f017c2af",
+        "5500ac17"
+      ],
+      "stems": [
+        "O que é descrito por f017c2afeec02f7b451af2d03a91973601f24a0e60f9818459463b01e420a1fb?",
+        "O que é descrito por 5500ac1781474c8aadde412b181648908b63af7fc4c7e6414f67ae5527ba288e?"
+      ],
+      "similarity": 0.4519230769230769,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000082",
+      "prefixes": [
+        "3fe31b49",
+        "ef218aaa"
+      ],
+      "stems": [
+        "O que é descrito por 3fe31b499759cde1585b43087dc82e8ab720480ba4634cd655315e193bfdda09?",
+        "O que é descrito por ef218aaaacd5034d434cb5a6f17d853b7d74732fc7c733ab923bc10a97cd8f5b?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000083",
+      "prefixes": [
+        "ab613cc1",
+        "78879aa6"
+      ],
+      "stems": [
+        "O que é descrito por ab613cc1557c1c8a2137a30e71fdad829fd93bfc3a953115756e8e14ed6bf9fb?",
+        "O que é descrito por 78879aa64cb4425938ed6a07b9276e95f1b3c3a3a447468d5a8b553a50681157?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000084",
+      "prefixes": [
+        "359695e7",
+        "15fdd30c"
+      ],
+      "stems": [
+        "O que é descrito por 359695e75975f2efbbc6185b8282cbc8e85f397f83942935756724046a8c85a1?",
+        "O que é descrito por 15fdd30c8e700488ddbe61cd8b87b7eb0818d62607d077840c88244e73a03bf6?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000085",
+      "prefixes": [
+        "2bb269d7",
+        "b9d95fc4"
+      ],
+      "stems": [
+        "O que é descrito por 2bb269d76b0be6e10812d40e8c0ac2d46a77d62aa502611e23df6c54062c682f?",
+        "O que é descrito por b9d95fc4d3dd1f8cd83c1b0dfffbaf3ac96a5790911aedf6059e5a0478690ba9?"
+      ],
+      "similarity": 0.5865384615384616,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000086",
+      "prefixes": [
+        "b7534505",
+        "4c172e2c"
+      ],
+      "stems": [
+        "O que é descrito por b7534505edcc23a4f9f552eee5887b230d0e61fea1b403aa11260fd5f5402764?",
+        "O que é descrito por 4c172e2ca74cbd5f0465865fd2569c235b3de367546d6250b97c35a806528b88?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000087",
+      "prefixes": [
+        "6f892820",
+        "75e5719e"
+      ],
+      "stems": [
+        "O que é descrito por 6f892820c9ebe32ea7cad3d04d8f3464d2d0dd4ad027a48e08e003eaa93a58ca?",
+        "O que é descrito por 75e5719eabcd2653d80df9bd21a973ad9e2e30d6ee95cddf203c6c888f836486?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000088",
+      "prefixes": [
+        "7a6f155d",
+        "648d0286"
+      ],
+      "stems": [
+        "O que é descrito por 7a6f155d36accad8b336e82f44e9771a23f1c6c0a38734307325bac9fbcf2d65?",
+        "O que é descrito por 648d0286b1f747974ce5b31f9f0d25918275d068ce850ec7436a09e61041b377?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000089",
+      "prefixes": [
+        "6b4ec148",
+        "2c8f557d"
+      ],
+      "stems": [
+        "O que é descrito por 6b4ec1483f7c68806de33699546df59a6eb15b004be46bb39fc57a7557cd794f?",
+        "O que é descrito por 2c8f557d8919c709ea091b50dd004819edd04c8800a1c2bb49bd638a2918ac9f?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008a",
+      "prefixes": [
+        "80989da5",
+        "0f336ec5"
+      ],
+      "stems": [
+        "O que é descrito por 80989da5d8dafc1d732df3cd47a57b523eec37a1193407baea01e7c974a050b6?",
+        "O que é descrito por 0f336ec5511cb2da889ee5a6551ccddfcf7742d9dadce26c80a626d57636a29e?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008b",
+      "prefixes": [
+        "82ea6257",
+        "d6018ed7"
+      ],
+      "stems": [
+        "O que é descrito por 82ea62573fad186ceb7f35328c7170689cf441e3be4c1bb54193e49ffef23925?",
+        "O que é descrito por d6018ed7b112d44ad37fb63e29b0e9aebea9783d5f802a10c1e5b523c294172e?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008c",
+      "prefixes": [
+        "38c92b84",
+        "ba25506a"
+      ],
+      "stems": [
+        "O que é descrito por 38c92b848d4c265fa27d4a5a6f23ba1f5897df1f06629e4a253fe50208f75002?",
+        "O que é descrito por ba25506a25c60e79e1f70eda570d6787c404716abf4b8b6ad6149c2c13493132?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008d",
+      "prefixes": [
+        "2aa79d40",
+        "df74583b"
+      ],
+      "stems": [
+        "O que é descrito por 2aa79d40b59ceead64aae1d542c6025db1d0c916f41d29eb134ba301f4bcfaa6?",
+        "O que é descrito por df74583ba2d601168b2747406f43e7e1c9d8b5175791d386ce8180b0900a100b?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008e",
+      "prefixes": [
+        "82131b6a",
+        "4aa0989a"
+      ],
+      "stems": [
+        "O que é descrito por 82131b6a61c0ac585c30cc02a6bbecd3c93e6272f13ca3cd5006b55bedaca38f?",
+        "O que é descrito por 4aa0989a83348385ea580f72b6bd6c0156d7d8d9e526a7423c7be3b94b3e8037?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008f",
+      "prefixes": [
+        "20c58eec",
+        "e35c1ce3"
+      ],
+      "stems": [
+        "O que é descrito por 20c58eec11ccb5e347fc573f31cfd2883c89a6f38e5240cd578210461160c97e?",
+        "O que é descrito por e35c1ce38829ad926378cd2ddee87c38a958943c6586ae92bc6e39cdfc9a813a?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000090",
+      "prefixes": [
+        "8bdec6f2",
+        "b36f2a0e"
+      ],
+      "stems": [
+        "O que é descrito por 8bdec6f2a8f30eaf05c05de26f2671c28ea0a5659ea99c6d20f4110deafa5235?",
+        "O que é descrito por b36f2a0e076ce73284e90b974bda26f2acac2bd022dade97f58c40a8e715914c?"
+      ],
+      "similarity": 0.6057692307692307,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000091",
+      "prefixes": [
+        "567c8f3c",
+        "80b9ae5c"
+      ],
+      "stems": [
+        "O que é descrito por 567c8f3c544fa9a6555dff856ac9ea43942f810d6985f4e9d1243d8dcd403e91?",
+        "O que é descrito por 80b9ae5ce3439c0ff4fb094f315419903af7517c8827c790fc1df0a293be84f1?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000092",
+      "prefixes": [
+        "7b60ab88",
+        "550db22a"
+      ],
+      "stems": [
+        "O que é descrito por 7b60ab88f8252c6190b8ffc6089e758bf027e8a644775fb1be8ce64410e79255?",
+        "O que é descrito por 550db22a18458b3538b3ce9e2abd12e463049071753ee3fd9f889978a44a98b8?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000093",
+      "prefixes": [
+        "28a30574",
+        "7bb054c3"
+      ],
+      "stems": [
+        "O que é descrito por 28a305740b2e8e02e1ce912dcf46f8b032f1244e962e71548b9d1df8bd7989dc?",
+        "O que é descrito por 7bb054c35309c8677b2af7ca49a7b4cce798c563672be0059cb7c26f1801ae04?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000094",
+      "prefixes": [
+        "33857846",
+        "59be86cb"
+      ],
+      "stems": [
+        "O que é descrito por 33857846db1f53012fdccb13ae2c9dc1371265a179725aed9b5aff9d5d399c9b?",
+        "O que é descrito por 59be86cb49230eeb68309d737f5fda26b8a286f07d38b12afa71f16b756b2583?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000095",
+      "prefixes": [
+        "61d3febd",
+        "fcc40cb0"
+      ],
+      "stems": [
+        "O que é descrito por 61d3febd808a1d5f1c0aeb757d5b5698471c7aeb601a0dd45ec656cd78b1304f?",
+        "O que é descrito por fcc40cb0fc0ab6f0e0fd107e4bcf4207818d56d91e321d681700ce209dd4d0d4?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000096",
+      "prefixes": [
+        "0864ee23",
+        "6f971e28"
+      ],
+      "stems": [
+        "O que é descrito por 0864ee2313140b355390982cd5b4a483214d7fe96c8160b87aa7b384c2b7ac0a?",
+        "O que é descrito por 6f971e28f7035298e0ad98b77a802a91c53c0c48fdce59596ba8a11b05e78331?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000097",
+      "prefixes": [
+        "3e1a33af",
+        "7cd20214"
+      ],
+      "stems": [
+        "O que é descrito por 3e1a33af4e7b5825734aa2a9beb3e1ef9c68e4f3059cc3d1983ea54fdc726472?",
+        "O que é descrito por 7cd202148f23ccf2243edc871d66aaa10c57ec75928c356e4c5363af2ff2cb31?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000098",
+      "prefixes": [
+        "b3995383",
+        "53b742d3"
+      ],
+      "stems": [
+        "O que é descrito por b3995383ed3f44c724d77d082c2a750cfd490bb82a8657c02f2e97ccbf179729?",
+        "O que é descrito por 53b742d3eae2b24bd43fb1f11e6a8b0bcb6d4429f842e9d68298d522ff6945f9?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000099",
+      "prefixes": [
+        "6d6a2aa6",
+        "41bbcdc4"
+      ],
+      "stems": [
+        "O que é descrito por 6d6a2aa618a9791a967dbdd918c2a7bfbcd7107754d347bf7b5220bfdecdfcc2?",
+        "O que é descrito por 41bbcdc4ca4bc45b863510ae0bc0d477640059ce7f5e3636c7e920e69cc39f65?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009a",
+      "prefixes": [
+        "8a73095f",
+        "e6c48462"
+      ],
+      "stems": [
+        "O que é descrito por 8a73095fe86afa90a9c8ef6bc62604f2e164394ff744924b3608d8ae2bd6aa4f?",
+        "O que é descrito por e6c484626329680827564cbc2665b2cb843a56cab5b03bd970a1e217eaef4179?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009b",
+      "prefixes": [
+        "e81f1882",
+        "c815f22f"
+      ],
+      "stems": [
+        "O que é descrito por e81f1882fcce745fb947a10d62831d65c4fe795bcc9af28c821c1ce5e1b14138?",
+        "O que é descrito por c815f22f0146abc9ff3aa346513c38403d38fb593f6007146f8d7fd3afc775bd?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009c",
+      "prefixes": [
+        "79ef8b2f",
+        "c76a4d15"
+      ],
+      "stems": [
+        "O que é descrito por 79ef8b2f7de68b77e701c95f935c1b3692f022690ad326060c2dd29a98740b4c?",
+        "O que é descrito por c76a4d1584e18b778b20fac09a5502a2ddc10c0d25c733e2ee8d585dca66e084?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009d",
+      "prefixes": [
+        "f3f6585e",
+        "467a650c"
+      ],
+      "stems": [
+        "O que é descrito por f3f6585e4072b5fd0ca8c431a80f9c1a5b4b43ba4168421e8cd0aaee78982f95?",
+        "O que é descrito por 467a650c67e11e6a7ad7c415b849e500f1bc4489b287b7f4d16cc057a12c5c47?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009e",
+      "prefixes": [
+        "6cdc7e30",
+        "725ff223"
+      ],
+      "stems": [
+        "O que é descrito por 6cdc7e3001cf163dfba337378409352698a341648601bad8a6ddcac2733f3f2b?",
+        "O que é descrito por 725ff2230f8c16af761803105053773fdaacd40e131e92158fcf6445b59485e8?"
+      ],
+      "similarity": 0.4423076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009f",
+      "prefixes": [
+        "63bae1c5",
+        "671d626c"
+      ],
+      "stems": [
+        "O que é descrito por 63bae1c58d03938aff928339beef16a9c0a46e0b44576ea9df3cded5e29c5650?",
+        "O que é descrito por 671d626ce88c0a098c6cf0a7aebde1bea9dc656fc5a499732211b0e4518d2fe4?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a0",
+      "prefixes": [
+        "4ccb3ae5",
+        "38eac4d0"
+      ],
+      "stems": [
+        "O que é descrito por 4ccb3ae578bcdc1bafbbc4ad17c134173e6a8b701447dcd13814ed157ef84088?",
+        "O que é descrito por 38eac4d0eff571db6dd57e4a32d3777037dfa396acfcbe1fd7e74603a4726ffe?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a1",
+      "prefixes": [
+        "7e7b05d7",
+        "48848603"
+      ],
+      "stems": [
+        "O que é descrito por 7e7b05d715fcc711f414b28e93c9542c47aa0e3a6206c758f467ff0164b08c41?",
+        "O que é descrito por 48848603334a3cbf6a7b47b5561dc2d2ee44dfee086f53862d4159bae265bdd0?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a2",
+      "prefixes": [
+        "1e22ff4b",
+        "a03243ec"
+      ],
+      "stems": [
+        "O que é descrito por 1e22ff4bcfc2019f89258de9b69db98946b3a682bbeac2db08a8a47db4e39f56?",
+        "O que é descrito por a03243ece2c76f7ebe1ea2ec945028b2ba11b3382cbf87b3931d7d3838589165?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a3",
+      "prefixes": [
+        "22871097",
+        "cae886ee"
+      ],
+      "stems": [
+        "O que é descrito por 22871097da235c3f27e45fc320cc3d34a2f305440c3f47b3819f4f433d8ceda6?",
+        "O que é descrito por cae886eecd43d494e6158de9216fa4bfc2afc54cddab61ebbbf9cd1e14430465?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a4",
+      "prefixes": [
+        "62fa5973",
+        "4f483266"
+      ],
+      "stems": [
+        "O que é descrito por 62fa59739f5ec3c8d2c84f7efb4a43ded09944460817c28ace180b44365a0bfb?",
+        "O que é descrito por 4f483266996b8ab4e29e1d8fc69605205266a7c5fde40fdf82018303d7d70c18?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a5",
+      "prefixes": [
+        "d89c2d17",
+        "def5ff3b"
+      ],
+      "stems": [
+        "O que é descrito por d89c2d178e2c1fe4a130038f181d83c86874c1afe37acafc5bcd072cd6b2c6fd?",
+        "O que é descrito por def5ff3b89148dbc6e8c1294b20b5c19ef981fc8812f962993bd496e8fbb6797?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a6",
+      "prefixes": [
+        "c3c85bd8",
+        "d056178f"
+      ],
+      "stems": [
+        "O que é descrito por c3c85bd8779188214e8806639a37f5d206a9e920e34ff92b78723129431cb1ba?",
+        "O que é descrito por d056178f5bf09dbf0a8bed6c329b6fa38c15fe4894c6d92358f0fc1ae1a952d7?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a7",
+      "prefixes": [
+        "2a9d07ab",
+        "73be7403"
+      ],
+      "stems": [
+        "O que é descrito por 2a9d07ab940763dc8c90dddd13eef74cd1779c0caae6a203755a59c1ca3dc5d0?",
+        "O que é descrito por 73be7403b89739aef8aa6a95ef5011d24857cca253df8be28449c67fe279ba2e?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a8",
+      "prefixes": [
+        "a1fd06ff",
+        "bf54c653"
+      ],
+      "stems": [
+        "O que é descrito por a1fd06ff5605f66dc1b677f0843dd82bef2a20217c54c4feed9eeb4312c3a0d9?",
+        "O que é descrito por bf54c6536482fef2666d550729e65d833d56fc8a4ed4a5ba23989153096d8c87?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a9",
+      "prefixes": [
+        "1b0d25eb",
+        "a2bae329"
+      ],
+      "stems": [
+        "O que é descrito por 1b0d25eb0e4bf41acb936ae5295c280fb65215a7d1104fe55f572cd1618ee5d1?",
+        "O que é descrito por a2bae3298a7db02831805c4471954a12bb4817f7ab2119e4caed5f888c0b14e4?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000aa",
+      "prefixes": [
+        "0e98cdf4",
+        "dc47f007"
+      ],
+      "stems": [
+        "O que é descrito por 0e98cdf44f98bc0edac4c63acbeafc0053beb34d3939c64795b7245579edbb23?",
+        "O que é descrito por dc47f00729c42ed8e63f3b0790a8727837f20edcb08008ebf52451dcc12340dc?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ab",
+      "prefixes": [
+        "7966ab47",
+        "16be18b3"
+      ],
+      "stems": [
+        "O que é descrito por 7966ab479de821748dfe3c7212eab5fefad6208fa23342d6ad061936458ff46d?",
+        "O que é descrito por 16be18b35490ca7d8333b635cf5ec2dcbac333f48f249506cf53c34c81a6bb44?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ac",
+      "prefixes": [
+        "d6c8697d",
+        "d7b5cf4d"
+      ],
+      "stems": [
+        "O que é descrito por d6c8697defd60dcb5ab69ab134b3bd77ffcbc3bb23cbaba9ea507281a71e0a30?",
+        "O que é descrito por d7b5cf4dfbb4c69689823f4bde2e48dc611559a5dfd2f1e1bfaa7a1132e3bf3d?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ad",
+      "prefixes": [
+        "2fe9ace3",
+        "77abdf7e"
+      ],
+      "stems": [
+        "O que é descrito por 2fe9ace36d0b101ce5a6a7d6d5b7f7b34326d05101d5bdecd9645890c1272ef5?",
+        "O que é descrito por 77abdf7e66f5d975b7b5db014316eb627f6a049572be491fd7f9b22d1b1832b0?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ae",
+      "prefixes": [
+        "bbc482fc",
+        "c93cf6f5"
+      ],
+      "stems": [
+        "O que é descrito por bbc482fc37fd2727d1b593e74157ce4e49c01394dc98f20c4ea27debfba85e81?",
+        "O que é descrito por c93cf6f5ba660eedf89265088d79e2db16c49809918f3625a1edca889497bd13?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000af",
+      "prefixes": [
+        "4cab1e22",
+        "f31b46f5"
+      ],
+      "stems": [
+        "O que é descrito por 4cab1e2275547acff1f393fad6a4fa0bcc4e0308ad03abf32411cadb22d735d3?",
+        "O que é descrito por f31b46f54843e87accfb81fe40d50f27f681102081b284a1d1a475cbadfb7d80?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b0",
+      "prefixes": [
+        "b61ee180",
+        "62596b0d"
+      ],
+      "stems": [
+        "O que é descrito por b61ee180c2aca3c3e1c0cae06fe7dd1672887ae52d8258109bc1061084812831?",
+        "O que é descrito por 62596b0d3fd475c2e165f07d687e6e51e00a9024936fc9a4d3f7e9b07ebccef5?"
+      ],
+      "similarity": 0.4519230769230769,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b1",
+      "prefixes": [
+        "b666ede4",
+        "7206dcfb"
+      ],
+      "stems": [
+        "O que é descrito por b666ede4159dfb74b3e69bfb24921120b5bf44c2a5f55973e54911619fe980c3?",
+        "O que é descrito por 7206dcfb4dbfbdcc36ee901da4c328c2dbb42e67fe5613dfb2f4eef4183a1be3?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b2",
+      "prefixes": [
+        "a0375072",
+        "8f3d30f3"
+      ],
+      "stems": [
+        "O que é descrito por a0375072cd88a396aa116e5955bcf27e1484d80abee1de239a6f8a1199bcce19?",
+        "O que é descrito por 8f3d30f3c2b52348bb26f4239f4524f1070e6f202a08e664fe3e52456ee2b5e0?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b3",
+      "prefixes": [
+        "50ebd27a",
+        "70d91ce8"
+      ],
+      "stems": [
+        "O que é descrito por 50ebd27a5352bb3d011cc57c1e567d227aa840b40fe5eabb5415c0340745c37e?",
+        "O que é descrito por 70d91ce8454f774c8cf6847bf68cefed1e5d26e67423d6a4bddb3d7d69dce84d?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b4",
+      "prefixes": [
+        "1a100419",
+        "8b1431b0"
+      ],
+      "stems": [
+        "O que é descrito por 1a100419f81a44589e3892f0929759a0df5dfa3ca0856a773880145d5df094e1?",
+        "O que é descrito por 8b1431b0e8d02e1ab352868e402ef5d303eda94de78016e3118020630cd61e8a?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b5",
+      "prefixes": [
+        "b7dabbf8",
+        "13492fbf"
+      ],
+      "stems": [
+        "O que é descrito por b7dabbf847b113f2c3b6e3c80dfb7028417d0761f20e3ecd74db2c4b55615dcc?",
+        "O que é descrito por 13492fbfe0f844008f17eb17495386b249413c7ce8cbace900c582d8fed8f45f?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b6",
+      "prefixes": [
+        "5478f506",
+        "f8db4f94"
+      ],
+      "stems": [
+        "O que é descrito por 5478f5062988f4a1e5a8c4bc4b72cb63839d0ac6ec393bf9e99a4e27e1dd3185?",
+        "O que é descrito por f8db4f94886e9e710bfab4a458114abd88ddbb1f76c797250b53e19c922e73f9?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b7",
+      "prefixes": [
+        "50716844",
+        "76bbf363"
+      ],
+      "stems": [
+        "O que é descrito por 507168448a2bdca187e43f310415c75572f0a4369ae8358530d83cd0fb2064c4?",
+        "O que é descrito por 76bbf363a68534d2c468dbc73344ad54102b4b4b3b734754ba4a780c162585d6?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b8",
+      "prefixes": [
+        "8d01cf7b",
+        "ac30be5f"
+      ],
+      "stems": [
+        "O que é descrito por 8d01cf7bfb9ead75232eb6ae62a7d1e58ee0a4fb227689a9c3b7b4afb6a42ae7?",
+        "O que é descrito por ac30be5f6c34d542e436ee1e9dd3fff4921a533f792dce75cf00f91afb5ab857?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b9",
+      "prefixes": [
+        "c986a92e",
+        "064ae6ab"
+      ],
+      "stems": [
+        "O que é descrito por c986a92e279c1f5faade021c436fc2aec43002febd31ddb26a94ab4289f6e101?",
+        "O que é descrito por 064ae6ab906bd1728830919f213e1c485d5ba1059d42d55fb3e8f5a90d9f2e8c?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ba",
+      "prefixes": [
+        "e657ea84",
+        "11218f24"
+      ],
+      "stems": [
+        "O que é descrito por e657ea8484887d0bfc50ebb5cb97a18bbd3ad1eb7953348f31d9392252315c5c?",
+        "O que é descrito por 11218f24f485dde69b9ae858ea2be22e85a5061f498550267a340db11a067471?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000bb",
+      "prefixes": [
+        "cc92f955",
+        "fa47b8fc"
+      ],
+      "stems": [
+        "O que é descrito por cc92f955e2e9dcc356665d5785fb5093b45f7060f587a6fedee223a7f0704b6f?",
+        "O que é descrito por fa47b8fc531a116c7be86936ac8bb7918c49eca184f1d8d7b0e38595b38dbfe5?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000bc",
+      "prefixes": [
+        "15146cb4",
+        "01a63702"
+      ],
+      "stems": [
+        "O que é descrito por 15146cb44f1a9f7b0c705ee107d8651edbec32238f5c27a1e3fc6ecae45291c1?",
+        "O que é descrito por 01a63702a4bda103630062d2ddabdd970009deb003e72e3beebb4f3c2f9f2e74?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000bd",
+      "prefixes": [
+        "0d303bba",
+        "b3f505e8"
+      ],
+      "stems": [
+        "O que é descrito por 0d303bba9ab3834b9794276f07625e4940e45dc1fb592ae21fa8180421085d84?",
+        "O que é descrito por b3f505e89504f2e9f01992c890e498023f3d477c5621d9397072f134b436c927?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000be",
+      "prefixes": [
+        "dc6395e6",
+        "2ef0785d"
+      ],
+      "stems": [
+        "O que é descrito por dc6395e6f227b9f939e63f12210f55331d631cbf5ad4ae981dde0837057c9dbb?",
+        "O que é descrito por 2ef0785dee66c8906e610bd8a86ee637dc039c2b6fa5732ccfa316f2a3c4dc36?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000bf",
+      "prefixes": [
+        "314d87b2",
+        "3ca388fb"
+      ],
+      "stems": [
+        "O que é descrito por 314d87b27438ecdf3841fa4b445cadf195bcb7be70c3159e168347d94c7a2b72?",
+        "O que é descrito por 3ca388fb8318a94f5cad9b8eb2c1f07b13ef13942d8e364ea12890cc8d285442?"
+      ],
+      "similarity": 0.5961538461538461,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c0",
+      "prefixes": [
+        "9c506074",
+        "f6678cdb"
+      ],
+      "stems": [
+        "O que é descrito por 9c5060746a300d50b379a873b7a763a43ba0a3ddc3b16c99d840c4f49256d271?",
+        "O que é descrito por f6678cdbeb4990829076da20486010f1bfcda37f6f57a50427fe6fed23113e3e?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c1",
+      "prefixes": [
+        "12b27375",
+        "6f5cc0cb"
+      ],
+      "stems": [
+        "O que é descrito por 12b27375580aca80b1810b1d80308e85599a7bc405126cb06ae10d770b03a9fa?",
+        "O que é descrito por 6f5cc0cb6d9d35f6e935e45341cef919ee40efefddd40f34acf6282cbbfa23af?"
+      ],
+      "similarity": 0.46153846153846156,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c2",
+      "prefixes": [
+        "5ff290a1",
+        "63d4770c"
+      ],
+      "stems": [
+        "O que é descrito por 5ff290a192abf048f0cc4ace4e6332be91fd1c9dc62666483914bf3b87cd7991?",
+        "O que é descrito por 63d4770c96778aca5fb821f463c8f40152a148b4f01911dd1893e93471e509ce?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c3",
+      "prefixes": [
+        "48740603",
+        "ea96aca7"
+      ],
+      "stems": [
+        "O que é descrito por 487406034cea7c72864cb10818654185979e3605a4c91656907a949e7b5bdb50?",
+        "O que é descrito por ea96aca755d2f62525327c2b2141f221b82009fe27faeac44ddd070c1fdd3fc0?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c4",
+      "prefixes": [
+        "01bc6469",
+        "97f3c0cb"
+      ],
+      "stems": [
+        "O que é descrito por 01bc646962502de31e5921db377113a7f40a5b6b94f1dfe02cbac2560638e624?",
+        "O que é descrito por 97f3c0cb532aea06e33913895613f43b53ce229bfe5620f6cafaac5f7604999f?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c5",
+      "prefixes": [
+        "64a2cde2",
+        "78b8800d"
+      ],
+      "stems": [
+        "O que é descrito por 64a2cde211222038ede152d5298066e83481c983228d15632d0a1be1b5a6d9ee?",
+        "O que é descrito por 78b8800d74a6ccd73c22c4ab7dd443993140d4cb7c87c81b744cbbcef8102df6?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c6",
+      "prefixes": [
+        "48bdc914",
+        "8bf18939"
+      ],
+      "stems": [
+        "O que é descrito por 48bdc914e1323c0fd09daa7b243cfdff2bf2bc1515e56de8a02c9853688e0606?",
+        "O que é descrito por 8bf18939ef52720677da1b9844426633f81de021f95a86e9440faca4d15dd9ca?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c7",
+      "prefixes": [
+        "0863dfc2",
+        "2cf90a97"
+      ],
+      "stems": [
+        "O que é descrito por 0863dfc2d5940b751a748c73f39800df35a75d7c3a999ac8f196b0d88f7f1657?",
+        "O que é descrito por 2cf90a973501fac98579873cb2c2ef5bab36ce33dac4799f6caf2ef84bb17509?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c8",
+      "prefixes": [
+        "1ff33dba",
+        "0d74c76f"
+      ],
+      "stems": [
+        "O que é descrito por 1ff33dba95aafc0d1ce8d621d40af5b74879b7362b62031bcde51869eed1bd98?",
+        "O que é descrito por 0d74c76f61dd642fd888669a982cadfa6fa9391651cf410df50c5df00187f640?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c9",
+      "prefixes": [
+        "2e8296d7",
+        "d7340b84"
+      ],
+      "stems": [
+        "O que é descrito por 2e8296d7da98cedca88886f8fd36260f454cee18398ef4b9e1bce0c41cb87185?",
+        "O que é descrito por d7340b84189fc8e2f43857980afda0c02eb6086207e232d6cffdd971ddd102bd?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ca",
+      "prefixes": [
+        "249e3d1e",
+        "362744af"
+      ],
+      "stems": [
+        "O que é descrito por 249e3d1ed632868ecd83aa326db641e0042e70d7208a31a126b4f6a3b71fb6c6?",
+        "O que é descrito por 362744afa1705a986086e3b9314123ebd4bedc6889066628a9e4d5633421ecd6?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000cb",
+      "prefixes": [
+        "b62bea31",
+        "ae0d5eee"
+      ],
+      "stems": [
+        "O que é descrito por b62bea317e360d4c56dd746059d9dd363db9597123ffe919e4054c3755b1f8b9?",
+        "O que é descrito por ae0d5eee61bc1fb83e54fbef5698b4523d531f55f0e39bd7bc159865fcab062b?"
+      ],
+      "similarity": 0.4230769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000cc",
+      "prefixes": [
+        "8ff11976",
+        "2bace6b9"
+      ],
+      "stems": [
+        "O que é descrito por 8ff11976b795836d7d4a0a7f78413cfed4c1419115f69c1bbb9d3588b6ae48a8?",
+        "O que é descrito por 2bace6b94c9f42808040f682a3b197bda1acb661bd77fc2a5adfb23dbda0561c?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000cd",
+      "prefixes": [
+        "83eac077",
+        "f7f5e890"
+      ],
+      "stems": [
+        "O que é descrito por 83eac077462f3a215af4fa46b7fedf70757be5d761a9ae6418ba11f8cae049c8?",
+        "O que é descrito por f7f5e89045f7c9c90a7238d7defe0810ae5c6508e9a154555c36f0e596a03f84?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ce",
+      "prefixes": [
+        "2c7ee583",
+        "0c1a36f3"
+      ],
+      "stems": [
+        "O que é descrito por 2c7ee5831311ed89ccc6ef34fe908979e0a9d52d7b2398b8e461368fede93360?",
+        "O que é descrito por 0c1a36f326c010b1ad5468035cad0514d7500139f7d915746cd150771222bf6a?"
+      ],
+      "similarity": 0.46153846153846156,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000cf",
+      "prefixes": [
+        "adfe5c17",
+        "24e3f67d"
+      ],
+      "stems": [
+        "O que é descrito por adfe5c17b876ac470a50121eace5bcfaf5720d8c38705e4ac007a25b2eaad124?",
+        "O que é descrito por 24e3f67dd8baef208c30ea3412d9d984e769f5f8d88e916eed0b11776a698dbb?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d0",
+      "prefixes": [
+        "d425d39b",
+        "1f194acc"
+      ],
+      "stems": [
+        "O que é descrito por d425d39b9c8531ff4652e4b7f00450d19f6bb2de06ea8b303fb1b892aafda18c?",
+        "O que é descrito por 1f194acca6286240c75aee7e8bdfd7e3baab955b40233291d5813b57b8ae1479?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d1",
+      "prefixes": [
+        "94fcf0f4",
+        "d5acfa2c"
+      ],
+      "stems": [
+        "O que é descrito por 94fcf0f4a936cb51052525f38d1ef2262b2641bbd3cf2e17c258c67a75a5f28e?",
+        "O que é descrito por d5acfa2cadca52161ae5b0d76c24cf8fec404c33d96884726c2702c0690f0825?"
+      ],
+      "similarity": 0.4423076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d2",
+      "prefixes": [
+        "7f087e5f",
+        "fc8f99c4"
+      ],
+      "stems": [
+        "O que é descrito por 7f087e5f5d548d90f4479b7355b56d61dc9b08cc2c0762e919314453f52faf2b?",
+        "O que é descrito por fc8f99c4628fb5ed6ac71035e2793eaa3ed5d18b5acf51085197b06d34501e2e?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d3",
+      "prefixes": [
+        "d4a84180",
+        "5fd095a3"
+      ],
+      "stems": [
+        "O que é descrito por d4a84180c6984f8e1dea8da3420bc447a095ef313b7b5d64571dfb33d6cd0bd8?",
+        "O que é descrito por 5fd095a3cfdb441aee9466f81a189f30ed3e49b9a161f96c42c687491034aa28?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d4",
+      "prefixes": [
+        "c30f0130",
+        "2f2fa32e"
+      ],
+      "stems": [
+        "O que é descrito por c30f01300e0e3969fdd5410cc28a1b6ca1c34a1a2f26a045d51c831fbd3dfdf0?",
+        "O que é descrito por 2f2fa32e1b62a19e4a5f43ea9e86c2248ab8f02f29e1a5dc4d4abd1be64955dd?"
+      ],
+      "similarity": 0.46153846153846156,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d5",
+      "prefixes": [
+        "e03ff38f",
+        "515422ea"
+      ],
+      "stems": [
+        "O que é descrito por e03ff38f3303e4740cecf23332c2dd95138adf03a515ee2d3656e3104d914492?",
+        "O que é descrito por 515422eaac52323d85b3585eab179ae42ae9e0d43828be77e799042206e4ae51?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d6",
+      "prefixes": [
+        "013ebc79",
+        "f2dbc097"
+      ],
+      "stems": [
+        "O que é descrito por 013ebc791109ac86228cd29c8e88efd822603a0c1544b5faf5a170d0dff4069f?",
+        "O que é descrito por f2dbc09795e19480ee71f2293a4b08c490e072089bd86d5e69b707700143cbd4?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d7",
+      "prefixes": [
+        "e081bcd8",
+        "2f72fa4a"
+      ],
+      "stems": [
+        "O que é descrito por e081bcd85f1391a046f86b0a5539c42164de3be715ab77ded46de29303a99f1a?",
+        "O que é descrito por 2f72fa4a736925af85bca70ce58485be7f7e75f856ed4701329116f1881e4ddc?"
+      ],
+      "similarity": 0.5865384615384616,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d8",
+      "prefixes": [
+        "2a82e47f",
+        "93498ab6"
+      ],
+      "stems": [
+        "O que é descrito por 2a82e47f22ccd01342507312b979f3297b94ffe5f14967b8827fd0c855e458ff?",
+        "O que é descrito por 93498ab6495b513b61648f96cab2fcb418141f6be7faaa0d1b762af5883d3096?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d9",
+      "prefixes": [
+        "49807505",
+        "543b4ce5"
+      ],
+      "stems": [
+        "O que é descrito por 4980750550a4a8178474b55d9884212dd42dd4d2b1b13eae6997bf0c77ec3fbf?",
+        "O que é descrito por 543b4ce5def8631881fb5b32ca9032c7641cff53d34b880b1a30c20559b3107a?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000da",
+      "prefixes": [
+        "e44aa456",
+        "44eb4850"
+      ],
+      "stems": [
+        "O que é descrito por e44aa456e49526f172764569e33ce261ab686079e50884bee6927fad3e67178b?",
+        "O que é descrito por 44eb48506528351a7ebaba51976fefa4421802cc6ade91f8c47bad597a223fbf?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000db",
+      "prefixes": [
+        "e208c18f",
+        "c9d2db5b"
+      ],
+      "stems": [
+        "O que é descrito por e208c18f281f1361eb8209ac6f7ad9802e758d5a6fc0f95a2203e400ded67e19?",
+        "O que é descrito por c9d2db5bd1739d10a5e67cc8db67abcfa61de37e0bb775241befb2b4b981f583?"
+      ],
+      "similarity": 0.46153846153846156,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000dc",
+      "prefixes": [
+        "2bbc01a9",
+        "57aba8b4"
+      ],
+      "stems": [
+        "O que é descrito por 2bbc01a9a72f7ea90ed79e84cdbc34d3622f5ffc78be8c63ea60e7e981de717b?",
+        "O que é descrito por 57aba8b4984ee26db6afea4ee876ecc2f3067c2bc43d91488cc7a50bbdbfc229?"
+      ],
+      "similarity": 0.46153846153846156,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000dd",
+      "prefixes": [
+        "b955eaa3",
+        "f59c1c0b"
+      ],
+      "stems": [
+        "O que é descrito por b955eaa34986d4d873949a509cc57a9625250ec46d94e5c688060d86f5c20fd7?",
+        "O que é descrito por f59c1c0b2d9ed7c78fcdca28802add23ccf3ad61f6c9c8ba8a7302103a56220b?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000de",
+      "prefixes": [
+        "7d18f885",
+        "559672b8"
+      ],
+      "stems": [
+        "O que é descrito por 7d18f885d3c484a9a21643bd8cc51207c1ba6c467a23a76e6b89ecfb61f0d727?",
+        "O que é descrito por 559672b869d4d603ca5b5c5cdd0721e14e8ac0980583f166af040c7b1c4e0046?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000df",
+      "prefixes": [
+        "66023e9c",
+        "39aa63e6"
+      ],
+      "stems": [
+        "O que é descrito por 66023e9c4d7387a3ebf11882fcd2180217cfb06898e7e73c54b501a91912f6e9?",
+        "O que é descrito por 39aa63e6ff82a9297b34ae87364b866d1db80fbf13adfcf5d3cd2cab83585e70?"
+      ],
+      "similarity": 0.6057692307692307,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e0",
+      "prefixes": [
+        "58e5022f",
+        "a166ef7b"
+      ],
+      "stems": [
+        "O que é descrito por 58e5022f74d0235740e0df1b92e147a5599dcf8e14a6566b8f042e63f782b347?",
+        "O que é descrito por a166ef7b4a2c1a292b6a363529d05afa90b05b35f8fc4175bf7e71610435a110?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e1",
+      "prefixes": [
+        "ceca8e7d",
+        "a8de574c"
+      ],
+      "stems": [
+        "O que é descrito por ceca8e7d834b8f5a64da00d5352e7163e5ed3c1baa9ff3aa889b153bd94f5156?",
+        "O que é descrito por a8de574c3b0579bf2dd81da845461aa480124adea91a1915211f2d91d969ddf5?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e2",
+      "prefixes": [
+        "e8e11769",
+        "1dd4dc39"
+      ],
+      "stems": [
+        "O que é descrito por e8e11769571c72299b7dd84e00d2e00b1aeefa1d79a5ea67b64184f600109e11?",
+        "O que é descrito por 1dd4dc396355f921c840137580b1e2405b69939707f3a9685808ddabf6b0b89c?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e3",
+      "prefixes": [
+        "109e841e",
+        "87af0b4d"
+      ],
+      "stems": [
+        "O que é descrito por 109e841ee18d89a8b026f65c33d7fbb6894505fbb4783102ec8c2680cef54b6e?",
+        "O que é descrito por 87af0b4d3ff4ad91b2e11c2362a31406904922b0198307d41fb9e83a993e54f0?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e4",
+      "prefixes": [
+        "f8b81ea9",
+        "5333bdd0"
+      ],
+      "stems": [
+        "O que é descrito por f8b81ea925c18a14fe985252ec62b97443151b222fa00f805dac23dc52986eb2?",
+        "O que é descrito por 5333bdd0b4c04faf3379be82970931af97ff3ae23e43bc727cbe0532f7e8a641?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e5",
+      "prefixes": [
+        "94155b4e",
+        "6b020152"
+      ],
+      "stems": [
+        "O que é descrito por 94155b4e72d81a7f67fb5792e43f3d615e109b1daf2487da5e630459b04aa849?",
+        "O que é descrito por 6b02015245dc12d44e17b9310002e32b876c0239084b37e999e0a86869eb32b0?"
+      ],
+      "similarity": 0.4519230769230769,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e6",
+      "prefixes": [
+        "15d54a75",
+        "f9645646"
+      ],
+      "stems": [
+        "O que é descrito por 15d54a7555d6f8d259877cb9f4f8118d44490634ee6ecfe637630671c8ef6cce?",
+        "O que é descrito por f9645646fe26b59f9aaaafbbe592351396d0539ea607d3fda683144ab53d27b5?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e7",
+      "prefixes": [
+        "b5b5742e",
+        "a343fd7e"
+      ],
+      "stems": [
+        "O que é descrito por b5b5742e5be8b1b42e40ab23a855b369c815a5c672444deb37d13495211a23ac?",
+        "O que é descrito por a343fd7e51fb3c8753f9a47fd55df598f79b3aebe4913957a765f28f27a9bc30?"
+      ],
+      "similarity": 0.47115384615384615,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e8",
+      "prefixes": [
+        "dcf345e6",
+        "b58f1bab"
+      ],
+      "stems": [
+        "O que é descrito por dcf345e67e805a334fb1e39d2cb54b1651e755d020f578e600e88c17d6345d0a?",
+        "O que é descrito por b58f1bab23113faae109fe7bde7e29dcf1de7b7a314cb2a56303ed2bde7d49eb?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e9",
+      "prefixes": [
+        "586247db",
+        "0045ce9f"
+      ],
+      "stems": [
+        "O que é descrito por 586247db1112be16dad66e3ae9784944e609b05204c8d5d6b33dd8e12319181a?",
+        "O que é descrito por 0045ce9fc3e93177332f6c490ff3b356ffe463c87fc410b6c52a68686c481337?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ea",
+      "prefixes": [
+        "e76373db",
+        "a1bdd378"
+      ],
+      "stems": [
+        "O que é descrito por e76373dbcb9dca39cb58931b96135b16ccfc08b5ca609178e0735ab0a479138d?",
+        "O que é descrito por a1bdd378e3972848de72132fc131961001c4d822fd6332a467fc271e8b97e463?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000eb",
+      "prefixes": [
+        "c998c7b7",
+        "86b2a2b5"
+      ],
+      "stems": [
+        "O que é descrito por c998c7b7d0d7edad1c9828167d65c2d03f3b7e164160d9071e29c56dcad8f2e6?",
+        "O que é descrito por 86b2a2b5097bea0a4c77be8f4cf6be1936e7f4cd8875a33bd348d19e39de5d58?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ec",
+      "prefixes": [
+        "3928790e",
+        "62c0173b"
+      ],
+      "stems": [
+        "O que é descrito por 3928790e824fce24aef37181aa26733901d5e9da4a6710026b8b485633848efb?",
+        "O que é descrito por 62c0173b18afa637b5262cd5c11375eb28757203c109d9791ab2a0e54a7655ce?"
+      ],
+      "similarity": 0.4807692307692308,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ed",
+      "prefixes": [
+        "1120f434",
+        "bba8c4ac"
+      ],
+      "stems": [
+        "O que é descrito por 1120f43491edcb38499aa18709a9756346b638f89f48c19e3d70472a517749c0?",
+        "O que é descrito por bba8c4ac16d5471e292bcc8b1d233f61c706c33e1b6a4954a79affd3c23efece?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ee",
+      "prefixes": [
+        "26dafbad",
+        "874dd64d"
+      ],
+      "stems": [
+        "O que é descrito por 26dafbadb40012455e74a90fe27fca21ac02f2718ba978360614bd69d6ee8fc6?",
+        "O que é descrito por 874dd64ddd01825f6190166877a6a427f55ab12d484449a6e9e8e4b58a12887c?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ef",
+      "prefixes": [
+        "2ca1d159",
+        "6096e739"
+      ],
+      "stems": [
+        "O que é descrito por 2ca1d159f10297dcf6b289a7bc7e7164a2b848eb969c598bd2a7958b34e68f7a?",
+        "O que é descrito por 6096e7392df816d0ca84b67fb5e4fd014c59fc6242cf83d5a94c489aff3c2aa8?"
+      ],
+      "similarity": 0.5,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f0",
+      "prefixes": [
+        "70cb0674",
+        "2af8d233"
+      ],
+      "stems": [
+        "O que é descrito por 70cb0674b38da6b39d8b21f88382e7b0415bbf5e1d502604e97b188859b9cdaf?",
+        "O que é descrito por 2af8d233ad2750f3dc59e8926cc3431932900bc7efeb313ccdadd7ac4d04942f?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f1",
+      "prefixes": [
+        "0dd90592",
+        "c8399561"
+      ],
+      "stems": [
+        "O que é descrito por 0dd9059293fe10c18ca46a0c2a47e7b38a1baedfefcaa4225c6d0474dda726e1?",
+        "O que é descrito por c8399561dd8dd46c18f594c0693351599f46a6bd4899e432b5720a39d282f3dc?"
+      ],
+      "similarity": 0.5288461538461539,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f2",
+      "prefixes": [
+        "84c804de",
+        "ef294521"
+      ],
+      "stems": [
+        "O que é descrito por 84c804de2062b22f824f4b67c5dc60a351f07eae4ccb66d8d3eada266c7e6969?",
+        "O que é descrito por ef2945216dd93b7422d92d98b4b4da2e60373266c9c6ac942cc8a62a92b73111?"
+      ],
+      "similarity": 0.5673076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f3",
+      "prefixes": [
+        "1c64b93c",
+        "73710321"
+      ],
+      "stems": [
+        "O que é descrito por 1c64b93cbbb9e3a057531f1a7b8012dbac56d202587b63f0086ffdb57f50fb23?",
+        "O que é descrito por 7371032123138d5cdeb967098f99e7ebe9f608d280e8f60c7c64944642087c61?"
+      ],
+      "similarity": 0.49038461538461536,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f4",
+      "prefixes": [
+        "14e942bd",
+        "124e7221"
+      ],
+      "stems": [
+        "O que é descrito por 14e942bdce6792b533c26dce8c272fd8b90e06000a975d07cebd4b90ba39ecdd?",
+        "O que é descrito por 124e7221af803d7b545d629ca0931dd0d84727908a3e406eb304b3a70e543ed3?"
+      ],
+      "similarity": 0.5096153846153846,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f5",
+      "prefixes": [
+        "23f8ca25",
+        "4084b8b7"
+      ],
+      "stems": [
+        "O que é descrito por 23f8ca251022a1681f018f692a3471e547295d664482989b316bde18e3fc595e?",
+        "O que é descrito por 4084b8b7e650e4d85d1ee67c136f116e7d1091639b13a9e6b4b2bff6957563ce?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f6",
+      "prefixes": [
+        "60a920a2",
+        "ece48004"
+      ],
+      "stems": [
+        "O que é descrito por 60a920a24558f81ec41d98fb214ddcf726c946552811a64c18ba71b98887d88f?",
+        "O que é descrito por ece48004e1d5031c56e55999b79d0a57fa071245ce8394879f7ce3de48216aa7?"
+      ],
+      "similarity": 0.5192307692307693,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f7",
+      "prefixes": [
+        "2a4cfb92",
+        "afeabd61"
+      ],
+      "stems": [
+        "O que é descrito por 2a4cfb927d7a1b1ebe73df35b6157a9cd280c06d78445a86287cff26465230dd?",
+        "O que é descrito por afeabd61e862fcf09bbe3fbb89f0d27de71287a19fbb173bf495be528d992912?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f8",
+      "prefixes": [
+        "a7352e85",
+        "1298d74f"
+      ],
+      "stems": [
+        "O que é descrito por a7352e85a9c2b1c1f82474c10fe88d7550067d0994b1944121d8f6aad9a96ffd?",
+        "O que é descrito por 1298d74fcf69eba8e5f0b58f7c80ed0a261d66f01121f3be38db04191e58c816?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f9",
+      "prefixes": [
+        "177818c4",
+        "9651dab0"
+      ],
+      "stems": [
+        "O que é descrito por 177818c4981861315dfa8cdd3595f260caf016ebec52d358215cdf85daf33f21?",
+        "O que é descrito por 9651dab0d53681e159d1be675ef7a287c74356e7ac8bc7309759e7f5ad7c7bcd?"
+      ],
+      "similarity": 0.46153846153846156,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000fa",
+      "prefixes": [
+        "fb872d00",
+        "39608065"
+      ],
+      "stems": [
+        "O que é descrito por fb872d00813df59b8e8f45ebea6fb34a23e8dd9b34e8702fab414ef7816a7af0?",
+        "O que é descrito por 39608065f0e0a883d7464677cc643f8ebaa59a772a7426097c25b66b65bc6db8?"
+      ],
+      "similarity": 0.4423076923076923,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000fb",
+      "prefixes": [
+        "f873bf92",
+        "98d46887"
+      ],
+      "stems": [
+        "O que é descrito por f873bf9218c431b9ed4ed526df29d47e31086aa8cdebac943130cdc62cf08c71?",
+        "O que é descrito por 98d46887cb456cdf4ecb8a52e864cf8e2cadb74de0e2674cc4b034fc0d442306?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000fc",
+      "prefixes": [
+        "4d889e4a",
+        "a2662e87"
+      ],
+      "stems": [
+        "O que é descrito por 4d889e4ac88cbf7985181336cbb0deabab50212c95327ef862d2774569f3d7a4?",
+        "O que é descrito por a2662e8701f9dcad625a5bbbbecd4505fad3c1aed00c7e07814191edf9654d81?"
+      ],
+      "similarity": 0.4230769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000fd",
+      "prefixes": [
+        "b219363e",
+        "3f4bc5a9"
+      ],
+      "stems": [
+        "O que é descrito por b219363ece954a56252d608fc9b5ac45f77c2b646091913f1b0d164c7fd9f942?",
+        "O que é descrito por 3f4bc5a94f75ef1544f620d72d3ffde5b1da24b1a440dfb5135a69d2f06a3a9f?"
+      ],
+      "similarity": 0.4519230769230769,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000fe",
+      "prefixes": [
+        "4b212a9c",
+        "6cfc3697"
+      ],
+      "stems": [
+        "O que é descrito por 4b212a9c4a494278af1c58a3833908b81e9374f2550cc1372c022b7d32c55e11?",
+        "O que é descrito por 6cfc369752865593de2da319e23224462ef33817581707b8d5d9778699b5aa39?"
+      ],
+      "similarity": 0.5384615384615384,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ff",
+      "prefixes": [
+        "b80f7b0e",
+        "fe9241dc"
+      ],
+      "stems": [
+        "O que é descrito por b80f7b0e685b18ac99659539018662a87390f1426bab73d73ea44471b5e70285?",
+        "O que é descrito por fe9241dc82790fd27122ab81711ae52de440fa6654eb5b73a046f5f7ce64aa91?"
+      ],
+      "similarity": 0.5480769230769231,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000100",
+      "prefixes": [
+        "f07d60f5",
+        "50d01e50"
+      ],
+      "stems": [
+        "O que é descrito por f07d60f5e5c54b07584d8d9241304ea5108730c708f206bba20a2bc5a6fa5efb?",
+        "O que é descrito por 50d01e50c716de4dcd7bcba223a731a352c8ef4fba6e3a7da73e23ee608bca23?"
+      ],
+      "similarity": 0.5576923076923077,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    }
+  ],
+  "experiment_counts": {
+    "accepted": 256,
+    "duplicate": 0
+  }
+}

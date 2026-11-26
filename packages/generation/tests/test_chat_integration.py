@@ -86,7 +86,7 @@ class APIs:
             chunk=context.chunks[-1] if repair_items else context.chunks[i%len(context.chunks)]
             common=dict(tipo=item_type,bloom_level='lembrar',citations=[dict(chunk_ref=chunk.ref,evidence=chunk.text)])
             if item_type=='flashcard': common.update(front=f'Qual propriedade {i} de {chunk.chunk_id[:8]}?' if not repair_items else f'Explique o resultado específico de {chunk.chunk_id[-8:]}',back='Propriedade descrita: '+chunk.text)
-            else: common.update(stem=f'O que é descrito por {chunk.chunk_id[:8]}?',options=['Membrana celular','Estrela distante'],correct_index=0,explanation=chunk.text)
+            else: common.update(stem=f'O que é descrito por {chunk.chunk_id}?',options=['Membrana celular','Estrela distante'],correct_index=0,explanation=chunk.text)
             if (self.invalid and repair_items is None and i==count-1) or (self.repair_bad and repair_items): common['citations']=[]
             result.append(common)
         return RawGenerationOutput(itens=result)
