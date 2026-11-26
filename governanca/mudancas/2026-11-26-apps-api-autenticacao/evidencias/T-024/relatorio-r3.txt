@@ -1,0 +1,120 @@
+T-024 — correções das revisões — rodada 3 — 2026-11-26
+Executor: OpenAI/Codex, rag-backend; task_d832b88a08b1 / ctx_6ccab4d8de76.
+Fontes: revisao-seguranca-llm.md (A1–A11) e revisao-anthropic.md (1–8).
+Este relatório é evidência do executor; não substitui nova revisão nem G4 humano.
+
+PROVA FINAL ÚNICA
+Comando: uv run pytest apps/api packages/lineage -q
+Status: Passou
+Resultado: 174 passed, 1 warning in 43.35s; exit 0.
+Saída completa: pytest-r3.txt; nenhuma repetição da suíte nesta rodada.
+Os 153 casos anteriores e 21 novos passaram (20 de endurecimento HTTP/configuração/threads e 1 de migração).
+Aviso preexistente: PydanticSerializationUnexpectedValue em test_chat.py, enum status serializado como string; preservado na saída.
+Postgres real da infra local, bancos descartáveis das fixtures; nenhum serviço compartilhado derrubado.
+API_ATTEMPT_KEY_SECRET foi configurado no ambiente do subprocesso com segredo efêmero gerado exclusivamente para a prova, sem registrar o valor nem alterar o .env.
+Produção deve configurar seu próprio segredo; configuração ausente falha com nome explícito da variável, como provado no novo teste.
+Os testes G3 continuam intactos, sem nova fixture ou alteração de seus parâmetros.
+
+ACHADOS DE SEGURANÇA
+A1 — corrigido; Passou.
+Login usa reserva em transação curta: normalização SQL, advisory locks não bloqueantes, contagem incluindo reservas e inserção dos dois eventos antes do commit.
+A transação termina antes da leitura/verificação da credencial. Hash/verificação não retêm conexão de banco.
+Uma disputa de lock retorna 429 sem esperar pela trava; nenhum advisory lock atravessa a obtenção de outra conexão.
+Sucesso confirma token sob lock de conta e libera a conexão antes de remover as reservas em outra transação curta.
+Falha/cancelamento mantém reservas até expirar a janela; recusa de lock ou limite não executa Argon2.
+O teste dispara 16 logins simultâneos de uma origem, com barreira de início, e 3 leituras autenticadas de outra origem: leituras 200, logins somente 400/429, duração total inferior a 10 segundos e contagem persistida de falhas igual à quantidade de respostas 400.
+
+A2 — corrigido; Passou.
+Origem usa rede IPv6 /64 ou IPv4 /32, com IPv4 mapeado em IPv6 convertido ao IPv4 equivalente antes do HMAC.
+Teste prova limite compartilhado entre endereços de um /64 e orçamento independente em outro /64.
+
+A3 — corrigido no aplicativo; Passou.
+request.client ausente ou endereço inválido retorna 403, sem usar chave vazia; teste prova ausência de gravação de tentativas nesse caso.
+Configuração de proxies confiáveis continua responsabilidade do deploy, documentada no README; infra não foi alterada.
+
+A4 — corrigido; Passou.
+Troca de senha usa a mesma reserva por conta/origem e o mesmo orçamento login_failure, antes de verificar a senha atual.
+INVALID_CURRENT_PASSWORD conserva a reserva; sucesso a remove. Nova senha fora da política não conserva falha de credencial quando a senha atual foi válida.
+Teste prova bloqueio na tentativa seguinte mesmo com senha correta e bloqueio compartilhado com login vindo de outra origem.
+
+A5 — corrigido; Passou.
+A chave de conta usa lower(email) calculado pelo próprio Postgres, com a mesma collation padrão da busca e do índice.
+Não usa strip/lower de Python. O teste com U+0130 confere o HMAC contra a normalização SQL efetivamente observada.
+
+A6 — corrigido; Passou.
+Login/cadastro verificam Origin contra a origem ASGI (scheme, hostname, porta normalizada) e recusam Origin inválido/null ou outro site e Sec-Fetch-Site cross-site com 403.
+Sem Origin continua aceito; mesma origem é aceita. Testes cobrem as duas rotas, cabeçalhos hostis e sucesso same-origin.
+URL pública e client.host devem ser estabelecidos pelo proxy confiável configurado no servidor; não há confiança própria em X-Forwarded-For.
+
+A7 — não corrigido: decisão humana pendente, conforme instrução deste despacho.
+Nenhuma lista de senhas comuns/vazadas foi criada ou integrada.
+
+A8 — corrigido; Passou.
+UserManager implementa create/authenticate usando fastapi-users para modelos, helpers e banco, com hash e verify_and_update executados por anyio.to_thread.run_sync.
+Troca de senha usa os mesmos métodos assíncronos. A leitura da conta libera a conexão antes da thread; depois, um lock de conta NOWAIT revalida o hash antes da criação/revogação de sessão.
+Testes provam heartbeat do loop durante hash lento e verificam que hash/verificação nos fluxos reais de cadastro, login e troca não rodam numa thread com event loop ativo.
+Dublê lento existe somente no arquivo de teste; aplicação utiliza Argon2 real.
+
+A9 — corrigido; Passou.
+last_seen_at adicionado à 0006 e metadata, DEFAULT now(), TIMESTAMPTZ NOT NULL.
+API_SESSION_IDLE_SECONDS configurável, padrão 3600; validade absoluta anterior preservada.
+Toda leitura válida filtra ambos os vencimentos e atualiza last_seen_at por UPDATE condicional apenas se decorreu pelo menos um minuto, inclusive sob concorrência.
+Teste prova ausência de toque imediato, toque após 2 minutos e 401 após 61 minutos de inatividade.
+
+A10 — corrigido; Passou.
+Cookie/JSON continuam com tokens brutos aleatórios de 43 caracteres; banco guarda somente SHA-256 hexadecimal (token VARCHAR(64), csrf_token VARCHAR(64)).
+HashedDatabaseStrategy estende DatabaseStrategy do fastapi-users; TokenDatabase transforma o bearer bruto em hash ao buscar; CSRF compara hash em tempo constante.
+Teste confere ambos os hashes persistidos e prova que os digests do banco não funcionam como cookie/CSRF de entrada.
+Chaves de tentativa usam HMAC-SHA256 com API_ATTEMPT_KEY_SECRET obrigatório, omitido do repr e sem valor em .env.example.
+Teste prova erro nomeando a variável ausente tanto na construção direta quanto em from_env.
+Função purge_expired remove tentativas fora da janela por kind e sessões vencidas por validade absoluta ou inatividade; chamada oportunisticamente nas reservas/cadastros e no uso de sessão válida.
+Teste envelhece registros e confere sua remoção na próxima tentativa. Sem tráfego, a purga fica para a próxima chamada; não existe scheduler novo.
+
+A11 — não corrigido: nome/prefixo do cookie preservado por instrução explícita e decisão humana pendente.
+training_session, Secure configurável, HttpOnly, SameSite=Lax, Path=/ e sem Domain permanecem compatíveis com os casos G3.
+Não foi introduzida trava nova de ambiente para cookie_secure=false; permanece restrição documentada ao ambiente HTTP local.
+
+I1 — corrigido; Passou: /users/me responde Cache-Control: no-store; teste explícito. Login já enviava no-store.
+I2 — corrigido; Passou: API_DOCS_ENABLED=false desliga /docs e /redoc; /openapi.json permanece 200; teste explícito.
+I3/I4 — não corrigidos: riscos previamente aceitos de cadastro aberto/enumeração no cadastro e bloqueio deliberado por conta; fora do pedido de mudança de política.
+I5 — não corrigido: reflexão de input em 422 ao próprio cliente não foi alterada neste escopo.
+
+ACHADOS DA REVISÃO ANTHROPIC
+1 — corrigido (A4), Passou.
+2 — corrigido, Passou: novo teste de downgrade 0006 para 0005 com conta, sessão e tentativa existentes; exige DBAPIError, compara revisão, catálogo e todas as linhas das três tabelas antes/depois, preservadas integralmente.
+3 — corrigido (A6), Passou.
+4 — corrigido no escopo solicitado, Passou: política de máximo 1024 caracteres aplicada a cadastro/nova senha; login e verificação da senha atual rejeitam entradas superiores a 1024 antes do Argon2. Testes cobrem rejeição e cadastro no limite exato.
+Limite global de corpo no proxy não implementado: pertence ao deploy/infra, que este despacho proíbe alterar.
+5 — corrigido (A10/purga), Passou.
+6 — documentação preservada e ampliada (A3); proxy real não configurado neste despacho, pois infra/deploy estão fora do escopo.
+7 — corrigido, Passou: teste novo contém assert explícito get_current_head() == '0006', além das verificações derivadas preexistentes e do catálogo exato.
+8 — não corrigido no arquivo da tarefa/índice de regressão por escopo de governança do orquestrador; registrado aqui para encaminhamento: as expectativas históricas fixavam 0003, não 0005, e já não acompanhavam 0004/0005 antes de 0006.
+
+INTEGRIDADE E VALIDAÇÃO
+Passou: os três hashes G3 conferem exatamente com casos_aprovados; casos-intactos-r3.txt contém valores e caminhos.
+Passou: uv run validar-governanca — governança OK: 7 mudança(s), 26 tarefa(s), 28 requisito(s) na spec viva; exit 0; validador-r3.txt.
+Passou: git diff --check sem erros.
+Migrações 0001–0005, contracts, generation, infra, frontmatter e provas anteriores não alterados.
+Sem dependência nova, commit, push, merge ou deploy.
+
+ARQUIVOS DO PRODUTO/DOCUMENTAÇÃO ALTERADOS
+.env.example
+apps/api/README.md
+apps/api/src/training_api/app.py
+apps/api/src/training_api/auth.py
+apps/api/src/training_api/browser.py (novo)
+apps/api/src/training_api/config.py
+apps/api/src/training_api/csrf.py
+apps/api/src/training_api/database.py
+apps/api/src/training_api/limits.py
+packages/lineage/src/training_lineage/tables.py
+packages/lineage/src/training_lineage/migrations/versions/0006_auth.py
+
+NOVOS TESTES
+apps/api/tests/test_api_auth_hardening.py
+packages/lineage/tests/test_auth_migration.py
+
+PENDÊNCIAS
+Nova revisão de segurança/independente do snapshot corrigido e aceite humano G4, pelo orquestrador.
+A7 e A11 aguardam decisão humana conforme despacho; nenhuma aprovação foi inferida destes resultados.
+Configurar segredo real de HMAC antes de iniciar a aplicação fora do teste; nenhum segredo operacional foi criado ou gravado.

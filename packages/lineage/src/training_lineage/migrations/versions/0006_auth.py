@@ -20,9 +20,10 @@ def upgrade():
     )""")
     op.execute('CREATE UNIQUE INDEX app_user_email_lower_unique ON app_user (lower(email))')
     op.execute("""CREATE TABLE auth_access_token (
-        token VARCHAR(43) PRIMARY KEY,
+        token VARCHAR(64) PRIMARY KEY,
         user_id UUID NOT NULL REFERENCES app_user(id) ON DELETE CASCADE,
         csrf_token VARCHAR(64) NOT NULL UNIQUE,
+        last_seen_at TIMESTAMPTZ NOT NULL DEFAULT now(),
         created_at TIMESTAMPTZ NOT NULL DEFAULT now()
     )""")
     op.execute('CREATE INDEX auth_access_token_created_at ON auth_access_token (created_at)')

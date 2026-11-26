@@ -23,11 +23,12 @@ app_user = Table(
 Index('app_user_email_lower_unique', func.lower(app_user.c.email), unique=True)
 auth_access_token = Table(
     'auth_access_token', metadata,
-    Column('token', String(43), primary_key=True),
+    Column('token', String(64), primary_key=True),
     Column('user_id', Uuid, ForeignKey('app_user.id', ondelete='CASCADE'), nullable=False),
     Column('csrf_token', String(64), nullable=False, unique=True),
     Column('created_at', DateTime(timezone=True), nullable=False, server_default=func.now()),
 )
+auth_access_token.append_column(Column('last_seen_at', DateTime(timezone=True), nullable=False, server_default=func.now()))
 Index('auth_access_token_created_at', auth_access_token.c.created_at)
 auth_attempt = Table(
     'auth_attempt', metadata,
