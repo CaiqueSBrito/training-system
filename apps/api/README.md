@@ -99,3 +99,9 @@ UPDATE SKIP LOCKED))` para localizar as linhas e mantém a sessão própria e a
 periodicidade de um minuto. O orçamento é verificado entre comandos SQL; uma
 consulta já em curso pode ultrapassá-lo. Registros restantes ficam para a execução
 seguinte.
+
+Rodada R6: a recusa de admissão do hasher lança `PasswordBudgetExceeded` (503),
+distinta de falha de credencial. Login e troca de senha desfazem a transação e
+removem suas reservas nessa recusa, sem consumir os limites por conta/origem.
+Erros de senha efetivamente verificados continuam registrados. O rollback ocorre
+antes da sessão curta de limpeza, protegida de cancelamento.

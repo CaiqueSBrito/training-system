@@ -1,0 +1,57 @@
+T-024 — rodada 6 — correção R5-1 — 2026-11-26
+Executor: OpenAI/Codex, rag-backend; task_9675f5c6c322 / ctx_2f83db083b92.
+Fonte: revisao-seguranca-llm-r4.md, aprovado com ressalvas.
+Relatório do executor; não constitui revisão independente ou aceite G4.
+
+PROVA FINAL ÚNICA
+Comando: uv run pytest apps/api packages/lineage -q
+Status: Passou
+Resultado: 191 passed, 1 warning in 47.22s; exit 0.
+Saída integral: pytest-r6.txt; nenhuma repetição da suíte nesta rodada.
+Os 188 casos anteriores e 3 cenários novos passaram. Teste novo escrito antes da correção do produto.
+Aviso preexistente de serialização Pydantic no teste do chat (enum status como string), preservado na saída.
+Postgres real da infra local, bancos descartáveis das fixtures, sem alterar serviços compartilhados.
+API_ATTEMPT_KEY_SECRET fornecido somente ao subprocesso com segredo efêmero de teste não persistido; .env inalterado.
+
+R5-1 — corrigido; Passou.
+PasswordBudget.admit lança a exceção própria PasswordBudgetExceeded, subclasse HTTPException com status 503, antes de iniciar qualquer hash/verificação.
+O login identifica essa exceção separadamente e inclui a sobrecarga nos caminhos de limpeza do finally.
+A troca de senha captura a mesma exceção ao tentar verificar a senha atual, que ficava fora do try de limpeza após credencial válida.
+Em ambos os caminhos ocorre primeiro rollback da sessão principal e depois release_login numa sessão curta separada, dentro de CancelScope(shield=True).
+Não há duas conexões ou locks retidos ao mesmo tempo, e o status original 503 é preservado.
+Sobrecarga ao gerar a senha nova já era coberta pelo finally após senha atual válida e continua coberta.
+Senhas efetivamente verificadas como incorretas e conta inativa continuam consumindo o orçamento, preservando R4-1 e os testes anteriores.
+A tentativa de cadastro mantém sua política anterior de contar todas as tentativas por origem; não há reserva de login para remover nesse fluxo.
+
+TESTE NOVO
+Arquivo: apps/api/tests/test_api_auth_r6.py.
+Cenários: login com conta existente, login com conta inexistente e troca de senha autenticada.
+Cada cenário preenche o budget real com 2 trabalhos executando e 2 aguardando, usando dublê lento apenas no arquivo de teste e PostgreSQL/reservas reais.
+Executa 8 solicitações adicionais seguidas (acima dos limites de teste de 3 por conta e 6 por origem): todas retornam 503; nenhuma retorna 429.
+Após cada resposta, compara todas as linhas login_failure (id, scope, key, created_at) com o snapshot anterior: nenhuma linha nova persiste nem altera as reservas existentes por conta/origem.
+A verificação da senha é instrumentada no teste para falhar se for chamada durante a saturação; os contadores provam que os 503 não iniciam novos hashes.
+As 4 solicitações admitidas terminam depois de liberar o dublê, com suas falhas reais de credencial preservadas.
+O wrapper que repete somente reserva 429 em disputa de lock existe exclusivamente no teste, para isolar saturação do hasher; não altera a aplicação.
+
+COSMÉTICO — corrigido.
+Removido app.state.password_limiter redundante; o limitador único continua acessível somente através do PasswordBudget compartilhado pelos UserManager.
+Nenhum limite ou comportamento de hash foi removido.
+
+VALIDAÇÃO E INTEGRIDADE
+Passou — 3/3 hashes G3 conferem exatamente com casos_aprovados; valores e caminhos em casos-intactos-r6.txt.
+Passou — uv run validar-governanca: governança OK: 7 mudança(s), 26 tarefa(s), 28 requisito(s) na spec viva; exit 0; saída em validador-r6.txt.
+Passou — git diff --check sem erros.
+Cookie training_session, casos G3 e provas anteriores preservados.
+Sem dependência nova, commit, push, merge, deploy ou alteração da infra.
+Contracts, generation, migrações e frontmatter não alterados nesta rodada.
+
+ARQUIVOS ALTERADOS
+apps/api/src/training_api/auth.py
+apps/api/src/training_api/app.py
+apps/api/README.md
+apps/api/tests/test_api_auth_r6.py (novo)
+Evidências: pytest-r6.txt, casos-intactos-r6.txt, validador-r6.txt e este relatório.
+
+PENDÊNCIAS
+Revisão do snapshot corrigido e G4 humano pelo orquestrador.
+A7/A11 e configuração do proxy permanecem nas decisões humanas/deploy já registradas, sem mudança nesta rodada.

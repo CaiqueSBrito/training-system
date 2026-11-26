@@ -17,7 +17,7 @@ from sqlalchemy.exc import DBAPIError, IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 from .auth import (
-    SESSION_COOKIE, PasswordBudget, UserCreate, UserManager, UserRead, cookie_transport,
+    SESSION_COOKIE, PasswordBudget, PasswordBudgetExceeded, UserCreate, UserManager, UserRead, cookie_transport,
     current_user, get_strategy, get_user_manager,
 )
 from .config import ApiSettings
@@ -59,7 +59,6 @@ def create_app(settings: ApiSettings) -> FastAPI:
                   redoc_url='/redoc' if settings.docs_enabled else None)
     app.state.settings = settings
     app.state.password_budget = PasswordBudget(settings)
-    app.state.password_limiter = app.state.password_budget.limiter
     app.state.auth_purge_lock = Lock()
     app.state.next_auth_purge = 0
     app.state.auth_engine = engine
@@ -91,6 +90,7 @@ def create_app(settings: ApiSettings) -> FastAPI:
         strategy: DatabaseStrategy = Depends(get_strategy),
     ):
         reservations = await reserve_login(request, credentials.username)
+        overloaded = False
         try:
             user = await manager.authenticate(credentials)
             if user is None or not user.is_active:
@@ -102,8 +102,11 @@ def create_app(settings: ApiSettings) -> FastAPI:
             response.headers['set-cookie'] = cookie.headers['set-cookie']
             response.headers['cache-control'] = 'no-store'
             return response
+        except PasswordBudgetExceeded:
+            overloaded = True
+            raise
         finally:
-            if manager.password_verified or manager.verified_nowait:
+            if overloaded or manager.password_verified or manager.verified_nowait:
                 # Libera inclusive após NOWAIT/erro, antes de pedir outra conexão.
                 with CancelScope(shield=True):
                     await manager.user_db.session.rollback()
@@ -141,7 +144,14 @@ def create_app(settings: ApiSettings) -> FastAPI:
         await session.commit()
         if len(body.current_password) > 1024:
             raise HTTPException(400, 'INVALID_CURRENT_PASSWORD')
-        valid, _ = await manager.verify_password(body.current_password, old_hash)
+        try:
+            valid, _ = await manager.verify_password(body.current_password, old_hash)
+        except PasswordBudgetExceeded:
+            # Nenhuma verificação ocorreu: não é uma falha de credencial.
+            with CancelScope(shield=True):
+                await session.rollback()
+                await release_login(request, reservations)
+            raise
         if not valid:
             raise HTTPException(400, 'INVALID_CURRENT_PASSWORD')
         try:

@@ -22,6 +22,13 @@ from .database import AccessToken, TokenDatabase, User, UserDatabase, get_sessio
 SESSION_COOKIE = 'training_session'
 
 
+class PasswordBudgetExceeded(HTTPException):
+    """Admissão recusada antes de executar qualquer hash ou verificação."""
+
+    def __init__(self):
+        super().__init__(503, 'Password hashing temporarily overloaded')
+
+
 class PasswordBudget:
     """Conta execução + espera antes do primeiro await, sem corrida na admissão."""
 
@@ -35,7 +42,7 @@ class PasswordBudget:
     def admit(self):
         with self.lock:
             if self.pending >= self.maximum:
-                raise HTTPException(503, 'Password hashing temporarily overloaded')
+                raise PasswordBudgetExceeded()
             self.pending += 1
         try:
             yield
