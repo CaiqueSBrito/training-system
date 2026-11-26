@@ -84,7 +84,7 @@ Citation    chunk_ref ("C3"), evidence (trecho literal curto da fonte)
 Assíncrona, disparada pelo upload; cada etapa é idempotente.
 
 1. **Receber**: valida tipo e tamanho e calcula o `sha256` do arquivo. O hash identifica a versão do documento.
-2. **Parsear**: extrai texto preservando título, seção, tabela e número de página (o parser ainda está em aberto, seção 10).
+2. **Parsear**: extrai texto preservando título, seção, tabela e número de página, com o Docling ([ADR-0009](../adr/0009-parser-docling.md)).
 3. **Chunk**: respeita a estrutura do documento; um chunk não atravessa seção de nível 1. Cada chunk guarda `document_version_id`, página, `section_path` e offsets. `chunk_id` determinístico, derivado do conteúdo e da versão do chunker.
 4. **Verificação de injeção indireta**: o conteúdo enviado pelo usuário é o principal vetor de injeção indireta (OWASP LLM01). Chunks com instruções direcionadas ao modelo são marcados e ficam fora da recuperação, com o motivo registrado.
 5. **Embed**: `gemini-embedding-2`, 3072 dimensões, **uma requisição por chunk**. A API agrega várias entradas da mesma chamada num único vetor; volumes grandes vão pela Batch API. O modelo não aceita `task_type`, então a tarefa vai como prefixo no texto:
@@ -171,22 +171,48 @@ erDiagram
 
 O juiz do RAGAS é chamado via LiteLLM → OpenRouter. Sem `EVAL_JUDGE_MODEL` configurado, a avaliação não inicia: não existe juiz padrão. Os limiares saem da primeira execução (linha de base), passam por aprovação humana, e uma queda abaixo deles bloqueia o merge.
 
-## 10. Latência no chat
+## 10. Aplicações e latência no chat
+
+### 10.1 Aplicações
+
+Monólito modular ([ADR-0010](../adr/0010-monolito-modular.md)): a regra de negócio fica nos pacotes de domínio (`packages/*`); as apps são adaptadores finos sobre eles. A dependência vai sempre de app para pacote, nunca o contrário. Um deploy e um banco da aplicação (ADR-0008), sem microserviços.
+
+```mermaid
+flowchart LR
+  WEB[apps/web<br/>Next.js + React + TS] -- HTTP + SSE --> API[apps/api<br/>FastAPI + Uvicorn]
+  API --> PKG[packages/*<br/>contracts, llm, lineage, ingestion,<br/>observability, retrieval, generation]
+  WRK[apps/worker<br/>Procrastinate] --> PKG
+  API -- enfileira --> PG[(Postgres da aplicação<br/>linhagem + fila)]
+  WRK -- consome --> PG
+  PKG --> PG
+```
+
+| App | Stack | Papel na arquitetura | ADR |
+| --- | --- | --- | --- |
+| `apps/api` | FastAPI assíncrono, servido por Uvicorn; ADK via `run_async` | recebe o chat, executa E1–E12, envia o progresso por SSE e o evento final com a `ChatResponse`; enfileira ingestão e avaliação; publica o OpenAPI | [0011](../adr/0011-api-fastapi-sse.md), [0014](../adr/0014-contratos-openapi.md) |
+| `apps/worker` | Procrastinate sobre o Postgres da aplicação | executa a ingestão assíncrona (§3) e a avaliação online por amostragem (§9) como jobs duráveis | [0012](../adr/0012-fila-procrastinate-postgres.md) |
+| `apps/web` | Next.js, React e TypeScript estrito; tipos gerados do OpenAPI | interface do chat; mostra o progresso e renderiza itens e fontes sempre escapados (RAG-SAI-001) | [0013](../adr/0013-front-nextjs-typescript.md) |
+
+Contratos: o OpenAPI da `apps/api` é o artefato publicado dos modelos de `packages/contracts` que cruzam a fronteira HTTP ([ADR-0014](../adr/0014-contratos-openapi.md)). O JSON Schema exportado em `packages/contracts/schema/` continua até a mudança que criar a `apps/api`.
+
+### 10.2 Latência no chat
 
 - O caminho crítico tem quatro chamadas de LLM em série (E3 → E4 → E8 → E10) mais o reranker. O E2 corre em paralelo com o E3.
-- Não há streaming do conteúdo: o item só pode aparecer depois do E10. O chat mostra o progresso por etapa ("entendendo", "buscando", "gerando", "verificando").
+- Não há streaming do conteúdo: o item só pode aparecer depois do E10. O chat mostra o progresso por etapa ("entendendo", "buscando", "gerando", "verificando"), enviado por SSE com o buffering de proxy desligado; os itens chegam inteiros no evento final ([ADR-0011](../adr/0011-api-fastapi-sse.md)).
 - O reparo é limitado a 1 nova tentativa. O orçamento de tempo por etapa será fixado depois da primeira medição ponta a ponta.
 
 ## 11. Decisões em aberto
 
 | # | Decisão | Bloqueia |
 | --- | --- | --- |
-| 1 | Onde gravar a linhagem da seção 7 (banco da aplicação) | E12 |
-| 2 | Parser de documentos (precisa preservar página e seção) | ingestão |
+| 1 | ~~Onde gravar a linhagem da seção 7 (banco da aplicação)~~ **Resolvido**: Postgres da aplicação, separado do Langfuse ([ADR-0008](../adr/0008-linhagem-postgres.md)) | — |
+| 2 | ~~Parser de documentos (precisa preservar página e seção)~~ **Resolvido**: Docling, para PDF, DOCX e Markdown ([ADR-0009](../adr/0009-parser-docling.md)) | — |
 | 3 | Tamanho e sobreposição dos chunks | ingestão (inicial; ajustar por RAGAS) |
-| 4 | Como detectar injeção indireta na ingestão (juiz LLM por chunk ou classificador) | ingestão, passo 4 |
+| 4 | ~~Como detectar injeção indireta na ingestão~~ **Resolvido** no G1 de `2026-11-24-ingestao`: heurística determinística em todo chunk e juiz LLM só nos suspeitos | ingestão, passo 4 |
 | 5 | Lista fechada de intenções do E3 | E3 |
 | 6 | Rubrica de viés/padrão do E10 | E10 |
 | 7 | Calibração: Haiku 5.5 × GPT-6 Luna | E10 em produção |
 | 8 | Mascaramento de conteúdo nos traces em produção | observabilidade |
 | 9 | Quantos candidatos e qual corte (E5–E7), conforme latência medida | E5–E7 |
+| 10 | ~~Estilo arquitetural, framework HTTP, entrega do progresso, fila de jobs, stack do front e publicação dos contratos~~ **Resolvido** no G1 de `2026-11-24-arquitetura-aplicacao`: monólito modular, FastAPI + Uvicorn com SSE, Procrastinate no Postgres da aplicação, Next.js + React + TypeScript, contratos pelo OpenAPI ([ADR-0010](../adr/0010-monolito-modular.md) a [ADR-0014](../adr/0014-contratos-openapi.md)) | — |
+| 11 | Autenticação e identificação do usuário na API | mudança da `apps/api` |

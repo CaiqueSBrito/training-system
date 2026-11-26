@@ -2,7 +2,7 @@
 
 | Documento | Conteúdo |
 | --- | --- |
-| [arquitetura/pipeline-rag.md](arquitetura/pipeline-rag.md) | fluxo do chat (E1–E12), ingestão, guardrails, modelos, rastreabilidade, observabilidade, avaliação, decisões em aberto |
+| [arquitetura/pipeline-rag.md](arquitetura/pipeline-rag.md) | fluxo do chat (E1–E12), ingestão, guardrails, modelos, rastreabilidade, observabilidade, avaliação, aplicações e stacks, decisões em aberto |
 | [../governanca/pipeline.md](../governanca/pipeline.md) | como o trabalho anda: trilhas, etapas, gates do humano, execução multi-provedor |
 
 ## Decisões (ADR)
@@ -16,5 +16,14 @@
 | [0005](adr/0005-observabilidade-langfuse-otel.md) | Langfuse via OpenTelemetry | Aceita |
 | [0006](adr/0006-avaliacao-ragas-litellm.md) | RAGAS + juízes via LiteLLM | Aceita |
 | [0007](adr/0007-monorepo-python-uv.md) | uv workspace, Python 3.13, carência de 7 dias | Aceita |
+| [0008](adr/0008-linhagem-postgres.md) | Linhagem num Postgres da aplicação, separado do Langfuse | Aceita |
+| [0009](adr/0009-parser-docling.md) | Docling como parser (PDF, DOCX e Markdown) | Aceita |
+| [0010](adr/0010-monolito-modular.md) | Monólito modular: regra nos pacotes, apps como adaptadores finos | Aceita |
+| [0011](adr/0011-api-fastapi-sse.md) | API com FastAPI + Uvicorn, progresso do chat por SSE | Aceita |
+| [0012](adr/0012-fila-procrastinate-postgres.md) | Fila de jobs com Procrastinate no Postgres da aplicação | Aceita |
+| [0013](adr/0013-front-nextjs-typescript.md) | Front com Next.js, React e TypeScript, tipos do OpenAPI | Aceita |
+| [0014](adr/0014-contratos-openapi.md) | Contratos publicados pelo OpenAPI (substitui o JSON Schema exportado) | Aceita |
+| [0015](adr/0015-canonico-decisoes-indice.md) | Texto canônico, decisões imutáveis e índice derivado reparável | Aprovada para implementação; aceite integral pendente |
+| [0016](adr/0016-prompts-versionados-offline-chat.md) | Prompts reais versionados offline enquanto Langfuse está desligado | Decisão sob autonomia; revisão pendente |
 
 Nova ADR: próximo número livre, com as seções Estado, Contexto, Decisão, Alternativas e Consequências. Uma ADR aceita não é editada; uma mudança de decisão gera uma ADR nova que a substitui.
