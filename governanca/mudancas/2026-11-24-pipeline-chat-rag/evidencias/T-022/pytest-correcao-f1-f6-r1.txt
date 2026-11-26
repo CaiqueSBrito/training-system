@@ -1,0 +1,40 @@
+logs_sdk = (<_io.StringIO object at 0x71e432559840>, <Logger instructor.v2.retry.filho_tardio_t022 (DEBUG)>)
+
+    def test_controle_de_sensibilidade_sem_correcao_o_instructor_retenta_e_vaza(logs_sdk):
+        """Sem max_retries=0 nem redação, a mesma cadeia faz 4 tentativas e o log leva o payload."""
+        import instructor
+        from ragas.llms import llm_factory
+        from ragas.metrics.collections import Faithfulness
+    
+        transporte = TransporteDuble([{"nada": SENTINELA}] * 4)
+        llm = llm_factory(model="openrouter/openai/gpt-6.1-sol", provider="openrouter",
+                          client=instructor.from_litellm(transporte), adapter="litellm")
+        with pytest.raises(Exception):
+            asyncio.run(Faithfulness(llm=llm).ascore(user_input="q", response="r", retrieved_contexts=["c"]))
+>       assert len(transporte.chamadas) == 4
+E       assert 0 == 4
+E        +  where 0 = len([])
+E        +    where [] = <test_geracao_runner.TransporteDuble object at 0x71e432454c00>.chamadas
+
+evals/tests/test_geracao_runner.py:941: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/ragas/llms/base.py:32
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/ragas/llms/base.py:32: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+    from langchain_community.chat_models.vertexai import ChatVertexAI
+
+evals/tests/test_geracao_runner.py::test_cadeia_real_faz_exatamente_duas_chamadas_por_item_sem_retentativa
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'index' on TypedDict class 'ChatCompletionThinkingBlock' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+evals/tests/test_geracao_runner.py::test_cadeia_real_faz_exatamente_duas_chamadas_por_item_sem_retentativa
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'index' on TypedDict class 'ChatCompletionRedactedThinkingBlock' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+evals/tests/test_geracao_runner.py::test_cadeia_real_faz_exatamente_duas_chamadas_por_item_sem_retentativa
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'summary' on TypedDict class 'ChatCompletionReasoningItem' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED evals/tests/test_geracao_runner.py::test_controle_de_sensibilidade_sem_correcao_o_instructor_retenta_e_vaza
+1 failed, 85 passed, 4 warnings in 14.78s

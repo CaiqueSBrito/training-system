@@ -1,0 +1,8 @@
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED evals/tests/test_geracao_runner.py::test_r2_redacao_cobre_namespaces_da_guarda_compartilhada[LiteLLM Router]
+FAILED evals/tests/test_geracao_runner.py::test_r2_redacao_cobre_namespaces_da_guarda_compartilhada[LiteLLM Proxy]
+FAILED evals/tests/test_geracao_runner.py::test_r2_redacao_cobre_namespaces_da_guarda_compartilhada[LiteLLM Proxy.auth]
+FAILED evals/tests/test_geracao_runner.py::test_r2_redacao_cobre_namespaces_da_guarda_compartilhada[google.auth]
+FAILED evals/tests/test_geracao_runner.py::test_r2_redacao_cobre_namespaces_da_guarda_compartilhada[google.auth.transport.requests]
+5 failed, 18 passed, 79 deselected, 1 warning in 3.08s

@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: langsmith-0.15.0, anyio-4.16.0, Faker-40.54.0
+collecting ... collected 1 item
+
+packages/ingestion/tests/test_indexing.py::test_ING_INJ_001_each_r3_case_with_configured_real_judge PASSED [100%]
+
+============================== 1 passed in 52.94s ==============================

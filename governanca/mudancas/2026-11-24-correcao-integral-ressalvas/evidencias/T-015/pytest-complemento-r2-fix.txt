@@ -1,0 +1,45 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: langsmith-0.15.0, anyio-4.16.0, Faker-40.54.0
+collecting ... collected 15 items / 12 deselected / 3 selected
+
+evals/tests/test_ressalvas_runner.py::test_r1_finding_2_failed_baseline_diff_fails_overall_status_and_cli_exit PASSED [ 33%]
+evals/tests/test_ressalvas_runner.py::test_r1_finding_3_partial_failure_cleans_up_disposable_resources_and_surfaces_cleanup_errors FAILED [ 66%]
+evals/tests/test_ressalvas_runner.py::test_r1_finding_5_executable_calibration_controls_and_baseline_manifest_binding PASSED [100%]
+
+=================================== FAILURES ===================================
+_ test_r1_finding_3_partial_failure_cleans_up_disposable_resources_and_surfaces_cleanup_errors _
+evals/tests/test_ressalvas_runner.py:866: in test_r1_finding_3_partial_failure_cleans_up_disposable_resources_and_surfaces_cleanup_errors
+    execute_isolated_evaluation_or_calibration(
+evals/runner_ressalvas.py:1426: in execute_isolated_evaluation_or_calibration
+    return sandbox_runner(
+E   TypeError: test_r1_finding_3_partial_failure_cleans_up_disposable_resources_and_surfaces_cleanup_errors.<locals>._fake_run_in_disposable() missing 1 required positional argument: 'fn'
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/ragas/llms/base.py:32
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/ragas/llms/base.py:32: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+    from langchain_community.chat_models.vertexai import ChatVertexAI
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED evals/tests/test_ressalvas_runner.py::test_r1_finding_3_partial_failure_cleans_up_disposable_resources_and_surfaces_cleanup_errors
+======= 1 failed, 2 passed, 12 deselected, 1 warning in 83.10s (0:01:23) =======
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: langsmith-0.15.0, anyio-4.16.0, Faker-40.54.0
+collecting ... collected 15 items / 14 deselected / 1 selected
+
+evals/tests/test_ressalvas_runner.py::test_r1_finding_3_partial_failure_cleans_up_disposable_resources_and_surfaces_cleanup_errors PASSED [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/ragas/llms/base.py:32
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/ragas/llms/base.py:32: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+    from langchain_community.chat_models.vertexai import ChatVertexAI
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================= 1 passed, 14 deselected, 1 warning in 1.10s ==================

@@ -48,7 +48,7 @@ Nível superior prevalece. Saída de modelo nunca é aprovação humana.
 | `orquestrador` | anthropic | sessão principal do omp | `governanca/` | humano |
 | `requisitos` | anthropic | subagente do omp (sem editar código) | `governanca/specs/`, `proposta.md`, `delta.md` | humano |
 | `arquiteto` | anthropic | worker Orca `claude` | `docs/`, `packages/contracts/` | google |
-| `rag-backend` | openai | worker Orca `codex` | `packages/{llm,ingestion,retrieval,generation}/`, `apps/{api,worker}/` | anthropic |
+| `rag-backend` | openai | worker Orca `codex` | `packages/{llm,lineage,ingestion,retrieval,generation}/`, `apps/{api,worker}/` | anthropic |
 | `avaliacao-observabilidade` | google | worker Orca `antigravity` | `packages/observability/`, `evals/`, `infra/` | openai |
 | `frontend` | google | worker Orca `antigravity` | `apps/web/` | openai |
 | `seguranca-llm` | anthropic | subagente `security-reviewer` do omp (só leitura) | — | — |

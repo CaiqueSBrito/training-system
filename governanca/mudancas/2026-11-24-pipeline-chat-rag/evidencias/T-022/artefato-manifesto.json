@@ -1,0 +1,163 @@
+{
+  "artifact_schema": "training-evals/chat-generation-artifact/v1",
+  "source_task": "T-021",
+  "source_dispatch": "ctx_c55621c67ed1",
+  "case_id": "t021-cli-membrana-v1",
+  "owner_id": "t021-real-c513f0da772748a3970dfdf2959e25ad",
+  "session_id": "t021-real-c513f0da772748a3970dfdf2959e25ad-session",
+  "document_version_ids": [
+    "0c68ee3c-b17b-407e-93b6-58e35fde5c8e"
+  ],
+  "response": {
+    "status": "ok",
+    "mensagem": "1 item(ns) gerado(s).",
+    "itens": [
+      {
+        "item_id": "91d1186b124d48079fa23574e7b3ee82",
+        "conteudo": {
+          "tipo": "flashcard",
+          "front": "Qual é a função principal da membrana celular?",
+          "back": "A membrana celular delimita a célula e controla a entrada e a saída de substâncias, utilizando sua permeabilidade seletiva para manter o equilíbrio interno.",
+          "bloom_level": "lembrar",
+          "citations": [
+            {
+              "chunk_ref": "C1",
+              "evidence": "A membrana celular delimita a célula e controla a entrada e a saída de substâncias. Sua permeabilidade seletiva ajuda a manter o equilíbrio interno da célula"
+            }
+          ]
+        }
+      }
+    ],
+    "omissoes": [],
+    "fontes": [
+      {
+        "chunk_ref": "C1",
+        "chunk_id": "597ab971e721836c128dc5d6c69ce85df3921eda37b9cf809766ddc02369dd2b",
+        "document_id": "f7b58c62-82e3-4510-a4b5-d98eafacfc19",
+        "document_version_id": "0c68ee3c-b17b-407e-93b6-58e35fde5c8e",
+        "page": null,
+        "section_path": [
+          "Membrana celular"
+        ]
+      }
+    ],
+    "motivo_recusa": null,
+    "chat_turn_id": "2028b786410b4399b3bd3c98c6450e2c",
+    "trace_id": "b6399d4a56bd5353db9202c61944380e"
+  },
+  "response_sha256": "83af532a2afd1e3d2c7aaa2763b3343b62047a12c3df4c5704074e58ed470018",
+  "diagnostics": {
+    "chat_turn_id": "2028b786410b4399b3bd3c98c6450e2c",
+    "trace_id": "b6399d4a56bd5353db9202c61944380e",
+    "durations_seconds": {
+      "E1": 0.022831012000096962,
+      "E3": 11.713819087999582,
+      "E2": 18.48311235700021,
+      "E4": 4.616031618003035,
+      "E5_E7": 14.448136728999089,
+      "E8": 1.3071789170026022,
+      "E9": 0.012206428000354208,
+      "E10": 3.923014700998465,
+      "E11": 0.00034555299862404354,
+      "E12": 0.03299416300069424,
+      "E5_retrieval": 8.110512587,
+      "E6_rerank": 6.320858366,
+      "E7_context": 0.015740198
+    },
+    "models": {
+      "E2": "gemini/gemini-3.1-flash-lite",
+      "E3": "gemini-3.1-flash-lite",
+      "E4": "gemini-3.1-flash-lite",
+      "E8": "gemini-3.1-flash-lite",
+      "E10": "openrouter/anthropic/claude-haiku-5.5"
+    },
+    "prompt_versions": {
+      "input_judge": "offline:chat-input-judge-v1@sha256:ae75f78383956d6cb368bb53bcaa519253a9e61ad74a948d66b3e758adc95510",
+      "classifier": "offline:chat-classifier-v1@sha256:ee0644ba6b8c5efa148162fcf6bbbefcea978c0f4e2da8b205b014a9f9cea250",
+      "pedagogue": "offline:chat-pedagogue-v1@sha256:d8de6a412d10f085d15fc3d173fd342d7c5a78be556e14428825797135ca031d",
+      "generation": "offline:chat-generation-v1@sha256:b86254c0a6a9117471d887a9af23fc11438603ca22789efbf2432d6212f6a076",
+      "output_judge": "offline:chat-output-judge-v1@sha256:b5073d150c1d0e4cbfa8738612a27ecbab701f8cab4755e15c63ea5a99ef32b4",
+      "output_rubric": "offline:chat-output-rubric-v1@sha256:9108eff853c5a0ed2109f8a00371fe778061d2574effdd9554099001d92627fd"
+    },
+    "status": "ok",
+    "errors": [],
+    "model_calls_admitted": 7,
+    "embedding_key": "gemini-embedding-2@3072@fmt-v1",
+    "reranker": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "cutoff": 0.48544316837251245,
+      "manifest_sha256": "65e0ac016c6fe7baecf5e7c043d3c18aae073ecf8da3ab5c173f1012057b2d7b"
+    }
+  },
+  "diagnostics_sha256": "13562e41a4ddd27ec31b99755114b1302b26144b87cad13b161afc7588803b71",
+  "e8": {
+    "chat_turn_id": "2028b786410b4399b3bd3c98c6450e2c",
+    "contexts": [
+      {
+        "call_id": "28c5a94b07964c65a14396f69cd61912",
+        "call": "inicial",
+        "context": {
+          "chunks": [
+            {
+              "ref": "C1",
+              "chunk_id": "597ab971e721836c128dc5d6c69ce85df3921eda37b9cf809766ddc02369dd2b",
+              "page": null,
+              "section_path": [
+                "Membrana celular"
+              ],
+              "text": "Membrana celular\n\nA membrana celular delimita a célula e controla a entrada e a saída de substâncias. Sua permeabilidade seletiva ajuda a manter o equilíbrio interno da célula."
+            }
+          ]
+        },
+        "context_ref_mapping": {
+          "C1": "C1"
+        },
+        "status": "completed"
+      }
+    ],
+    "original_items": [
+      {
+        "item_id": "91d1186b124d48079fa23574e7b3ee82",
+        "content": {
+          "tipo": "flashcard",
+          "front": "Qual é a função principal da membrana celular?",
+          "back": "A membrana celular delimita a célula e controla a entrada e a saída de substâncias, utilizando sua permeabilidade seletiva para manter o equilíbrio interno.",
+          "bloom_level": "lembrar",
+          "citations": [
+            {
+              "chunk_ref": "C1",
+              "evidence": "A membrana celular delimita a célula e controla a entrada e a saída de substâncias. Sua permeabilidade seletiva ajuda a manter o equilíbrio interno da célula"
+            }
+          ]
+        },
+        "call_id": "28c5a94b07964c65a14396f69cd61912",
+        "generation_item_index": 0,
+        "attempt": 1
+      }
+    ]
+  },
+  "e8_capture_sha256": "3c6e242403e0feb619fa3f51a76f03a597a92a3aed56759755d61d803b87510f",
+  "documents": [
+    {
+      "document_version_id": "0c68ee3c-b17b-407e-93b6-58e35fde5c8e",
+      "sha256": "e0a353ae2ab30ea32aef41fb67f05174c940a77cc72f5558cdcfdc80586532df"
+    }
+  ],
+  "verification": {
+    "method": "sandbox_manifest_hashes",
+    "detail": {
+      "manifest_sha256": "4d3724b1af62458d83b0c66c3e69d0b701d06bea33e229df2802514285c6e452",
+      "manifest_name": "manifest.json",
+      "manifest_run_id": "t021-real-c513f0da772748a3970dfdf2959e25ad",
+      "files_confirmed": [
+        "diagnostics.json",
+        "e8-capture.json",
+        "response.json"
+      ],
+      "checked_at": "2026-11-25T03:30:31.097556+00:00",
+      "e8_capture_mode": "0o600"
+    }
+  },
+  "assembled_at": "2026-11-25T03:30:31.097596+00:00"
+}

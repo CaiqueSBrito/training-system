@@ -1,0 +1,3 @@
+Casos escritos antes de criar ingestao.py; sem executar repro de coleta.
+sha256 f7b933871407da588a1cfeb6c6aca686cd8303a1fe3b393e91ea4a0a27c6e99e
+modulo_existe=False

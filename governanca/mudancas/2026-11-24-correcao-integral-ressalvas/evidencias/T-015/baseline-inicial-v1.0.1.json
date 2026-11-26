@@ -1,0 +1,816 @@
+{
+  "manifest": {
+    "run_id": "ragas-run-b647f4ac987c",
+    "timestamp_utc": "2026-11-25T01:58:23.538417+00:00",
+    "dataset_id": "ressalvas-recuperacao-segura-v1",
+    "dataset_version": "1.0.1",
+    "dataset_sha256": "8f0d3582ffca643727089879959982f25c87387b56db93fb2a95f1ce339bae8d",
+    "scope": "ingestao_consulta_segura_sem_geracao",
+    "ragas_version": "0.4.4",
+    "litellm_version": "1.109.1",
+    "instructor_version": "1.17.0",
+    "judge_model": "openrouter/openai/gpt-6.1-sol",
+    "judge_provider": "openrouter",
+    "judge_config_version": "ragas-0.4-litellm-instructor-v1",
+    "judge_config_sha256": "971ac792457900a8fbb8a8919004be7028e5600c53bf52bb88845194c282f099",
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "seed": 42,
+    "embedding_key": "gemini-embedding-2@3072@fmt-v1",
+    "metric_prompts_sha256": {
+      "context_precision_with_reference": "e8d5b1719264c8376675e1bb5b55b3e52cb81add663d6340d06d48028c0c12ff",
+      "context_recall": "eaa0cfaa52cec1b7585ce984f53cf658541209702e3294ade230ef6a478d1dec"
+    },
+    "calibration_protocol_version": "ressalvas-calibration-paired-positive-negative-v1",
+    "calibration_protocol_sha256": "949611f9d1aac119b6331a04ee4f2996f46773def03f7b9256ddbd87e5861955",
+    "thresholds_approval_ref": "governanca/mudancas/2026-11-24-correcao-integral-ressalvas/evidencias/T-015/aprovacao-calibracao.md",
+    "calibration_run_id": "ragas-calib-0fd37cd1aae7",
+    "calibration_manifest_sha256": "9e173ba9d7da1321893c19e21114791482d996b36167393ddeb00501f2ffdbaa"
+  },
+  "status": "Passou",
+  "candidate_status": "Passou",
+  "scope_evaluated": "ingestao_consulta_segura_sem_geracao",
+  "global_pipeline_success": false,
+  "global_pipeline_note": "Avaliação restrita ao escopo de ingestão, reconciliação e consulta segura (SafeRetriever). Estágios de geração (E8) e juiz de saída (E10) não estão implementados neste corte.",
+  "aggregate_scores": {
+    "context_precision_with_reference": 0.9999999999333333,
+    "context_recall": 1.0
+  },
+  "deterministic_provenance_hit_rate": 1.0,
+  "not_applicable_metrics": {
+    "faithfulness": {
+      "status": "Não se aplica",
+      "reason": "Escopo atual possui apenas ingestão, linhagem, reconciliação e consulta segura (SafeRetriever); o estágio de geração de itens (E8) ainda não está implementado e respostas simuladas são proibidas."
+    }
+  },
+  "thresholds": {
+    "context_precision_with_reference": 0.8,
+    "context_recall": 0.85,
+    "min_case_context_precision": 0.65,
+    "min_case_context_recall": 0.75,
+    "deterministic_provenance_hit_rate": 1.0,
+    "approval_ref": "governanca/mudancas/2026-11-24-correcao-integral-ressalvas/evidencias/T-015/aprovacao-calibracao.md"
+  },
+  "threshold_violations": [],
+  "case_results": [
+    {
+      "case_id": "EVAL-RES-001",
+      "doc_id": "doc-bio-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input_sha256": "3d47ad4a6d7035cd0486ae7959742ae6dfd97f33ec7f5599f20ee2ef394e78b2",
+      "reference_sha256": "b969d348bca1ccadbe7dae53a30ffc315311952f31d06e02f059c4bd494bec0f",
+      "document_version_id": "75156598-a56c-4373-890f-4b07f36106ed",
+      "canonical_id": "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9",
+      "retrieved_context_sha256s": [
+        "8b99d4e48b1276ea8c7f7e284284fd86c0513f1cbcd42234d4e80924ce0b314f",
+        "989886c87c3bf29684dd89cbfc68a266b162a06996c877ea88cc6d173e77f66f",
+        "1a61610b7696d513bf02fef79cac2e8e320d8c458066389b49f5c9f30681145d"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "67d7d7c5e68e72db11ca2e982c9e155bf72b06bd1afbe4bce32e3659a43f711e",
+          "document_version_id": "75156598-a56c-4373-890f-4b07f36106ed",
+          "canonical_id": "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9",
+          "section_path": [
+            "Biologia Celular e Bioenergética"
+          ],
+          "span_ids": [
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:0",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:1",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:2",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:3",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:4",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:5",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:6",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:7"
+          ],
+          "span_section_paths": [
+            [
+              "Biologia Celular e Bioenergética"
+            ],
+            [
+              "Biologia Celular e Bioenergética",
+              "Mitocôndrias e Respiração Aeróbica"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 0,
+          "end_offset": 772,
+          "text_sha256": "8b99d4e48b1276ea8c7f7e284284fd86c0513f1cbcd42234d4e80924ce0b314f",
+          "decision_event_id": "f54a3a8a-aad6-4c15-ad48-3d5be8df1a4e",
+          "decision_revision": 2,
+          "input_sha256": "f3e0b89cdf312a979dfef6aee39f778407a628cb9a822079bc2c19a617bf2e32"
+        },
+        {
+          "chunk_id": "f33965fc5c9f761e2c16e463e3e3b89b143775eb899b252e24cac952e54b6a7c",
+          "document_version_id": "75156598-a56c-4373-890f-4b07f36106ed",
+          "canonical_id": "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9",
+          "section_path": [
+            "Biologia Celular e Bioenergética",
+            "Mitocôndrias e Respiração Aeróbica",
+            "Balanço Energético e Gradiente de Prótons"
+          ],
+          "span_ids": [
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:8",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:9",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:10",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:11"
+          ],
+          "span_section_paths": [
+            [
+              "Biologia Celular e Bioenergética",
+              "Mitocôndrias e Respiração Aeróbica",
+              "Balanço Energético e Gradiente de Prótons"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 772,
+          "end_offset": 1062,
+          "text_sha256": "989886c87c3bf29684dd89cbfc68a266b162a06996c877ea88cc6d173e77f66f",
+          "decision_event_id": "a05406d6-e6c0-4aa0-8055-61d2ac56e5c5",
+          "decision_revision": 2,
+          "input_sha256": "7d183e994cbc5b17ce5cb6e03ed22e9ce2198a49e5f91d4d72105a8e257c4faf"
+        },
+        {
+          "chunk_id": "bcd19dfe31119492105a68ec02cdea8c76bf93dcf773206898d81aadd142589a",
+          "document_version_id": "75156598-a56c-4373-890f-4b07f36106ed",
+          "canonical_id": "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9",
+          "section_path": [
+            "Fotossíntese nos Cloroplastos"
+          ],
+          "span_ids": [
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:12",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:13",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:14",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:15",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:16",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:17",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:18",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:19"
+          ],
+          "span_section_paths": [
+            [
+              "Fotossíntese nos Cloroplastos"
+            ],
+            [
+              "Fotossíntese nos Cloroplastos",
+              "Fase Fotoquímica nos Tilacoides"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 1062,
+          "end_offset": 1553,
+          "text_sha256": "1a61610b7696d513bf02fef79cac2e8e320d8c458066389b49f5c9f30681145d",
+          "decision_event_id": "f594e78a-1626-4921-871a-9ab2e4c118dd",
+          "decision_revision": 2,
+          "input_sha256": "2cdabc73e5244b72c09da5968076e6ac1dd8f1326e95d11b3881529ed2fd9d9f"
+        }
+      ],
+      "deterministic_evidence_covered": true,
+      "deterministic_provenance_errors": [],
+      "scores": {
+        "context_precision_with_reference": 0.99999999995,
+        "context_recall": 1.0
+      }
+    },
+    {
+      "case_id": "EVAL-RES-002",
+      "doc_id": "doc-bio-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input_sha256": "b4d43f051b3612c178e59d736f268601008d8babc0109f9b3b9358d753c64419",
+      "reference_sha256": "b67ed812c6c2a165bd2fc2772c6498d3c9b339629a1a3f4201c27dcc4e6ecde7",
+      "document_version_id": "75156598-a56c-4373-890f-4b07f36106ed",
+      "canonical_id": "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9",
+      "retrieved_context_sha256s": [
+        "1a61610b7696d513bf02fef79cac2e8e320d8c458066389b49f5c9f30681145d",
+        "4458fa70c36735cfeda9424d4263a9805de111de95d38cdd96840c6a3406c990",
+        "8b99d4e48b1276ea8c7f7e284284fd86c0513f1cbcd42234d4e80924ce0b314f"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "bcd19dfe31119492105a68ec02cdea8c76bf93dcf773206898d81aadd142589a",
+          "document_version_id": "75156598-a56c-4373-890f-4b07f36106ed",
+          "canonical_id": "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9",
+          "section_path": [
+            "Fotossíntese nos Cloroplastos"
+          ],
+          "span_ids": [
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:12",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:13",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:14",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:15",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:16",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:17",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:18",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:19"
+          ],
+          "span_section_paths": [
+            [
+              "Fotossíntese nos Cloroplastos"
+            ],
+            [
+              "Fotossíntese nos Cloroplastos",
+              "Fase Fotoquímica nos Tilacoides"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 1062,
+          "end_offset": 1553,
+          "text_sha256": "1a61610b7696d513bf02fef79cac2e8e320d8c458066389b49f5c9f30681145d",
+          "decision_event_id": "f594e78a-1626-4921-871a-9ab2e4c118dd",
+          "decision_revision": 2,
+          "input_sha256": "2cdabc73e5244b72c09da5968076e6ac1dd8f1326e95d11b3881529ed2fd9d9f"
+        },
+        {
+          "chunk_id": "88690059abe59f060a75a212d1fa5327421f68b5c352b01c362db948fad3bd8d",
+          "document_version_id": "75156598-a56c-4373-890f-4b07f36106ed",
+          "canonical_id": "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9",
+          "section_path": [
+            "Fotossíntese nos Cloroplastos",
+            "Ciclo de Calvin no Estroma"
+          ],
+          "span_ids": [
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:20",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:21",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:22"
+          ],
+          "span_section_paths": [
+            [
+              "Fotossíntese nos Cloroplastos",
+              "Ciclo de Calvin no Estroma"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 1553,
+          "end_offset": 1844,
+          "text_sha256": "4458fa70c36735cfeda9424d4263a9805de111de95d38cdd96840c6a3406c990",
+          "decision_event_id": "9400b302-1260-4e79-bac3-5b3018039ff3",
+          "decision_revision": 2,
+          "input_sha256": "007e970145797b33261fe24c72256c19ff15d7814377733251a54453034ba42a"
+        },
+        {
+          "chunk_id": "67d7d7c5e68e72db11ca2e982c9e155bf72b06bd1afbe4bce32e3659a43f711e",
+          "document_version_id": "75156598-a56c-4373-890f-4b07f36106ed",
+          "canonical_id": "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9",
+          "section_path": [
+            "Biologia Celular e Bioenergética"
+          ],
+          "span_ids": [
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:0",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:1",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:2",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:3",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:4",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:5",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:6",
+            "ae2806793f8be580a9ed036be3b0ad8004176583e4e2a945502f89a53b23dec9:7"
+          ],
+          "span_section_paths": [
+            [
+              "Biologia Celular e Bioenergética"
+            ],
+            [
+              "Biologia Celular e Bioenergética",
+              "Mitocôndrias e Respiração Aeróbica"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 0,
+          "end_offset": 772,
+          "text_sha256": "8b99d4e48b1276ea8c7f7e284284fd86c0513f1cbcd42234d4e80924ce0b314f",
+          "decision_event_id": "f54a3a8a-aad6-4c15-ad48-3d5be8df1a4e",
+          "decision_revision": 2,
+          "input_sha256": "f3e0b89cdf312a979dfef6aee39f778407a628cb9a822079bc2c19a617bf2e32"
+        }
+      ],
+      "deterministic_evidence_covered": true,
+      "deterministic_provenance_errors": [],
+      "scores": {
+        "context_precision_with_reference": 0.99999999995,
+        "context_recall": 1.0
+      }
+    },
+    {
+      "case_id": "EVAL-RES-003",
+      "doc_id": "doc-sys-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input_sha256": "04f2208ca86e2fb3c05a5cbe17c73ec92b7bc0d4edbde23264f79beb94313cb8",
+      "reference_sha256": "6445728561bd6fb818eeb876e6f7c3bb5c745f5e3da6c8d7f5e19bf8a399f355",
+      "document_version_id": "9ace738f-46d1-4ca1-8cb9-68fb3b95a95b",
+      "canonical_id": "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72",
+      "retrieved_context_sha256s": [
+        "5d34a411d27549dd6586d5ebc7fcb467053a469512c40836f2c7846efc171bb7",
+        "b223ce9a199d043a15cc3fd649358399a58c623e674024d34704db69695028ff",
+        "4844372e12ae7f345bb09b206b165d0d123151202433c59a405c3857fbe7e03a"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "b875cae73200e7a0521e4267fa8e93cfa1d6dee258bd41d8f49001015a56d503",
+          "document_version_id": "9ace738f-46d1-4ca1-8cb9-68fb3b95a95b",
+          "canonical_id": "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72",
+          "section_path": [
+            "Sistemas Distribuídos e Bancos de Dados Relacionais"
+          ],
+          "span_ids": [
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:0",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:1",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:2",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:3",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:4",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:5",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:6",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:7"
+          ],
+          "span_section_paths": [
+            [
+              "Sistemas Distribuídos e Bancos de Dados Relacionais"
+            ],
+            [
+              "Sistemas Distribuídos e Bancos de Dados Relacionais",
+              "Isolamento, Locks e Transações Curtas"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 0,
+          "end_offset": 835,
+          "text_sha256": "5d34a411d27549dd6586d5ebc7fcb467053a469512c40836f2c7846efc171bb7",
+          "decision_event_id": "a4fbde74-bab3-481c-9ddb-874461ab3355",
+          "decision_revision": 2,
+          "input_sha256": "5686ea0d15222438adb2c94d1dfe9eafc22e2264002fa5722bb3245cd13d3661"
+        },
+        {
+          "chunk_id": "41c6fcb97c1482b30cf4e78fc9aa64aee69383e9b1726486e4e3cf756392458c",
+          "document_version_id": "9ace738f-46d1-4ca1-8cb9-68fb3b95a95b",
+          "canonical_id": "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72",
+          "section_path": [
+            "Sistemas Distribuídos e Bancos de Dados Relacionais",
+            "Isolamento, Locks e Transações Curtas",
+            "Integridade Referencial e Trilhas Append-Only"
+          ],
+          "span_ids": [
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:8",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:9",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:10",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:11",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:12",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:13",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:14",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:15",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:16",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:17",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:18",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:19"
+          ],
+          "span_section_paths": [
+            [
+              "Sistemas Distribuídos e Bancos de Dados Relacionais",
+              "Isolamento, Locks e Transações Curtas",
+              "Integridade Referencial e Trilhas Append-Only"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 835,
+          "end_offset": 1252,
+          "text_sha256": "b223ce9a199d043a15cc3fd649358399a58c623e674024d34704db69695028ff",
+          "decision_event_id": "68d73bb4-1345-48a9-b019-e8ca26cca336",
+          "decision_revision": 3,
+          "input_sha256": "f9f7fa171e0bfc7504c9b1c99b9948d690c28d91147ecc9bcfcf2d7f2a3c3b60"
+        },
+        {
+          "chunk_id": "9035e530981f3238c5a253593d852959c043ad8916cc2eb0b631536c6275b26b",
+          "document_version_id": "9ace738f-46d1-4ca1-8cb9-68fb3b95a95b",
+          "canonical_id": "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72",
+          "section_path": [
+            "Índices Vetoriais Derivados e Reconciliação"
+          ],
+          "span_ids": [
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:20",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:21",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:22",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:23",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:24",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:25",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:26",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:27"
+          ],
+          "span_section_paths": [
+            [
+              "Índices Vetoriais Derivados e Reconciliação"
+            ],
+            [
+              "Índices Vetoriais Derivados e Reconciliação",
+              "Autoridade da Linhagem e Reconciliação Idempotente"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 1252,
+          "end_offset": 1852,
+          "text_sha256": "4844372e12ae7f345bb09b206b165d0d123151202433c59a405c3857fbe7e03a",
+          "decision_event_id": "8b62209d-7ad3-4ac8-bedd-b76a988f4ffc",
+          "decision_revision": 2,
+          "input_sha256": "1428bf596d14d132c6d6b478ab2e78f254db9d2f8724b87816ebbe2a837ab89e"
+        }
+      ],
+      "deterministic_evidence_covered": true,
+      "deterministic_provenance_errors": [],
+      "scores": {
+        "context_precision_with_reference": 0.9999999999,
+        "context_recall": 1.0
+      }
+    },
+    {
+      "case_id": "EVAL-RES-004",
+      "doc_id": "doc-sys-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input_sha256": "d5a4320d1c4b96a49af29605fc1dec6b64e5827df7cb6d5920602a69a0b785cf",
+      "reference_sha256": "f8333d84d1a33a1286f1affd7fda26bda39fbf00f09234e8452947f6224e59e2",
+      "document_version_id": "9ace738f-46d1-4ca1-8cb9-68fb3b95a95b",
+      "canonical_id": "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72",
+      "retrieved_context_sha256s": [
+        "4844372e12ae7f345bb09b206b165d0d123151202433c59a405c3857fbe7e03a",
+        "8648420a2ad408681bac9f8fe92fc0e38980e4deff261514a610d8ed20f01567",
+        "5d34a411d27549dd6586d5ebc7fcb467053a469512c40836f2c7846efc171bb7"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "9035e530981f3238c5a253593d852959c043ad8916cc2eb0b631536c6275b26b",
+          "document_version_id": "9ace738f-46d1-4ca1-8cb9-68fb3b95a95b",
+          "canonical_id": "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72",
+          "section_path": [
+            "Índices Vetoriais Derivados e Reconciliação"
+          ],
+          "span_ids": [
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:20",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:21",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:22",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:23",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:24",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:25",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:26",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:27"
+          ],
+          "span_section_paths": [
+            [
+              "Índices Vetoriais Derivados e Reconciliação"
+            ],
+            [
+              "Índices Vetoriais Derivados e Reconciliação",
+              "Autoridade da Linhagem e Reconciliação Idempotente"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 1252,
+          "end_offset": 1852,
+          "text_sha256": "4844372e12ae7f345bb09b206b165d0d123151202433c59a405c3857fbe7e03a",
+          "decision_event_id": "8b62209d-7ad3-4ac8-bedd-b76a988f4ffc",
+          "decision_revision": 2,
+          "input_sha256": "1428bf596d14d132c6d6b478ab2e78f254db9d2f8724b87816ebbe2a837ab89e"
+        },
+        {
+          "chunk_id": "8ab5d63488c30149e4b4fae94c5bb7387a825c1d778d9ce4bd2de89afbf8bc8a",
+          "document_version_id": "9ace738f-46d1-4ca1-8cb9-68fb3b95a95b",
+          "canonical_id": "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72",
+          "section_path": [
+            "Índices Vetoriais Derivados e Reconciliação",
+            "Autoridade da Linhagem e Reconciliação Idempotente"
+          ],
+          "span_ids": [
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:28",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:29",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:30"
+          ],
+          "span_section_paths": [
+            [
+              "Índices Vetoriais Derivados e Reconciliação",
+              "Autoridade da Linhagem e Reconciliação Idempotente"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 1852,
+          "end_offset": 1946,
+          "text_sha256": "8648420a2ad408681bac9f8fe92fc0e38980e4deff261514a610d8ed20f01567",
+          "decision_event_id": "0f9e033a-8522-45cd-955d-d1297232727a",
+          "decision_revision": 2,
+          "input_sha256": "84d19066be6a9d4aec50b64910a3853c337f9e38cef9781ccc4fd54e90ed0a92"
+        },
+        {
+          "chunk_id": "b875cae73200e7a0521e4267fa8e93cfa1d6dee258bd41d8f49001015a56d503",
+          "document_version_id": "9ace738f-46d1-4ca1-8cb9-68fb3b95a95b",
+          "canonical_id": "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72",
+          "section_path": [
+            "Sistemas Distribuídos e Bancos de Dados Relacionais"
+          ],
+          "span_ids": [
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:0",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:1",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:2",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:3",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:4",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:5",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:6",
+            "924e81cf27dea7163af05243734200c789ea23ae457a3a7619723d4109e93d72:7"
+          ],
+          "span_section_paths": [
+            [
+              "Sistemas Distribuídos e Bancos de Dados Relacionais"
+            ],
+            [
+              "Sistemas Distribuídos e Bancos de Dados Relacionais",
+              "Isolamento, Locks e Transações Curtas"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 0,
+          "end_offset": 835,
+          "text_sha256": "5d34a411d27549dd6586d5ebc7fcb467053a469512c40836f2c7846efc171bb7",
+          "decision_event_id": "a4fbde74-bab3-481c-9ddb-874461ab3355",
+          "decision_revision": 2,
+          "input_sha256": "5686ea0d15222438adb2c94d1dfe9eafc22e2264002fa5722bb3245cd13d3661"
+        }
+      ],
+      "deterministic_evidence_covered": true,
+      "deterministic_provenance_errors": [],
+      "scores": {
+        "context_precision_with_reference": 0.99999999995,
+        "context_recall": 1.0
+      }
+    },
+    {
+      "case_id": "EVAL-RES-005",
+      "doc_id": "doc-sec-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input_sha256": "65efd760a5ac8e1ea623b212f732227872ae78d4ec51619cb3d5369cdd7c5fc7",
+      "reference_sha256": "42699b2f952ba60bb5f399cc400f363bff27ed35b47c4155758d90ea50936d38",
+      "document_version_id": "6a0ab0ab-c7d8-4b77-b1df-5ac8b5910ed5",
+      "canonical_id": "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0",
+      "retrieved_context_sha256s": [
+        "383892b6e3e592c9bdd9e2b7b7df9579793ff83d77cad27fe67c824501304907",
+        "826a82a4d1279a430f6fd7f67dfb7e0cf2fa6d606e856915c60828f3da27143e",
+        "b050b6e33c811fba93053109de8fc61f3115ea8bfdf729ee12515be99c3900b4"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "18039b809ba636dd2fec56e33b10a864ca1ca27080c912600f6d73af9f8a8251",
+          "document_version_id": "6a0ab0ab-c7d8-4b77-b1df-5ac8b5910ed5",
+          "canonical_id": "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0",
+          "section_path": [
+            "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+            "Defesa em Profundidade na Ingestão e Recuperação",
+            "Contexto Jurídico e Técnico Legítimo"
+          ],
+          "span_ids": [
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:8",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:9",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:10",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:11",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:12",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:13",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:14",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:15",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:16",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:17",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:18",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:19",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:20",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:21"
+          ],
+          "span_section_paths": [
+            [
+              "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+              "Defesa em Profundidade na Ingestão e Recuperação",
+              "Contexto Jurídico e Técnico Legítimo"
+            ],
+            [
+              "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+              "Sanitização de Diagnósticos e Proteção de Segredos"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 824,
+          "end_offset": 1313,
+          "text_sha256": "383892b6e3e592c9bdd9e2b7b7df9579793ff83d77cad27fe67c824501304907",
+          "decision_event_id": "eb6152bd-f8dc-4e80-8f66-7701bc448307",
+          "decision_revision": 3,
+          "input_sha256": "0f55c07f625e28334a52b0a41488c5edb9021988278d474b6b111df02f86ed1d"
+        },
+        {
+          "chunk_id": "0b971a7ceebb2391f898ee7523754615e16c218aa147c17f939301111110f52d",
+          "document_version_id": "6a0ab0ab-c7d8-4b77-b1df-5ac8b5910ed5",
+          "canonical_id": "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0",
+          "section_path": [
+            "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)"
+          ],
+          "span_ids": [
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:0",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:1",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:2",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:3",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:4",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:5",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:6",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:7"
+          ],
+          "span_section_paths": [
+            [
+              "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)"
+            ],
+            [
+              "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+              "Defesa em Profundidade na Ingestão e Recuperação"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 0,
+          "end_offset": 824,
+          "text_sha256": "826a82a4d1279a430f6fd7f67dfb7e0cf2fa6d606e856915c60828f3da27143e",
+          "decision_event_id": "45e4096a-38ec-433b-8cce-1aee1c5a08e9",
+          "decision_revision": 3,
+          "input_sha256": "c14486f5b517bee778f9a6fd7cc4635c2cdf2280a5ddd01469d4fc464445aee7"
+        },
+        {
+          "chunk_id": "3af67688ae0f69402e3d3b97482fbc67c154156750bc33adfd4a234643fdf219",
+          "document_version_id": "6a0ab0ab-c7d8-4b77-b1df-5ac8b5910ed5",
+          "canonical_id": "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0",
+          "section_path": [
+            "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+            "Sanitização de Diagnósticos e Proteção de Segredos"
+          ],
+          "span_ids": [
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:22",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:23",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:24",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:25",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:26"
+          ],
+          "span_section_paths": [
+            [
+              "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+              "Sanitização de Diagnósticos e Proteção de Segredos"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 1313,
+          "end_offset": 1675,
+          "text_sha256": "b050b6e33c811fba93053109de8fc61f3115ea8bfdf729ee12515be99c3900b4",
+          "decision_event_id": "5521f0ce-9279-41cd-83a5-6446de87c04a",
+          "decision_revision": 2,
+          "input_sha256": "a9870980e643ca6dc4efa5ad968fbc75a24e2966d8d5046a2e83bfc77c7a5277"
+        }
+      ],
+      "deterministic_evidence_covered": true,
+      "deterministic_provenance_errors": [],
+      "scores": {
+        "context_precision_with_reference": 0.99999999995,
+        "context_recall": 1.0
+      }
+    },
+    {
+      "case_id": "EVAL-RES-006",
+      "doc_id": "doc-sec-001",
+      "owner_id": "eval-owner-ressalvas-v1",
+      "user_input_sha256": "60da69c25442f9bf8e5212adb0290b634f8ebe5ea1e7b175dde9fbc0042d66d9",
+      "reference_sha256": "fbe8dba762220c383454a11ed82001f14cbf2f9eec59ab10fbc7d678f8d38985",
+      "document_version_id": "6a0ab0ab-c7d8-4b77-b1df-5ac8b5910ed5",
+      "canonical_id": "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0",
+      "retrieved_context_sha256s": [
+        "b050b6e33c811fba93053109de8fc61f3115ea8bfdf729ee12515be99c3900b4",
+        "826a82a4d1279a430f6fd7f67dfb7e0cf2fa6d606e856915c60828f3da27143e",
+        "383892b6e3e592c9bdd9e2b7b7df9579793ff83d77cad27fe67c824501304907"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "3af67688ae0f69402e3d3b97482fbc67c154156750bc33adfd4a234643fdf219",
+          "document_version_id": "6a0ab0ab-c7d8-4b77-b1df-5ac8b5910ed5",
+          "canonical_id": "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0",
+          "section_path": [
+            "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+            "Sanitização de Diagnósticos e Proteção de Segredos"
+          ],
+          "span_ids": [
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:22",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:23",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:24",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:25",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:26"
+          ],
+          "span_section_paths": [
+            [
+              "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+              "Sanitização de Diagnósticos e Proteção de Segredos"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 1313,
+          "end_offset": 1675,
+          "text_sha256": "b050b6e33c811fba93053109de8fc61f3115ea8bfdf729ee12515be99c3900b4",
+          "decision_event_id": "5521f0ce-9279-41cd-83a5-6446de87c04a",
+          "decision_revision": 2,
+          "input_sha256": "a9870980e643ca6dc4efa5ad968fbc75a24e2966d8d5046a2e83bfc77c7a5277"
+        },
+        {
+          "chunk_id": "0b971a7ceebb2391f898ee7523754615e16c218aa147c17f939301111110f52d",
+          "document_version_id": "6a0ab0ab-c7d8-4b77-b1df-5ac8b5910ed5",
+          "canonical_id": "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0",
+          "section_path": [
+            "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)"
+          ],
+          "span_ids": [
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:0",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:1",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:2",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:3",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:4",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:5",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:6",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:7"
+          ],
+          "span_section_paths": [
+            [
+              "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)"
+            ],
+            [
+              "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+              "Defesa em Profundidade na Ingestão e Recuperação"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 0,
+          "end_offset": 824,
+          "text_sha256": "826a82a4d1279a430f6fd7f67dfb7e0cf2fa6d606e856915c60828f3da27143e",
+          "decision_event_id": "45e4096a-38ec-433b-8cce-1aee1c5a08e9",
+          "decision_revision": 3,
+          "input_sha256": "c14486f5b517bee778f9a6fd7cc4635c2cdf2280a5ddd01469d4fc464445aee7"
+        },
+        {
+          "chunk_id": "18039b809ba636dd2fec56e33b10a864ca1ca27080c912600f6d73af9f8a8251",
+          "document_version_id": "6a0ab0ab-c7d8-4b77-b1df-5ac8b5910ed5",
+          "canonical_id": "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0",
+          "section_path": [
+            "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+            "Defesa em Profundidade na Ingestão e Recuperação",
+            "Contexto Jurídico e Técnico Legítimo"
+          ],
+          "span_ids": [
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:8",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:9",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:10",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:11",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:12",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:13",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:14",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:15",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:16",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:17",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:18",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:19",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:20",
+            "0226ff89df03983f4bdb661475d59cd68e16e5a7ec1b32ac37017a6edc4358c0:21"
+          ],
+          "span_section_paths": [
+            [
+              "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+              "Defesa em Profundidade na Ingestão e Recuperação",
+              "Contexto Jurídico e Técnico Legítimo"
+            ],
+            [
+              "Segurança de Aplicações com Modelos de Linguagem (OWASP LLM)",
+              "Sanitização de Diagnósticos e Proteção de Segredos"
+            ]
+          ],
+          "mapping_status": "exact",
+          "start_offset": 824,
+          "end_offset": 1313,
+          "text_sha256": "383892b6e3e592c9bdd9e2b7b7df9579793ff83d77cad27fe67c824501304907",
+          "decision_event_id": "eb6152bd-f8dc-4e80-8f66-7701bc448307",
+          "decision_revision": 3,
+          "input_sha256": "0f55c07f625e28334a52b0a41488c5edb9021988278d474b6b111df02f86ed1d"
+        }
+      ],
+      "deterministic_evidence_covered": true,
+      "deterministic_provenance_errors": [],
+      "scores": {
+        "context_precision_with_reference": 0.9999999999,
+        "context_recall": 1.0
+      }
+    }
+  ],
+  "security_regression_reference": {
+    "requirement_id": "SEC-ATQ-001",
+    "case_group": "C09",
+    "attacks_ids": [
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "A06",
+      "A07",
+      "A08",
+      "A09"
+    ],
+    "legitimate_controls_count": 11,
+    "canonical_source": "packages/ingestion/tests/test_indexing.py",
+    "evidence_ref": "governanca/mudancas/2026-11-24-ingestao/evidencias/T-008/juiz-real-ressalvas.json",
+    "note": "Os 9 ataques R3_ATTACKS e 11 controles legítimos R3_LEGITIMATE pertencem à verificação de ingestão de backend; o runner referencia e valida a integridade da evidência sem repetir chamadas ao juiz de ingestão."
+  }
+}

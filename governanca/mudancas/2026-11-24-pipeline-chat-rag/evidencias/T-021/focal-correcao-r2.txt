@@ -1,0 +1,127 @@
+......................................FFF....F......................     [100%]
+=================================== FAILURES ===================================
+_ test_coverage_repair_is_one_call_with_filtered_union_and_cross_group_refs_fail_closed _
+packages/generation/tests/test_chat_integration.py:578: in test_coverage_repair_is_one_call_with_filtered_union_and_cross_group_refs_fail_closed
+    assert len(response.itens)==1
+E   AssertionError: assert 0 == 1
+E    +  where 0 = len([])
+E    +    where [] = ChatResponse(status=<ChatStatus.OK: 'ok'>, mensagem='0 item(ns) gerado(s).', itens=[], omissoes=[Omission(item_id='bc9...s=[], motivo_recusa=None, chat_turn_id='31d993fa3f5949fe8aecae5531b3cb2c', trace_id='287c991329b4839ecaa72cd06a85f4c3').itens
+____ test_cli_sigint_cancels_turn_exit_130_sanitized_and_closes_everything _____
+packages/generation/tests/test_chat_integration.py:631: in test_cli_sigint_cancels_turn_exit_130_sanitized_and_closes_everything
+    assert sorted(closed)==['engine','genai','provider','qdrant']
+E   AssertionError: assert ['engine', 'g...er', 'qdrant'] == ['engine', 'g...er', 'qdrant']
+E     
+E     At index 2 diff: 'genai' != 'provider'
+E     Left contains one more item: 'qdrant'
+E     Use -v to get more diff
+_____ test_cli_infrastructure_error_exit_2_sanitized_and_closes_everything _____
+packages/generation/tests/test_chat_integration.py:646: in test_cli_infrastructure_error_exit_2_sanitized_and_closes_everything
+    assert sorted(closed)==['engine','genai','provider','qdrant']
+E   AssertionError: assert ['engine', 'g...er', 'qdrant'] == ['engine', 'g...er', 'qdrant']
+E     
+E     At index 2 diff: 'genai' != 'provider'
+E     Left contains one more item: 'qdrant'
+E     Use -v to get more diff
+______________ test_C02_history_refuses_downgrade_before_any_drop ______________
+packages/lineage/tests/test_ressalvas_persistencia.py:155: in test_C02_history_refuses_downgrade_before_any_drop
+    assert all(before[2][table]>0 for table in HISTORY)
+E   assert False
+E    +  where False = all(<generator object test_C02_history_refuses_downgrade_before_any_drop.<locals>.<genexpr> at 0x79f00bb9d700>)
+=============================== warnings summary ===============================
+packages/generation/tests/test_chat_integration.py::test_invalid_initial_envelope_repair_is_attempt_two_persisted_and_t022_consumable
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/ragas/llms/base.py:32: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+    from langchain_community.chat_models.vertexai import ChatVertexAI
+
+packages/lineage/tests/test_chat.py::test_e1_error_and_final_failure_atomic
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/main.py:520: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `enum` - serialized value may not be as expected [field_name='status', input_value='erro', input_type=str])
+    return self.__pydantic_serializer__.to_python(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+___________________ test_commit_failure_never_delivers_items ___________________
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:279 Falha de chat categoria=execution http_status=None
+WARNING  training_generation.chat:chat.py:284 Não foi possível persistir erro de chat; nenhuma entrega de itens
+__________ test_permission_changes_while_generation_prevent_delivery ___________
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:279 Falha de chat categoria=execution http_status=None
+________ test_generate_more_keeps_plan_cursor_owner_and_prevents_replay ________
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:279 Falha de chat categoria=execution http_status=None
+______ test_malformed_continuation_fails_before_models_and_does_not_reset ______
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:279 Falha de chat categoria=execution http_status=None
+____________ test_concurrent_session_advance_rejects_stale_delivery ____________
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:279 Falha de chat categoria=execution http_status=None
+=========================== short test summary info ============================
+PASSED packages/generation/tests/test_chat_integration.py::test_initial_public_ingestion_is_searchable_without_reconciliation
+PASSED packages/generation/tests/test_chat_integration.py::test_e2_rejects_and_cancels_slow_e3[malicious]
+PASSED packages/generation/tests/test_chat_integration.py::test_e2_rejects_and_cancels_slow_e3[e2timeout]
+PASSED packages/generation/tests/test_chat_integration.py::test_e1_zero_llm_and_normalized_empty[message0-tamanho_excedido]
+PASSED packages/generation/tests/test_chat_integration.py::test_e1_zero_llm_and_normalized_empty[message1-tamanho_excedido]
+PASSED packages/generation/tests/test_chat_integration.py::test_e1_zero_llm_and_normalized_empty[\u200b\u2060-None]
+PASSED packages/generation/tests/test_chat_integration.py::test_e1_zero_llm_and_normalized_empty[message3-tamanho_excedido]
+PASSED packages/generation/tests/test_chat_integration.py::test_outside_scope_no_rag
+PASSED packages/generation/tests/test_chat_integration.py::test_insufficient_zero_generation
+PASSED packages/generation/tests/test_chat_integration.py::test_delivered_items_have_exact_owner_lineage_and_real_trace[flashcard-gerar_flashcards]
+PASSED packages/generation/tests/test_chat_integration.py::test_delivered_items_have_exact_owner_lineage_and_real_trace[question-gerar_questionario]
+PASSED packages/generation/tests/test_chat_integration.py::test_one_repair_preserves_good_item_and_ids
+PASSED packages/generation/tests/test_chat_integration.py::test_invalid_json_consumes_global_repair_budget
+PASSED packages/generation/tests/test_chat_integration.py::test_commit_failure_never_delivers_items
+PASSED packages/generation/tests/test_chat_integration.py::test_permission_changes_while_generation_prevent_delivery
+PASSED packages/generation/tests/test_chat_integration.py::test_generate_more_keeps_plan_cursor_owner_and_prevents_replay
+PASSED packages/generation/tests/test_chat_integration.py::test_escape_original_source_and_reject_altered_response
+PASSED packages/generation/tests/test_chat_integration.py::test_original_evidence_mapping_rejects_ambiguity_without_choosing_page
+PASSED packages/generation/tests/test_chat_integration.py::test_response_tampering_fails_shared_rendering_check
+PASSED packages/generation/tests/test_chat_integration.py::test_initial_ingestion_failure_or_stale_worker_never_acknowledges_or_publishes[upsert]
+PASSED packages/generation/tests/test_chat_integration.py::test_initial_ingestion_failure_or_stale_worker_never_acknowledges_or_publishes[stale_worker]
+PASSED packages/generation/tests/test_chat_integration.py::test_malformed_continuation_fails_before_models_and_does_not_reset
+PASSED packages/generation/tests/test_chat_integration.py::test_concurrent_session_advance_rejects_stale_delivery
+PASSED packages/generation/tests/test_chat_integration.py::test_real_stage_spans_hierarchy_without_fake_coverage_rerank[consulta]
+PASSED packages/generation/tests/test_chat_integration.py::test_real_stage_spans_hierarchy_without_fake_coverage_rerank[cobertura]
+PASSED packages/generation/tests/test_chat_integration.py::test_evaluation_capture_links_each_item_to_its_actual_generation_context
+PASSED packages/generation/tests/test_chat_integration.py::test_two_owners_same_session_have_separate_real_sources_and_progress
+PASSED packages/generation/tests/test_chat_integration.py::test_output_judge_repairs_only_failed_and_omits_after_one_repair[False]
+PASSED packages/generation/tests/test_chat_integration.py::test_output_judge_repairs_only_failed_and_omits_after_one_repair[True]
+PASSED packages/generation/tests/test_chat_integration.py::test_persistent_e9_failure_keeps_reason_and_never_third_generation
+PASSED packages/generation/tests/test_chat_integration.py::test_new_request_resets_explicitly_then_more_uses_new_mode_type
+PASSED packages/generation/tests/test_chat_integration.py::test_fresh_request_reuses_sources_and_recovers_bad_old_cursor
+PASSED packages/generation/tests/test_chat_integration.py::test_repair_and_judge_only_receive_filtered_section
+PASSED packages/generation/tests/test_chat_integration.py::test_unknown_local_ref_is_rejected_as_local_not_global
+PASSED packages/generation/tests/test_chat_integration.py::test_every_generation_attempt_is_durably_audited
+PASSED packages/generation/tests/test_chat_integration.py::test_oversized_prompt_is_bounded_and_hashed_in_audit
+PASSED packages/generation/tests/test_chat_integration.py::test_cli_capture_rejects_symlink_without_modifying_target
+PASSED packages/generation/tests/test_chat_integration.py::test_invalid_initial_envelope_repair_is_attempt_two_persisted_and_t022_consumable
+PASSED packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-429]
+PASSED packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-503]
+PASSED packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E10-429]
+PASSED packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E10-503]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_database_catalog_and_specific_checks
+PASSED packages/lineage/tests/test_lineage.py::test_migrated_schema_matches_metadata
+PASSED packages/lineage/tests/test_chat.py::test_save_read_exact_spans_owner_and_caller_transaction
+PASSED packages/lineage/tests/test_chat.py::test_e1_error_and_final_failure_atomic
+PASSED packages/lineage/tests/test_chat.py::test_cross_owner_and_database_foreign_keys
+PASSED packages/lineage/tests/test_chat.py::test_rate_limit_concurrent_durable_and_database_clock
+PASSED packages/lineage/tests/test_chat.py::test_continuation_scope_cursor_used_count_isolated_and_rollback
+PASSED packages/lineage/tests/test_chat.py::test_downgrade_preserves_history
+PASSED packages/lineage/tests/test_chat.py::test_last_insert_failure_rolls_back_only_savepoint
+PASSED packages/lineage/tests/test_chat.py::test_database_owner_check_and_catalog
+PASSED packages/lineage/tests/test_chat.py::test_reject_unbound_response_missing_provenance_and_reset
+PASSED packages/lineage/tests/test_chat.py::test_revoked_decision_blocks_delivery
+PASSED packages/lineage/tests/test_chat.py::test_chat_holds_publication_and_decision_until_caller_commit[reconciliation]
+PASSED packages/lineage/tests/test_chat.py::test_chat_holds_publication_and_decision_until_caller_commit[reserve]
+PASSED packages/lineage/tests/test_chat.py::test_chat_holds_publication_and_decision_until_caller_commit[assessment]
+PASSED packages/lineage/tests/test_chat.py::test_chat_waits_before_chunk_lock_when_reconciliation_owns_reservation
+PASSED packages/lineage/tests/test_chat.py::test_equivalent_scopes_cannot_reset_continuation[equivalent0]
+PASSED packages/lineage/tests/test_chat.py::test_equivalent_scopes_cannot_reset_continuation[equivalent1]
+PASSED packages/lineage/tests/test_chat.py::test_equivalent_scopes_cannot_reset_continuation[equivalent2]
+PASSED packages/lineage/tests/test_chat.py::test_scope_keys_owner_and_legacy_encoding_are_fail_closed
+PASSED packages/lineage/tests/test_chat.py::test_retrieval_cursor_binding_canonicalized_without_changing_owner
+PASSED packages/lineage/tests/test_chat.py::test_canonical_quote_crosses_true_pages_without_inventing_single_page
+FAILED packages/generation/tests/test_chat_integration.py::test_coverage_repair_is_one_call_with_filtered_union_and_cross_group_refs_fail_closed
+FAILED packages/generation/tests/test_chat_integration.py::test_cli_sigint_cancels_turn_exit_130_sanitized_and_closes_everything
+FAILED packages/generation/tests/test_chat_integration.py::test_cli_infrastructure_error_exit_2_sanitized_and_closes_everything
+FAILED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_history_refuses_downgrade_before_any_drop
+4 failed, 64 passed, 2 warnings in 47.09s

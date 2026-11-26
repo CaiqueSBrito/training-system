@@ -1,0 +1,30 @@
+{
+  "run_id": "t021-real-c513f0da772748a3970dfdf2959e25ad",
+  "database_name": "test_t021_real_c513f0da772748a3970dfdf2959e25ad",
+  "container_name": "t021-real-c513f0da772748a3970dfdf2959e25ad-qdrant",
+  "owner_id": "t021-real-c513f0da772748a3970dfdf2959e25ad",
+  "session_id": "t021-real-c513f0da772748a3970dfdf2959e25ad-session",
+  "case_id": "t021-cli-membrana-v1",
+  "status": "Passou",
+  "files": {
+    "source.md": "e0a353ae2ab30ea32aef41fb67f05174c940a77cc72f5558cdcfdc80586532df",
+    "response.json": "83af532a2afd1e3d2c7aaa2763b3343b62047a12c3df4c5704074e58ed470018",
+    "diagnostics.json": "13562e41a4ddd27ec31b99755114b1302b26144b87cad13b161afc7588803b71",
+    "e8-capture.json": "3c6e242403e0feb619fa3f51a76f03a597a92a3aed56759755d61d803b87510f",
+    "progress.txt": "f1e5f47a641db10292cfec7e829da86fa9f1804beaa45c9609ce7a9af20f5a92"
+  },
+  "resources_retained": true,
+  "qdrant_url": "http://127.0.0.1:32814",
+  "document_version_ids": [
+    "0c68ee3c-b17b-407e-93b6-58e35fde5c8e"
+  ],
+  "source_sha256": "e0a353ae2ab30ea32aef41fb67f05174c940a77cc72f5558cdcfdc80586532df",
+  "parser_version": "docling-2.150.1:local-v2:all-charspans",
+  "ingestion_seconds": 2.5023167110011855,
+  "ingestion_calls_admitted": 1,
+  "cli_exit_code": 0,
+  "chat_turn_id": "2028b786410b4399b3bd3c98c6450e2c",
+  "trace_id": "b6399d4a56bd5353db9202c61944380e",
+  "delivered_items": 1,
+  "response_status": "ok"
+}

@@ -1,0 +1,222 @@
+{
+  "mode": "judge_calibration",
+  "status": "Falhou",
+  "manifest": {
+    "calibration_run_id": "ragas-calib-9dd8591d85ae",
+    "timestamp_utc": "2026-11-25T01:41:52.390476+00:00",
+    "dataset_id": "ressalvas-recuperacao-segura-v1",
+    "dataset_version": "1.0.0",
+    "dataset_sha256": "dc09921247fa7e1c92eede508437ecc0d065a21bc14b7461912818628e429a27",
+    "scope": "ingestao_consulta_segura_sem_geracao",
+    "ragas_version": "0.4.4",
+    "litellm_version": "1.109.1",
+    "instructor_version": "1.17.0",
+    "judge_model": "openrouter/openai/gpt-6.1-sol",
+    "judge_provider": "openrouter",
+    "judge_config_version": "ragas-0.4-litellm-instructor-v1",
+    "judge_config_sha256": "971ac792457900a8fbb8a8919004be7028e5600c53bf52bb88845194c282f099",
+    "embedding_key": "gemini-embedding-2@3072@fmt-v1",
+    "metric_prompts_sha256": {
+      "context_precision_with_reference": "e8d5b1719264c8376675e1bb5b55b3e52cb81add663d6340d06d48028c0c12ff",
+      "context_recall": "eaa0cfaa52cec1b7585ce984f53cf658541209702e3294ade230ef6a478d1dec"
+    },
+    "calibration_protocol_version": "ressalvas-calibration-paired-positive-negative-v1",
+    "protocol_thresholds": {
+      "calibration_protocol_version": "ressalvas-calibration-paired-positive-negative-v1",
+      "context_precision_with_reference": 0.8,
+      "context_recall": 0.85,
+      "min_case_context_precision": 0.65,
+      "min_case_context_recall": 0.75,
+      "deterministic_provenance_hit_rate": 1.0,
+      "max_negative_control_score": 0.0,
+      "max_allowed_regression_drop": 0.02
+    },
+    "calibration_protocol_sha256": "1781cddc81648a5a877ee9c007911203811b52c8c3a1fa22093f9dd49953e321",
+    "positive_controls_count": 6,
+    "negative_controls_count": 6,
+    "thresholds_approval_ref": "governanca/mudancas/2026-11-24-correcao-integral-ressalvas/evidencias/T-015/aprovacao-calibracao.md"
+  },
+  "manifest_sha256": "89d22bf9b09a8be15b3e876e0c65ae4585ae15fe10f963602a0ee16bc89011e2",
+  "positive_controls_passed": false,
+  "negative_controls_passed": true,
+  "positive_aggregate_scores": {
+    "context_precision_with_reference": 0.9999999999333333,
+    "context_recall": 1.0
+  },
+  "positive_controls": [
+    {
+      "case_id": "EVAL-RES-001",
+      "control_kind": "positive_in_domain",
+      "doc_id": "doc-bio-001",
+      "deterministic_provenance_ok": true,
+      "scores": {
+        "context_precision_with_reference": 0.99999999995,
+        "context_recall": 1.0
+      },
+      "passed": true
+    },
+    {
+      "case_id": "EVAL-RES-002",
+      "control_kind": "positive_in_domain",
+      "doc_id": "doc-bio-001",
+      "deterministic_provenance_ok": true,
+      "scores": {
+        "context_precision_with_reference": 0.99999999995,
+        "context_recall": 1.0
+      },
+      "passed": true
+    },
+    {
+      "case_id": "EVAL-RES-003",
+      "control_kind": "positive_in_domain",
+      "doc_id": "doc-sys-001",
+      "deterministic_provenance_ok": true,
+      "scores": {
+        "context_precision_with_reference": 0.9999999999,
+        "context_recall": 1.0
+      },
+      "passed": true
+    },
+    {
+      "case_id": "EVAL-RES-004",
+      "control_kind": "positive_in_domain",
+      "doc_id": "doc-sys-001",
+      "deterministic_provenance_ok": true,
+      "scores": {
+        "context_precision_with_reference": 0.99999999995,
+        "context_recall": 1.0
+      },
+      "passed": true
+    },
+    {
+      "case_id": "EVAL-RES-005",
+      "control_kind": "positive_in_domain",
+      "doc_id": "doc-sec-001",
+      "deterministic_provenance_ok": true,
+      "scores": {
+        "context_precision_with_reference": 0.99999999995,
+        "context_recall": 1.0
+      },
+      "passed": true
+    },
+    {
+      "case_id": "EVAL-RES-006",
+      "control_kind": "positive_in_domain",
+      "doc_id": "doc-sec-001",
+      "deterministic_provenance_ok": false,
+      "scores": {
+        "context_precision_with_reference": 0.9999999999,
+        "context_recall": 1.0
+      },
+      "passed": false
+    }
+  ],
+  "negative_controls": [
+    {
+      "case_id": "EVAL-RES-001",
+      "control_kind": "negative_displaced_document",
+      "source_doc_id": "doc-bio-001",
+      "displaced_doc_id": "doc-sec-001",
+      "displaced_case_id": "EVAL-RES-005",
+      "displaced_context_sha256s": [
+        "383892b6e3e592c9bdd9e2b7b7df9579793ff83d77cad27fe67c824501304907",
+        "826a82a4d1279a430f6fd7f67dfb7e0cf2fa6d606e856915c60828f3da27143e",
+        "b050b6e33c811fba93053109de8fc61f3115ea8bfdf729ee12515be99c3900b4"
+      ],
+      "scores": {
+        "context_precision_with_reference": 0.0,
+        "context_recall": 0.0
+      },
+      "passed": true
+    },
+    {
+      "case_id": "EVAL-RES-002",
+      "control_kind": "negative_displaced_document",
+      "source_doc_id": "doc-bio-001",
+      "displaced_doc_id": "doc-sec-001",
+      "displaced_case_id": "EVAL-RES-005",
+      "displaced_context_sha256s": [
+        "383892b6e3e592c9bdd9e2b7b7df9579793ff83d77cad27fe67c824501304907",
+        "826a82a4d1279a430f6fd7f67dfb7e0cf2fa6d606e856915c60828f3da27143e",
+        "b050b6e33c811fba93053109de8fc61f3115ea8bfdf729ee12515be99c3900b4"
+      ],
+      "scores": {
+        "context_precision_with_reference": 0.0,
+        "context_recall": 0.0
+      },
+      "passed": true
+    },
+    {
+      "case_id": "EVAL-RES-003",
+      "control_kind": "negative_displaced_document",
+      "source_doc_id": "doc-sys-001",
+      "displaced_doc_id": "doc-bio-001",
+      "displaced_case_id": "EVAL-RES-001",
+      "displaced_context_sha256s": [
+        "8b99d4e48b1276ea8c7f7e284284fd86c0513f1cbcd42234d4e80924ce0b314f",
+        "989886c87c3bf29684dd89cbfc68a266b162a06996c877ea88cc6d173e77f66f",
+        "1a61610b7696d513bf02fef79cac2e8e320d8c458066389b49f5c9f30681145d"
+      ],
+      "scores": {
+        "context_precision_with_reference": 0.0,
+        "context_recall": 0.0
+      },
+      "passed": true
+    },
+    {
+      "case_id": "EVAL-RES-004",
+      "control_kind": "negative_displaced_document",
+      "source_doc_id": "doc-sys-001",
+      "displaced_doc_id": "doc-bio-001",
+      "displaced_case_id": "EVAL-RES-001",
+      "displaced_context_sha256s": [
+        "8b99d4e48b1276ea8c7f7e284284fd86c0513f1cbcd42234d4e80924ce0b314f",
+        "989886c87c3bf29684dd89cbfc68a266b162a06996c877ea88cc6d173e77f66f",
+        "1a61610b7696d513bf02fef79cac2e8e320d8c458066389b49f5c9f30681145d"
+      ],
+      "scores": {
+        "context_precision_with_reference": 0.0,
+        "context_recall": 0.0
+      },
+      "passed": true
+    },
+    {
+      "case_id": "EVAL-RES-005",
+      "control_kind": "negative_displaced_document",
+      "source_doc_id": "doc-sec-001",
+      "displaced_doc_id": "doc-bio-001",
+      "displaced_case_id": "EVAL-RES-001",
+      "displaced_context_sha256s": [
+        "8b99d4e48b1276ea8c7f7e284284fd86c0513f1cbcd42234d4e80924ce0b314f",
+        "989886c87c3bf29684dd89cbfc68a266b162a06996c877ea88cc6d173e77f66f",
+        "1a61610b7696d513bf02fef79cac2e8e320d8c458066389b49f5c9f30681145d"
+      ],
+      "scores": {
+        "context_precision_with_reference": 0.0,
+        "context_recall": 0.0
+      },
+      "passed": true
+    },
+    {
+      "case_id": "EVAL-RES-006",
+      "control_kind": "negative_displaced_document",
+      "source_doc_id": "doc-sec-001",
+      "displaced_doc_id": "doc-bio-001",
+      "displaced_case_id": "EVAL-RES-001",
+      "displaced_context_sha256s": [
+        "8b99d4e48b1276ea8c7f7e284284fd86c0513f1cbcd42234d4e80924ce0b314f",
+        "989886c87c3bf29684dd89cbfc68a266b162a06996c877ea88cc6d173e77f66f",
+        "1a61610b7696d513bf02fef79cac2e8e320d8c458066389b49f5c9f30681145d"
+      ],
+      "scores": {
+        "context_precision_with_reference": 0.0,
+        "context_recall": 0.0
+      },
+      "passed": true
+    }
+  ],
+  "violations": [
+    "EVAL-RES-006: deterministic_provenance falhou (1 substring(s) de evidência ausente(s))",
+    "positive_control:EVAL-RES-006: scores={'context_precision_with_reference': 0.9999999999, 'context_recall': 1.0}, prov_ok=False"
+  ]
+}

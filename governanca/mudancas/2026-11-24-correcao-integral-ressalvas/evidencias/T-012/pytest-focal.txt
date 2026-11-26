@@ -1,0 +1,77 @@
+Comando: uv run pytest packages/ingestion/tests/test_ressalvas_parse.py packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_ING_CHK_001_real_docling_formats packages/ingestion/tests/test_ingestion.py::test_ING_CHK_002_target_ceiling_and_paragraph_overlap packages/ingestion/tests/test_ingestion.py::test_ING_CHK_001_determinism_sections_pages_and_config packages/ingestion/tests/test_ingestion.py::test_ING_CHK_002_large_paragraph_bounded_and_lossless packages/ingestion/tests/test_ingestion.py::test_ING_CHK_002_table_atomic_or_explicit_failure packages/ingestion/tests/test_ingestion.py::test_ING_CHK_002_invalid_config packages/ingestion/tests/test_ingestion.py::test_ING_CHK_002_two_large_paragraphs_keep_ceiling_and_overlap packages/ingestion/tests/test_ingestion.py::test_ING_CHK_001_changing_subsection_and_page_preserves_origins packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_fixtures_are_byte_reproducible packages/ingestion/tests/test_ingestion.py::test_single_unit_not_overlapped packages/ingestion/tests/test_ingestion.py::test_fragments_respect_words packages/ingestion/tests/test_ingestion.py::test_equivalent_section_paths packages/ingestion/tests/test_ingestion.py::test_public_ingestor_requires_finalization packages/ingestion/tests/test_ingestion.py::test_unbreakable_word_fragments_losslessly -q --tb=short --disable-warnings
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+......................F..FF..F...................                        [100%]
+=================================== FAILURES ===================================
+_________________ test_C03_C05_real_equivalent_formats_and_H2 __________________
+packages/ingestion/tests/test_ressalvas_parse.py:165: in test_C03_C05_real_equivalent_formats_and_H2
+    parsed = parser.parse(data,'study.'+ext,'v-'+ext)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/ingestion/src/training_ingestion/core.py:109: in parse
+    raise IngestionError(f"falha_no_parse: {type(exc).__name__}") from None
+E   training_ingestion.core.IngestionError: falha_no_parse: AttributeError
+_____________ test_C08_real_threads_lazy_reuse_isolated[docx-True] _____________
+packages/ingestion/tests/test_ressalvas_parse.py:216: in test_C08_real_threads_lazy_reuse_isolated
+    results=list(pool.map(run,range(2)))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py:625: in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py:318: in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py:460: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py:402: in __get_result
+    raise self._exception
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/thread.py:59: in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/ingestion/tests/test_ressalvas_parse.py:207: in run
+    results = [parsers[i].parse(data,'source.'+ext,f'v-{i}') for _ in range(2)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/ingestion/src/training_ingestion/core.py:109: in parse
+    raise IngestionError(f"falha_no_parse: {type(exc).__name__}") from None
+E   training_ingestion.core.IngestionError: falha_no_parse: AttributeError
+____________ test_C08_real_threads_lazy_reuse_isolated[docx-False] _____________
+packages/ingestion/tests/test_ressalvas_parse.py:216: in test_C08_real_threads_lazy_reuse_isolated
+    results=list(pool.map(run,range(2)))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py:625: in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py:318: in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py:460: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py:402: in __get_result
+    raise self._exception
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/thread.py:59: in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/ingestion/tests/test_ressalvas_parse.py:207: in run
+    results = [parsers[i].parse(data,'source.'+ext,f'v-{i}') for _ in range(2)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/ingestion/src/training_ingestion/core.py:109: in parse
+    raise IngestionError(f"falha_no_parse: {type(exc).__name__}") from None
+E   training_ingestion.core.IngestionError: falha_no_parse: AttributeError
+_______________ test_C06_overlap_zero_and_tiny_budget_separators _______________
+packages/ingestion/tests/test_ressalvas_parse.py:226: in test_C06_overlap_zero_and_tiny_budget_separators
+    chunks,maps = Chunker(config).split_with_provenance(parsed,'v')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/ingestion/src/training_ingestion/core.py:294: in split_with_provenance
+    emit(pending)
+packages/ingestion/src/training_ingestion/core.py:273: in emit
+    chunk = ChunkRecord(chunk_id=sha256(identity.encode()).hexdigest(),
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for ChunkRecord
+E   text
+E     String should match pattern '\S' [type=string_pattern_mismatch, input_value='\n\n', input_type=str]
+E       For further information visit https://errors.pydantic.dev/2.14/v/string_pattern_mismatch
+=========================== short test summary info ============================
+FAILED packages/ingestion/tests/test_ressalvas_parse.py::test_C03_C05_real_equivalent_formats_and_H2
+FAILED packages/ingestion/tests/test_ressalvas_parse.py::test_C08_real_threads_lazy_reuse_isolated[docx-True]
+FAILED packages/ingestion/tests/test_ressalvas_parse.py::test_C08_real_threads_lazy_reuse_isolated[docx-False]
+FAILED packages/ingestion/tests/test_ressalvas_parse.py::test_C06_overlap_zero_and_tiny_budget_separators
+4 failed, 45 passed, 19 warnings in 18.64s

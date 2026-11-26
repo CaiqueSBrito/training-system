@@ -1,0 +1,14 @@
+....                                                                     [100%]
+=============================== warnings summary ===============================
+packages/generation/tests/test_chat_integration.py::test_coverage_repair_is_one_call_with_filtered_union_and_refs_mapped_back
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/ragas/llms/base.py:32: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+    from langchain_community.chat_models.vertexai import ChatVertexAI
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED packages/generation/tests/test_chat_integration.py::test_coverage_repair_is_one_call_with_filtered_union_and_refs_mapped_back
+PASSED packages/generation/tests/test_chat_integration.py::test_cli_sigint_cancels_turn_exit_130_sanitized_and_closes_everything
+PASSED packages/generation/tests/test_chat_integration.py::test_cli_infrastructure_error_exit_2_sanitized_and_closes_everything
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_history_refuses_downgrade_before_any_drop
+4 passed, 1 warning in 7.78s

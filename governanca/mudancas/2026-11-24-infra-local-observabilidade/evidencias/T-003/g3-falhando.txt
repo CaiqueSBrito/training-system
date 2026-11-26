@@ -1,0 +1,39 @@
+Verificação da infraestrutura local — T-003 (OBS-INF-001, OBS-INF-002)
+Repositório: /home/caique-brito/Documentos/Caique/Training System
+
+=== 1. Existência e validade de infra/compose.yaml (OBS-INF-001) ===
+[FALHOU] infra/compose.yaml não encontrado em /home/caique-brito/Documentos/Caique/Training System/infra/compose.yaml
+Arquivo .env ausente: criado .env efêmero a partir de .env.example (descartado ao sair).
+[PASSOU] Arquivo de ambiente preparado a partir de .env / .env.example
+[FALHOU] Validação do docker compose config não pôde ser executada (infra/compose.yaml ausente)
+
+=== 2. Estrutura do Compose (OBS-INF-001, ADR-0002, ADR-0005, ADR-0008) ===
+[FALHOU] Verificação estrutural do compose não executada (infra/compose.yaml ausente ou inválido)
+
+=== 3. Ausência de segredos versionados (OBS-INF-001) ===
+[PASSOU] .env está no .gitignore e não está rastreado pelo git
+  ERR: infra/compose.yaml não encontrado para auditoria de segredos
+[FALHOU] Auditoria de segredos versionados falhou
+
+=== 4. Cobertura de variáveis em .env.example (OBS-INF-001) ===
+[FALHOU] Cobertura de variáveis não pôde ser verificada (infra/compose.yaml ausente)
+
+=== 5. Subida da infraestrutura, healthchecks e endpoints (OBS-INF-001) ===
+[FALHOU] Subida da infraestrutura, healthchecks e endpoints não executados (infra/compose.yaml ausente ou inválido)
+
+=== 6. Isolamento de bancos e credenciais (OBS-INF-002 / ADR-0008) ===
+[FALHOU] Verificação de isolamento entre bancos não executada (infraestrutura não está no ar)
+
+=== Resumo ===
+Passou: 2
+Falhou: 7
+Falhas registradas:
+  - infra/compose.yaml não encontrado em /home/caique-brito/Documentos/Caique/Training System/infra/compose.yaml
+  - Validação do docker compose config não pôde ser executada (infra/compose.yaml ausente)
+  - Verificação estrutural do compose não executada (infra/compose.yaml ausente ou inválido)
+  - Auditoria de segredos versionados falhou
+  - Cobertura de variáveis não pôde ser verificada (infra/compose.yaml ausente)
+  - Subida da infraestrutura, healthchecks e endpoints não executados (infra/compose.yaml ausente ou inválido)
+  - Verificação de isolamento entre bancos não executada (infraestrutura não está no ar)
+
+EXIT_CODE=1

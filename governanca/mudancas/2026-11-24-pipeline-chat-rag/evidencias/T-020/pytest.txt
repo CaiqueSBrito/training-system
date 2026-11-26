@@ -1,0 +1,374 @@
+EEEEEEEEEE                                                               [100%]
+==================================== ERRORS ====================================
+__ ERROR at setup of test_save_read_exact_spans_owner_and_caller_transaction ___
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.CheckViolation: reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+
+The above exception was the direct cause of the following exception:
+packages/lineage/tests/test_chat.py:37: in engine
+    c.execute(t.ingestion_reservation.update().where(t.ingestion_reservation.c.reservation_id==reservation.reservation_id).values(document_version_id='v1'))
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1686: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1891: in _execute_context
+    return self._exec_single_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2019: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2381: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   sqlalchemy.exc.IntegrityError: (psycopg.errors.CheckViolation) reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+E   [SQL: UPDATE ingestion_reservation SET document_version_id=%(document_version_id)s::VARCHAR WHERE ingestion_reservation.reservation_id = %(reservation_id_1)s::VARCHAR]
+E   [SQL parameters hidden due to hide_parameters=True]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+___________ ERROR at setup of test_e1_error_and_final_failure_atomic ___________
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.CheckViolation: reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+
+The above exception was the direct cause of the following exception:
+packages/lineage/tests/test_chat.py:37: in engine
+    c.execute(t.ingestion_reservation.update().where(t.ingestion_reservation.c.reservation_id==reservation.reservation_id).values(document_version_id='v1'))
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1686: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1891: in _execute_context
+    return self._exec_single_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2019: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2381: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   sqlalchemy.exc.IntegrityError: (psycopg.errors.CheckViolation) reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+E   [SQL: UPDATE ingestion_reservation SET document_version_id=%(document_version_id)s::VARCHAR WHERE ingestion_reservation.reservation_id = %(reservation_id_1)s::VARCHAR]
+E   [SQL parameters hidden due to hide_parameters=True]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+_________ ERROR at setup of test_cross_owner_and_database_foreign_keys _________
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.CheckViolation: reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+
+The above exception was the direct cause of the following exception:
+packages/lineage/tests/test_chat.py:37: in engine
+    c.execute(t.ingestion_reservation.update().where(t.ingestion_reservation.c.reservation_id==reservation.reservation_id).values(document_version_id='v1'))
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1686: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1891: in _execute_context
+    return self._exec_single_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2019: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2381: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   sqlalchemy.exc.IntegrityError: (psycopg.errors.CheckViolation) reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+E   [SQL: UPDATE ingestion_reservation SET document_version_id=%(document_version_id)s::VARCHAR WHERE ingestion_reservation.reservation_id = %(reservation_id_1)s::VARCHAR]
+E   [SQL parameters hidden due to hide_parameters=True]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+___ ERROR at setup of test_rate_limit_concurrent_durable_and_database_clock ____
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.CheckViolation: reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+
+The above exception was the direct cause of the following exception:
+packages/lineage/tests/test_chat.py:37: in engine
+    c.execute(t.ingestion_reservation.update().where(t.ingestion_reservation.c.reservation_id==reservation.reservation_id).values(document_version_id='v1'))
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1686: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1891: in _execute_context
+    return self._exec_single_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2019: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2381: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   sqlalchemy.exc.IntegrityError: (psycopg.errors.CheckViolation) reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+E   [SQL: UPDATE ingestion_reservation SET document_version_id=%(document_version_id)s::VARCHAR WHERE ingestion_reservation.reservation_id = %(reservation_id_1)s::VARCHAR]
+E   [SQL parameters hidden due to hide_parameters=True]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+_ ERROR at setup of test_continuation_scope_cursor_used_count_isolated_and_rollback _
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.CheckViolation: reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+
+The above exception was the direct cause of the following exception:
+packages/lineage/tests/test_chat.py:37: in engine
+    c.execute(t.ingestion_reservation.update().where(t.ingestion_reservation.c.reservation_id==reservation.reservation_id).values(document_version_id='v1'))
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1686: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1891: in _execute_context
+    return self._exec_single_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2019: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2381: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   sqlalchemy.exc.IntegrityError: (psycopg.errors.CheckViolation) reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+E   [SQL: UPDATE ingestion_reservation SET document_version_id=%(document_version_id)s::VARCHAR WHERE ingestion_reservation.reservation_id = %(reservation_id_1)s::VARCHAR]
+E   [SQL parameters hidden due to hide_parameters=True]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+______________ ERROR at setup of test_downgrade_preserves_history ______________
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.CheckViolation: reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+
+The above exception was the direct cause of the following exception:
+packages/lineage/tests/test_chat.py:37: in engine
+    c.execute(t.ingestion_reservation.update().where(t.ingestion_reservation.c.reservation_id==reservation.reservation_id).values(document_version_id='v1'))
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1686: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1891: in _execute_context
+    return self._exec_single_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2019: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2381: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   sqlalchemy.exc.IntegrityError: (psycopg.errors.CheckViolation) reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+E   [SQL: UPDATE ingestion_reservation SET document_version_id=%(document_version_id)s::VARCHAR WHERE ingestion_reservation.reservation_id = %(reservation_id_1)s::VARCHAR]
+E   [SQL parameters hidden due to hide_parameters=True]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+_____ ERROR at setup of test_last_insert_failure_rolls_back_only_savepoint _____
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.CheckViolation: reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+
+The above exception was the direct cause of the following exception:
+packages/lineage/tests/test_chat.py:37: in engine
+    c.execute(t.ingestion_reservation.update().where(t.ingestion_reservation.c.reservation_id==reservation.reservation_id).values(document_version_id='v1'))
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1686: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1891: in _execute_context
+    return self._exec_single_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2019: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2381: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   sqlalchemy.exc.IntegrityError: (psycopg.errors.CheckViolation) reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+E   [SQL: UPDATE ingestion_reservation SET document_version_id=%(document_version_id)s::VARCHAR WHERE ingestion_reservation.reservation_id = %(reservation_id_1)s::VARCHAR]
+E   [SQL parameters hidden due to hide_parameters=True]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+___________ ERROR at setup of test_database_owner_check_and_catalog ____________
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.CheckViolation: reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+
+The above exception was the direct cause of the following exception:
+packages/lineage/tests/test_chat.py:37: in engine
+    c.execute(t.ingestion_reservation.update().where(t.ingestion_reservation.c.reservation_id==reservation.reservation_id).values(document_version_id='v1'))
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1686: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1891: in _execute_context
+    return self._exec_single_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2019: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2381: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   sqlalchemy.exc.IntegrityError: (psycopg.errors.CheckViolation) reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+E   [SQL: UPDATE ingestion_reservation SET document_version_id=%(document_version_id)s::VARCHAR WHERE ingestion_reservation.reservation_id = %(reservation_id_1)s::VARCHAR]
+E   [SQL parameters hidden due to hide_parameters=True]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+_ ERROR at setup of test_reject_unbound_response_missing_provenance_and_reset __
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.CheckViolation: reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+
+The above exception was the direct cause of the following exception:
+packages/lineage/tests/test_chat.py:37: in engine
+    c.execute(t.ingestion_reservation.update().where(t.ingestion_reservation.c.reservation_id==reservation.reservation_id).values(document_version_id='v1'))
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1686: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1891: in _execute_context
+    return self._exec_single_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2019: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2381: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   sqlalchemy.exc.IntegrityError: (psycopg.errors.CheckViolation) reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+E   [SQL: UPDATE ingestion_reservation SET document_version_id=%(document_version_id)s::VARCHAR WHERE ingestion_reservation.reservation_id = %(reservation_id_1)s::VARCHAR]
+E   [SQL parameters hidden due to hide_parameters=True]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+___________ ERROR at setup of test_revoked_decision_blocks_delivery ____________
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.CheckViolation: reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+
+The above exception was the direct cause of the following exception:
+packages/lineage/tests/test_chat.py:37: in engine
+    c.execute(t.ingestion_reservation.update().where(t.ingestion_reservation.c.reservation_id==reservation.reservation_id).values(document_version_id='v1'))
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1686: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1891: in _execute_context
+    return self._exec_single_context(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2019: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2381: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2000: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py:964: in do_execute
+    cursor.execute(statement, parameters)
+.venv/lib/python3.13/site-packages/psycopg/cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   sqlalchemy.exc.IntegrityError: (psycopg.errors.CheckViolation) reservation fencing invalid
+E   CONTEXT:  PL/pgSQL function t011_reservation_write() line 13 at RAISE
+E   [SQL: UPDATE ingestion_reservation SET document_version_id=%(document_version_id)s::VARCHAR WHERE ingestion_reservation.reservation_id = %(reservation_id_1)s::VARCHAR]
+E   [SQL parameters hidden due to hide_parameters=True]
+E   (Background on this error at: https://sqlalche.me/e/20/gkpj)
+=========================== short test summary info ============================
+ERROR packages/lineage/tests/test_chat.py::test_save_read_exact_spans_owner_and_caller_transaction
+ERROR packages/lineage/tests/test_chat.py::test_e1_error_and_final_failure_atomic
+ERROR packages/lineage/tests/test_chat.py::test_cross_owner_and_database_foreign_keys
+ERROR packages/lineage/tests/test_chat.py::test_rate_limit_concurrent_durable_and_database_clock
+ERROR packages/lineage/tests/test_chat.py::test_continuation_scope_cursor_used_count_isolated_and_rollback
+ERROR packages/lineage/tests/test_chat.py::test_downgrade_preserves_history
+ERROR packages/lineage/tests/test_chat.py::test_last_insert_failure_rolls_back_only_savepoint
+ERROR packages/lineage/tests/test_chat.py::test_database_owner_check_and_catalog
+ERROR packages/lineage/tests/test_chat.py::test_reject_unbound_response_missing_provenance_and_reset
+ERROR packages/lineage/tests/test_chat.py::test_revoked_decision_blocks_delivery
+10 errors in 2.14s

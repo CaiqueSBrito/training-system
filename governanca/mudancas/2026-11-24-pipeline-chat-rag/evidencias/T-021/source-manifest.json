@@ -1,0 +1,42 @@
+{
+  "dispatch": "ctx_c55621c67ed1",
+  "task": "task_3654b00024c5",
+  "effective_provider": "openai",
+  "status_ast": "Passou",
+  "lsp_status": "Bloqueado",
+  "lsp_reason": "pyright/pylsp não disponíveis; referências locais e AST usados",
+  "secret_scan_status": "Passou",
+  "frozen_t001": {
+    "packages/contracts/tests/test_classificacao.py": {
+      "sha256": "b15e416b015824a090e553346703bee137191d58a247b61012a74c626f526b8e",
+      "status": "Passou"
+    },
+    "packages/contracts/tests/test_plano.py": {
+      "sha256": "c897e706a7d3b2161e80559fe79a9b160d6febdf3811d0f1a21bfc5aba241c5b",
+      "status": "Passou"
+    },
+    "packages/contracts/tests/test_itens.py": {
+      "sha256": "1623c0e17a7493acc7eb0323b419a44d03ce62ed894fa680bfe07ff762c19784",
+      "status": "Passou"
+    }
+  },
+  "source_sha256": {
+    "packages/generation/src/training_generation/chat.py": "6d4dec24ed67be1a0d79761b7e1c9e198530d297365b8580c983a8110d1891a6",
+    "packages/generation/src/training_generation/cli.py": "737cced2fe22b6424e6f9cc112b242f537bf603a7ae089b972e4a3f193754ad2",
+    "packages/generation/src/training_generation/__init__.py": "c8c57bc80de0c7c6037206e549b96240427f75c66117a731ad254b2c8532b812",
+    "packages/generation/src/training_generation/validation.py": "454fdb2879ddc68a2b4d2f2faea9e65c7d8849e6ff247d103bd73e02d6f7df34",
+    "packages/generation/tests/test_chat_integration.py": "8aa958668e9ca56d0c82261ab37172ac03d31c9aef0b44155c01ec1f20b60f3f",
+    "packages/generation/tests/run_chat_real.py": "57fe97413c0a2be3ea40f71b0466777e9a9b24fe5f8801eae5142e36369fe296",
+    "packages/generation/pyproject.toml": "fd39063ed7b00b83fdd65031b1e82c189433668f70f72c78c2dae9b27b9af311",
+    "packages/generation/README.md": "88c5cf14b1d117ace2d90c291ec4a26a7c35361fd6992e2b40ab998524fb9065",
+    "packages/contracts/src/training_contracts/rendering.py": "3412ca3375f856ea685c0979d5b2719882b50be34059b02757ea8492e9e04cd7",
+    "packages/lineage/src/training_lineage/chat.py": "8c9ffcff2c79eac0cc46085a5138256b2706106522373d41b8d90e0f86b00d00",
+    "packages/lineage/tests/test_chat.py": "29267ded7ad4f14127eb12bf6c6f7d5e0582d1411c01b21e243bdfc3e134ee84",
+    "packages/ingestion/src/training_ingestion/protocol.py": "0536fb312d1cf1e2ee997c8ebfcd507967ab02d8f210610934d6998598385d7a",
+    "packages/retrieval/src/training_retrieval/service.py": "8962adc7b2c0a0096512f0859cb9924df42b19ad9257157b682df39588662e1c",
+    "packages/retrieval/pyproject.toml": "cc9d9a2576405f11183a710297e1b0595b52a990eef8cbfc1af30026bf117688"
+  },
+  "lock_owner": "principal; worker T021 não resolveu lock/sync",
+  "independent_review_status": "Não executado",
+  "real_run": "t021-real-c513f0da772748a3970dfdf2959e25ad"
+}

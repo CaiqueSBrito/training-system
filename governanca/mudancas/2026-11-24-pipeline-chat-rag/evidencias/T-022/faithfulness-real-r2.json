@@ -1,0 +1,127 @@
+{
+  "schema": "training-evals/faithfulness-report/v1",
+  "run_id": "faith-c465863f39eb",
+  "created_at": "2026-11-25T04:09:27.801715+00:00",
+  "config": {
+    "metric": "faithfulness",
+    "ragas_version": "0.4.4",
+    "faithfulness_prompt_sha256": "93362d76d5240692e0710037aa7f86170f58f944a9dc3fb2fae68d8849b0d1d9",
+    "judge": {
+      "adapter": "litellm",
+      "config_version": "ragas-0.4-litellm-instructor-v1",
+      "embedding_key": "gemini-embedding-2@3072@fmt-v1",
+      "judge_model": "openrouter/openai/gpt-6.1-sol",
+      "provider": "openrouter",
+      "provider_model": "openai/gpt-6.1-sol",
+      "seed": 42,
+      "temperature": 0.0,
+      "top_p": 1.0
+    },
+    "judge_config_sha256": "971ac792457900a8fbb8a8919004be7028e5600c53bf52bb88845194c282f099",
+    "prompt_versions": {
+      "input_judge": "offline:chat-input-judge-v1@sha256:ae75f78383956d6cb368bb53bcaa519253a9e61ad74a948d66b3e758adc95510",
+      "classifier": "offline:chat-classifier-v1@sha256:ee0644ba6b8c5efa148162fcf6bbbefcea978c0f4e2da8b205b014a9f9cea250",
+      "pedagogue": "offline:chat-pedagogue-v1@sha256:d8de6a412d10f085d15fc3d173fd342d7c5a78be556e14428825797135ca031d",
+      "generation": "offline:chat-generation-v1@sha256:b86254c0a6a9117471d887a9af23fc11438603ca22789efbf2432d6212f6a076",
+      "output_judge": "offline:chat-output-judge-v1@sha256:b5073d150c1d0e4cbfa8738612a27ecbab701f8cab4755e15c63ea5a99ef32b4",
+      "output_rubric": "offline:chat-output-rubric-v1@sha256:9108eff853c5a0ed2109f8a00371fe778061d2574effdd9554099001d92627fd"
+    },
+    "calls_per_item": 2,
+    "max_calls": 2,
+    "calls_made": 2,
+    "retries": 0,
+    "retry_policy": "Instructor max_retries=0; LiteLLM num_retries=0/max_retries=0; admissão por chamada",
+    "mapping": "ADR-0006: user_input=frente|enunciado; response=verso|alternativa correta+explicação; retrieved_contexts=trechos citados do contexto enviado ao E8; conteúdo original pré-escape"
+  },
+  "artifacts": [
+    {
+      "artifact_sha256": "b8d15272f160a033e5b045f4af4c7bc7aa6c422aca9a0ec6ae1a7b18e3000b32",
+      "case_id": "t021-cli-membrana-v1",
+      "chat_turn_id": "9a3ff2dcc9db4df9a5443153d9481d34",
+      "trace_id": "f51de618484b3c6fd22ceb3169346d9e",
+      "response_status": "ok",
+      "source_dispatch": "ctx_86600b72d371",
+      "verification_method": "sandbox_manifest_hashes",
+      "response_sha256": "2c6013b3b923b6c2559a04892ffbf2ff5642b5cb05d46b7a39194dc90967dd00",
+      "diagnostics_sha256": "f7454c05a509a0539e39794ea09d81877987c638a9d4af04957b78902a9bde0b",
+      "e8_capture_sha256": "8d14f64628c94bdb229a88cfdd59e41d2ce88196bdd97bc077e40a6aaeb7426a",
+      "documents": [
+        {
+          "document_version_id": "f1eb198e-cc8d-465a-9037-fdce3f63eaed",
+          "sha256": "e0a353ae2ab30ea32aef41fb67f05174c940a77cc72f5558cdcfdc80586532df"
+        }
+      ],
+      "durations_seconds": {
+        "E1": 0.02654305600299267,
+        "E2": 2.3936693479990936,
+        "E3": 5.964383618000284,
+        "E4": 30.380550195997785,
+        "E5_E7": 14.136163449999003,
+        "E8": 4.1530945359991165,
+        "E9": 0.010359658997913357,
+        "E10": 2.280273103999207,
+        "E11": 0.00031230400054482743,
+        "E12": 0.0383829060010612,
+        "E5_retrieval": 6.712496624,
+        "E6_rerank": 7.410349931,
+        "E7_context": 0.012413269
+      },
+      "models": {
+        "E2": "gemini/gemini-3.1-flash-lite",
+        "E3": "gemini-3.1-flash-lite",
+        "E4": "gemini-3.1-flash-lite",
+        "E8": "gemini-3.1-flash-lite",
+        "E10": "openrouter/anthropic/claude-haiku-5.5"
+      },
+      "reranker": {
+        "model": "BAAI/bge-reranker-v2-m3",
+        "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+        "cutoff": 0.48544316837251245,
+        "manifest_sha256": "65e0ac016c6fe7baecf5e7c043d3c18aae073ecf8da3ab5c173f1012057b2d7b"
+      },
+      "embedding_key": "gemini-embedding-2@3072@fmt-v1",
+      "model_calls_admitted": 7,
+      "case_protocol": {
+        "kind": "external",
+        "case_id": "t021-cli-membrana-v1",
+        "request_sha256": "1a8ee8001c14ab48340ae5315be9fe35bcb9033a7d89147971278c6824864bd1"
+      },
+      "e8_calls": [
+        {
+          "call_id": "e98a3be4fe0d4faca329bc0179f2992f",
+          "call": "inicial",
+          "status": "completed"
+        }
+      ],
+      "manifest_sha256": "68d0268b82f7dfe14116d7d9272e3f2579bee6a7ae6541ffea6d799d9f0d3fc3",
+      "stored_artifact_sha256": "4ba4f444c3bbe2ee7f84ec6c8142f51fec3783e42ef452bb5b60ec770cd26870"
+    }
+  ],
+  "items": [
+    {
+      "item_id": "06dfd1a804fc47acbf9c05f5488a4e83",
+      "chat_turn_id": "9a3ff2dcc9db4df9a5443153d9481d34",
+      "call_id": "e98a3be4fe0d4faca329bc0179f2992f",
+      "attempt": 1,
+      "tipo": "flashcard",
+      "contexts_sha256": "13dc3d34d3072fa4394d8b1c966247025465df0553a9a1a7c6bf66d12d01d8a9",
+      "n_contexts": 1,
+      "score": 1.0,
+      "status": "scored"
+    }
+  ],
+  "summary": {
+    "n_items": 1,
+    "n_scored": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "complete": true
+  },
+  "thresholds": null,
+  "interpretation": {
+    "scope": "avaliação inicial da geração real; sem limiar aprovado pelo humano",
+    "historical_comparison": "Não se aplica",
+    "historical_reason": "dataset ressalvas 1.0.1 e baseline ragas-run-b647f4ac987c não cobrem geração",
+    "production_ready": false
+  }
+}

@@ -1,0 +1,10 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: anyio-4.16.0, Faker-40.54.0
+collected 1 item
+
+packages/llm/tests/test_models.py .                                      [100%]
+
+============================== 1 passed in 2.01s ===============================

@@ -1,0 +1,15 @@
+{"stage": "E1", "seconds": 0.02654305600299267}
+{"stage": "E2", "seconds": 2.3936693479990936}
+{"stage": "E3", "seconds": 5.964383618000284}
+{"stage": "E4", "seconds": 30.380550195997785}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 393/393 [00:00<00:00, 7285.22it/s]
+{"stage": "E5_E7", "seconds": 14.136163449999003}
+{"stage": "E8", "seconds": 4.1530945359991165}
+{"stage": "E9", "seconds": 0.010359658997913357}
+{"stage": "E10", "seconds": 2.280273103999207}
+{"stage": "E11", "seconds": 0.00031230400054482743}
+{"stage": "E12", "seconds": 0.0383829060010612}

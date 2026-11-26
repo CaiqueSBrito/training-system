@@ -1,0 +1,5 @@
+   Building training-evals @ file:///home/caique-brito/Documentos/Caique/Training%20System/evals
+      Built training-evals @ file:///home/caique-brito/Documentos/Caique/Training%20System/evals
+Uninstalled 1 package in 2ms
+Installed 1 package in 1ms
+governança OK: 6 mudança(s), 22 tarefa(s), 28 requisito(s) na spec viva

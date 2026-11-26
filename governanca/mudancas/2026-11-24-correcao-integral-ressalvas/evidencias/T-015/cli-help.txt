@@ -1,0 +1,36 @@
+usage: executar-avaliacao-ressalvas [-h] [--dataset DATASET]
+                                    [--env-file ENV_FILE] [--schema]
+                                    [--preflight] [--calibrate] [--execute]
+                                    [--approval-ref APPROVAL_REF]
+                                    [--calibration-report CALIBRATION_REPORT]
+                                    [--baseline-report BASELINE_REPORT]
+                                    [--output OUTPUT]
+
+Runner RAGAS 0.4.x para o escopo de ingestão, reconciliação e consulta segura
+(T-015). Pré-flight verifica dataset, hashes e configuração sem chamar LLMs e
+sem inventar scores.
+
+options:
+  -h, --help            show this help message and exit
+  --dataset DATASET     Caminho para o dataset.json versionado.
+  --env-file ENV_FILE   Caminho para o arquivo .env local (valores nunca são
+                        impressos).
+  --schema              Imprime os JSON Schemas de DatasetSpec,
+                        CalibrationManifest e EvaluationManifest e encerra.
+  --preflight           Executa verificação dry-run de pré-flight sem chamar
+                        LLMs (não é score de avaliação).
+  --calibrate           Executa a calibração real do juiz (controles positivos
+                        e negativos) em sandbox isolada.
+  --execute             Executa avaliação real RAGAS em sandbox isolada (exige
+                        --approval-ref e --calibration-report).
+  --approval-ref APPROVAL_REF
+                        Referência literal da aprovação humana de dataset,
+                        calibração e limiares.
+  --calibration-report CALIBRATION_REPORT
+                        Relatório JSON de calibração aprovada do juiz
+                        (obrigatório para --execute).
+  --baseline-report BASELINE_REPORT
+                        Relatório JSON de baseline compatível para calcular
+                        diff.
+  --output OUTPUT       Arquivo de saída para gravar o relatório JSON
+                        sanitizado.

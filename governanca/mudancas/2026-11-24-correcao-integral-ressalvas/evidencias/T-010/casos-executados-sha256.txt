@@ -1,0 +1,2 @@
+G3 dispensado pelo humano; hash dos casos executados.
+f7b933871407da588a1cfeb6c6aca686cd8303a1fe3b393e91ea4a0a27c6e99e  packages/contracts/tests/test_ressalvas_contratos.py

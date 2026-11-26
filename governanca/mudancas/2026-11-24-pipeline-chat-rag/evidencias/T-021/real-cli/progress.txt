@@ -1,0 +1,16 @@
+WARNING Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+{"stage": "E1", "seconds": 0.022831012000096962}
+{"stage": "E3", "seconds": 11.713819087999582}
+{"stage": "E2", "seconds": 18.48311235700021}
+{"stage": "E4", "seconds": 4.616031618003035}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 393/393 [00:00<00:00, 12060.09it/s]
+{"stage": "E5_E7", "seconds": 14.448136728999089}
+{"stage": "E8", "seconds": 1.3071789170026022}
+{"stage": "E9", "seconds": 0.012206428000354208}
+{"stage": "E10", "seconds": 3.923014700998465}
+{"stage": "E11", "seconds": 0.00034555299862404354}
+{"stage": "E12", "seconds": 0.03299416300069424}

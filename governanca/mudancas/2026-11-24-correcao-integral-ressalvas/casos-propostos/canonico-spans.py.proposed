@@ -1,0 +1,103 @@
+"""Casos novos propostos: ING-CAN-001 e ING-PRO-001; G3 pendente.
+
+Não executados nesta preparação. O módulo de produto ingestao ainda será
+implementado em T-010 após gates; import direto impede um verde por skip/fallback.
+Validações relacionais de conteúdo/offsets são casos de repositório em casos.md.
+"""
+
+from datetime import datetime, timezone
+from hashlib import sha256
+
+import pytest
+from pydantic import ValidationError
+
+from training_contracts.ingestao import CanonicalSpan, CanonicalTextRecord
+
+
+def canonical_payload(text):
+    return {
+        "canonical_id": "canonical-1",
+        "document_version_id": "version-1",
+        "canonical_version": "docling-order-separators-v1",
+        "parser_version": "docling-installed-version",
+        "text": text,
+        "text_sha256": sha256(text.encode("utf-8")).hexdigest(),
+        "created_at": datetime(2026, 11, 24, tzinfo=timezone.utc),
+    }
+
+
+@pytest.mark.parametrize("text", ["abc", "頁面二\n\n頁面三", "e\u0301😀", "https://exemplo/" + "a" * 4000])
+def test_ING_CAN_001_preserva_texto_e_hash_utf8(text):
+    record = CanonicalTextRecord.model_validate(canonical_payload(text))
+    assert record.text == text
+    assert record.text_sha256 == sha256(text.encode("utf-8")).hexdigest()
+    assert CanonicalTextRecord.model_validate_json(record.model_dump_json()) == record
+
+
+def test_ING_CAN_001_rejeita_hash_de_texto_diferente_mesmo_tamanho():
+    payload = canonical_payload("abc")
+    payload["text"] = "abd"
+    with pytest.raises(ValidationError):
+        CanonicalTextRecord.model_validate(payload)
+
+
+@pytest.mark.parametrize("digest", ["g" * 64, "a" * 63, "A" * 64])
+def test_ING_CAN_001_rejeita_sha_invalido(digest):
+    payload = canonical_payload("abc")
+    payload["text_sha256"] = digest
+    with pytest.raises(ValidationError):
+        CanonicalTextRecord.model_validate(payload)
+
+
+def test_ING_CAN_001_rejeita_timestamp_sem_timezone():
+    payload = canonical_payload("abc")
+    payload["created_at"] = datetime(2026, 11, 24)
+    with pytest.raises(ValidationError):
+        CanonicalTextRecord.model_validate(payload)
+
+
+def test_ING_CAN_001_registro_estrito_e_imutavel():
+    payload = canonical_payload("abc")
+    with pytest.raises(ValidationError):
+        CanonicalTextRecord.model_validate({**payload, "campo_extra": True})
+    record = CanonicalTextRecord.model_validate(payload)
+    with pytest.raises(ValidationError):
+        record.text = "abd"
+
+
+def span_payload():
+    return {
+        "span_id": "span-1",
+        "canonical_id": "canonical-1",
+        "start": 0,
+        "end": 3,
+        "page": None,
+        "section_path": ["Seção"],
+        "h1_id": "h1-occurrence-1",
+        "kind": "paragraph",
+        "provenance": "unknown",
+    }
+
+
+def test_ING_PRO_001_pagina_ausente_permanece_nula():
+    span = CanonicalSpan.model_validate(span_payload())
+    assert span.page is None
+    assert span.provenance == "unknown"
+
+
+@pytest.mark.parametrize("start,end", [(-1, 2), (2, 2), (3, 2)])
+def test_ING_PRO_001_rejeita_intervalos_invalidos(start, end):
+    with pytest.raises(ValidationError):
+        CanonicalSpan.model_validate({**span_payload(), "start": start, "end": end})
+
+
+def test_ING_PRO_001_nao_inventa_pagina_para_proveniencia_desconhecida():
+    with pytest.raises(ValidationError):
+        CanonicalSpan.model_validate({**span_payload(), "page": 2})
+
+
+def test_ING_PRO_001_pagina_exata_precisa_ser_positiva():
+    payload = {**span_payload(), "provenance": "exact", "page": 2}
+    assert CanonicalSpan.model_validate(payload).page == 2
+    with pytest.raises(ValidationError):
+        CanonicalSpan.model_validate({**payload, "page": 0})

@@ -1,0 +1,20 @@
+T-021 — execução real única da CLI no snapshot final (pós-correções r1/r2). Executor: Anthropic (Opus 5.5), dispatch ctx_86600b72d371.
+Histórico real anterior (real-cli/, run t021-real-c513f0…) preservado intacto; esta execução está em real-cli-r2/ e não o substitui.
+
+Comando: .venv/bin/python packages/generation/tests/run_chat_real.py --artifacts <evidencias>/T-021/real-cli-r2 --keep-sandbox
+Harness atualizado antes da execução (sha256 6f810360dd80e1210a557e569aaa3bdd5c3a79f4f1286072dcdaf3c9311384f7): manifesto ganhou request
+(message_sha256, count, document_version_ids, section_prefix), migration_head, budget, snapshot_sha256 do produto/prompts/calibração,
+persisted_e8_calls e provider_errors. Uma única tentativa, sem repetição.
+
+Início 2026-11-25T01:04:52-03:00. Resultado: Passou — exit 0, ChatResponse status ok, 1 item entregue.
+run_id t021-real-22f305ef0d8849e4a5ffd4a38f86e6d2; chat_turn_id 9a3ff2dcc9db4df9a5443153d9481d34; trace_id f51de618484b3c6fd22ceb3169346d9e.
+manifest.json sha256 68d0268b82f7dfe14116d7d9272e3f2579bee6a7ae6541ffea6d799d9f0d3fc3 (arquivos listados com sha256 no próprio manifesto).
+Banco descartável migrado em 0005 (migration_head no manifesto). Ingestão pública nova consultável sem reconciliação manual.
+Commit confirmado por leitura em conexão separada: chat_turn.response == stdout; chat_generation_call persistido (inicial, completed). Captura e8-capture.json modo 0600.
+Contratos T-022 conferidos localmente, sem avaliar: SandboxManifest (_parse_manifest) e E8Capture validam.
+Modelos: E2 gemini/gemini-3.1-flash-lite; E3/E4/E8 gemini-3.1-flash-lite; E10 openrouter/anthropic/claude-haiku-5.5; reranker/calibração e prompts por hash no manifesto/diagnostics.
+Orçamento: CLI 12 chamadas, intervalo 6s, ingestão 4; SDK attempts 1; LiteLLM num_retries 0 e max_retries 0; sem retry manual. Chamadas admitidas: CLI 7, ingestão 1. Sem 429/503 (provider_errors vazio).
+Latências (s, uma execução, não benchmark): E1 .027, E2 2.394, E3 5.964, E4 30.381, E5_E7 14.136 (E5 6.712, E6 7.410 com carga de pesos, E7 .012), E8 4.153, E9 .010, E10 2.280, E11 .0003, E12 .038.
+Sem segredo em progress/diagnostics/manifesto (busca por padrões de chave: 0). Langfuse desligado; banco compartilhado só usado para CREATE DATABASE do sandbox.
+Sandbox RETIDO para coleta da T-022 (resources_retained true): banco e container identificados no manifesto. Limpeza dos recursos próprios pendente, após confirmação de coleta.
+Não constitui suíte, avaliação RAGAS, calibração do juiz nem G4.

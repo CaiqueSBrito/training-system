@@ -1,0 +1,604 @@
+{
+  "DatasetSpec": {
+    "$defs": {
+      "ChunkConfigSpec": {
+        "additionalProperties": false,
+        "properties": {
+          "target_tokens": {
+            "minimum": 2,
+            "title": "Target Tokens",
+            "type": "integer"
+          },
+          "max_tokens": {
+            "minimum": 2,
+            "title": "Max Tokens",
+            "type": "integer"
+          },
+          "overlap_tokens": {
+            "minimum": 0,
+            "title": "Overlap Tokens",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "target_tokens",
+          "max_tokens",
+          "overlap_tokens"
+        ],
+        "title": "ChunkConfigSpec",
+        "type": "object"
+      },
+      "DocumentEntrySpec": {
+        "additionalProperties": false,
+        "properties": {
+          "doc_id": {
+            "minLength": 1,
+            "title": "Doc Id",
+            "type": "string"
+          },
+          "title": {
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "title": "Relative Path",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Sha256",
+            "type": "string"
+          },
+          "owner_id": {
+            "minLength": 1,
+            "title": "Owner Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "doc_id",
+          "title",
+          "relative_path",
+          "sha256",
+          "owner_id"
+        ],
+        "title": "DocumentEntrySpec",
+        "type": "object"
+      },
+      "EvaluationCaseSpec": {
+        "additionalProperties": false,
+        "properties": {
+          "case_id": {
+            "minLength": 1,
+            "title": "Case Id",
+            "type": "string"
+          },
+          "doc_id": {
+            "minLength": 1,
+            "title": "Doc Id",
+            "type": "string"
+          },
+          "owner_id": {
+            "minLength": 1,
+            "title": "Owner Id",
+            "type": "string"
+          },
+          "user_input": {
+            "minLength": 10,
+            "title": "User Input",
+            "type": "string"
+          },
+          "reference": {
+            "minLength": 10,
+            "title": "Reference",
+            "type": "string"
+          },
+          "expected_section_paths": {
+            "items": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "minItems": 1,
+            "title": "Expected Section Paths",
+            "type": "array"
+          },
+          "expected_evidence_substrings": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Expected Evidence Substrings",
+            "type": "array"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Tags",
+            "type": "array"
+          }
+        },
+        "required": [
+          "case_id",
+          "doc_id",
+          "owner_id",
+          "user_input",
+          "reference",
+          "expected_section_paths",
+          "expected_evidence_substrings"
+        ],
+        "title": "EvaluationCaseSpec",
+        "type": "object"
+      },
+      "NotApplicableMetricSpec": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "const": "Não se aplica",
+            "title": "Status",
+            "type": "string"
+          },
+          "reason": {
+            "minLength": 10,
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "reason"
+        ],
+        "title": "NotApplicableMetricSpec",
+        "type": "object"
+      },
+      "SecurityRegressionReferenceSpec": {
+        "additionalProperties": false,
+        "properties": {
+          "requirement_id": {
+            "const": "SEC-ATQ-001",
+            "title": "Requirement Id",
+            "type": "string"
+          },
+          "case_group": {
+            "const": "C09",
+            "title": "Case Group",
+            "type": "string"
+          },
+          "attacks_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 9,
+            "minItems": 9,
+            "title": "Attacks Ids",
+            "type": "array"
+          },
+          "legitimate_controls_count": {
+            "minimum": 1,
+            "title": "Legitimate Controls Count",
+            "type": "integer"
+          },
+          "canonical_source": {
+            "minLength": 1,
+            "title": "Canonical Source",
+            "type": "string"
+          },
+          "evidence_ref": {
+            "minLength": 1,
+            "title": "Evidence Ref",
+            "type": "string"
+          },
+          "note": {
+            "minLength": 10,
+            "title": "Note",
+            "type": "string"
+          }
+        },
+        "required": [
+          "requirement_id",
+          "case_group",
+          "attacks_ids",
+          "legitimate_controls_count",
+          "canonical_source",
+          "evidence_ref",
+          "note"
+        ],
+        "title": "SecurityRegressionReferenceSpec",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "dataset_id": {
+        "minLength": 1,
+        "title": "Dataset Id",
+        "type": "string"
+      },
+      "dataset_version": {
+        "minLength": 1,
+        "title": "Dataset Version",
+        "type": "string"
+      },
+      "scope": {
+        "const": "ingestao_consulta_segura_sem_geracao",
+        "title": "Scope",
+        "type": "string"
+      },
+      "status": {
+        "minLength": 1,
+        "title": "Status",
+        "type": "string"
+      },
+      "description": {
+        "minLength": 10,
+        "title": "Description",
+        "type": "string"
+      },
+      "chunk_config": {
+        "$ref": "#/$defs/ChunkConfigSpec"
+      },
+      "retrieval_top_k": {
+        "maximum": 50,
+        "minimum": 1,
+        "title": "Retrieval Top K",
+        "type": "integer"
+      },
+      "applicable_metrics": {
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1,
+        "title": "Applicable Metrics",
+        "type": "array"
+      },
+      "not_applicable_metrics": {
+        "additionalProperties": {
+          "$ref": "#/$defs/NotApplicableMetricSpec"
+        },
+        "title": "Not Applicable Metrics",
+        "type": "object"
+      },
+      "documents": {
+        "items": {
+          "$ref": "#/$defs/DocumentEntrySpec"
+        },
+        "minItems": 1,
+        "title": "Documents",
+        "type": "array"
+      },
+      "cases": {
+        "items": {
+          "$ref": "#/$defs/EvaluationCaseSpec"
+        },
+        "minItems": 1,
+        "title": "Cases",
+        "type": "array"
+      },
+      "security_regression_reference": {
+        "$ref": "#/$defs/SecurityRegressionReferenceSpec"
+      }
+    },
+    "required": [
+      "dataset_id",
+      "dataset_version",
+      "scope",
+      "status",
+      "description",
+      "chunk_config",
+      "retrieval_top_k",
+      "applicable_metrics",
+      "not_applicable_metrics",
+      "documents",
+      "cases",
+      "security_regression_reference"
+    ],
+    "title": "DatasetSpec",
+    "type": "object"
+  },
+  "CalibrationManifest": {
+    "additionalProperties": false,
+    "properties": {
+      "calibration_run_id": {
+        "minLength": 1,
+        "title": "Calibration Run Id",
+        "type": "string"
+      },
+      "timestamp_utc": {
+        "minLength": 1,
+        "title": "Timestamp Utc",
+        "type": "string"
+      },
+      "dataset_id": {
+        "minLength": 1,
+        "title": "Dataset Id",
+        "type": "string"
+      },
+      "dataset_version": {
+        "minLength": 1,
+        "title": "Dataset Version",
+        "type": "string"
+      },
+      "dataset_sha256": {
+        "pattern": "^[0-9a-f]{64}$",
+        "title": "Dataset Sha256",
+        "type": "string"
+      },
+      "scope": {
+        "minLength": 1,
+        "title": "Scope",
+        "type": "string"
+      },
+      "ragas_version": {
+        "minLength": 1,
+        "title": "Ragas Version",
+        "type": "string"
+      },
+      "litellm_version": {
+        "minLength": 1,
+        "title": "Litellm Version",
+        "type": "string"
+      },
+      "instructor_version": {
+        "minLength": 1,
+        "title": "Instructor Version",
+        "type": "string"
+      },
+      "judge_model": {
+        "minLength": 1,
+        "title": "Judge Model",
+        "type": "string"
+      },
+      "judge_provider": {
+        "minLength": 1,
+        "title": "Judge Provider",
+        "type": "string"
+      },
+      "judge_config_version": {
+        "minLength": 1,
+        "title": "Judge Config Version",
+        "type": "string"
+      },
+      "judge_config_sha256": {
+        "pattern": "^[0-9a-f]{64}$",
+        "title": "Judge Config Sha256",
+        "type": "string"
+      },
+      "embedding_key": {
+        "minLength": 1,
+        "title": "Embedding Key",
+        "type": "string"
+      },
+      "metric_prompts_sha256": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "title": "Metric Prompts Sha256",
+        "type": "object"
+      },
+      "calibration_protocol_version": {
+        "minLength": 1,
+        "title": "Calibration Protocol Version",
+        "type": "string"
+      },
+      "protocol_thresholds": {
+        "additionalProperties": true,
+        "title": "Protocol Thresholds",
+        "type": "object"
+      },
+      "calibration_protocol_sha256": {
+        "pattern": "^[0-9a-f]{64}$",
+        "title": "Calibration Protocol Sha256",
+        "type": "string"
+      },
+      "positive_controls_count": {
+        "minimum": 1,
+        "title": "Positive Controls Count",
+        "type": "integer"
+      },
+      "negative_controls_count": {
+        "minimum": 1,
+        "title": "Negative Controls Count",
+        "type": "integer"
+      },
+      "thresholds_approval_ref": {
+        "minLength": 1,
+        "title": "Thresholds Approval Ref",
+        "type": "string"
+      }
+    },
+    "required": [
+      "calibration_run_id",
+      "timestamp_utc",
+      "dataset_id",
+      "dataset_version",
+      "dataset_sha256",
+      "scope",
+      "ragas_version",
+      "litellm_version",
+      "instructor_version",
+      "judge_model",
+      "judge_provider",
+      "judge_config_version",
+      "judge_config_sha256",
+      "embedding_key",
+      "metric_prompts_sha256",
+      "calibration_protocol_version",
+      "protocol_thresholds",
+      "calibration_protocol_sha256",
+      "positive_controls_count",
+      "negative_controls_count",
+      "thresholds_approval_ref"
+    ],
+    "title": "CalibrationManifest",
+    "type": "object"
+  },
+  "EvaluationManifest": {
+    "additionalProperties": false,
+    "properties": {
+      "run_id": {
+        "minLength": 1,
+        "title": "Run Id",
+        "type": "string"
+      },
+      "timestamp_utc": {
+        "minLength": 1,
+        "title": "Timestamp Utc",
+        "type": "string"
+      },
+      "dataset_id": {
+        "minLength": 1,
+        "title": "Dataset Id",
+        "type": "string"
+      },
+      "dataset_version": {
+        "minLength": 1,
+        "title": "Dataset Version",
+        "type": "string"
+      },
+      "dataset_sha256": {
+        "pattern": "^[0-9a-f]{64}$",
+        "title": "Dataset Sha256",
+        "type": "string"
+      },
+      "scope": {
+        "minLength": 1,
+        "title": "Scope",
+        "type": "string"
+      },
+      "ragas_version": {
+        "minLength": 1,
+        "title": "Ragas Version",
+        "type": "string"
+      },
+      "litellm_version": {
+        "minLength": 1,
+        "title": "Litellm Version",
+        "type": "string"
+      },
+      "instructor_version": {
+        "minLength": 1,
+        "title": "Instructor Version",
+        "type": "string"
+      },
+      "judge_model": {
+        "minLength": 1,
+        "title": "Judge Model",
+        "type": "string"
+      },
+      "judge_provider": {
+        "minLength": 1,
+        "title": "Judge Provider",
+        "type": "string"
+      },
+      "judge_config_version": {
+        "minLength": 1,
+        "title": "Judge Config Version",
+        "type": "string"
+      },
+      "judge_config_sha256": {
+        "pattern": "^[0-9a-f]{64}$",
+        "title": "Judge Config Sha256",
+        "type": "string"
+      },
+      "temperature": {
+        "title": "Temperature",
+        "type": "number"
+      },
+      "top_p": {
+        "title": "Top P",
+        "type": "number"
+      },
+      "seed": {
+        "title": "Seed",
+        "type": "integer"
+      },
+      "embedding_key": {
+        "minLength": 1,
+        "title": "Embedding Key",
+        "type": "string"
+      },
+      "metric_prompts_sha256": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "title": "Metric Prompts Sha256",
+        "type": "object"
+      },
+      "calibration_protocol_version": {
+        "minLength": 1,
+        "title": "Calibration Protocol Version",
+        "type": "string"
+      },
+      "calibration_protocol_sha256": {
+        "pattern": "^[0-9a-f]{64}$",
+        "title": "Calibration Protocol Sha256",
+        "type": "string"
+      },
+      "thresholds_approval_ref": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Thresholds Approval Ref"
+      },
+      "calibration_run_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Calibration Run Id"
+      },
+      "calibration_manifest_sha256": {
+        "anyOf": [
+          {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Calibration Manifest Sha256"
+      }
+    },
+    "required": [
+      "run_id",
+      "timestamp_utc",
+      "dataset_id",
+      "dataset_version",
+      "dataset_sha256",
+      "scope",
+      "ragas_version",
+      "litellm_version",
+      "instructor_version",
+      "judge_model",
+      "judge_provider",
+      "judge_config_version",
+      "judge_config_sha256",
+      "temperature",
+      "top_p",
+      "seed",
+      "embedding_key",
+      "metric_prompts_sha256",
+      "calibration_protocol_version",
+      "calibration_protocol_sha256"
+    ],
+    "title": "EvaluationManifest",
+    "type": "object"
+  }
+}

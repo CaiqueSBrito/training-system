@@ -1,0 +1,1625 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: anyio-4.16.0, Faker-40.54.0
+collecting ... collected 91 items / 1 deselected / 90 selected
+
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_roundtrip_contracts PASSED [  1%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_nullable_page_and_empty_sections PASSED [  2%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_foreign_key_rejects_unknown_version PASSED [  3%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_chunks_belong_to_their_version PASSED [  4%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_chunk_immutable_in_database[UPDATE chunk SET text = 'alterado' WHERE chunk_id = 'c1'] PASSED [  5%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_chunk_immutable_in_database[UPDATE chunk SET start_offset = start_offset WHERE chunk_id = 'c1'] PASSED [  6%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_chunk_immutable_in_database[DELETE FROM chunk WHERE chunk_id = 'c1'] PASSED [  7%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_chunk_immutable_in_database[TRUNCATE chunk] PASSED [  8%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_reading_order_is_not_insertion_or_section_name_order PASSED [ 10%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_unpaged_reading_order_by_offset PASSED [ 11%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_duplicate_ids_and_owner_hash_rejected PASSED [ 12%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_transaction_rolls_back_partial_ingestion PASSED [ 13%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_revalidate_records_before_writing PASSED [ 14%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_database_constraints[changes0] PASSED [ 15%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_database_constraints[changes1] PASSED [ 16%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_database_constraints[changes2] PASSED [ 17%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_database_constraints[changes3] PASSED [ 18%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_database_constraints[changes4] PASSED [ 20%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_migration_upgrade_downgrade_empty_database PASSED [ 21%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_configuration_from_env_file_without_logging_secrets PASSED [ 22%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_naive_timestamp_normalized_to_utc PASSED [ 23%]
+packages/lineage/tests/test_lineage.py::test_document_version_immutable[UPDATE document_version SET sha256 = repeat('b',64)] PASSED [ 24%]
+packages/lineage/tests/test_lineage.py::test_document_version_immutable[UPDATE document_version SET owner_id = 'other'] PASSED [ 25%]
+packages/lineage/tests/test_lineage.py::test_document_version_immutable[UPDATE document_version SET parser_version = 'other'] PASSED [ 26%]
+packages/lineage/tests/test_lineage.py::test_document_version_immutable[DELETE FROM document_version] PASSED [ 27%]
+packages/lineage/tests/test_lineage.py::test_document_version_immutable[TRUNCATE document_version CASCADE] PASSED [ 28%]
+packages/lineage/tests/test_lineage.py::test_migrated_schema_matches_metadata PASSED [ 30%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_intermediate_roundtrip_and_trigger_lifecycle PASSED [ 31%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[unknown] PASSED [ 32%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[000] PASSED [ 33%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[-1] PASSED [ 34%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[+1] PASSED [ 35%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[0001:0002] PASSED [ 36%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[head;DROP TABLE chunk] PASSED [ 37%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[] PASSED [ 38%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_invalid_target_preserves_data[None] PASSED [ 40%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[document_version-changes0-document_version_identifiers] PASSED [ 41%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[document_version-changes1-document_version_identifiers] PASSED [ 42%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[document_version-changes2-document_version_identifiers] PASSED [ 43%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[document_version-changes3-document_version_identifiers] PASSED [ 44%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[document_version-changes4-document_version_sha256] PASSED [ 45%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[chunk-changes5-chunk_identifiers] PASSED [ 46%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[chunk-changes6-chunk_identifiers] PASSED [ 47%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[chunk-changes7-chunk_page] PASSED [ 48%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[chunk-changes8-chunk_offsets] PASSED [ 50%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[chunk-changes9-chunk_offsets] PASSED [ 51%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[chunk-changes10-chunk_text] PASSED [ 52%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[chunk-changes11-chunk_injection] PASSED [ 53%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[chunk-changes12-chunk_injection] PASSED [ 54%]
+packages/lineage/tests/test_lineage.py::test_ING_LIN_001_each_migrated_check[chunk-changes13-chunk_section_path] PASSED [ 55%]
+packages/llm/tests/test_models.py::test_ING_EMB_001_prefixes PASSED      [ 56%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_real_judge PASSED    [ 57%]
+packages/llm/tests/test_models.py::test_ING_EMB_001_sdk_contract_and_invalid_vectors FAILED [ 58%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_invalid_judge_json_is_rejected PASSED [ 60%]
+packages/llm/tests/test_models.py::test_ING_EMB_001_missing_key_is_explicit FAILED [ 61%]
+packages/llm/tests/test_models.py::test_judge_provider_key[gemini/test-gemini-key] FAILED [ 62%]
+packages/llm/tests/test_models.py::test_judge_provider_key[openrouter/test-router-key] FAILED [ 63%]
+packages/llm/tests/test_models.py::test_missing_or_unknown_judge_refused[] PASSED [ 64%]
+packages/llm/tests/test_models.py::test_missing_or_unknown_judge_refused[unknown/test] PASSED [ 65%]
+packages/llm/tests/test_models.py::test_missing_or_unknown_judge_refused[gemini] PASSED [ 66%]
+packages/llm/tests/test_models.py::test_env_no_default_judge FAILED      [ 67%]
+packages/llm/tests/test_models.py::test_judge_failure_redacts_untrusted_output[sensitive source text] PASSED [ 68%]
+packages/llm/tests/test_models.py::test_judge_failure_redacts_untrusted_output[content1] PASSED [ 70%]
+packages/llm/tests/test_models.py::test_judge_provider_exception_redacted PASSED [ 71%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_r3_error_category_is_sanitized[True-provider] FAILED [ 72%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_r3_error_category_is_sanitized[False-invalid_output] FAILED [ 73%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[env] FAILED [ 74%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[openai_env] FAILED [ 75%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[logger] FAILED [ 76%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[child_logger] FAILED [ 77%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[transport_logger] FAILED [ 78%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[root] FAILED [ 80%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[verbose] FAILED [ 81%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[module_verbose] FAILED [ 82%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[raw] FAILED [ 83%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[traceback] FAILED [ 84%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[callback] FAILED [ 85%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[breadcrumb] FAILED [ 86%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_env_file_logging_refused_before_client PASSED [ 87%]
+packages/llm/tests/test_models.py::test_ING_INJ_001_safe_sdk_configuration_and_transport_diagnostics FAILED [ 88%]
+packages/llm/tests/test_models.py::test_ING_EMB_001_unsafe_logging_prevents_sdk_embedding FAILED [ 90%]
+packages/ingestion/tests/test_indexing.py::test_ING_IDX_002_payload_indexes_and_no_test_bypass ERROR [ 91%]
+packages/ingestion/tests/test_indexing.py::test_ING_IDX_001_existing_batches_validate_all_records ERROR [ 92%]
+packages/ingestion/tests/test_indexing.py::test_ING_IDX_001_existing_marked_payload_and_vectors ERROR [ 93%]
+packages/ingestion/tests/test_indexing.py::test_ING_IDX_001_real_server_bm25_portuguese_and_dense ERROR [ 94%]
+packages/ingestion/tests/test_indexing.py::test_bm25_english_control ERROR [ 95%]
+packages/ingestion/tests/test_indexing.py::test_ING_IDX_002_rejects_divergent_key_and_metadata ERROR [ 96%]
+packages/ingestion/tests/test_indexing.py::test_ING_IDX_002_rejects_wrong_dense_schema ERROR [ 97%]
+packages/ingestion/tests/test_indexing.py::test_ING_IDX_001_incomplete_version_cannot_be_reused ERROR [ 98%]
+packages/ingestion/tests/test_indexing.py::test_ING_INJ_001_each_r3_case_with_configured_real_judge FAILED [100%]
+
+==================================== ERRORS ====================================
+____ ERROR at setup of test_ING_IDX_002_payload_indexes_and_no_test_bypass _____
+
+isolated_qdrant = 'http://127.0.0.1:32768'
+
+    @pytest.fixture
+    def index(isolated_qdrant):
+>       settings = ModelSettings.from_env()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/ingestion/tests/test_indexing.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:47: in from_env
+    _guard_sdk_logging(env)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = {'GEMINI_API_KEY': '[REDACTED]', 'GENERATION_MODEL': 'gemini-3.1-flash-lite', 'INPUT_JUDGE_MODEL': 'gemini/gemini-3.1-flash-lite', 'EMBEDDING_MODEL': 'gemini-embedding-2', ...}
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+___ ERROR at setup of test_ING_IDX_001_existing_batches_validate_all_records ___
+
+isolated_qdrant = 'http://127.0.0.1:32768'
+
+    @pytest.fixture
+    def index(isolated_qdrant):
+>       settings = ModelSettings.from_env()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/ingestion/tests/test_indexing.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:47: in from_env
+    _guard_sdk_logging(env)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = {'GEMINI_API_KEY': '[REDACTED]', 'GENERATION_MODEL': 'gemini-3.1-flash-lite', 'INPUT_JUDGE_MODEL': 'gemini/gemini-3.1-flash-lite', 'EMBEDDING_MODEL': 'gemini-embedding-2', ...}
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+____ ERROR at setup of test_ING_IDX_001_existing_marked_payload_and_vectors ____
+
+isolated_qdrant = 'http://127.0.0.1:32768'
+
+    @pytest.fixture
+    def index(isolated_qdrant):
+>       settings = ModelSettings.from_env()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/ingestion/tests/test_indexing.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:47: in from_env
+    _guard_sdk_logging(env)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = {'GEMINI_API_KEY': '[REDACTED]', 'GENERATION_MODEL': 'gemini-3.1-flash-lite', 'INPUT_JUDGE_MODEL': 'gemini/gemini-3.1-flash-lite', 'EMBEDDING_MODEL': 'gemini-embedding-2', ...}
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+___ ERROR at setup of test_ING_IDX_001_real_server_bm25_portuguese_and_dense ___
+
+isolated_qdrant = 'http://127.0.0.1:32768'
+
+    @pytest.fixture
+    def index(isolated_qdrant):
+>       settings = ModelSettings.from_env()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/ingestion/tests/test_indexing.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:47: in from_env
+    _guard_sdk_logging(env)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = {'GEMINI_API_KEY': '[REDACTED]', 'GENERATION_MODEL': 'gemini-3.1-flash-lite', 'INPUT_JUDGE_MODEL': 'gemini/gemini-3.1-flash-lite', 'EMBEDDING_MODEL': 'gemini-embedding-2', ...}
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+_________________ ERROR at setup of test_bm25_english_control __________________
+
+isolated_qdrant = 'http://127.0.0.1:32768'
+
+    @pytest.fixture
+    def index(isolated_qdrant):
+>       settings = ModelSettings.from_env()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/ingestion/tests/test_indexing.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:47: in from_env
+    _guard_sdk_logging(env)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = {'GEMINI_API_KEY': '[REDACTED]', 'GENERATION_MODEL': 'gemini-3.1-flash-lite', 'INPUT_JUDGE_MODEL': 'gemini/gemini-3.1-flash-lite', 'EMBEDDING_MODEL': 'gemini-embedding-2', ...}
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+____ ERROR at setup of test_ING_IDX_002_rejects_divergent_key_and_metadata _____
+
+isolated_qdrant = 'http://127.0.0.1:32768'
+
+    @pytest.fixture
+    def index(isolated_qdrant):
+>       settings = ModelSettings.from_env()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/ingestion/tests/test_indexing.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:47: in from_env
+    _guard_sdk_logging(env)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = {'GEMINI_API_KEY': '[REDACTED]', 'GENERATION_MODEL': 'gemini-3.1-flash-lite', 'INPUT_JUDGE_MODEL': 'gemini/gemini-3.1-flash-lite', 'EMBEDDING_MODEL': 'gemini-embedding-2', ...}
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+________ ERROR at setup of test_ING_IDX_002_rejects_wrong_dense_schema _________
+
+isolated_qdrant = 'http://127.0.0.1:32768'
+
+    @pytest.fixture
+    def index(isolated_qdrant):
+>       settings = ModelSettings.from_env()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/ingestion/tests/test_indexing.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:47: in from_env
+    _guard_sdk_logging(env)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = {'GEMINI_API_KEY': '[REDACTED]', 'GENERATION_MODEL': 'gemini-3.1-flash-lite', 'INPUT_JUDGE_MODEL': 'gemini/gemini-3.1-flash-lite', 'EMBEDDING_MODEL': 'gemini-embedding-2', ...}
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+____ ERROR at setup of test_ING_IDX_001_incomplete_version_cannot_be_reused ____
+
+isolated_qdrant = 'http://127.0.0.1:32768'
+
+    @pytest.fixture
+    def index(isolated_qdrant):
+>       settings = ModelSettings.from_env()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/ingestion/tests/test_indexing.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:47: in from_env
+    _guard_sdk_logging(env)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = {'GEMINI_API_KEY': '[REDACTED]', 'GENERATION_MODEL': 'gemini-3.1-flash-lite', 'INPUT_JUDGE_MODEL': 'gemini/gemini-3.1-flash-lite', 'EMBEDDING_MODEL': 'gemini-embedding-2', ...}
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+=================================== FAILURES ===================================
+______________ test_ING_EMB_001_sdk_contract_and_invalid_vectors _______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e7ecacfc0>
+
+    def test_ING_EMB_001_sdk_contract_and_invalid_vectors(monkeypatch):
+        from types import SimpleNamespace
+        from google import genai
+        calls = []
+        class Embeddings:
+            vector = [0.1] * 3072
+            def embed_content(self, **kwargs):
+                calls.append(kwargs)
+                return SimpleNamespace(embeddings=[SimpleNamespace(values=self.vector)])
+        embeddings = Embeddings()
+        # Dublê somente da fronteira do SDK; este teste não prova a API real.
+        monkeypatch.setattr(genai, 'Client', lambda **kwargs: SimpleNamespace(models=embeddings))
+>       client = GeminiModels(ModelSettings(api_key='test-key', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE... 'PYTEST_CURRENT_TEST': 'packages/llm/tests/test_models.py::test_ING_EMB_001_sdk_contract_and_invalid_vectors (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+___________________ test_ING_EMB_001_missing_key_is_explicit ___________________
+
+    def test_ING_EMB_001_missing_key_is_explicit():
+>       with pytest.raises(ValueError, match='sem GEMINI_API_KEY'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'sem GEMINI_API_KEY'
+E         Actual message: 'Falha na verificação de injeção'
+
+packages/llm/tests/test_models.py:73: AssertionError
+_______________ test_judge_provider_key[gemini/test-gemini-key] ________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e737247c0>
+model = 'gemini/test', expected = 'gemini-key'
+
+    @pytest.mark.parametrize('model,expected', [('gemini/test', 'gemini-key'), ('openrouter/test', 'router-key')])
+    def test_judge_provider_key(monkeypatch, model, expected):
+        import litellm
+        from types import SimpleNamespace
+        def completion(**kwargs):
+            assert kwargs['api_key'] == expected
+            assert kwargs['response_format']['type'] == 'json_schema'
+            return SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(
+                content='{"injection":true,"reason":"ordem"}'))])
+        monkeypatch.setattr(litellm, 'completion', completion)
+>       client = GeminiModels(ModelSettings(api_key='gemini-key', openrouter_api_key='router-key', judge_model=model))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...', 'PYTEST_CURRENT_TEST': 'packages/llm/tests/test_models.py::test_judge_provider_key[gemini/test-gemini-key] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+_____________ test_judge_provider_key[openrouter/test-router-key] ______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e737257b0>
+model = 'openrouter/test', expected = 'router-key'
+
+    @pytest.mark.parametrize('model,expected', [('gemini/test', 'gemini-key'), ('openrouter/test', 'router-key')])
+    def test_judge_provider_key(monkeypatch, model, expected):
+        import litellm
+        from types import SimpleNamespace
+        def completion(**kwargs):
+            assert kwargs['api_key'] == expected
+            assert kwargs['response_format']['type'] == 'json_schema'
+            return SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(
+                content='{"injection":true,"reason":"ordem"}'))])
+        monkeypatch.setattr(litellm, 'completion', completion)
+>       client = GeminiModels(ModelSettings(api_key='gemini-key', openrouter_api_key='router-key', judge_model=model))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...PYTEST_CURRENT_TEST': 'packages/llm/tests/test_models.py::test_judge_provider_key[openrouter/test-router-key] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+__________________________ test_env_no_default_judge ___________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-caique-brito/pytest-0/test_env_no_default_judge0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e74cbb950>
+
+    def test_env_no_default_judge(tmp_path, monkeypatch):
+        for key in ('INGESTION_JUDGE_MODEL', 'INPUT_JUDGE_MODEL'):
+            monkeypatch.delenv(key, raising=False)
+>       assert ModelSettings.from_env(tmp_path / 'absent').judge_model == ''
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:47: in from_env
+    _guard_sdk_logging(env)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = {'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', ...}
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+________ test_ING_INJ_001_r3_error_category_is_sanitized[True-provider] ________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e73722270>
+provider_error = True, expected_kind = 'provider'
+
+    @pytest.mark.parametrize('provider_error,expected_kind', [(True, 'provider'), (False, 'invalid_output')])
+    def test_ING_INJ_001_r3_error_category_is_sanitized(monkeypatch, provider_error, expected_kind):
+        import litellm
+        import traceback
+        from types import SimpleNamespace
+        from training_llm import InjectionJudgeError
+        def completion(**kwargs):
+            if provider_error:
+                raise RuntimeError('private source with key and prompt')
+            return SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content='private invalid output'))])
+        monkeypatch.setattr(litellm, 'completion', completion)
+        source = 'private'
+        with pytest.raises(InjectionJudgeError) as caught:
+            GeminiModels(ModelSettings(api_key='test-key', judge_model='gemini/test')).judge_injection(source)
+>       assert caught.value.kind == expected_kind
+E       AssertionError: assert 'unsafe_logging' == 'provider'
+E         
+E         - provider
+E         + unsafe_logging
+
+packages/llm/tests/test_models.py:142: AssertionError
+____ test_ING_INJ_001_r3_error_category_is_sanitized[False-invalid_output] _____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e737220b0>
+provider_error = False, expected_kind = 'invalid_output'
+
+    @pytest.mark.parametrize('provider_error,expected_kind', [(True, 'provider'), (False, 'invalid_output')])
+    def test_ING_INJ_001_r3_error_category_is_sanitized(monkeypatch, provider_error, expected_kind):
+        import litellm
+        import traceback
+        from types import SimpleNamespace
+        from training_llm import InjectionJudgeError
+        def completion(**kwargs):
+            if provider_error:
+                raise RuntimeError('private source with key and prompt')
+            return SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content='private invalid output'))])
+        monkeypatch.setattr(litellm, 'completion', completion)
+        source = 'private'
+        with pytest.raises(InjectionJudgeError) as caught:
+            GeminiModels(ModelSettings(api_key='test-key', judge_model='gemini/test')).judge_injection(source)
+>       assert caught.value.kind == expected_kind
+E       AssertionError: assert 'unsafe_logging' == 'invalid_output'
+E         
+E         - invalid_output
+E         + unsafe_logging
+
+packages/llm/tests/test_models.py:142: AssertionError
+_____ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[env] _____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e75c54530>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e807fecf0>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e7ecf5010>
+unsafe = 'env'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...ST': 'packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[env] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+_ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[openai_env] __
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e7eab9c10>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e74e239d0>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e7ec03c50>
+unsafe = 'openai_env'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...ackages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[openai_env] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+___ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[logger] ____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e74df22d0>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e7373c910>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e7373c050>
+unsafe = 'logger'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...: 'packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[logger] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+_ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[child_logger] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e7443a8e0>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e749843e0>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e74984510>
+unsafe = 'child_logger'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...kages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[child_logger] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+_ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[transport_logger] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e7443adb0>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e749850f0>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e74985220>
+unsafe = 'transport_logger'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...s/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[transport_logger] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+____ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[root] _____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e744432f0>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e74a6a690>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e74a6a7b0>
+unsafe = 'root'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...T': 'packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[root] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+___ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[verbose] ___
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e74443e30>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e73726140>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e73725e10>
+unsafe = 'verbose'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE... 'packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[verbose] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+_ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[module_verbose] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e748fbb60>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e737247c0>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e737246b0>
+unsafe = 'module_verbose'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...ges/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[module_verbose] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+_____ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[raw] _____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e74e04450>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e74cbb750>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e74520150>
+unsafe = 'raw'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...ST': 'packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[raw] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+__ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[traceback] __
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e74b2a350>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e74520650>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e74520750>
+unsafe = 'traceback'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[traceback] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+__ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[callback] ___
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e74945b00>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e7496af30>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e7496b110>
+unsafe = 'callback'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...'packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[callback] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+_ test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[breadcrumb] __
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e813cc6e0>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e74f17200>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e80550410>
+unsafe = 'breadcrumb'
+
+    @pytest.mark.parametrize('unsafe', ['env', 'openai_env', 'logger', 'child_logger', 'transport_logger',
+                                      'root', 'verbose', 'module_verbose', 'raw', 'traceback', 'callback', 'breadcrumb'])
+    def test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call(monkeypatch, caplog, capsys, unsafe):
+        import logging
+        import litellm
+        import traceback
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='sensitive-key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...ackages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[breadcrumb] (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+______ test_ING_INJ_001_safe_sdk_configuration_and_transport_diagnostics _______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e749451d0>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e73723a10>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e73723af0>
+
+    def test_ING_INJ_001_safe_sdk_configuration_and_transport_diagnostics(monkeypatch, caplog, capsys):
+        import litellm
+        import logging
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE..._TEST': 'packages/llm/tests/test_models.py::test_ING_INJ_001_safe_sdk_configuration_and_transport_diagnostics (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+____________ test_ING_EMB_001_unsafe_logging_prevents_sdk_embedding ____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x726e74945be0>
+caplog = <_pytest.logging.LogCaptureFixture object at 0x726e73723bd0>
+capsys = <_pytest.capture.CaptureFixture object at 0x726e73723690>
+
+    def test_ING_EMB_001_unsafe_logging_prevents_sdk_embedding(monkeypatch, caplog, capsys):
+        import logging
+        from training_llm import InjectionJudgeError
+>       client = GeminiModels(ModelSettings(api_key='key-sentinel', judge_model='gemini/test'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/llm/tests/test_models.py:239: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:148: in __init__
+    _guard_sdk_logging()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = environ({'EGL_PLATFORM': 'wayland', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODE...EST_CURRENT_TEST': 'packages/llm/tests/test_models.py::test_ING_EMB_001_unsafe_logging_prevents_sdk_embedding (call)'})
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+___________ test_ING_INJ_001_each_r3_case_with_configured_real_judge ___________
+
+    def test_ING_INJ_001_each_r3_case_with_configured_real_judge():
+        """Uma tentativa por caso, sem modificar prompt, modelo ou veredito esperado."""
+        import json
+        from pathlib import Path
+        from training_llm import GeminiModels, InjectionJudgeError
+>       settings = ModelSettings.from_env()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+
+packages/ingestion/tests/test_indexing.py:534: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+packages/llm/src/training_llm/__init__.py:47: in from_env
+    _guard_sdk_logging(env)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+env = {'GEMINI_API_KEY': '[REDACTED]', 'GENERATION_MODEL': 'gemini-3.1-flash-lite', 'INPUT_JUDGE_MODEL': 'gemini/gemini-3.1-flash-lite', 'EMBEDDING_MODEL': 'gemini-embedding-2', ...}
+
+    def _guard_sdk_logging(env=None):
+        """Recusa debug/callbacks antes de entregar qualquer dado ao SDK.
+    
+        Não controla loggers arbitrários do chamador, nem reconfiguração concorrente.
+        """
+        env = os.environ if env is None else env
+        for key in ('LITELLM_LOG', 'OPENAI_LOG'):
+            configured = env.get(key)
+            if configured is not None and configured.upper() not in {
+                    '', 'INFO', 'WARNING', 'ERROR', 'CRITICAL', '20', '30', '40', '50'}:
+                raise InjectionJudgeError('unsafe_logging') from None
+        names = set(_SDK_LOGGERS) | {name for name in logging.Logger.manager.loggerDict if _sdk_logger(name)}
+        if logging.getLogger().getEffectiveLevel() <= logging.DEBUG or any(
+                logging.getLogger(name).getEffectiveLevel() <= logging.DEBUG for name in names):
+            raise InjectionJudgeError('unsafe_logging') from None
+        litellm = sys.modules.get('litellm')
+        if litellm is not None:
+            flags = ('set_verbose', 'log_raw_request_response', 'log_client_error_tracebacks',
+                     'log_auth_failure_key_identity', 'input_callback', 'success_callback',
+                     'failure_callback', 'callbacks', 'audit_log_callbacks',
+                     '_async_input_callback', '_async_success_callback', '_async_failure_callback')
+            verbose_module = sys.modules.get('litellm._logging')
+            utilities = sys.modules.get('litellm.utils')
+            hooks = ('add_breadcrumb', 'capture_exception', 'sentry_sdk_instance', 'user_logger_fn')
+            if (any(getattr(litellm, name, False) for name in flags)
+                    or getattr(verbose_module, 'set_verbose', False)
+                    or any(getattr(utilities, name, None) for name in hooks)):
+>               raise InjectionJudgeError('unsafe_logging') from None
+E               training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/src/training_llm/__init__.py:124: InjectionJudgeError
+=========================== short test summary info ============================
+FAILED packages/llm/tests/test_models.py::test_ING_EMB_001_sdk_contract_and_invalid_vectors
+FAILED packages/llm/tests/test_models.py::test_ING_EMB_001_missing_key_is_explicit
+FAILED packages/llm/tests/test_models.py::test_judge_provider_key[gemini/test-gemini-key]
+FAILED packages/llm/tests/test_models.py::test_judge_provider_key[openrouter/test-router-key]
+FAILED packages/llm/tests/test_models.py::test_env_no_default_judge - trainin...
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_r3_error_category_is_sanitized[True-provider]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_r3_error_category_is_sanitized[False-invalid_output]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[env]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[openai_env]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[logger]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[child_logger]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[transport_logger]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[root]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[verbose]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[module_verbose]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[raw]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[traceback]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[callback]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_unsafe_sdk_logging_fails_before_sensitive_call[breadcrumb]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_safe_sdk_configuration_and_transport_diagnostics
+FAILED packages/llm/tests/test_models.py::test_ING_EMB_001_unsafe_logging_prevents_sdk_embedding
+FAILED packages/ingestion/tests/test_indexing.py::test_ING_INJ_001_each_r3_case_with_configured_real_judge
+ERROR packages/ingestion/tests/test_indexing.py::test_ING_IDX_002_payload_indexes_and_no_test_bypass
+ERROR packages/ingestion/tests/test_indexing.py::test_ING_IDX_001_existing_batches_validate_all_records
+ERROR packages/ingestion/tests/test_indexing.py::test_ING_IDX_001_existing_marked_payload_and_vectors
+ERROR packages/ingestion/tests/test_indexing.py::test_ING_IDX_001_real_server_bm25_portuguese_and_dense
+ERROR packages/ingestion/tests/test_indexing.py::test_bm25_english_control - ...
+ERROR packages/ingestion/tests/test_indexing.py::test_ING_IDX_002_rejects_divergent_key_and_metadata
+ERROR packages/ingestion/tests/test_indexing.py::test_ING_IDX_002_rejects_wrong_dense_schema
+ERROR packages/ingestion/tests/test_indexing.py::test_ING_IDX_001_incomplete_version_cannot_be_reused
+============ 22 failed, 60 passed, 1 deselected, 8 errors in 10.13s ============

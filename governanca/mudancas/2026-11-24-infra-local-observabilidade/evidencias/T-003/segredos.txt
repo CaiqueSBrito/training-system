@@ -1,0 +1,13 @@
+=== git check-ignore -v .env ===
+.gitignore:4:.env	.env
+
+=== git ls-files .env (deve ser vazio) ===
+
+=== Variáveis secretas com valor em .env.example (deve ser vazio) ===
+(nenhuma)
+
+=== Segredos literais ou defaults :- em infra/compose.yaml (deve ser vazio) ===
+(nenhum)
+
+=== Assinaturas de chaves em arquivos rastreados no git (excluindo infra/verificar.sh) ===
+(nenhuma)

@@ -1,0 +1,9 @@
+{
+  "status": "Passou",
+  "database_name": "test_t021_real_c513f0da772748a3970dfdf2959e25ad",
+  "container_name": "t021-real-c513f0da772748a3970dfdf2959e25ad-qdrant",
+  "verified_owner": "t021-real-c513f0da772748a3970dfdf2959e25ad",
+  "collected_by": "T022; msg_be5fa605cf26",
+  "cleaned_at": "2026-11-25T03:31:23.854786+00:00",
+  "original_manifest_sha256": "4d3724b1af62458d83b0c66c3e69d0b701d06bea33e229df2802514285c6e452"
+}

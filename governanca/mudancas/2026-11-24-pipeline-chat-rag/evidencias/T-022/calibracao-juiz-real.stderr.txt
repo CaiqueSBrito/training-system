@@ -1,0 +1,1 @@
+{"status": "erro", "categoria": "entrada_ou_configuracao_invalida"}

@@ -1,0 +1,34 @@
+LSP indisponível: principal autorizou AST/rg em msg_09b1f76fb847; nenhuma consulta LSP bem-sucedida alegada.
+packages/ingestion/src/training_ingestion/core.py:12 from training_contracts.linhagem import ChunkRecord, DocumentVersionRecord
+packages/ingestion/src/training_ingestion/indexing.py:8 from training_contracts.linhagem import ChunkRecord
+packages/ingestion/tests/test_indexing.py:8 from training_contracts.linhagem import ChunkRecord
+packages/contracts/src/training_contracts/linhagem.py:9 from training_contracts.agentes import InputVerdict, SearchPlan
+packages/contracts/src/training_contracts/linhagem.py:10 from training_contracts.chat import ChatStatus, MotivoRecusa
+packages/contracts/src/training_contracts/linhagem.py:11 from training_contracts.comum import ChunkRef, Contrato, Identificador, Intent, MotivoRejeicao, RetrievalMode, Sha256, TextoNaoVazio
+packages/contracts/src/training_contracts/linhagem.py:21 from training_contracts.geracao import Item, ItemBruto
+packages/contracts/src/training_contracts/linhagem.py:22 from training_contracts.vereditos import MOTIVOS_E9
+packages/contracts/src/training_contracts/vereditos.py:7 from training_contracts.comum import Contrato, MotivoRejeicao, TextoNaoVazio
+packages/contracts/src/training_contracts/geracao.py:8 from training_contracts.comum import BloomLevel, ChunkRef, Contrato, Identificador, TextoNaoVazio
+packages/contracts/src/training_contracts/__init__.py:8 from training_contracts.agentes import Classification, InputVerdict, SearchPlan
+packages/contracts/src/training_contracts/__init__.py:9 from training_contracts.chat import ChatRequest, ChatResponse, ChatStatus, DeliveredItem, MotivoRecusa, Omission, Source
+packages/contracts/src/training_contracts/__init__.py:18 from training_contracts.comum import BloomLevel, Intent, MotivoRejeicao, RetrievalMode
+packages/contracts/src/training_contracts/__init__.py:19 from training_contracts.geracao import Citation, ContextChunk, Flashcard, GenerationOutput, Item, ItemBruto, NumberedContext, Question, RawGenerationOutput, validar_item
+packages/contracts/src/training_contracts/__init__.py:31 from training_contracts.linhagem import MOTIVOS_SEM_ITEM_VALIDO, ChatTurnRecord, ChunkRecord, CitationLineage, CitationRecord, DocumentVersionRecord, ItemLineage, ItemRecord, ItemStatus, RetrievalCandidate, RetrievalRunRecord, SearchPlanRecord, VerdictOrigin, VerdictRecord
+packages/contracts/src/training_contracts/__init__.py:47 from training_contracts.vereditos import MOTIVOS_E9, DeterministicVerdict, OutputJudgeResult, OutputJudgeVerdict
+packages/contracts/src/training_contracts/chat.py:8 from training_contracts.comum import ChunkRef, Contrato, Identificador, MotivoRejeicao, TextoNaoVazio
+packages/contracts/src/training_contracts/chat.py:9 from training_contracts.geracao import Item
+packages/contracts/src/training_contracts/schema.py:11 from training_contracts import ChatRequest, ChatResponse, ChatTurnRecord, ChunkRecord, CitationRecord, Classification, DeterministicVerdict, DocumentVersionRecord, GenerationOutput, InputVerdict, ItemLineage, ItemRecord, NumberedContext, OutputJudgeResult, RawGenerationOutput, RetrievalRunRecord, SearchPlan, SearchPlanRecord, VerdictRecord
+packages/contracts/src/training_contracts/agentes.py:7 from training_contracts.comum import BloomLevel, Contrato, Intent, RetrievalMode, TextoNaoVazio
+packages/contracts/tests/test_itens.py:6 from training_contracts import Citation, Flashcard, Question
+packages/contracts/tests/test_classificacao.py:6 from training_contracts import Classification, Intent, RetrievalMode
+packages/contracts/tests/test_schema.py:9 from training_contracts import schema
+packages/contracts/tests/test_geracao_bruta.py:11 from training_contracts import Flashcard, GenerationOutput, NumberedContext, Question, RawGenerationOutput, validar_item
+packages/contracts/tests/test_resposta_linhagem.py:12 from training_contracts import ChatRequest, ChatResponse, ChatTurnRecord, ChunkRecord, DeterministicVerdict, InputVerdict, ItemLineage, ItemRecord, OutputJudgeResult, VerdictRecord
+packages/contracts/tests/test_plano.py:6 from training_contracts import BloomLevel, SearchPlan
+packages/contracts/tests/test_ressalvas_contratos.py:14 from training_contracts.ingestao import CanonicalSpan, CanonicalTextRecord
+packages/contracts/tests/test_ressalvas_contratos.py:107 from training_contracts.ingestao import ChunkProvenanceRecord, CitationSpanSelection, EffectiveChunkDecision, EmbeddingInputRecord, IngestionAuditEvent, IngestionReservation, JudgeMetadata, OrphanInventoryEntry, ReconciliationJob, TextRange, resolve_citation_spans, validate_canonical_spans, validate_chunk_provenance
+packages/contracts/tests/test_ressalvas_contratos.py:113 from training_contracts.linhagem import ChunkRecord
+packages/contracts/tests/test_ressalvas_contratos.py:334 import training_contracts
+packages/contracts/tests/test_ressalvas_contratos.py:335 from training_contracts.schema import MODELOS
+packages/lineage/src/training_lineage/repository.py:6 from training_contracts.linhagem import ChunkRecord, DocumentVersionRecord
+packages/lineage/tests/test_lineage.py:13 from training_contracts.linhagem import DocumentVersionRecord, ChunkRecord

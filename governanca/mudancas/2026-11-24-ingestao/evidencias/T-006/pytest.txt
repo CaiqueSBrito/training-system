@@ -1,0 +1,38 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: anyio-4.16.0, Faker-40.54.0
+collected 136 items
+
+packages/lineage/tests/test_lineage.py ...........................       [ 19%]
+packages/ingestion/tests/test_indexing.py .............................. [ 41%]
+......................................                                   [ 69%]
+packages/ingestion/tests/test_ingestion.py ..........................    [ 88%]
+packages/llm/tests/test_models.py ...............                        [100%]
+
+=============================== warnings summary ===============================
+packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_ING_CHK_001_real_docling_formats[pdf]
+packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_ING_CHK_001_persist_real_formats[pdf]
+packages/ingestion/tests/test_ingestion.py::test_equivalent_section_paths
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/main.py:587: DeprecationWarning: `force_full_page_ocr` is deprecated; set `mode=OcrMode.FULL_PAGE` instead.
+    return self.__pydantic_serializer__.to_json(
+
+packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_ING_CHK_001_real_docling_formats[pdf]
+packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_ING_CHK_001_persist_real_formats[pdf]
+packages/ingestion/tests/test_ingestion.py::test_equivalent_section_paths
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/docling/pipeline/standard_pdf_pipeline.py:641: DeprecationWarning: This field is deprecated. Use `generate_page_images=True` and call `TableItem.get_image()` to extract table images from page images.
+    or self.pipeline_options.generate_table_images
+
+packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_ING_CHK_001_real_docling_formats[pdf]
+packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_ING_CHK_001_persist_real_formats[pdf]
+packages/ingestion/tests/test_ingestion.py::test_equivalent_section_paths
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/docling/models/stages/ocr/rapid_ocr_model.py:686: DeprecationWarning: deprecated
+    if self.options.rec_font_path is not None:
+
+packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_ING_CHK_001_real_docling_formats[pdf]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/torch/nn/modules/conv.py:560: UserWarning: Using padding='same' with even kernel lengths and odd dilation may require a zero-padded copy of the input be created (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/native/Convolution.cpp:1135.)
+    return F.conv2d(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+====================== 136 passed, 10 warnings in 42.04s =======================

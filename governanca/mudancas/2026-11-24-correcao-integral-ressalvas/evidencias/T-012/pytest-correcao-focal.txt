@@ -1,0 +1,4 @@
+Comando: uv run pytest packages/ingestion/tests/test_ressalvas_parse.py -q --tb=short --disable-warnings -k C06 or C04 or real_equivalent or (C08 and docx)
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
+.......................                                                  [100%]
+23 passed, 8 deselected, 3 warnings in 6.81s

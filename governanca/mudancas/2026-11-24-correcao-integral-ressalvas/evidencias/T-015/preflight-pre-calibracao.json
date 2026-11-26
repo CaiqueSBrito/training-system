@@ -1,0 +1,66 @@
+{
+  "mode": "preflight_dry_run",
+  "is_evaluation_score": false,
+  "evaluation_status": "Bloqueado",
+  "blockers": [
+    "Calibração do juiz ainda não executada (--calibrate / --calibration-report ausente antes da baseline)"
+  ],
+  "manifest": {
+    "run_id": "preflight-49f882da84ae",
+    "timestamp_utc": "2026-11-25T01:37:30.137728+00:00",
+    "dataset_id": "ressalvas-recuperacao-segura-v1",
+    "dataset_version": "1.0.0",
+    "dataset_sha256": "dc09921247fa7e1c92eede508437ecc0d065a21bc14b7461912818628e429a27",
+    "scope": "ingestao_consulta_segura_sem_geracao",
+    "ragas_version": "0.4.4",
+    "litellm_version": "1.109.1",
+    "instructor_version": "1.17.0",
+    "judge_model": "openrouter/openai/gpt-6.1-sol",
+    "judge_provider": "openrouter",
+    "judge_config_version": "ragas-0.4-litellm-instructor-v1",
+    "judge_config_sha256": "971ac792457900a8fbb8a8919004be7028e5600c53bf52bb88845194c282f099",
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "seed": 42,
+    "embedding_key": "gemini-embedding-2@3072@fmt-v1",
+    "metric_prompts_sha256": {
+      "context_precision_with_reference": "e8d5b1719264c8376675e1bb5b55b3e52cb81add663d6340d06d48028c0c12ff",
+      "context_recall": "eaa0cfaa52cec1b7585ce984f53cf658541209702e3294ade230ef6a478d1dec"
+    },
+    "calibration_protocol_version": "ressalvas-calibration-paired-positive-negative-v1",
+    "calibration_protocol_sha256": "1781cddc81648a5a877ee9c007911203811b52c8c3a1fa22093f9dd49953e321",
+    "thresholds_approval_ref": "governanca/mudancas/2026-11-24-correcao-integral-ressalvas/evidencias/T-015/aprovacao-calibracao.md",
+    "calibration_run_id": null,
+    "calibration_manifest_sha256": null
+  },
+  "credentials_present": {
+    "GEMINI_API_KEY": true,
+    "OPENROUTER_API_KEY": true
+  },
+  "dataset_summary": {
+    "dataset_id": "ressalvas-recuperacao-segura-v1",
+    "dataset_version": "1.0.0",
+    "dataset_sha256": "dc09921247fa7e1c92eede508437ecc0d065a21bc14b7461912818628e429a27",
+    "documents_count": 3,
+    "cases_count": 6,
+    "applicable_metrics": [
+      "context_precision_with_reference",
+      "context_recall"
+    ],
+    "not_applicable_metrics": {
+      "faithfulness": {
+        "status": "Não se aplica",
+        "reason": "Escopo atual possui apenas ingestão, linhagem, reconciliação e consulta segura (SafeRetriever); o estágio de geração de itens (E8) ainda não está implementado e respostas simuladas são proibidas."
+      }
+    }
+  },
+  "security_regression_reference": {
+    "requirement_id": "SEC-ATQ-001",
+    "case_group": "C09",
+    "evidence_ref": "governanca/mudancas/2026-11-24-ingestao/evidencias/T-008/juiz-real-ressalvas.json",
+    "evidence_sha256": "46a53e241ceb843e1cb98ff00e3132d429d3ce07b512eae8db40e7b0a5b0046e",
+    "exists": true,
+    "recorded_cases": 20,
+    "status": "Passou"
+  }
+}

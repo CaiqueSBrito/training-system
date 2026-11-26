@@ -1,0 +1,60 @@
+......................F................                                  [100%]
+=================================== FAILURES ===================================
+______________ test_C02_history_refuses_downgrade_before_any_drop ______________
+packages/lineage/tests/test_ressalvas_persistencia.py:144: in test_C02_history_refuses_downgrade_before_any_drop
+    assert c.execute(text('SELECT version_num FROM alembic_version')).scalar_one() == '0003'
+E   AssertionError: assert '0005' == '0003'
+E     
+E     - 0003
+E     ?    ^
+E     + 0005
+E     ?    ^
+=============================== warnings summary ===============================
+packages/lineage/tests/test_chat.py::test_e1_error_and_final_failure_atomic
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/main.py:520: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `enum` - serialized value may not be as expected [field_name='status', input_value='erro', input_type=str])
+    return self.__pydantic_serializer__.to_python(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED packages/lineage/tests/test_chat.py::test_save_read_exact_spans_owner_and_caller_transaction
+PASSED packages/lineage/tests/test_chat.py::test_e1_error_and_final_failure_atomic
+PASSED packages/lineage/tests/test_chat.py::test_cross_owner_and_database_foreign_keys
+PASSED packages/lineage/tests/test_chat.py::test_rate_limit_concurrent_durable_and_database_clock
+PASSED packages/lineage/tests/test_chat.py::test_continuation_scope_cursor_used_count_isolated_and_rollback
+PASSED packages/lineage/tests/test_chat.py::test_downgrade_preserves_history
+PASSED packages/lineage/tests/test_chat.py::test_last_insert_failure_rolls_back_only_savepoint
+PASSED packages/lineage/tests/test_chat.py::test_database_owner_check_and_catalog
+PASSED packages/lineage/tests/test_chat.py::test_reject_unbound_response_missing_provenance_and_reset
+PASSED packages/lineage/tests/test_chat.py::test_revoked_decision_blocks_delivery
+PASSED packages/lineage/tests/test_chat.py::test_chat_holds_publication_and_decision_until_caller_commit[reconciliation]
+PASSED packages/lineage/tests/test_chat.py::test_chat_holds_publication_and_decision_until_caller_commit[reserve]
+PASSED packages/lineage/tests/test_chat.py::test_chat_holds_publication_and_decision_until_caller_commit[assessment]
+PASSED packages/lineage/tests/test_chat.py::test_chat_waits_before_chunk_lock_when_reconciliation_owns_reservation
+PASSED packages/lineage/tests/test_chat.py::test_equivalent_scopes_cannot_reset_continuation[equivalent0]
+PASSED packages/lineage/tests/test_chat.py::test_equivalent_scopes_cannot_reset_continuation[equivalent1]
+PASSED packages/lineage/tests/test_chat.py::test_equivalent_scopes_cannot_reset_continuation[equivalent2]
+PASSED packages/lineage/tests/test_chat.py::test_scope_keys_owner_and_legacy_encoding_are_fail_closed
+PASSED packages/lineage/tests/test_chat.py::test_retrieval_cursor_binding_canonicalized_without_changing_owner
+PASSED packages/lineage/tests/test_chat.py::test_canonical_quote_crosses_true_pages_without_inventing_single_page
+PASSED packages/lineage/tests/test_lineage.py::test_migrated_schema_matches_metadata
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_empty_downgrade_preserves_0002_and_protections
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_database_catalog_and_specific_checks
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[UPDATE-canonical_text]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[UPDATE-canonical_span]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[UPDATE-chunk_provenance]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[UPDATE-embedding_input]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[UPDATE-ingestion_audit_event]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[DELETE-canonical_text]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[DELETE-canonical_span]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[DELETE-chunk_provenance]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[DELETE-embedding_input]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[DELETE-ingestion_audit_event]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[TRUNCATE-canonical_text]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[TRUNCATE-canonical_span]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[TRUNCATE-chunk_provenance]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[TRUNCATE-embedding_input]
+PASSED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[TRUNCATE-ingestion_audit_event]
+FAILED packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_history_refuses_downgrade_before_any_drop
+1 failed, 38 passed, 23 deselected, 1 warning in 9.48s

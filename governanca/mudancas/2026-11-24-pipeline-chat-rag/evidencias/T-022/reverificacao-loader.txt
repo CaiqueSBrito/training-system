@@ -1,0 +1,2 @@
+artefato-lineage.json OK stored_sha256=d5e0b1f0645c727df7089045c9376ded4b13933b1f0f6278f196edf4166b5a5e case_id=t021-cli-membrana-v1 turn=2028b786410b4399b3bd3c98c6450e2c itens=1 protocolo=None entradas=[('flashcard', '28c5a94b07964c65a14396f69cd61912', 1, 1)]
+artefato-manifesto.json OK stored_sha256=015aa335ceb1716ff4c70c85ec37a2dcfddd750e89046395c0b8491e68bb5040 case_id=t021-cli-membrana-v1 turn=2028b786410b4399b3bd3c98c6450e2c itens=1 protocolo=None entradas=[('flashcard', '28c5a94b07964c65a14396f69cd61912', 1, 1)]

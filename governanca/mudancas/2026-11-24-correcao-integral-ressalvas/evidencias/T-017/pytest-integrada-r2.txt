@@ -1,0 +1,66 @@
+........................................................................ [ 11%]
+........................................................................ [ 23%]
+........................................................................ [ 35%]
+........................................................................ [ 47%]
+........................................................................ [ 59%]
+........................................................................ [ 71%]
+...............................................................F........ [ 83%]
+........................................................................ [ 95%]
+...........................                                              [100%]
+=================================== FAILURES ===================================
+___________ test_ING_INJ_001_each_r3_case_with_configured_real_judge ___________
+packages/ingestion/tests/test_indexing.py:755: in test_ING_INJ_001_each_r3_case_with_configured_real_judge
+    assert failures == [], f'Casos sem aprovação na API real: {failures}'
+E   AssertionError: Casos sem aprovação na API real: ['negative-10:Bloqueado']
+E   assert ['negative-10:Bloqueado'] == []
+E     
+E     Left contains one more item: 'negative-10:Bloqueado'
+E     
+E     Full diff: (-: missing in left side, +: extra in left side)
+E     - []
+E     + [
+E     +     'negative-10:Bloqueado',
+E     + ]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/ragas/llms/base.py:32
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/ragas/llms/base.py:32: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+    from langchain_community.chat_models.vertexai import ChatVertexAI
+
+packages/ingestion/tests/test_ingestion.py: 3 warnings
+packages/ingestion/tests/test_ressalvas_parse.py: 9 warnings
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/main.py:587: DeprecationWarning: `force_full_page_ocr` is deprecated; set `mode=OcrMode.FULL_PAGE` instead.
+    return self.__pydantic_serializer__.to_json(
+
+packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_ING_CHK_001_real_docling_formats[pdf]
+packages/ingestion/tests/test_ressalvas_parse.py::test_C03_C05_real_equivalent_formats_and_H2
+packages/ingestion/tests/test_ressalvas_parse.py::test_C08_real_threads_lazy_reuse_isolated[pdf-True]
+packages/ingestion/tests/test_ressalvas_parse.py::test_C08_real_threads_lazy_reuse_isolated[pdf-False]
+packages/ingestion/tests/test_ressalvas_parse.py::test_C08_real_threads_lazy_reuse_isolated[pdf-False]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/docling/pipeline/standard_pdf_pipeline.py:641: DeprecationWarning: This field is deprecated. Use `generate_page_images=True` and call `TableItem.get_image()` to extract table images from page images.
+    or self.pipeline_options.generate_table_images
+
+packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_ING_CHK_001_real_docling_formats[pdf]
+packages/ingestion/tests/test_ressalvas_parse.py::test_C03_C05_real_equivalent_formats_and_H2
+packages/ingestion/tests/test_ressalvas_parse.py::test_C08_real_threads_lazy_reuse_isolated[pdf-True]
+packages/ingestion/tests/test_ressalvas_parse.py::test_C08_real_threads_lazy_reuse_isolated[pdf-False]
+packages/ingestion/tests/test_ressalvas_parse.py::test_C08_real_threads_lazy_reuse_isolated[pdf-False]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/docling/models/stages/ocr/rapid_ocr_model.py:686: DeprecationWarning: deprecated
+    if self.options.rec_font_path is not None:
+
+packages/ingestion/tests/test_ingestion.py::test_ING_FMT_001_ING_CHK_001_real_docling_formats[pdf]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/torch/nn/modules/conv.py:560: UserWarning: Using padding='same' with even kernel lengths and odd dilation may require a zero-padded copy of the input be created (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/native/Convolution.cpp:1135.)
+    return F.conv2d(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED packages/ingestion/tests/test_indexing.py::test_ING_INJ_001_each_r3_case_with_configured_real_judge - AssertionError: Casos sem aprovação na API real: ['negative-10:Bloqueado']
+assert ['negative-10:Bloqueado'] == []
+  
+  Left contains one more item: 'negative-10:Bloqueado'
+  
+  Full diff: (-: missing in left side, +: extra in left side)
+  - []
+  + [
+  +     'negative-10:Bloqueado',
+  + ]
+1 failed, 602 passed, 2 deselected, 24 warnings in 507.36s (0:08:27)

@@ -8,7 +8,7 @@ O caminho de execução do RAG: ingestão, recuperação, agentes ADK, guardrail
 
 ## Dono de
 
-`packages/llm/`, `packages/ingestion/`, `packages/retrieval/`, `packages/generation/`, `apps/api/`, `apps/worker/`.
+`packages/llm/`, `packages/lineage/` (persistência da linhagem no Postgres da aplicação, ADR-0008), `packages/ingestion/`, `packages/retrieval/`, `packages/generation/`, `apps/api/`, `apps/worker/`.
 
 ## Faz
 

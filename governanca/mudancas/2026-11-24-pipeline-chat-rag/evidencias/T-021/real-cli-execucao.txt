@@ -1,0 +1,1 @@
+{"run_id": "t021-real-c513f0da772748a3970dfdf2959e25ad", "status": "Passou", "cli_exit_code": 0, "response_status": "ok", "delivered_items": 1, "error_kind": null, "http_status": null}

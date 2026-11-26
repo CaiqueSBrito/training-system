@@ -1,0 +1,97 @@
+Verificação da infraestrutura local — T-003 (OBS-INF-001, OBS-INF-002)
+Repositório: /home/caique-brito/Documentos/Caique/Training System
+
+=== 1. Existência e validade de infra/compose.yaml (OBS-INF-001) ===
+[PASSOU] infra/compose.yaml encontrado
+Usando .env local do repositório.
+[PASSOU] Arquivo de ambiente preparado a partir de .env / .env.example
+[PASSOU] docker compose config validou infra/compose.yaml com sucesso
+
+=== 2. Estrutura do Compose (OBS-INF-001, ADR-0002, ADR-0005, ADR-0008) ===
+  OK: todos os 8 serviços obrigatórios presentes (app-postgres, clickhouse, langfuse-postgres, langfuse-web, langfuse-worker, minio, qdrant, redis)
+  OK: perfil 'core' seleciona subconjunto parcial (2/8 serviços)
+[PASSOU] Estrutura do compose conforme (8 serviços, Qdrant v1.20.x, imagens fixadas, healthchecks, volumes nomeados e perfis)
+
+=== 3. Ausência de segredos versionados (OBS-INF-001) ===
+[PASSOU] .env está no .gitignore e não está rastreado pelo git
+  OK: nenhum segredo versionado encontrado em .env.example, infra/compose.yaml ou arquivos rastreados
+[PASSOU] Auditoria de segredos versionados aprovada
+
+=== 4. Cobertura de variáveis em .env.example (OBS-INF-001) ===
+  OK: todas as 36 variável(is) de infra/compose.yaml estão declaradas em .env.example
+[PASSOU] Todas as variáveis de infra/compose.yaml estão declaradas em .env.example
+
+=== 5. Subida da infraestrutura, healthchecks e endpoints (OBS-INF-001) ===
+Executando: docker compose -f infra/compose.yaml --env-file <env> --profile "*" up -d --wait --wait-timeout 300
+ Container training-system-infra-langfuse-web-1 Running 
+ Container training-system-infra-minio-1 Running 
+ Container training-system-infra-langfuse-postgres-1 Running 
+ Container training-system-infra-qdrant-1 Running 
+ Container training-system-infra-clickhouse-1 Running 
+ Container training-system-infra-langfuse-worker-1 Running 
+ Container training-system-infra-redis-1 Running 
+ Container training-system-infra-app-postgres-1 Running 
+ Container training-system-infra-clickhouse-1 Waiting 
+ Container training-system-infra-redis-1 Waiting 
+ Container training-system-infra-minio-1 Waiting 
+ Container training-system-infra-langfuse-postgres-1 Waiting 
+ Container training-system-infra-langfuse-postgres-1 Waiting 
+ Container training-system-infra-clickhouse-1 Waiting 
+ Container training-system-infra-redis-1 Waiting 
+ Container training-system-infra-minio-1 Waiting 
+ Container training-system-infra-langfuse-postgres-1 Healthy 
+ Container training-system-infra-redis-1 Healthy 
+ Container training-system-infra-clickhouse-1 Healthy 
+ Container training-system-infra-minio-1 Healthy 
+ Container training-system-infra-redis-1 Healthy 
+ Container training-system-infra-langfuse-postgres-1 Healthy 
+ Container training-system-infra-clickhouse-1 Healthy 
+ Container training-system-infra-minio-1 Healthy 
+ Container training-system-infra-minio-1 Waiting 
+ Container training-system-infra-qdrant-1 Waiting 
+ Container training-system-infra-clickhouse-1 Waiting 
+ Container training-system-infra-langfuse-worker-1 Waiting 
+ Container training-system-infra-redis-1 Waiting 
+ Container training-system-infra-langfuse-postgres-1 Waiting 
+ Container training-system-infra-app-postgres-1 Waiting 
+ Container training-system-infra-langfuse-web-1 Waiting 
+ Container training-system-infra-clickhouse-1 Healthy 
+ Container training-system-infra-minio-1 Healthy 
+ Container training-system-infra-langfuse-worker-1 Healthy 
+ Container training-system-infra-langfuse-postgres-1 Healthy 
+ Container training-system-infra-redis-1 Healthy 
+ Container training-system-infra-app-postgres-1 Healthy 
+ Container training-system-infra-qdrant-1 Healthy 
+ Container training-system-infra-langfuse-web-1 Healthy 
+[PASSOU] Subida da infraestrutura concluída com um comando
+--- docker compose ps ---
+NAME                                        IMAGE                                                                                              COMMAND                  SERVICE             CREATED              STATUS                        PORTS
+training-system-infra-app-postgres-1        docker.io/postgres:17.11-alpine                                                                    "docker-entrypoint.s…"   app-postgres        6 minutes ago        Up 5 minutes (healthy)        127.0.0.1:5432->5432/tcp
+training-system-infra-clickhouse-1          docker.io/clickhouse/clickhouse-server:26.3.62.3                                                   "/entrypoint.sh"         clickhouse          6 minutes ago        Up 5 minutes (healthy)        127.0.0.1:8123->8123/tcp, 127.0.0.1:9000->9000/tcp, 9009/tcp
+training-system-infra-langfuse-postgres-1   docker.io/postgres:17.11-alpine                                                                    "docker-entrypoint.s…"   langfuse-postgres   6 minutes ago        Up 5 minutes (healthy)        127.0.0.1:5433->5432/tcp
+training-system-infra-langfuse-web-1        docker.langfuse.com/langfuse/langfuse:4.81.0                                                       "dumb-init -- ./web/…"   langfuse-web        About a minute ago   Up About a minute (healthy)   127.0.0.1:3000->3000/tcp
+training-system-infra-langfuse-worker-1     docker.langfuse.com/langfuse/langfuse-worker:4.81.0                                                "dumb-init -- ./work…"   langfuse-worker     About a minute ago   Up About a minute (healthy)   127.0.0.1:3030->3030/tcp
+training-system-infra-minio-1               cgr.dev/chainguard/minio@sha256:9f0aab4471ebb181be3cfabea21b719303ec583cd9abdb7779f9e53032b844f7   "sh -c 'mkdir -p /da…"   minio               6 minutes ago        Up 5 minutes (healthy)        127.0.0.1:9090->9000/tcp, 127.0.0.1:9091->9001/tcp
+training-system-infra-qdrant-1              docker.io/qdrant/qdrant:v1.20.2                                                                    "./entrypoint.sh"        qdrant              6 minutes ago        Up 5 minutes (healthy)        127.0.0.1:6333-6334->6333-6334/tcp
+training-system-infra-redis-1               docker.io/redis:7.4.12-alpine                                                                      "docker-entrypoint.s…"   redis               6 minutes ago        Up 5 minutes (healthy)        127.0.0.1:6379->6379/tcp
+  OK: todos os 8 serviços estão running e healthy
+[PASSOU] Todos os serviços reportam status healthy
+Qdrant v1.20.2 pronto em http://127.0.0.1:6333
+[PASSOU] Qdrant responde em /readyz com versão 1.20.x
+Langfuse health OK em http://127.0.0.1:3000
+[PASSOU] Langfuse /api/public/health?failIfDatabaseUnavailable=true respondeu OK
+[PASSOU] Interface web do Langfuse responde HTML em http://127.0.0.1:3000/
+
+=== 6. Isolamento de bancos e credenciais (OBS-INF-002 / ADR-0008) ===
+[PASSOU] Configuração garante volumes, bancos, usuários, senhas e DATABASE_URL separados
+[PASSOU] app-postgres e langfuse-postgres rodam em containers distintos
+[PASSOU] Conexão real ao app-postgres com credenciais da aplicação sucedeu (training_system|training_app)
+[PASSOU] Conexão real ao langfuse-postgres com credenciais do Langfuse sucedeu (langfuse|langfuse)
+[PASSOU] Credenciais do Langfuse rejeitadas no app-postgres
+[PASSOU] Credenciais da aplicação rejeitadas no langfuse-postgres
+
+=== Resumo ===
+Passou: 18
+Falhou: 0
+Todas as verificações de OBS-INF-001 e OBS-INF-002 passaram.
+EXIT_CODE=0

@@ -1,0 +1,5 @@
+.                                                                        [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED packages/generation/tests/test_chat_integration.py::test_repair_and_judge_only_receive_filtered_section
+1 passed, 36 deselected in 3.83s

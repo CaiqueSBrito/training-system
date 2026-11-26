@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: anyio-4.16.0, Faker-40.54.0
+collected 1 item
+
+packages/llm/tests/test_models.py F                                      [100%]
+
+=================================== FAILURES ===================================
+______________ test_ING_INJ_001_offline_native_provider_lifecycle ______________
+packages/llm/tests/test_models.py:294: in test_ING_INJ_001_offline_native_provider_lifecycle
+    assert client.judge_injection('teste sintético').injection
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/llm/src/training_llm/__init__.py:193: in judge_injection
+    _guard_sdk_logging()
+packages/llm/src/training_llm/__init__.py:132: in _guard_sdk_logging
+    raise InjectionJudgeError('unsafe_logging', setting='litellm.' + unsafe_flags[0]) from None
+E   training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+During handling of the above exception, another exception occurred:
+packages/llm/tests/test_models.py:296: in test_ING_INJ_001_offline_native_provider_lifecycle
+    pytest.fail(f'Categoria={exc.kind}; controle={exc.setting}')
+E   Failed: Categoria=unsafe_logging; controle=litellm.input_callback
+=========================== short test summary info ============================
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_offline_native_provider_lifecycle
+============================== 1 failed in 2.52s ===============================

@@ -1,0 +1,3 @@
+$ uv run validar-governanca  # 2026-11-24T17:19:13-03:00
+governança OK: 4 mudança(s), 9 tarefa(s), 28 requisito(s) na spec viva
+exit: 0

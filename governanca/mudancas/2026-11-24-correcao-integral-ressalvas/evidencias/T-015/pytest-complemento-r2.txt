@@ -1,0 +1,50 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: langsmith-0.15.0, anyio-4.16.0, Faker-40.54.0
+collecting ... collected 15 items / 7 deselected / 8 selected
+
+evals/tests/test_ressalvas_runner.py::test_real_ragas_metrics_wire_through_llm_factory_and_evaluate_thresholds PASSED [ 12%]
+evals/tests/test_ressalvas_runner.py::test_cli_help_schema_and_preflight_dry_run_without_llm PASSED [ 25%]
+evals/tests/test_ressalvas_runner.py::test_r1_finding_1_deterministic_provenance_coverage_gates_pass_status PASSED [ 37%]
+evals/tests/test_ressalvas_runner.py::test_r1_finding_2_failed_baseline_diff_fails_overall_status_and_cli_exit FAILED [ 50%]
+evals/tests/test_ressalvas_runner.py::test_r1_finding_3_partial_failure_cleans_up_disposable_resources_and_surfaces_cleanup_errors FAILED [ 62%]
+evals/tests/test_ressalvas_runner.py::test_r1_finding_3_real_sandbox_teardown_on_partial_ingestion_and_no_silent_except_pass PASSED [ 75%]
+evals/tests/test_ressalvas_runner.py::test_r1_finding_4_non_finite_or_out_of_domain_scores_rejected PASSED [ 87%]
+evals/tests/test_ressalvas_runner.py::test_r1_finding_5_executable_calibration_controls_and_baseline_manifest_binding FAILED [100%]
+
+=================================== FAILURES ===================================
+___ test_r1_finding_2_failed_baseline_diff_fails_overall_status_and_cli_exit ___
+evals/tests/test_ressalvas_runner.py:735: in test_r1_finding_2_failed_baseline_diff_fails_overall_status_and_cli_exit
+    assert calib_report["status"] == "Passou"
+E   AssertionError: assert 'Falhou' == 'Passou'
+E     
+E     - Passou
+E     + Falhou
+_ test_r1_finding_3_partial_failure_cleans_up_disposable_resources_and_surfaces_cleanup_errors _
+evals/tests/test_ressalvas_runner.py:867: in test_r1_finding_3_partial_failure_cleans_up_disposable_resources_and_surfaces_cleanup_errors
+    with pytest.raises(EvalBlockedError, match="Falha simulada"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'Falha simulada'
+E     Actual message: 'Bloqueado: execução real (--execute) exige relatório de calibração aprovada (--calibration-report)'
+_ test_r1_finding_5_executable_calibration_controls_and_baseline_manifest_binding _
+evals/tests/test_ressalvas_runner.py:1034: in test_r1_finding_5_executable_calibration_controls_and_baseline_manifest_binding
+    with pytest.raises(EvalBlockedError, match="calibração.*Falhou|calibração.*aprovada"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'calibração.*Falhou|calibração.*aprovada'
+E     Actual message: "Calibração do juiz não está aprovada/Passou (status='Falhou')"
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/ragas/llms/base.py:32
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/ragas/llms/base.py:32: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+    from langchain_community.chat_models.vertexai import ChatVertexAI
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED evals/tests/test_ressalvas_runner.py::test_r1_finding_2_failed_baseline_diff_fails_overall_status_and_cli_exit
+FAILED evals/tests/test_ressalvas_runner.py::test_r1_finding_3_partial_failure_cleans_up_disposable_resources_and_surfaces_cleanup_errors
+FAILED evals/tests/test_ressalvas_runner.py::test_r1_finding_5_executable_calibration_controls_and_baseline_manifest_binding
+======= 3 failed, 5 passed, 7 deselected, 1 warning in 74.99s (0:01:14) ========

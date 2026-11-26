@@ -1,0 +1,46 @@
+{
+  "chat_turn_id": "2028b786410b4399b3bd3c98c6450e2c",
+  "contexts": [
+    {
+      "call_id": "28c5a94b07964c65a14396f69cd61912",
+      "call": "inicial",
+      "context": {
+        "chunks": [
+          {
+            "ref": "C1",
+            "chunk_id": "597ab971e721836c128dc5d6c69ce85df3921eda37b9cf809766ddc02369dd2b",
+            "page": null,
+            "section_path": [
+              "Membrana celular"
+            ],
+            "text": "Membrana celular\n\nA membrana celular delimita a célula e controla a entrada e a saída de substâncias. Sua permeabilidade seletiva ajuda a manter o equilíbrio interno da célula."
+          }
+        ]
+      },
+      "context_ref_mapping": {
+        "C1": "C1"
+      },
+      "status": "completed"
+    }
+  ],
+  "original_items": [
+    {
+      "item_id": "91d1186b124d48079fa23574e7b3ee82",
+      "content": {
+        "tipo": "flashcard",
+        "front": "Qual é a função principal da membrana celular?",
+        "back": "A membrana celular delimita a célula e controla a entrada e a saída de substâncias, utilizando sua permeabilidade seletiva para manter o equilíbrio interno.",
+        "bloom_level": "lembrar",
+        "citations": [
+          {
+            "chunk_ref": "C1",
+            "evidence": "A membrana celular delimita a célula e controla a entrada e a saída de substâncias. Sua permeabilidade seletiva ajuda a manter o equilíbrio interno da célula"
+          }
+        ]
+      },
+      "call_id": "28c5a94b07964c65a14396f69cd61912",
+      "generation_item_index": 0,
+      "attempt": 1
+    }
+  ]
+}

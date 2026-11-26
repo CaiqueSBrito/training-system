@@ -1,0 +1,3 @@
+G3 PENDENTE — estes hashes identificam rascunhos; não são aprovação humana.
+21cdea2956f287cc06af54e63ce508e11645b4f2da3a4c23a93221c1ad908491  governanca/mudancas/2026-11-24-correcao-integral-ressalvas/casos.md
+3858a736a2057f961ef825cd886c510b6a3e749992413a82b4a80c9abbcc97f3  governanca/mudancas/2026-11-24-correcao-integral-ressalvas/casos-propostos/canonico-spans.py.proposed

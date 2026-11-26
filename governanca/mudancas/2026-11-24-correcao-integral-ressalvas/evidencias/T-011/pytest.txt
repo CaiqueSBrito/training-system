@@ -1,0 +1,293 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: anyio-4.16.0, Faker-40.54.0
+collecting ... collected 41 items
+
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C01_upgrade_preserves_old_records[base] PASSED [  2%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C01_upgrade_preserves_old_records[0001] PASSED [  4%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C01_upgrade_preserves_old_records[0002] PASSED [  7%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_empty_downgrade_preserves_0002_and_protections PASSED [  9%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_history_refuses_downgrade_before_any_drop PASSED [ 12%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C03_C04_citation_intersections_from_persisted_source[3-exact] FAILED [ 14%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C03_C04_citation_intersections_from_persisted_source[None-exact] FAILED [ 17%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C03_C04_citation_intersections_from_persisted_source[None-unknown] FAILED [ 19%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C04_rejects_relational_mismatch_without_partial_artifacts[hash] PASSED [ 21%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C04_rejects_relational_mismatch_without_partial_artifacts[text] PASSED [ 24%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C04_rejects_relational_mismatch_without_partial_artifacts[range] PASSED [ 26%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C04_rejects_relational_mismatch_without_partial_artifacts[span] PASSED [ 29%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C04_rejects_relational_mismatch_without_partial_artifacts[parser] PASSED [ 31%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C04_rejects_relational_mismatch_without_partial_artifacts[input] PASSED [ 34%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C04_rejects_relational_mismatch_without_partial_artifacts[h1] PASSED [ 36%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C12_audit_preserves_judge_and_real_block_reason[safe-False-True] PASSED [ 39%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C12_audit_preserves_judge_and_real_block_reason[injection-False-False] PASSED [ 41%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C12_audit_preserves_judge_and_real_block_reason[safe-True-False] PASSED [ 43%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C12_audit_preserves_judge_and_real_block_reason[error-False-False] PASSED [ 46%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C12_partial_error_revokes_old_release_and_stale_attempt FAILED [ 48%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C12_clean_chain_has_no_invented_judge_and_cross_links_roll_back PASSED [ 51%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_database_catalog_and_specific_checks PASSED [ 53%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C12_concurrent_cas_only_one_writer PASSED [ 56%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[UPDATE-canonical_text] PASSED [ 58%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[UPDATE-canonical_span] PASSED [ 60%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[UPDATE-chunk_provenance] PASSED [ 63%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[UPDATE-embedding_input] PASSED [ 65%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[UPDATE-ingestion_audit_event] PASSED [ 68%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[DELETE-canonical_text] PASSED [ 70%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[DELETE-canonical_span] PASSED [ 73%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[DELETE-chunk_provenance] PASSED [ 75%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[DELETE-embedding_input] PASSED [ 78%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[DELETE-ingestion_audit_event] PASSED [ 80%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[TRUNCATE-canonical_text] PASSED [ 82%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[TRUNCATE-canonical_span] PASSED [ 85%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[TRUNCATE-chunk_provenance] PASSED [ 87%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[TRUNCATE-embedding_input] PASSED [ 90%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C02_all_new_history_is_append_only[TRUNCATE-ingestion_audit_event] PASSED [ 92%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C14_legacy_insufficient_is_explicit_without_fabricated_source FAILED [ 95%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C14_new_policy_can_release_historical_flag_without_mutation PASSED [ 97%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C07_C12_C14_reservation_fencing_ready_and_current_decision FAILED [100%]
+
+=================================== FAILURES ===================================
+______ test_C03_C04_citation_intersections_from_persisted_source[3-exact] ______
+packages/lineage/tests/test_ressalvas_persistencia.py:156: in test_C03_C04_citation_intersections_from_persisted_source
+    selected=repo.resolve_citation('owner',CitationSpanSelection(chunk_id='c-v1',canonical_id='can-v1',
+packages/lineage/src/training_lineage/repository.py:181: in resolve_citation
+    mapping=self.load_chunk_provenance(owner_id,[item.chunk_id]).get(item.chunk_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/lineage/src/training_lineage/repository.py:173: in load_chunk_provenance
+    rows=self.connection.execute(select(chunk_provenance).join(chunk).join(document_version).where(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1678: in _execute_clauseelement
+    compiled_sql, extracted_params, cache_hit = elem._compile_w_cache(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:715: in _compile_w_cache
+    compiled_sql = self._compiler(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:323: in _compiler
+    return dialect.statement_compiler(dialect, self, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:1472: in __init__
+    Compiled.__init__(self, dialect, statement, **kwargs)
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:902: in __init__
+    self.string = self.process(self.statement, **compile_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:948: in process
+    return obj._compiler_dispatch(self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/visitors.py:138: in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+           ^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:4925: in visit_select
+    compile_state = select_stmt._compile_state_factory(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/base.py:774: in create_for_statement
+    return klass.create_for_statement(statement, compiler, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/base.py:772: in create_for_statement
+    return cls(statement, compiler, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:4780: in __init__
+    self._setup_joins(statement._setup_joins, statement._raw_columns)
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:5059: in _setup_joins
+    ) = self._join_determine_implicit_left_side(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:5155: in _join_determine_implicit_left_side
+    raise exc.InvalidRequestError(
+E   sqlalchemy.exc.InvalidRequestError: Can't determine which FROM clause to join from, there are multiple FROMS which can join to this entity. Please use the .select_from() method to establish an explicit left side, as well as providing an explicit ON clause if not present already to help resolve the ambiguity.
+____ test_C03_C04_citation_intersections_from_persisted_source[None-exact] _____
+packages/lineage/tests/test_ressalvas_persistencia.py:156: in test_C03_C04_citation_intersections_from_persisted_source
+    selected=repo.resolve_citation('owner',CitationSpanSelection(chunk_id='c-v1',canonical_id='can-v1',
+packages/lineage/src/training_lineage/repository.py:181: in resolve_citation
+    mapping=self.load_chunk_provenance(owner_id,[item.chunk_id]).get(item.chunk_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/lineage/src/training_lineage/repository.py:173: in load_chunk_provenance
+    rows=self.connection.execute(select(chunk_provenance).join(chunk).join(document_version).where(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1678: in _execute_clauseelement
+    compiled_sql, extracted_params, cache_hit = elem._compile_w_cache(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:715: in _compile_w_cache
+    compiled_sql = self._compiler(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:323: in _compiler
+    return dialect.statement_compiler(dialect, self, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:1472: in __init__
+    Compiled.__init__(self, dialect, statement, **kwargs)
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:902: in __init__
+    self.string = self.process(self.statement, **compile_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:948: in process
+    return obj._compiler_dispatch(self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/visitors.py:138: in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+           ^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:4925: in visit_select
+    compile_state = select_stmt._compile_state_factory(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/base.py:774: in create_for_statement
+    return klass.create_for_statement(statement, compiler, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/base.py:772: in create_for_statement
+    return cls(statement, compiler, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:4780: in __init__
+    self._setup_joins(statement._setup_joins, statement._raw_columns)
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:5059: in _setup_joins
+    ) = self._join_determine_implicit_left_side(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:5155: in _join_determine_implicit_left_side
+    raise exc.InvalidRequestError(
+E   sqlalchemy.exc.InvalidRequestError: Can't determine which FROM clause to join from, there are multiple FROMS which can join to this entity. Please use the .select_from() method to establish an explicit left side, as well as providing an explicit ON clause if not present already to help resolve the ambiguity.
+___ test_C03_C04_citation_intersections_from_persisted_source[None-unknown] ____
+packages/lineage/tests/test_ressalvas_persistencia.py:156: in test_C03_C04_citation_intersections_from_persisted_source
+    selected=repo.resolve_citation('owner',CitationSpanSelection(chunk_id='c-v1',canonical_id='can-v1',
+packages/lineage/src/training_lineage/repository.py:181: in resolve_citation
+    mapping=self.load_chunk_provenance(owner_id,[item.chunk_id]).get(item.chunk_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/lineage/src/training_lineage/repository.py:173: in load_chunk_provenance
+    rows=self.connection.execute(select(chunk_provenance).join(chunk).join(document_version).where(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1678: in _execute_clauseelement
+    compiled_sql, extracted_params, cache_hit = elem._compile_w_cache(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:715: in _compile_w_cache
+    compiled_sql = self._compiler(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:323: in _compiler
+    return dialect.statement_compiler(dialect, self, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:1472: in __init__
+    Compiled.__init__(self, dialect, statement, **kwargs)
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:902: in __init__
+    self.string = self.process(self.statement, **compile_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:948: in process
+    return obj._compiler_dispatch(self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/visitors.py:138: in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+           ^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:4925: in visit_select
+    compile_state = select_stmt._compile_state_factory(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/base.py:774: in create_for_statement
+    return klass.create_for_statement(statement, compiler, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/base.py:772: in create_for_statement
+    return cls(statement, compiler, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:4780: in __init__
+    self._setup_joins(statement._setup_joins, statement._raw_columns)
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:5059: in _setup_joins
+    ) = self._join_determine_implicit_left_side(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:5155: in _join_determine_implicit_left_side
+    raise exc.InvalidRequestError(
+E   sqlalchemy.exc.InvalidRequestError: Can't determine which FROM clause to join from, there are multiple FROMS which can join to this entity. Please use the .select_from() method to establish an explicit left side, as well as providing an explicit ON clause if not present already to help resolve the ambiguity.
+_________ test_C12_partial_error_revokes_old_release_and_stale_attempt _________
+packages/lineage/tests/test_ressalvas_persistencia.py:215: in test_C12_partial_error_revokes_old_release_and_stale_attempt
+    with pytest.raises(ValueError,match='obsoleta'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'obsoleta'
+E     Actual message: 'Cadeia ou hash da avaliação divergente'
+______ test_C14_legacy_insufficient_is_explicit_without_fabricated_source ______
+packages/lineage/tests/test_ressalvas_persistencia.py:317: in test_C14_legacy_insufficient_is_explicit_without_fabricated_source
+    mapping=repo.mark_legacy_insufficient('owner','c-v1',created_at=NOW)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/lineage/src/training_lineage/repository.py:190: in mark_legacy_insufficient
+    existing=self.load_chunk_provenance(owner_id,[chunk_id]).get(chunk_id)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/lineage/src/training_lineage/repository.py:173: in load_chunk_provenance
+    rows=self.connection.execute(select(chunk_provenance).join(chunk).join(document_version).where(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1678: in _execute_clauseelement
+    compiled_sql, extracted_params, cache_hit = elem._compile_w_cache(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:715: in _compile_w_cache
+    compiled_sql = self._compiler(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:323: in _compiler
+    return dialect.statement_compiler(dialect, self, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:1472: in __init__
+    Compiled.__init__(self, dialect, statement, **kwargs)
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:902: in __init__
+    self.string = self.process(self.statement, **compile_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:948: in process
+    return obj._compiler_dispatch(self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/visitors.py:138: in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+           ^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:4925: in visit_select
+    compile_state = select_stmt._compile_state_factory(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/base.py:774: in create_for_statement
+    return klass.create_for_statement(statement, compiler, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/base.py:772: in create_for_statement
+    return cls(statement, compiler, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:4780: in __init__
+    self._setup_joins(statement._setup_joins, statement._raw_columns)
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:5059: in _setup_joins
+    ) = self._join_determine_implicit_left_side(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:5155: in _join_determine_implicit_left_side
+    raise exc.InvalidRequestError(
+E   sqlalchemy.exc.InvalidRequestError: Can't determine which FROM clause to join from, there are multiple FROMS which can join to this entity. Please use the .select_from() method to establish an explicit left side, as well as providing an explicit ON clause if not present already to help resolve the ambiguity.
+_______ test_C07_C12_C14_reservation_fencing_ready_and_current_decision ________
+packages/lineage/tests/test_ressalvas_persistencia.py:374: in test_C07_C12_C14_reservation_fencing_ready_and_current_decision
+    repo.record_index_ack('owner',records[3].chunk_id,KEY,reservation_id=current.reservation_id,
+packages/lineage/src/training_lineage/repository.py:471: in record_index_ack
+    entry=self.load_embedding_inputs(owner_id,[chunk_id],embedding_key=embedding_key).get(chunk_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/lineage/src/training_lineage/repository.py:212: in load_embedding_inputs
+    for row in self.connection.execute(query).mappings():
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1464: in execute
+    return meth(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1678: in _execute_clauseelement
+    compiled_sql, extracted_params, cache_hit = elem._compile_w_cache(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:715: in _compile_w_cache
+    compiled_sql = self._compiler(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py:323: in _compiler
+    return dialect.statement_compiler(dialect, self, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:1472: in __init__
+    Compiled.__init__(self, dialect, statement, **kwargs)
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:902: in __init__
+    self.string = self.process(self.statement, **compile_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:948: in process
+    return obj._compiler_dispatch(self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/visitors.py:138: in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+           ^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/compiler.py:4925: in visit_select
+    compile_state = select_stmt._compile_state_factory(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/base.py:774: in create_for_statement
+    return klass.create_for_statement(statement, compiler, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/base.py:772: in create_for_statement
+    return cls(statement, compiler, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:4780: in __init__
+    self._setup_joins(statement._setup_joins, statement._raw_columns)
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:5059: in _setup_joins
+    ) = self._join_determine_implicit_left_side(
+.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py:5155: in _join_determine_implicit_left_side
+    raise exc.InvalidRequestError(
+E   sqlalchemy.exc.InvalidRequestError: Can't determine which FROM clause to join from, there are multiple FROMS which can join to this entity. Please use the .select_from() method to establish an explicit left side, as well as providing an explicit ON clause if not present already to help resolve the ambiguity.
+=========================== short test summary info ============================
+FAILED packages/lineage/tests/test_ressalvas_persistencia.py::test_C03_C04_citation_intersections_from_persisted_source[3-exact]
+FAILED packages/lineage/tests/test_ressalvas_persistencia.py::test_C03_C04_citation_intersections_from_persisted_source[None-exact]
+FAILED packages/lineage/tests/test_ressalvas_persistencia.py::test_C03_C04_citation_intersections_from_persisted_source[None-unknown]
+FAILED packages/lineage/tests/test_ressalvas_persistencia.py::test_C12_partial_error_revokes_old_release_and_stale_attempt
+FAILED packages/lineage/tests/test_ressalvas_persistencia.py::test_C14_legacy_insufficient_is_explicit_without_fabricated_source
+FAILED packages/lineage/tests/test_ressalvas_persistencia.py::test_C07_C12_C14_reservation_fencing_ready_and_current_decision
+========================= 6 failed, 35 passed in 6.35s =========================

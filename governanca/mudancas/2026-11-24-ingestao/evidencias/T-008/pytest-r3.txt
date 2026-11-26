@@ -1,0 +1,81 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: anyio-4.16.0, Faker-40.54.0
+collected 122 items / 1 deselected / 121 selected
+
+packages/ingestion/tests/test_indexing.py .............................. [ 24%]
+........................................................................ [ 84%]
+...                                                                      [ 86%]
+packages/llm/tests/test_models.py ..............FF                       [100%]
+
+=================================== FAILURES ===================================
+________ test_ING_INJ_001_r3_error_category_is_sanitized[True-provider] ________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x70819e956210>
+provider_error = True, expected_kind = 'provider'
+
+    @pytest.mark.parametrize('provider_error,expected_kind', [(True, 'provider'), (False, 'invalid_output')])
+    def test_ING_INJ_001_r3_error_category_is_sanitized(monkeypatch, provider_error, expected_kind):
+        import litellm
+        import traceback
+        from types import SimpleNamespace
+        from training_llm import InjectionJudgeError
+        def completion(**kwargs):
+            if provider_error:
+                raise RuntimeError('private source with key and prompt')
+            return SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content='private invalid output'))])
+        monkeypatch.setattr(litellm, 'completion', completion)
+        with pytest.raises(InjectionJudgeError) as caught:
+            GeminiModels(ModelSettings(api_key='test-key', judge_model='gemini/test')).judge_injection('private')
+        assert caught.value.kind == expected_kind
+        assert str(caught.value) == 'Falha na verificação de injeção'
+>       assert 'private' not in ''.join(traceback.format_exception(caught.value))
+E       assert 'private' not in 'Traceback (...de injeção\n'
+E         
+E         'private' is contained here:
+E           njection('private')
+E         ?           +++++++
+E               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+E             File "/home/caique-brito/Documentos/Caique/Training System/packages/llm/src/training_llm/__init__.py", line 134, in judge_injection
+E               raise InjectionJudgeError('provider') from None
+E           training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/tests/test_models.py:143: AssertionError
+____ test_ING_INJ_001_r3_error_category_is_sanitized[False-invalid_output] _____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x70819e376a50>
+provider_error = False, expected_kind = 'invalid_output'
+
+    @pytest.mark.parametrize('provider_error,expected_kind', [(True, 'provider'), (False, 'invalid_output')])
+    def test_ING_INJ_001_r3_error_category_is_sanitized(monkeypatch, provider_error, expected_kind):
+        import litellm
+        import traceback
+        from types import SimpleNamespace
+        from training_llm import InjectionJudgeError
+        def completion(**kwargs):
+            if provider_error:
+                raise RuntimeError('private source with key and prompt')
+            return SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content='private invalid output'))])
+        monkeypatch.setattr(litellm, 'completion', completion)
+        with pytest.raises(InjectionJudgeError) as caught:
+            GeminiModels(ModelSettings(api_key='test-key', judge_model='gemini/test')).judge_injection('private')
+        assert caught.value.kind == expected_kind
+        assert str(caught.value) == 'Falha na verificação de injeção'
+>       assert 'private' not in ''.join(traceback.format_exception(caught.value))
+E       assert 'private' not in 'Traceback (...de injeção\n'
+E         
+E         'private' is contained here:
+E           njection('private')
+E         ?           +++++++
+E               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+E             File "/home/caique-brito/Documentos/Caique/Training System/packages/llm/src/training_llm/__init__.py", line 141, in judge_injection
+E               raise InjectionJudgeError('invalid_output') from None
+E           training_llm.InjectionJudgeError: Falha na verificação de injeção
+
+packages/llm/tests/test_models.py:143: AssertionError
+=========================== short test summary info ============================
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_r3_error_category_is_sanitized[True-provider]
+FAILED packages/llm/tests/test_models.py::test_ING_INJ_001_r3_error_category_is_sanitized[False-invalid_output]
+================= 2 failed, 119 passed, 1 deselected in 45.94s =================

@@ -1,0 +1,30 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: anyio-4.16.0, Faker-40.54.0
+collecting ... collected 20 items
+
+packages/observability/tests/test_config.py::test_obs_cfg_001_falha_quando_langfuse_secret_key_vazio PASSED [  5%]
+packages/observability/tests/test_config.py::test_obs_cfg_001_falha_quando_langfuse_secret_key_ausente PASSED [ 10%]
+packages/observability/tests/test_config.py::test_obs_cfg_001_falha_quando_langfuse_public_key_ausente_ou_espacos[None] PASSED [ 15%]
+packages/observability/tests/test_config.py::test_obs_cfg_001_falha_quando_langfuse_public_key_ausente_ou_espacos[] PASSED [ 20%]
+packages/observability/tests/test_config.py::test_obs_cfg_001_falha_quando_langfuse_public_key_ausente_ou_espacos[   ] PASSED [ 25%]
+packages/observability/tests/test_config.py::test_obs_cfg_001_falha_quando_langfuse_host_ausente PASSED [ 30%]
+packages/observability/tests/test_config.py::test_obs_cfg_001_falha_nomeando_todas_variaveis_ausentes PASSED [ 35%]
+packages/observability/tests/test_config.py::test_obs_cfg_001_configure_observability_falha_ao_iniciar_com_secret_vazio PASSED [ 40%]
+packages/observability/tests/test_config.py::test_obs_cfg_001_mensagem_de_erro_nao_vaza_valor_das_credenciais PASSED [ 45%]
+packages/observability/tests/test_config.py::test_obs_cfg_001_aceita_langfuse_host_e_prioriza_base_url PASSED [ 50%]
+packages/observability/tests/test_integracao_langfuse.py::test_obs_trc_002_span_de_teste_chega_ao_langfuse_local PASSED [ 55%]
+packages/observability/tests/test_integracao_langfuse.py::test_obs_trc_002_spans_agente_adk_real_chegam_ao_langfuse_local PASSED [ 60%]
+packages/observability/tests/test_resiliencia.py::test_obs_trc_002_langfuse_inacessivel_nao_derruba_aplicacao_e_registra_descarte PASSED [ 65%]
+packages/observability/tests/test_resiliencia.py::test_obs_trc_002_exportacao_assincrona_nao_bloqueia_execucao_do_span PASSED [ 70%]
+packages/observability/tests/test_resiliencia.py::test_obs_trc_002_fault_tolerant_exporter_captura_excecao_e_registra_descarte PASSED [ 75%]
+packages/observability/tests/test_spans_e_adk.py::test_manual_span_cria_hierarquia_chat_turn_e_atributos_langfuse PASSED [ 80%]
+packages/observability/tests/test_spans_e_adk.py::test_manual_span_suporta_async_with_e_propaga_excecao_da_aplicacao PASSED [ 85%]
+packages/observability/tests/test_spans_e_adk.py::test_instrumentacao_adk_real_emite_spans_hierarquia_atributos_e_desinstrumenta PASSED [ 90%]
+packages/observability/tests/test_spans_e_adk.py::test_instrument_google_adk_ativa_instrumentor_real_e_trata_ausencia_do_pacote PASSED [ 95%]
+packages/observability/tests/test_spans_e_adk.py::test_should_export_span_aceita_openinference_e_training_observability PASSED [100%]
+
+============================== 20 passed in 3.96s ==============================

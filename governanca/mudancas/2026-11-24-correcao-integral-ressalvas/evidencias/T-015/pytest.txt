@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: langsmith-0.15.0, anyio-4.16.0, Faker-40.54.0
+collecting ... collected 9 items
+
+evals/tests/test_ressalvas_runner.py::test_load_canonical_dataset_and_validate_hashes PASSED [ 11%]
+evals/tests/test_ressalvas_runner.py::test_invalid_dataset_rejects_tampered_document_hash_and_duplicate_case_ids PASSED [ 22%]
+evals/tests/test_ressalvas_runner.py::test_incorrect_judge_config_and_missing_credential_block_cleanly PASSED [ 33%]
+evals/tests/test_ressalvas_runner.py::test_real_ragas_metrics_wire_through_llm_factory_and_evaluate_thresholds PASSED [ 44%]
+evals/tests/test_ressalvas_runner.py::test_unapproved_thresholds_or_missing_records_block_evaluation PASSED [ 55%]
+evals/tests/test_ressalvas_runner.py::test_baseline_incompatibility_rejected_and_compatible_diff_computed PASSED [ 66%]
+evals/tests/test_ressalvas_runner.py::test_provider_failure_is_sanitized_without_secret_or_document_leak PASSED [ 77%]
+evals/tests/test_ressalvas_runner.py::test_cli_help_schema_and_preflight_dry_run_without_llm PASSED [ 88%]
+evals/tests/test_ressalvas_runner.py::test_execute_scope_ingestion_and_retrieval_against_disposable_postgres_and_qdrant PASSED [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/ragas/llms/base.py:32
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/ragas/llms/base.py:32: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+    from langchain_community.chat_models.vertexai import ChatVertexAI
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 9 passed, 1 warning in 50.21s =========================

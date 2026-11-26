@@ -1,0 +1,6 @@
+Fallback autorizado pelo principal porque LSP Python está indisponível.
+AST OK: packages/llm/src/training_llm/__init__.py
+AST OK: packages/ingestion/src/training_ingestion/core.py
+AST OK: packages/ingestion/src/training_ingestion/protocol.py
+AST OK: packages/lineage/src/training_lineage/repository.py
+AST OK: packages/ingestion/tests/test_ressalvas_protocolo.py

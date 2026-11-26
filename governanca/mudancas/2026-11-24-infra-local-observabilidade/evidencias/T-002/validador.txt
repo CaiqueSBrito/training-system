@@ -1,0 +1,2 @@
+governança OK: 3 mudança(s), 8 tarefa(s), 28 requisito(s) na spec viva
+exit=0

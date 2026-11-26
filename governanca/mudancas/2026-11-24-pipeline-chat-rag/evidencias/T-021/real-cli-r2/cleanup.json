@@ -1,0 +1,22 @@
+{
+  "status": "Passou",
+  "run_id": "t021-real-22f305ef0d8849e4a5ffd4a38f86e6d2",
+  "database_name": "test_t021_real_22f305ef0d8849e4a5ffd4a38f86e6d2",
+  "database_dropped": true,
+  "container_name": "t021-real-22f305ef0d8849e4a5ffd4a38f86e6d2-qdrant",
+  "container_removed": true,
+  "container_checks": "imagem qdrant/qdrant:v1.20.2, AutoRemove, sem mounts/volumes",
+  "temporary_env": "TemporaryDirectory do harness removido ao fim da execução; nenhum resíduo t021-real-* em /tmp",
+  "verified_owner": "t021-real-22f305ef0d8849e4a5ffd4a38f86e6d2",
+  "verified_source_sha256": "e0a353ae2ab30ea32aef41fb67f05174c940a77cc72f5558cdcfdc80586532df",
+  "verified_chat_turn_id": "9a3ff2dcc9db4df9a5443153d9481d34",
+  "collected_by": "T022 (captura PG+manifesto e Faithfulness concluídas, informado pelo coordenador, dispatch ctx_5f946f85a01c)",
+  "preserved": [
+    "training-system-infra-app-postgres-1",
+    "training-system-infra-qdrant-1",
+    "volumes e dados alheios",
+    "todos os artefatos de real-cli-r2/"
+  ],
+  "cleaned_at": "2026-11-25T04:11:11.429191+00:00",
+  "original_manifest_sha256": "68d0268b82f7dfe14116d7d9272e3f2579bee6a7ae6541ffea6d799d9f0d3fc3"
+}

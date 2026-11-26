@@ -1,0 +1,16 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: anyio-4.16.0, Faker-40.54.0
+collecting ... collected 41 items / 35 deselected / 6 selected
+
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C03_C04_citation_intersections_from_persisted_source[3-exact] PASSED [ 16%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C03_C04_citation_intersections_from_persisted_source[None-exact] PASSED [ 33%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C03_C04_citation_intersections_from_persisted_source[None-unknown] PASSED [ 50%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C12_partial_error_revokes_old_release_and_stale_attempt PASSED [ 66%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C14_legacy_insufficient_is_explicit_without_fabricated_source PASSED [ 83%]
+packages/lineage/tests/test_ressalvas_persistencia.py::test_C07_C12_C14_reservation_fencing_ready_and_current_decision PASSED [100%]
+
+======================= 6 passed, 35 deselected in 1.22s =======================

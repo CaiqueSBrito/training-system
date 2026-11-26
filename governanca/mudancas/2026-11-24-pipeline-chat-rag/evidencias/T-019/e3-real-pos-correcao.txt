@@ -1,0 +1,2 @@
+chamada real única pós-correção (E3 classify, prompt fixo de smoke), stdout+stderr completos:
+OK {'intencao': 'gerar_flashcards', 'modo': 'consulta', 'escopo': 'fotossíntese'}

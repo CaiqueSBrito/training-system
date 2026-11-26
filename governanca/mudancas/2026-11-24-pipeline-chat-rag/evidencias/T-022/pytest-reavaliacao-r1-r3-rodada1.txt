@@ -1,0 +1,15 @@
+
+packages/llm/src/training_llm/__init__.py:121: InjectionJudgeError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/ragas/llms/base.py:32
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/ragas/llms/base.py:32: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+    from langchain_community.chat_models.vertexai import ChatVertexAI
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED evals/tests/test_geracao_runner.py::test_r2_redacao_cobre_namespaces_da_guarda_compartilhada[LiteLLM Router]
+FAILED evals/tests/test_geracao_runner.py::test_r2_redacao_cobre_namespaces_da_guarda_compartilhada[LiteLLM Proxy]
+FAILED evals/tests/test_geracao_runner.py::test_r2_redacao_cobre_namespaces_da_guarda_compartilhada[LiteLLM Proxy.auth]
+FAILED evals/tests/test_geracao_runner.py::test_r2_redacao_cobre_namespaces_da_guarda_compartilhada[google.auth]
+FAILED evals/tests/test_geracao_runner.py::test_r2_redacao_cobre_namespaces_da_guarda_compartilhada[google.auth.transport.requests]
+5 failed, 18 passed, 79 deselected, 1 warning in 3.46s

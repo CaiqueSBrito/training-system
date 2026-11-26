@@ -1,0 +1,134 @@
+.......FFFFF..FF.F..F.FF................................................ [ 90%]
+........                                                                 [100%]
+=================================== FAILURES ===================================
+______________________ test_insufficient_zero_generation _______________________
+packages/generation/tests/test_chat_integration.py:172: in test_insufficient_zero_generation
+    assert result.status.value=='conteudo_insuficiente'
+E   AssertionError: assert 'erro' == 'conteudo_insuficiente'
+E     
+E     - conteudo_insuficiente
+E     + erro
+------------------------------ Captured log setup ------------------------------
+WARNING  training_generation.chat:chat.py:125 Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:214 Falha de chat categoria=execution http_status=None
+_ test_delivered_items_have_exact_owner_lineage_and_real_trace[flashcard-gerar_flashcards] _
+packages/generation/tests/test_chat_integration.py:180: in test_delivered_items_have_exact_owner_lineage_and_real_trace
+    assert response.status.value=='ok' and len(response.itens)==1
+E   AssertionError: assert ('erro' == 'ok'
+E     
+E     - ok
+E     + erro)
+------------------------------ Captured log setup ------------------------------
+WARNING  training_generation.chat:chat.py:125 Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:214 Falha de chat categoria=execution http_status=None
+_ test_delivered_items_have_exact_owner_lineage_and_real_trace[question-gerar_questionario] _
+packages/generation/tests/test_chat_integration.py:180: in test_delivered_items_have_exact_owner_lineage_and_real_trace
+    assert response.status.value=='ok' and len(response.itens)==1
+E   AssertionError: assert ('erro' == 'ok'
+E     
+E     - ok
+E     + erro)
+------------------------------ Captured log setup ------------------------------
+WARNING  training_generation.chat:chat.py:125 Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:214 Falha de chat categoria=execution http_status=None
+_________________ test_one_repair_preserves_good_item_and_ids __________________
+packages/generation/tests/test_chat_integration.py:193: in test_one_repair_preserves_good_item_and_ids
+    assert response.status.value=='ok' and len(response.itens)==2
+E   AssertionError: assert ('erro' == 'ok'
+E     
+E     - ok
+E     + erro)
+------------------------------ Captured log setup ------------------------------
+WARNING  training_generation.chat:chat.py:125 Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:214 Falha de chat categoria=execution http_status=None
+_______________ test_invalid_json_consumes_global_repair_budget ________________
+packages/generation/tests/test_chat_integration.py:205: in test_invalid_json_consumes_global_repair_budget
+    assert response.status.value=='ok' and len(response.omissoes)==1 and not response.itens
+E   AssertionError: assert ('erro' == 'ok'
+E     
+E     - ok
+E     + erro)
+------------------------------ Captured log setup ------------------------------
+WARNING  training_generation.chat:chat.py:125 Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:214 Falha de chat categoria=execution http_status=None
+________ test_generate_more_keeps_plan_cursor_owner_and_prevents_replay ________
+packages/generation/tests/test_chat_integration.py:236: in test_generate_more_keeps_plan_cursor_owner_and_prevents_replay
+    assert first.itens
+E   AssertionError: assert []
+E    +  where [] = ChatResponse(status=<ChatStatus.ERRO: 'erro'>, mensagem='Não foi possível concluir o turno.', itens=[], omissoes=[], f...s=[], motivo_recusa=None, chat_turn_id='650578563f5644e6b3d89d9a823199e7', trace_id='2f335950e1b2ba837e75987494aacd1c').itens
+------------------------------ Captured log setup ------------------------------
+WARNING  training_generation.chat:chat.py:125 Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:214 Falha de chat categoria=execution http_status=None
+___________ test_escape_original_source_and_reject_altered_response ____________
+packages/generation/tests/test_chat_integration.py:253: in test_escape_original_source_and_reject_altered_response
+    assert response.itens and '&lt;script&gt;' in response.itens[0].conteudo.back
+E   AssertionError: assert ([])
+E    +  where [] = ChatResponse(status=<ChatStatus.ERRO: 'erro'>, mensagem='Não foi possível concluir o turno.', itens=[], omissoes=[], f...s=[], motivo_recusa=None, chat_turn_id='5be76eb6ada74f3db06fea39b7c4ea01', trace_id='066c3b923dbac2cf30908967b6c19eb6').itens
+------------------------------ Captured log setup ------------------------------
+WARNING  training_generation.chat:chat.py:125 Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:214 Falha de chat categoria=execution http_status=None
+_____________ test_response_tampering_fails_shared_rendering_check _____________
+packages/generation/tests/test_chat_integration.py:271: in test_response_tampering_fails_shared_rendering_check
+    assert response.itens
+E   AssertionError: assert []
+E    +  where [] = ChatResponse(status=<ChatStatus.ERRO: 'erro'>, mensagem='Não foi possível concluir o turno.', itens=[], omissoes=[], f...s=[], motivo_recusa=None, chat_turn_id='b384e8f3c8c747aeb8e680c47c3cc87a', trace_id='b5abd3a43af2e2295e3d8a0dc688e1b7').itens
+------------------------------ Captured log setup ------------------------------
+WARNING  training_generation.chat:chat.py:125 Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:214 Falha de chat categoria=execution http_status=None
+______ test_malformed_continuation_fails_before_models_and_does_not_reset ______
+packages/generation/tests/test_chat_integration.py:312: in test_malformed_continuation_fails_before_models_and_does_not_reset
+    sandbox.apis.mode='cobertura';assert run(sandbox).itens
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: assert []
+E    +  where [] = ChatResponse(status=<ChatStatus.ERRO: 'erro'>, mensagem='Não foi possível concluir o turno.', itens=[], omissoes=[], f...s=[], motivo_recusa=None, chat_turn_id='e13e28fcbe044c4094c245174e427118', trace_id='0d30ff06bb464ef2e1f06d9c357fa48e').itens
+E    +    where ChatResponse(status=<ChatStatus.ERRO: 'erro'>, mensagem='Não foi possível concluir o turno.', itens=[], omissoes=[], f...s=[], motivo_recusa=None, chat_turn_id='e13e28fcbe044c4094c245174e427118', trace_id='0d30ff06bb464ef2e1f06d9c357fa48e') = run(namespace(engine=Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_t021_6a01ba4923654096a8c0d26c075b9b7...test_malformed_continuation_fa0/source.md'), pipeline=<training_generation.chat.ChatPipeline object at 0x7e7f022c7d80>))
+------------------------------ Captured log setup ------------------------------
+WARNING  training_generation.chat:chat.py:125 Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:214 Falha de chat categoria=execution http_status=None
+____ test_real_stage_spans_hierarchy_without_fake_coverage_rerank[consulta] ____
+packages/generation/tests/test_chat_integration.py:351: in test_real_stage_spans_hierarchy_without_fake_coverage_rerank
+    assert response.itens
+E   AssertionError: assert []
+E    +  where [] = ChatResponse(status=<ChatStatus.ERRO: 'erro'>, mensagem='Não foi possível concluir o turno.', itens=[], omissoes=[], f...s=[], motivo_recusa=None, chat_turn_id='57bb06b1516d4f9ba72bb9cf9b21aa97', trace_id='ef9f7533839c5b984444a3ed202739f1').itens
+------------------------------ Captured log setup ------------------------------
+WARNING  training_generation.chat:chat.py:125 Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:214 Falha de chat categoria=execution http_status=None
+___ test_real_stage_spans_hierarchy_without_fake_coverage_rerank[cobertura] ____
+packages/generation/tests/test_chat_integration.py:351: in test_real_stage_spans_hierarchy_without_fake_coverage_rerank
+    assert response.itens
+E   AssertionError: assert []
+E    +  where [] = ChatResponse(status=<ChatStatus.ERRO: 'erro'>, mensagem='Não foi possível concluir o turno.', itens=[], omissoes=[], f...s=[], motivo_recusa=None, chat_turn_id='9718b2815fb0459197658611e2d8589c', trace_id='758502e71a205534ab23249375167a6e').itens
+------------------------------ Captured log setup ------------------------------
+WARNING  training_generation.chat:chat.py:125 Chat usa tracing OTel local; exportação remota não configurada por esta pipeline
+------------------------------ Captured log call -------------------------------
+WARNING  training_generation.chat:chat.py:214 Falha de chat categoria=execution http_status=None
+=============================== warnings summary ===============================
+packages/lineage/tests/test_chat.py::test_e1_error_and_final_failure_atomic
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/main.py:520: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `enum` - serialized value may not be as expected [field_name='status', input_value='erro', input_type=str])
+    return self.__pydantic_serializer__.to_python(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED packages/generation/tests/test_chat_integration.py::test_insufficient_zero_generation
+FAILED packages/generation/tests/test_chat_integration.py::test_delivered_items_have_exact_owner_lineage_and_real_trace[flashcard-gerar_flashcards]
+FAILED packages/generation/tests/test_chat_integration.py::test_delivered_items_have_exact_owner_lineage_and_real_trace[question-gerar_questionario]
+FAILED packages/generation/tests/test_chat_integration.py::test_one_repair_preserves_good_item_and_ids
+FAILED packages/generation/tests/test_chat_integration.py::test_invalid_json_consumes_global_repair_budget
+FAILED packages/generation/tests/test_chat_integration.py::test_generate_more_keeps_plan_cursor_owner_and_prevents_replay
+FAILED packages/generation/tests/test_chat_integration.py::test_escape_original_source_and_reject_altered_response
+FAILED packages/generation/tests/test_chat_integration.py::test_response_tampering_fails_shared_rendering_check
+FAILED packages/generation/tests/test_chat_integration.py::test_malformed_continuation_fails_before_models_and_does_not_reset
+FAILED packages/generation/tests/test_chat_integration.py::test_real_stage_spans_hierarchy_without_fake_coverage_rerank[consulta]
+FAILED packages/generation/tests/test_chat_integration.py::test_real_stage_spans_hierarchy_without_fake_coverage_rerank[cobertura]
+11 failed, 69 passed, 1 warning in 38.00s

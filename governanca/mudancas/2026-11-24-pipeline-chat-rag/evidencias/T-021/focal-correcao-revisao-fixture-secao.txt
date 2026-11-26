@@ -1,0 +1,10 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________ test_repair_and_judge_only_receive_filtered_section ______________
+packages/generation/tests/test_chat_integration.py:475: in test_repair_and_judge_only_receive_filtered_section
+    assert mixed and any('FORA_DA_SECAO' in r.text for r in mixed),'fixture precisa de chunk misto real'
+E   AssertionError: fixture precisa de chunk misto real
+E   assert ([])
+=========================== short test summary info ============================
+FAILED packages/generation/tests/test_chat_integration.py::test_repair_and_judge_only_receive_filtered_section
+1 failed, 36 deselected in 3.68s

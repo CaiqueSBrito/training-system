@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: anyio-4.16.0, Faker-40.54.0
+collected 3 items
+
+packages/ingestion/tests/test_ressalvas_reconciliacao.py ...             [100%]
+
+============================== 3 passed in 24.72s ==============================
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: anyio-4.16.0, Faker-40.54.0
+collected 1 item
+
+packages/ingestion/tests/test_ressalvas_reconciliacao.py .               [100%]
+
+============================== 1 passed in 3.54s ===============================
