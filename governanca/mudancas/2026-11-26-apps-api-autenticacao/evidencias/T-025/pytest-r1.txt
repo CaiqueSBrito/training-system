@@ -1,0 +1,142 @@
+Comando: uv run pytest apps/api packages/lineage packages/generation -q
+Credenciais de LLM vazias somente no subprocesso: smokes reais devem ficar Não executado; prova HTTP real separada, única.
+........................................................................ [ 18%]
+....................FF.................................................. [ 37%]
+........................................................................ [ 55%]
+........................................................................ [ 74%]
+......................................ss................................ [ 93%]
+..........................                                               [100%]
+=================================== FAILURES ===================================
+_____________ test_api_lin_001_owner_sources_and_equal_404[items] ______________
+
+api = <api_auth_support.Api object at 0x7d7fe3e52690>
+chat_box = namespace(models=<api_chat_support.Models object at 0x7d7fead84050>, factory=<function chat_box.<locals>.factory at 0x...mFX0PSwCgEm0vY1YiV0Js4lhoZIueL9qT-IAK8'), pipelines=[<training_generation.chat.ChatPipeline object at 0x7d7d9e957bf0>])
+bob = {'id': '7e437177-ff3b-47e7-804b-3df4a25f3be1', 'email': 'bob@example.com', 'is_active': True, 'is_superuser': False, ...}
+delivered = ChatResponse(status=<ChatStatus.OK: 'ok'>, mensagem='1 item(ns) gerado(s).', itens=[DeliveredItem(item_id='be20ebdf1b5...[])], motivo_recusa=None, chat_turn_id='56a6e6cb575f484385fcb8489cecbddf', trace_id='f5a32ebd2dfdbe015cea50edca4d03fb')
+kind = 'items'
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_f4f1a88211f44fa7a2e4c42ade000ccf)
+
+    @pytest.mark.parametrize('kind', ['items', 'turns'])
+    def test_api_lin_001_owner_sources_and_equal_404(api, chat_box, bob, delivered, kind, database):
+        identifier = delivered.itens[0].item_id if kind == 'items' else delivered.chat_turn_id
+        path = f'/lineage/{kind}/{identifier}'
+        own = api.request('GET', path, session=chat_box.session)
+        assert own.status_code == 200, own.text
+        with database.connect() as connection:
+            expected = ChatLineageRepository(connection).get_item_lineage(chat_box.owner, delivered.itens[0].item_id)
+        expected = json.loads(json.dumps(expected, default=lambda obj: obj.model_dump(mode='json')))
+        if kind == 'items':
+            assert own.json() == expected
+        else:
+            assert own.json()['response'] == delivered.model_dump(mode='json')
+            assert own.json()['turn']['user_id'] == chat_box.owner
+            assert own.json()['items'] == [expected]
+        lineage = own.json()['lineage'] if kind == 'items' else own.json()['items'][0]['lineage']
+        assert lineage['trace_id'] == delivered.trace_id
+        citation = lineage['citations'][0]
+        assert {'document_id', 'document_version_id', 'page', 'section_path', 'evidence'} <= citation.keys()
+        assert citation['document_version_id'] == chat_box.version
+>       assert citation['evidence'] and citation['section_path'] == ['Biologia']
+E       AssertionError: assert ('Biologia\n\nA membrana celular controla a entrada de substâncias' and [] == ['Biologia']
+E         
+E         Right contains one more item: 'Biologia'
+E         Use -v to get more diff)
+
+apps/api/tests/test_api_chat.py:158: AssertionError
+------------------------------ Captured log setup ------------------------------
+WARNING  training_api.app:app.py:64 Chat indisponível: configuração ou infraestrutura
+_____________ test_api_lin_001_owner_sources_and_equal_404[turns] ______________
+
+api = <api_auth_support.Api object at 0x7d7d9e9bbbf0>
+chat_box = namespace(models=<api_chat_support.Models object at 0x7d7fe3c3fc50>, factory=<function chat_box.<locals>.factory at 0x...j3RBS9hcgs975gUIC2h7D_DcH2C7M5FYJqq_hM'), pipelines=[<training_generation.chat.ChatPipeline object at 0x7d7d9f9f3460>])
+bob = {'id': 'fcaf1e99-6cb4-4a56-9cb8-ea84ac01c7dd', 'email': 'bob@example.com', 'is_active': True, 'is_superuser': False, ...}
+delivered = ChatResponse(status=<ChatStatus.OK: 'ok'>, mensagem='1 item(ns) gerado(s).', itens=[DeliveredItem(item_id='80f7ef911dc...[])], motivo_recusa=None, chat_turn_id='c586faf288664a6b97cf2b4e97ab5f51', trace_id='0b9df2db926d498c92ff8f947843e621')
+kind = 'turns'
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_db1e92d96ae94a1faaee154c82b5c9c4)
+
+    @pytest.mark.parametrize('kind', ['items', 'turns'])
+    def test_api_lin_001_owner_sources_and_equal_404(api, chat_box, bob, delivered, kind, database):
+        identifier = delivered.itens[0].item_id if kind == 'items' else delivered.chat_turn_id
+        path = f'/lineage/{kind}/{identifier}'
+        own = api.request('GET', path, session=chat_box.session)
+        assert own.status_code == 200, own.text
+        with database.connect() as connection:
+            expected = ChatLineageRepository(connection).get_item_lineage(chat_box.owner, delivered.itens[0].item_id)
+        expected = json.loads(json.dumps(expected, default=lambda obj: obj.model_dump(mode='json')))
+        if kind == 'items':
+            assert own.json() == expected
+        else:
+            assert own.json()['response'] == delivered.model_dump(mode='json')
+            assert own.json()['turn']['user_id'] == chat_box.owner
+            assert own.json()['items'] == [expected]
+        lineage = own.json()['lineage'] if kind == 'items' else own.json()['items'][0]['lineage']
+        assert lineage['trace_id'] == delivered.trace_id
+        citation = lineage['citations'][0]
+        assert {'document_id', 'document_version_id', 'page', 'section_path', 'evidence'} <= citation.keys()
+        assert citation['document_version_id'] == chat_box.version
+>       assert citation['evidence'] and citation['section_path'] == ['Biologia']
+E       AssertionError: assert ('Biologia\n\nA membrana celular controla a entrada de substâncias' and [] == ['Biologia']
+E         
+E         Right contains one more item: 'Biologia'
+E         Use -v to get more diff)
+
+apps/api/tests/test_api_chat.py:158: AssertionError
+------------------------------ Captured log setup ------------------------------
+WARNING  training_api.app:app.py:64 Chat indisponível: configuração ou infraestrutura
+=============================== warnings summary ===============================
+packages/lineage/tests/test_chat.py::test_e1_error_and_final_failure_atomic
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/main.py:520: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `enum` - serialized value may not be as expected [field_name='status', input_value='erro', input_type=str])
+    return self.__pydantic_serializer__.to_python(
+
+packages/generation/tests/test_chat_integration.py::test_invalid_initial_envelope_repair_is_attempt_two_persisted_and_t022_consumable
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/ragas/llms/base.py:32: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+    from langchain_community.chat_models.vertexai import ChatVertexAI
+
+packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-429]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Items 'device_code', 'user_code', 'verification_uri' on TypedDict class '_DeviceCode' are using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-429]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Items 'access_token', 'error' on TypedDict class '_AccessTokenPoll' are using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-429]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Items 'token', 'expires_at', 'endpoints' on TypedDict class '_CopilotTokenPayload' are using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-429]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Items 'device_code', 'user_code', 'verification_uri', 'expires_in', 'interval' on TypedDict class '_DeviceCodePayload' are using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-429]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Items 'access_token', 'error', 'error_description', 'interval' on TypedDict class '_AccessTokenPollPayload' are using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-429]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'login' on TypedDict class '_GithubUserPayload' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-429]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'api' on TypedDict class '_CopilotEndpointsPayload' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-429]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'index' on TypedDict class 'ChatCompletionThinkingBlock' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-429]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'index' on TypedDict class 'ChatCompletionRedactedThinkingBlock' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_transporte.py::test_litellm_transport_sends_exactly_one_request_on_429_503[E2-429]
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'summary' on TypedDict class 'ChatCompletionReasoningItem' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED apps/api/tests/test_api_chat.py::test_api_lin_001_owner_sources_and_equal_404[items]
+FAILED apps/api/tests/test_api_chat.py::test_api_lin_001_owner_sources_and_equal_404[turns]
+2 failed, 382 passed, 2 skipped, 12 warnings in 117.06s (0:01:57)
+
+exit_code=1

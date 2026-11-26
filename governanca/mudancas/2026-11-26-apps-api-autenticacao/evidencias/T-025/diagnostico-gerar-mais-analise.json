@@ -1,0 +1,4642 @@
+{
+  "old_run_body_equals_new_run_body_ast": true,
+  "instrumented_test_progress_is_none": [
+    true,
+    true,
+    true
+  ],
+  "chunk_hash_recipe_matches_all_recorded_chunks": true,
+  "duplicate_threshold_unchanged": 0.9,
+  "actual_diagnostic_pair": {
+    "version": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+    "prefixes": [
+      "46191423",
+      "ec2707aa"
+    ],
+    "stems": [
+      "O que é descrito por 46191423?",
+      "O que é descrito por ec2707aa?"
+    ],
+    "similarity": 0.8541666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": true,
+      "motivo": null,
+      "detalhe": null
+    }
+  },
+  "closed_experiment": [
+    {
+      "version": "00000000-0000-4000-8000-000000000001",
+      "prefixes": [
+        "dfec7959",
+        "24f93645"
+      ],
+      "stems": [
+        "O que é descrito por dfec7959?",
+        "O que é descrito por 24f93645?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000002",
+      "prefixes": [
+        "58257a18",
+        "f3217b80"
+      ],
+      "stems": [
+        "O que é descrito por 58257a18?",
+        "O que é descrito por f3217b80?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000003",
+      "prefixes": [
+        "4f52360f",
+        "bf499f5b"
+      ],
+      "stems": [
+        "O que é descrito por 4f52360f?",
+        "O que é descrito por bf499f5b?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000004",
+      "prefixes": [
+        "6baef68e",
+        "c2a6a4b7"
+      ],
+      "stems": [
+        "O que é descrito por 6baef68e?",
+        "O que é descrito por c2a6a4b7?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000005",
+      "prefixes": [
+        "9efe5b49",
+        "103b5ac2"
+      ],
+      "stems": [
+        "O que é descrito por 9efe5b49?",
+        "O que é descrito por 103b5ac2?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000006",
+      "prefixes": [
+        "112b1100",
+        "29033c5d"
+      ],
+      "stems": [
+        "O que é descrito por 112b1100?",
+        "O que é descrito por 29033c5d?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000007",
+      "prefixes": [
+        "76d8f73c",
+        "f8af6ac9"
+      ],
+      "stems": [
+        "O que é descrito por 76d8f73c?",
+        "O que é descrito por f8af6ac9?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000008",
+      "prefixes": [
+        "a2622e0e",
+        "7d2994c3"
+      ],
+      "stems": [
+        "O que é descrito por a2622e0e?",
+        "O que é descrito por 7d2994c3?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000009",
+      "prefixes": [
+        "5a7b7de4",
+        "dfe8b8ad"
+      ],
+      "stems": [
+        "O que é descrito por 5a7b7de4?",
+        "O que é descrito por dfe8b8ad?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000a",
+      "prefixes": [
+        "61b22853",
+        "5fd12f00"
+      ],
+      "stems": [
+        "O que é descrito por 61b22853?",
+        "O que é descrito por 5fd12f00?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000b",
+      "prefixes": [
+        "c0200a1d",
+        "6feca7b8"
+      ],
+      "stems": [
+        "O que é descrito por c0200a1d?",
+        "O que é descrito por 6feca7b8?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000c",
+      "prefixes": [
+        "2d22e046",
+        "8ef39228"
+      ],
+      "stems": [
+        "O que é descrito por 2d22e046?",
+        "O que é descrito por 8ef39228?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000d",
+      "prefixes": [
+        "327f6a02",
+        "e1444072"
+      ],
+      "stems": [
+        "O que é descrito por 327f6a02?",
+        "O que é descrito por e1444072?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000e",
+      "prefixes": [
+        "60a06aa9",
+        "2654bd70"
+      ],
+      "stems": [
+        "O que é descrito por 60a06aa9?",
+        "O que é descrito por 2654bd70?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000000f",
+      "prefixes": [
+        "63bc321d",
+        "1d8af12e"
+      ],
+      "stems": [
+        "O que é descrito por 63bc321d?",
+        "O que é descrito por 1d8af12e?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000010",
+      "prefixes": [
+        "74782c21",
+        "9810174d"
+      ],
+      "stems": [
+        "O que é descrito por 74782c21?",
+        "O que é descrito por 9810174d?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000011",
+      "prefixes": [
+        "4ecd5126",
+        "50b6df59"
+      ],
+      "stems": [
+        "O que é descrito por 4ecd5126?",
+        "O que é descrito por 50b6df59?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000012",
+      "prefixes": [
+        "50b7ee74",
+        "60db7e63"
+      ],
+      "stems": [
+        "O que é descrito por 50b7ee74?",
+        "O que é descrito por 60db7e63?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000013",
+      "prefixes": [
+        "234d4214",
+        "f6689b54"
+      ],
+      "stems": [
+        "O que é descrito por 234d4214?",
+        "O que é descrito por f6689b54?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000014",
+      "prefixes": [
+        "b652b963",
+        "bbd27e77"
+      ],
+      "stems": [
+        "O que é descrito por b652b963?",
+        "O que é descrito por bbd27e77?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000015",
+      "prefixes": [
+        "25abf094",
+        "2bfc9573"
+      ],
+      "stems": [
+        "O que é descrito por 25abf094?",
+        "O que é descrito por 2bfc9573?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000016",
+      "prefixes": [
+        "33818e90",
+        "65f81825"
+      ],
+      "stems": [
+        "O que é descrito por 33818e90?",
+        "O que é descrito por 65f81825?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000017",
+      "prefixes": [
+        "e74a7dd0",
+        "9cae852d"
+      ],
+      "stems": [
+        "O que é descrito por e74a7dd0?",
+        "O que é descrito por 9cae852d?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000018",
+      "prefixes": [
+        "924f220c",
+        "36531a43"
+      ],
+      "stems": [
+        "O que é descrito por 924f220c?",
+        "O que é descrito por 36531a43?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000019",
+      "prefixes": [
+        "18716f79",
+        "d38bdfea"
+      ],
+      "stems": [
+        "O que é descrito por 18716f79?",
+        "O que é descrito por d38bdfea?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001a",
+      "prefixes": [
+        "e512b2a3",
+        "f09e0e94"
+      ],
+      "stems": [
+        "O que é descrito por e512b2a3?",
+        "O que é descrito por f09e0e94?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001b",
+      "prefixes": [
+        "52a48fc4",
+        "57b832d2"
+      ],
+      "stems": [
+        "O que é descrito por 52a48fc4?",
+        "O que é descrito por 57b832d2?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001c",
+      "prefixes": [
+        "a90681a6",
+        "d5db3588"
+      ],
+      "stems": [
+        "O que é descrito por a90681a6?",
+        "O que é descrito por d5db3588?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001d",
+      "prefixes": [
+        "e5cedb55",
+        "50b19e8e"
+      ],
+      "stems": [
+        "O que é descrito por e5cedb55?",
+        "O que é descrito por 50b19e8e?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001e",
+      "prefixes": [
+        "9038f952",
+        "28cd4242"
+      ],
+      "stems": [
+        "O que é descrito por 9038f952?",
+        "O que é descrito por 28cd4242?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000001f",
+      "prefixes": [
+        "1f175941",
+        "6e76d9e9"
+      ],
+      "stems": [
+        "O que é descrito por 1f175941?",
+        "O que é descrito por 6e76d9e9?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000020",
+      "prefixes": [
+        "f1d269c7",
+        "51913a3f"
+      ],
+      "stems": [
+        "O que é descrito por f1d269c7?",
+        "O que é descrito por 51913a3f?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000021",
+      "prefixes": [
+        "e0cbdece",
+        "c2c962a9"
+      ],
+      "stems": [
+        "O que é descrito por e0cbdece?",
+        "O que é descrito por c2c962a9?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000022",
+      "prefixes": [
+        "2c059e54",
+        "ac91bb0e"
+      ],
+      "stems": [
+        "O que é descrito por 2c059e54?",
+        "O que é descrito por ac91bb0e?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000023",
+      "prefixes": [
+        "bc7293eb",
+        "87c8695a"
+      ],
+      "stems": [
+        "O que é descrito por bc7293eb?",
+        "O que é descrito por 87c8695a?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000024",
+      "prefixes": [
+        "57659283",
+        "3fafcdb1"
+      ],
+      "stems": [
+        "O que é descrito por 57659283?",
+        "O que é descrito por 3fafcdb1?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000025",
+      "prefixes": [
+        "dc6793dd",
+        "2e96926f"
+      ],
+      "stems": [
+        "O que é descrito por dc6793dd?",
+        "O que é descrito por 2e96926f?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000026",
+      "prefixes": [
+        "07fd66f2",
+        "0c50d4c4"
+      ],
+      "stems": [
+        "O que é descrito por 07fd66f2?",
+        "O que é descrito por 0c50d4c4?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000027",
+      "prefixes": [
+        "946d9aa0",
+        "863a4e60"
+      ],
+      "stems": [
+        "O que é descrito por 946d9aa0?",
+        "O que é descrito por 863a4e60?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000028",
+      "prefixes": [
+        "cff8c83e",
+        "86ed292e"
+      ],
+      "stems": [
+        "O que é descrito por cff8c83e?",
+        "O que é descrito por 86ed292e?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000029",
+      "prefixes": [
+        "24b049a3",
+        "87e555f0"
+      ],
+      "stems": [
+        "O que é descrito por 24b049a3?",
+        "O que é descrito por 87e555f0?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002a",
+      "prefixes": [
+        "d54784e1",
+        "681c7b05"
+      ],
+      "stems": [
+        "O que é descrito por d54784e1?",
+        "O que é descrito por 681c7b05?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002b",
+      "prefixes": [
+        "e61d8588",
+        "2ab26287"
+      ],
+      "stems": [
+        "O que é descrito por e61d8588?",
+        "O que é descrito por 2ab26287?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002c",
+      "prefixes": [
+        "d01abd52",
+        "fd8b5294"
+      ],
+      "stems": [
+        "O que é descrito por d01abd52?",
+        "O que é descrito por fd8b5294?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002d",
+      "prefixes": [
+        "f84d5629",
+        "df001766"
+      ],
+      "stems": [
+        "O que é descrito por f84d5629?",
+        "O que é descrito por df001766?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002e",
+      "prefixes": [
+        "b1f133eb",
+        "57e541aa"
+      ],
+      "stems": [
+        "O que é descrito por b1f133eb?",
+        "O que é descrito por 57e541aa?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000002f",
+      "prefixes": [
+        "5efbe9a1",
+        "d77b3991"
+      ],
+      "stems": [
+        "O que é descrito por 5efbe9a1?",
+        "O que é descrito por d77b3991?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000030",
+      "prefixes": [
+        "8c568db7",
+        "02702df6"
+      ],
+      "stems": [
+        "O que é descrito por 8c568db7?",
+        "O que é descrito por 02702df6?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000031",
+      "prefixes": [
+        "5ee1a286",
+        "01aad146"
+      ],
+      "stems": [
+        "O que é descrito por 5ee1a286?",
+        "O que é descrito por 01aad146?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000032",
+      "prefixes": [
+        "29290ca4",
+        "3fda5b1e"
+      ],
+      "stems": [
+        "O que é descrito por 29290ca4?",
+        "O que é descrito por 3fda5b1e?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000033",
+      "prefixes": [
+        "958ec976",
+        "2e97734e"
+      ],
+      "stems": [
+        "O que é descrito por 958ec976?",
+        "O que é descrito por 2e97734e?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000034",
+      "prefixes": [
+        "8d49ac73",
+        "52be1128"
+      ],
+      "stems": [
+        "O que é descrito por 8d49ac73?",
+        "O que é descrito por 52be1128?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000035",
+      "prefixes": [
+        "b8b2b900",
+        "3c151ade"
+      ],
+      "stems": [
+        "O que é descrito por b8b2b900?",
+        "O que é descrito por 3c151ade?"
+      ],
+      "similarity": 0.8333333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000036",
+      "prefixes": [
+        "9d9dc205",
+        "b33189a3"
+      ],
+      "stems": [
+        "O que é descrito por 9d9dc205?",
+        "O que é descrito por b33189a3?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000037",
+      "prefixes": [
+        "40bf0dba",
+        "bd0d14f1"
+      ],
+      "stems": [
+        "O que é descrito por 40bf0dba?",
+        "O que é descrito por bd0d14f1?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000038",
+      "prefixes": [
+        "498a3b52",
+        "2352cd34"
+      ],
+      "stems": [
+        "O que é descrito por 498a3b52?",
+        "O que é descrito por 2352cd34?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000039",
+      "prefixes": [
+        "415428ba",
+        "e565e624"
+      ],
+      "stems": [
+        "O que é descrito por 415428ba?",
+        "O que é descrito por e565e624?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003a",
+      "prefixes": [
+        "d9be7aba",
+        "0cf2a97a"
+      ],
+      "stems": [
+        "O que é descrito por d9be7aba?",
+        "O que é descrito por 0cf2a97a?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003b",
+      "prefixes": [
+        "fcdc1b82",
+        "cccbcad5"
+      ],
+      "stems": [
+        "O que é descrito por fcdc1b82?",
+        "O que é descrito por cccbcad5?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003c",
+      "prefixes": [
+        "42ec4613",
+        "d654461e"
+      ],
+      "stems": [
+        "O que é descrito por 42ec4613?",
+        "O que é descrito por d654461e?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003d",
+      "prefixes": [
+        "a5cc1ff3",
+        "2bcc3cbf"
+      ],
+      "stems": [
+        "O que é descrito por a5cc1ff3?",
+        "O que é descrito por 2bcc3cbf?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003e",
+      "prefixes": [
+        "7f9c9df1",
+        "0b1f9d83"
+      ],
+      "stems": [
+        "O que é descrito por 7f9c9df1?",
+        "O que é descrito por 0b1f9d83?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000003f",
+      "prefixes": [
+        "6a140261",
+        "61e3b4c0"
+      ],
+      "stems": [
+        "O que é descrito por 6a140261?",
+        "O que é descrito por 61e3b4c0?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000040",
+      "prefixes": [
+        "a82061f9",
+        "5f8c6204"
+      ],
+      "stems": [
+        "O que é descrito por a82061f9?",
+        "O que é descrito por 5f8c6204?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000041",
+      "prefixes": [
+        "a57fd7c1",
+        "b32298a2"
+      ],
+      "stems": [
+        "O que é descrito por a57fd7c1?",
+        "O que é descrito por b32298a2?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000042",
+      "prefixes": [
+        "09400133",
+        "57ba4065"
+      ],
+      "stems": [
+        "O que é descrito por 09400133?",
+        "O que é descrito por 57ba4065?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000043",
+      "prefixes": [
+        "deb49826",
+        "f19319a9"
+      ],
+      "stems": [
+        "O que é descrito por deb49826?",
+        "O que é descrito por f19319a9?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000044",
+      "prefixes": [
+        "32567a29",
+        "771aa71c"
+      ],
+      "stems": [
+        "O que é descrito por 32567a29?",
+        "O que é descrito por 771aa71c?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000045",
+      "prefixes": [
+        "ce52c579",
+        "d7415421"
+      ],
+      "stems": [
+        "O que é descrito por ce52c579?",
+        "O que é descrito por d7415421?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000046",
+      "prefixes": [
+        "8425813c",
+        "c5ba4083"
+      ],
+      "stems": [
+        "O que é descrito por 8425813c?",
+        "O que é descrito por c5ba4083?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000047",
+      "prefixes": [
+        "37c9e036",
+        "fca1d00b"
+      ],
+      "stems": [
+        "O que é descrito por 37c9e036?",
+        "O que é descrito por fca1d00b?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000048",
+      "prefixes": [
+        "53645bdf",
+        "9b8226f2"
+      ],
+      "stems": [
+        "O que é descrito por 53645bdf?",
+        "O que é descrito por 9b8226f2?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000049",
+      "prefixes": [
+        "46228fb2",
+        "6758791a"
+      ],
+      "stems": [
+        "O que é descrito por 46228fb2?",
+        "O que é descrito por 6758791a?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004a",
+      "prefixes": [
+        "8901ff19",
+        "0e6681ea"
+      ],
+      "stems": [
+        "O que é descrito por 8901ff19?",
+        "O que é descrito por 0e6681ea?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004b",
+      "prefixes": [
+        "987bd78a",
+        "cefbe39a"
+      ],
+      "stems": [
+        "O que é descrito por 987bd78a?",
+        "O que é descrito por cefbe39a?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004c",
+      "prefixes": [
+        "d0b81b4d",
+        "e4b5246d"
+      ],
+      "stems": [
+        "O que é descrito por d0b81b4d?",
+        "O que é descrito por e4b5246d?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004d",
+      "prefixes": [
+        "f2371955",
+        "6311a5d0"
+      ],
+      "stems": [
+        "O que é descrito por f2371955?",
+        "O que é descrito por 6311a5d0?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004e",
+      "prefixes": [
+        "9e042420",
+        "0660d04b"
+      ],
+      "stems": [
+        "O que é descrito por 9e042420?",
+        "O que é descrito por 0660d04b?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000004f",
+      "prefixes": [
+        "cbb39c9f",
+        "4190fb25"
+      ],
+      "stems": [
+        "O que é descrito por cbb39c9f?",
+        "O que é descrito por 4190fb25?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000050",
+      "prefixes": [
+        "24b5e769",
+        "83c068f3"
+      ],
+      "stems": [
+        "O que é descrito por 24b5e769?",
+        "O que é descrito por 83c068f3?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000051",
+      "prefixes": [
+        "3e4a15a4",
+        "fb457287"
+      ],
+      "stems": [
+        "O que é descrito por 3e4a15a4?",
+        "O que é descrito por fb457287?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000052",
+      "prefixes": [
+        "4e3d600a",
+        "6926bc39"
+      ],
+      "stems": [
+        "O que é descrito por 4e3d600a?",
+        "O que é descrito por 6926bc39?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000053",
+      "prefixes": [
+        "26912c54",
+        "ac82ac70"
+      ],
+      "stems": [
+        "O que é descrito por 26912c54?",
+        "O que é descrito por ac82ac70?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000054",
+      "prefixes": [
+        "0bf91813",
+        "6b79e83e"
+      ],
+      "stems": [
+        "O que é descrito por 0bf91813?",
+        "O que é descrito por 6b79e83e?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000055",
+      "prefixes": [
+        "9d5e3aeb",
+        "67315563"
+      ],
+      "stems": [
+        "O que é descrito por 9d5e3aeb?",
+        "O que é descrito por 67315563?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000056",
+      "prefixes": [
+        "069748e4",
+        "c1bd2cb4"
+      ],
+      "stems": [
+        "O que é descrito por 069748e4?",
+        "O que é descrito por c1bd2cb4?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000057",
+      "prefixes": [
+        "b39cc50e",
+        "a8e7efc7"
+      ],
+      "stems": [
+        "O que é descrito por b39cc50e?",
+        "O que é descrito por a8e7efc7?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000058",
+      "prefixes": [
+        "a2f51293",
+        "9ae86c0c"
+      ],
+      "stems": [
+        "O que é descrito por a2f51293?",
+        "O que é descrito por 9ae86c0c?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000059",
+      "prefixes": [
+        "6c58cc4d",
+        "25d37e6d"
+      ],
+      "stems": [
+        "O que é descrito por 6c58cc4d?",
+        "O que é descrito por 25d37e6d?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005a",
+      "prefixes": [
+        "7f6e2c38",
+        "6fd51a98"
+      ],
+      "stems": [
+        "O que é descrito por 7f6e2c38?",
+        "O que é descrito por 6fd51a98?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005b",
+      "prefixes": [
+        "ee006ce3",
+        "46687cee"
+      ],
+      "stems": [
+        "O que é descrito por ee006ce3?",
+        "O que é descrito por 46687cee?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005c",
+      "prefixes": [
+        "7562622f",
+        "39920d9d"
+      ],
+      "stems": [
+        "O que é descrito por 7562622f?",
+        "O que é descrito por 39920d9d?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005d",
+      "prefixes": [
+        "140b71b3",
+        "248abb7f"
+      ],
+      "stems": [
+        "O que é descrito por 140b71b3?",
+        "O que é descrito por 248abb7f?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005e",
+      "prefixes": [
+        "a1bf0f8e",
+        "8ed70d9d"
+      ],
+      "stems": [
+        "O que é descrito por a1bf0f8e?",
+        "O que é descrito por 8ed70d9d?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000005f",
+      "prefixes": [
+        "12b35ff8",
+        "4a1d2581"
+      ],
+      "stems": [
+        "O que é descrito por 12b35ff8?",
+        "O que é descrito por 4a1d2581?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000060",
+      "prefixes": [
+        "4be97e16",
+        "77218aa0"
+      ],
+      "stems": [
+        "O que é descrito por 4be97e16?",
+        "O que é descrito por 77218aa0?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000061",
+      "prefixes": [
+        "ee618bbd",
+        "a5dc2838"
+      ],
+      "stems": [
+        "O que é descrito por ee618bbd?",
+        "O que é descrito por a5dc2838?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000062",
+      "prefixes": [
+        "2fedaf9e",
+        "cf1b2d4c"
+      ],
+      "stems": [
+        "O que é descrito por 2fedaf9e?",
+        "O que é descrito por cf1b2d4c?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000063",
+      "prefixes": [
+        "a0a5effd",
+        "aeca2d9c"
+      ],
+      "stems": [
+        "O que é descrito por a0a5effd?",
+        "O que é descrito por aeca2d9c?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000064",
+      "prefixes": [
+        "3502afc3",
+        "c758d9fd"
+      ],
+      "stems": [
+        "O que é descrito por 3502afc3?",
+        "O que é descrito por c758d9fd?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000065",
+      "prefixes": [
+        "cd36bd80",
+        "682c469a"
+      ],
+      "stems": [
+        "O que é descrito por cd36bd80?",
+        "O que é descrito por 682c469a?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000066",
+      "prefixes": [
+        "6efdbea4",
+        "f9666e8d"
+      ],
+      "stems": [
+        "O que é descrito por 6efdbea4?",
+        "O que é descrito por f9666e8d?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000067",
+      "prefixes": [
+        "97e12379",
+        "3fca2d17"
+      ],
+      "stems": [
+        "O que é descrito por 97e12379?",
+        "O que é descrito por 3fca2d17?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000068",
+      "prefixes": [
+        "07a0c175",
+        "65477ef7"
+      ],
+      "stems": [
+        "O que é descrito por 07a0c175?",
+        "O que é descrito por 65477ef7?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000069",
+      "prefixes": [
+        "f08b6b97",
+        "2a4ca490"
+      ],
+      "stems": [
+        "O que é descrito por f08b6b97?",
+        "O que é descrito por 2a4ca490?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006a",
+      "prefixes": [
+        "fc7cd85b",
+        "44197995"
+      ],
+      "stems": [
+        "O que é descrito por fc7cd85b?",
+        "O que é descrito por 44197995?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006b",
+      "prefixes": [
+        "7c5f82c8",
+        "176fe5fb"
+      ],
+      "stems": [
+        "O que é descrito por 7c5f82c8?",
+        "O que é descrito por 176fe5fb?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006c",
+      "prefixes": [
+        "a1160ff5",
+        "03f7f513"
+      ],
+      "stems": [
+        "O que é descrito por a1160ff5?",
+        "O que é descrito por 03f7f513?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006d",
+      "prefixes": [
+        "f683aa07",
+        "ecd96236"
+      ],
+      "stems": [
+        "O que é descrito por f683aa07?",
+        "O que é descrito por ecd96236?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006e",
+      "prefixes": [
+        "f6b12f92",
+        "35c55fbc"
+      ],
+      "stems": [
+        "O que é descrito por f6b12f92?",
+        "O que é descrito por 35c55fbc?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000006f",
+      "prefixes": [
+        "310c02b6",
+        "90429b75"
+      ],
+      "stems": [
+        "O que é descrito por 310c02b6?",
+        "O que é descrito por 90429b75?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000070",
+      "prefixes": [
+        "5996e2db",
+        "a0ccf410"
+      ],
+      "stems": [
+        "O que é descrito por 5996e2db?",
+        "O que é descrito por a0ccf410?"
+      ],
+      "similarity": 0.8333333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000071",
+      "prefixes": [
+        "f901fddd",
+        "b3dc1ae8"
+      ],
+      "stems": [
+        "O que é descrito por f901fddd?",
+        "O que é descrito por b3dc1ae8?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000072",
+      "prefixes": [
+        "a451de00",
+        "0c5990f1"
+      ],
+      "stems": [
+        "O que é descrito por a451de00?",
+        "O que é descrito por 0c5990f1?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000073",
+      "prefixes": [
+        "6ffcaba6",
+        "de9a010e"
+      ],
+      "stems": [
+        "O que é descrito por 6ffcaba6?",
+        "O que é descrito por de9a010e?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000074",
+      "prefixes": [
+        "75a07d18",
+        "3058b997"
+      ],
+      "stems": [
+        "O que é descrito por 75a07d18?",
+        "O que é descrito por 3058b997?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000075",
+      "prefixes": [
+        "fe80ef05",
+        "5c06cf5a"
+      ],
+      "stems": [
+        "O que é descrito por fe80ef05?",
+        "O que é descrito por 5c06cf5a?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000076",
+      "prefixes": [
+        "fb887bf4",
+        "b315bb71"
+      ],
+      "stems": [
+        "O que é descrito por fb887bf4?",
+        "O que é descrito por b315bb71?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000077",
+      "prefixes": [
+        "e24fec55",
+        "0380a43d"
+      ],
+      "stems": [
+        "O que é descrito por e24fec55?",
+        "O que é descrito por 0380a43d?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000078",
+      "prefixes": [
+        "42ec4b08",
+        "2593d216"
+      ],
+      "stems": [
+        "O que é descrito por 42ec4b08?",
+        "O que é descrito por 2593d216?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000079",
+      "prefixes": [
+        "698a1437",
+        "be76acfb"
+      ],
+      "stems": [
+        "O que é descrito por 698a1437?",
+        "O que é descrito por be76acfb?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007a",
+      "prefixes": [
+        "d46249bd",
+        "77fbbe65"
+      ],
+      "stems": [
+        "O que é descrito por d46249bd?",
+        "O que é descrito por 77fbbe65?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007b",
+      "prefixes": [
+        "d9f5c945",
+        "63a5d733"
+      ],
+      "stems": [
+        "O que é descrito por d9f5c945?",
+        "O que é descrito por 63a5d733?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007c",
+      "prefixes": [
+        "537e6970",
+        "6943e9e1"
+      ],
+      "stems": [
+        "O que é descrito por 537e6970?",
+        "O que é descrito por 6943e9e1?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007d",
+      "prefixes": [
+        "0e754450",
+        "139780db"
+      ],
+      "stems": [
+        "O que é descrito por 0e754450?",
+        "O que é descrito por 139780db?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007e",
+      "prefixes": [
+        "1d8e421e",
+        "7a5e74eb"
+      ],
+      "stems": [
+        "O que é descrito por 1d8e421e?",
+        "O que é descrito por 7a5e74eb?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000007f",
+      "prefixes": [
+        "1a3e9b6d",
+        "6ac8e70e"
+      ],
+      "stems": [
+        "O que é descrito por 1a3e9b6d?",
+        "O que é descrito por 6ac8e70e?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000080",
+      "prefixes": [
+        "e0987314",
+        "fea462b9"
+      ],
+      "stems": [
+        "O que é descrito por e0987314?",
+        "O que é descrito por fea462b9?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000081",
+      "prefixes": [
+        "f017c2af",
+        "5500ac17"
+      ],
+      "stems": [
+        "O que é descrito por f017c2af?",
+        "O que é descrito por 5500ac17?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000082",
+      "prefixes": [
+        "3fe31b49",
+        "ef218aaa"
+      ],
+      "stems": [
+        "O que é descrito por 3fe31b49?",
+        "O que é descrito por ef218aaa?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000083",
+      "prefixes": [
+        "ab613cc1",
+        "78879aa6"
+      ],
+      "stems": [
+        "O que é descrito por ab613cc1?",
+        "O que é descrito por 78879aa6?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000084",
+      "prefixes": [
+        "359695e7",
+        "15fdd30c"
+      ],
+      "stems": [
+        "O que é descrito por 359695e7?",
+        "O que é descrito por 15fdd30c?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000085",
+      "prefixes": [
+        "2bb269d7",
+        "b9d95fc4"
+      ],
+      "stems": [
+        "O que é descrito por 2bb269d7?",
+        "O que é descrito por b9d95fc4?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000086",
+      "prefixes": [
+        "b7534505",
+        "4c172e2c"
+      ],
+      "stems": [
+        "O que é descrito por b7534505?",
+        "O que é descrito por 4c172e2c?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000087",
+      "prefixes": [
+        "6f892820",
+        "75e5719e"
+      ],
+      "stems": [
+        "O que é descrito por 6f892820?",
+        "O que é descrito por 75e5719e?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000088",
+      "prefixes": [
+        "7a6f155d",
+        "648d0286"
+      ],
+      "stems": [
+        "O que é descrito por 7a6f155d?",
+        "O que é descrito por 648d0286?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000089",
+      "prefixes": [
+        "6b4ec148",
+        "2c8f557d"
+      ],
+      "stems": [
+        "O que é descrito por 6b4ec148?",
+        "O que é descrito por 2c8f557d?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008a",
+      "prefixes": [
+        "80989da5",
+        "0f336ec5"
+      ],
+      "stems": [
+        "O que é descrito por 80989da5?",
+        "O que é descrito por 0f336ec5?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008b",
+      "prefixes": [
+        "82ea6257",
+        "d6018ed7"
+      ],
+      "stems": [
+        "O que é descrito por 82ea6257?",
+        "O que é descrito por d6018ed7?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008c",
+      "prefixes": [
+        "38c92b84",
+        "ba25506a"
+      ],
+      "stems": [
+        "O que é descrito por 38c92b84?",
+        "O que é descrito por ba25506a?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008d",
+      "prefixes": [
+        "2aa79d40",
+        "df74583b"
+      ],
+      "stems": [
+        "O que é descrito por 2aa79d40?",
+        "O que é descrito por df74583b?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008e",
+      "prefixes": [
+        "82131b6a",
+        "4aa0989a"
+      ],
+      "stems": [
+        "O que é descrito por 82131b6a?",
+        "O que é descrito por 4aa0989a?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000008f",
+      "prefixes": [
+        "20c58eec",
+        "e35c1ce3"
+      ],
+      "stems": [
+        "O que é descrito por 20c58eec?",
+        "O que é descrito por e35c1ce3?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000090",
+      "prefixes": [
+        "8bdec6f2",
+        "b36f2a0e"
+      ],
+      "stems": [
+        "O que é descrito por 8bdec6f2?",
+        "O que é descrito por b36f2a0e?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000091",
+      "prefixes": [
+        "567c8f3c",
+        "80b9ae5c"
+      ],
+      "stems": [
+        "O que é descrito por 567c8f3c?",
+        "O que é descrito por 80b9ae5c?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000092",
+      "prefixes": [
+        "7b60ab88",
+        "550db22a"
+      ],
+      "stems": [
+        "O que é descrito por 7b60ab88?",
+        "O que é descrito por 550db22a?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000093",
+      "prefixes": [
+        "28a30574",
+        "7bb054c3"
+      ],
+      "stems": [
+        "O que é descrito por 28a30574?",
+        "O que é descrito por 7bb054c3?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000094",
+      "prefixes": [
+        "33857846",
+        "59be86cb"
+      ],
+      "stems": [
+        "O que é descrito por 33857846?",
+        "O que é descrito por 59be86cb?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000095",
+      "prefixes": [
+        "61d3febd",
+        "fcc40cb0"
+      ],
+      "stems": [
+        "O que é descrito por 61d3febd?",
+        "O que é descrito por fcc40cb0?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000096",
+      "prefixes": [
+        "0864ee23",
+        "6f971e28"
+      ],
+      "stems": [
+        "O que é descrito por 0864ee23?",
+        "O que é descrito por 6f971e28?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000097",
+      "prefixes": [
+        "3e1a33af",
+        "7cd20214"
+      ],
+      "stems": [
+        "O que é descrito por 3e1a33af?",
+        "O que é descrito por 7cd20214?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000098",
+      "prefixes": [
+        "b3995383",
+        "53b742d3"
+      ],
+      "stems": [
+        "O que é descrito por b3995383?",
+        "O que é descrito por 53b742d3?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000099",
+      "prefixes": [
+        "6d6a2aa6",
+        "41bbcdc4"
+      ],
+      "stems": [
+        "O que é descrito por 6d6a2aa6?",
+        "O que é descrito por 41bbcdc4?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009a",
+      "prefixes": [
+        "8a73095f",
+        "e6c48462"
+      ],
+      "stems": [
+        "O que é descrito por 8a73095f?",
+        "O que é descrito por e6c48462?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009b",
+      "prefixes": [
+        "e81f1882",
+        "c815f22f"
+      ],
+      "stems": [
+        "O que é descrito por e81f1882?",
+        "O que é descrito por c815f22f?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009c",
+      "prefixes": [
+        "79ef8b2f",
+        "c76a4d15"
+      ],
+      "stems": [
+        "O que é descrito por 79ef8b2f?",
+        "O que é descrito por c76a4d15?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009d",
+      "prefixes": [
+        "f3f6585e",
+        "467a650c"
+      ],
+      "stems": [
+        "O que é descrito por f3f6585e?",
+        "O que é descrito por 467a650c?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009e",
+      "prefixes": [
+        "6cdc7e30",
+        "725ff223"
+      ],
+      "stems": [
+        "O que é descrito por 6cdc7e30?",
+        "O que é descrito por 725ff223?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-00000000009f",
+      "prefixes": [
+        "63bae1c5",
+        "671d626c"
+      ],
+      "stems": [
+        "O que é descrito por 63bae1c5?",
+        "O que é descrito por 671d626c?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a0",
+      "prefixes": [
+        "4ccb3ae5",
+        "38eac4d0"
+      ],
+      "stems": [
+        "O que é descrito por 4ccb3ae5?",
+        "O que é descrito por 38eac4d0?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a1",
+      "prefixes": [
+        "7e7b05d7",
+        "48848603"
+      ],
+      "stems": [
+        "O que é descrito por 7e7b05d7?",
+        "O que é descrito por 48848603?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a2",
+      "prefixes": [
+        "1e22ff4b",
+        "a03243ec"
+      ],
+      "stems": [
+        "O que é descrito por 1e22ff4b?",
+        "O que é descrito por a03243ec?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a3",
+      "prefixes": [
+        "22871097",
+        "cae886ee"
+      ],
+      "stems": [
+        "O que é descrito por 22871097?",
+        "O que é descrito por cae886ee?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a4",
+      "prefixes": [
+        "62fa5973",
+        "4f483266"
+      ],
+      "stems": [
+        "O que é descrito por 62fa5973?",
+        "O que é descrito por 4f483266?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a5",
+      "prefixes": [
+        "d89c2d17",
+        "def5ff3b"
+      ],
+      "stems": [
+        "O que é descrito por d89c2d17?",
+        "O que é descrito por def5ff3b?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a6",
+      "prefixes": [
+        "c3c85bd8",
+        "d056178f"
+      ],
+      "stems": [
+        "O que é descrito por c3c85bd8?",
+        "O que é descrito por d056178f?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a7",
+      "prefixes": [
+        "2a9d07ab",
+        "73be7403"
+      ],
+      "stems": [
+        "O que é descrito por 2a9d07ab?",
+        "O que é descrito por 73be7403?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a8",
+      "prefixes": [
+        "a1fd06ff",
+        "bf54c653"
+      ],
+      "stems": [
+        "O que é descrito por a1fd06ff?",
+        "O que é descrito por bf54c653?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000a9",
+      "prefixes": [
+        "1b0d25eb",
+        "a2bae329"
+      ],
+      "stems": [
+        "O que é descrito por 1b0d25eb?",
+        "O que é descrito por a2bae329?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000aa",
+      "prefixes": [
+        "0e98cdf4",
+        "dc47f007"
+      ],
+      "stems": [
+        "O que é descrito por 0e98cdf4?",
+        "O que é descrito por dc47f007?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ab",
+      "prefixes": [
+        "7966ab47",
+        "16be18b3"
+      ],
+      "stems": [
+        "O que é descrito por 7966ab47?",
+        "O que é descrito por 16be18b3?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ac",
+      "prefixes": [
+        "d6c8697d",
+        "d7b5cf4d"
+      ],
+      "stems": [
+        "O que é descrito por d6c8697d?",
+        "O que é descrito por d7b5cf4d?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ad",
+      "prefixes": [
+        "2fe9ace3",
+        "77abdf7e"
+      ],
+      "stems": [
+        "O que é descrito por 2fe9ace3?",
+        "O que é descrito por 77abdf7e?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ae",
+      "prefixes": [
+        "bbc482fc",
+        "c93cf6f5"
+      ],
+      "stems": [
+        "O que é descrito por bbc482fc?",
+        "O que é descrito por c93cf6f5?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000af",
+      "prefixes": [
+        "4cab1e22",
+        "f31b46f5"
+      ],
+      "stems": [
+        "O que é descrito por 4cab1e22?",
+        "O que é descrito por f31b46f5?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b0",
+      "prefixes": [
+        "b61ee180",
+        "62596b0d"
+      ],
+      "stems": [
+        "O que é descrito por b61ee180?",
+        "O que é descrito por 62596b0d?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b1",
+      "prefixes": [
+        "b666ede4",
+        "7206dcfb"
+      ],
+      "stems": [
+        "O que é descrito por b666ede4?",
+        "O que é descrito por 7206dcfb?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b2",
+      "prefixes": [
+        "a0375072",
+        "8f3d30f3"
+      ],
+      "stems": [
+        "O que é descrito por a0375072?",
+        "O que é descrito por 8f3d30f3?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b3",
+      "prefixes": [
+        "50ebd27a",
+        "70d91ce8"
+      ],
+      "stems": [
+        "O que é descrito por 50ebd27a?",
+        "O que é descrito por 70d91ce8?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b4",
+      "prefixes": [
+        "1a100419",
+        "8b1431b0"
+      ],
+      "stems": [
+        "O que é descrito por 1a100419?",
+        "O que é descrito por 8b1431b0?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b5",
+      "prefixes": [
+        "b7dabbf8",
+        "13492fbf"
+      ],
+      "stems": [
+        "O que é descrito por b7dabbf8?",
+        "O que é descrito por 13492fbf?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b6",
+      "prefixes": [
+        "5478f506",
+        "f8db4f94"
+      ],
+      "stems": [
+        "O que é descrito por 5478f506?",
+        "O que é descrito por f8db4f94?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b7",
+      "prefixes": [
+        "50716844",
+        "76bbf363"
+      ],
+      "stems": [
+        "O que é descrito por 50716844?",
+        "O que é descrito por 76bbf363?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b8",
+      "prefixes": [
+        "8d01cf7b",
+        "ac30be5f"
+      ],
+      "stems": [
+        "O que é descrito por 8d01cf7b?",
+        "O que é descrito por ac30be5f?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000b9",
+      "prefixes": [
+        "c986a92e",
+        "064ae6ab"
+      ],
+      "stems": [
+        "O que é descrito por c986a92e?",
+        "O que é descrito por 064ae6ab?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ba",
+      "prefixes": [
+        "e657ea84",
+        "11218f24"
+      ],
+      "stems": [
+        "O que é descrito por e657ea84?",
+        "O que é descrito por 11218f24?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000bb",
+      "prefixes": [
+        "cc92f955",
+        "fa47b8fc"
+      ],
+      "stems": [
+        "O que é descrito por cc92f955?",
+        "O que é descrito por fa47b8fc?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000bc",
+      "prefixes": [
+        "15146cb4",
+        "01a63702"
+      ],
+      "stems": [
+        "O que é descrito por 15146cb4?",
+        "O que é descrito por 01a63702?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000bd",
+      "prefixes": [
+        "0d303bba",
+        "b3f505e8"
+      ],
+      "stems": [
+        "O que é descrito por 0d303bba?",
+        "O que é descrito por b3f505e8?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000be",
+      "prefixes": [
+        "dc6395e6",
+        "2ef0785d"
+      ],
+      "stems": [
+        "O que é descrito por dc6395e6?",
+        "O que é descrito por 2ef0785d?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000bf",
+      "prefixes": [
+        "314d87b2",
+        "3ca388fb"
+      ],
+      "stems": [
+        "O que é descrito por 314d87b2?",
+        "O que é descrito por 3ca388fb?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c0",
+      "prefixes": [
+        "9c506074",
+        "f6678cdb"
+      ],
+      "stems": [
+        "O que é descrito por 9c506074?",
+        "O que é descrito por f6678cdb?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c1",
+      "prefixes": [
+        "12b27375",
+        "6f5cc0cb"
+      ],
+      "stems": [
+        "O que é descrito por 12b27375?",
+        "O que é descrito por 6f5cc0cb?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c2",
+      "prefixes": [
+        "5ff290a1",
+        "63d4770c"
+      ],
+      "stems": [
+        "O que é descrito por 5ff290a1?",
+        "O que é descrito por 63d4770c?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c3",
+      "prefixes": [
+        "48740603",
+        "ea96aca7"
+      ],
+      "stems": [
+        "O que é descrito por 48740603?",
+        "O que é descrito por ea96aca7?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c4",
+      "prefixes": [
+        "01bc6469",
+        "97f3c0cb"
+      ],
+      "stems": [
+        "O que é descrito por 01bc6469?",
+        "O que é descrito por 97f3c0cb?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c5",
+      "prefixes": [
+        "64a2cde2",
+        "78b8800d"
+      ],
+      "stems": [
+        "O que é descrito por 64a2cde2?",
+        "O que é descrito por 78b8800d?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c6",
+      "prefixes": [
+        "48bdc914",
+        "8bf18939"
+      ],
+      "stems": [
+        "O que é descrito por 48bdc914?",
+        "O que é descrito por 8bf18939?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c7",
+      "prefixes": [
+        "0863dfc2",
+        "2cf90a97"
+      ],
+      "stems": [
+        "O que é descrito por 0863dfc2?",
+        "O que é descrito por 2cf90a97?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c8",
+      "prefixes": [
+        "1ff33dba",
+        "0d74c76f"
+      ],
+      "stems": [
+        "O que é descrito por 1ff33dba?",
+        "O que é descrito por 0d74c76f?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000c9",
+      "prefixes": [
+        "2e8296d7",
+        "d7340b84"
+      ],
+      "stems": [
+        "O que é descrito por 2e8296d7?",
+        "O que é descrito por d7340b84?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ca",
+      "prefixes": [
+        "249e3d1e",
+        "362744af"
+      ],
+      "stems": [
+        "O que é descrito por 249e3d1e?",
+        "O que é descrito por 362744af?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000cb",
+      "prefixes": [
+        "b62bea31",
+        "ae0d5eee"
+      ],
+      "stems": [
+        "O que é descrito por b62bea31?",
+        "O que é descrito por ae0d5eee?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000cc",
+      "prefixes": [
+        "8ff11976",
+        "2bace6b9"
+      ],
+      "stems": [
+        "O que é descrito por 8ff11976?",
+        "O que é descrito por 2bace6b9?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000cd",
+      "prefixes": [
+        "83eac077",
+        "f7f5e890"
+      ],
+      "stems": [
+        "O que é descrito por 83eac077?",
+        "O que é descrito por f7f5e890?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ce",
+      "prefixes": [
+        "2c7ee583",
+        "0c1a36f3"
+      ],
+      "stems": [
+        "O que é descrito por 2c7ee583?",
+        "O que é descrito por 0c1a36f3?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000cf",
+      "prefixes": [
+        "adfe5c17",
+        "24e3f67d"
+      ],
+      "stems": [
+        "O que é descrito por adfe5c17?",
+        "O que é descrito por 24e3f67d?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d0",
+      "prefixes": [
+        "d425d39b",
+        "1f194acc"
+      ],
+      "stems": [
+        "O que é descrito por d425d39b?",
+        "O que é descrito por 1f194acc?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d1",
+      "prefixes": [
+        "94fcf0f4",
+        "d5acfa2c"
+      ],
+      "stems": [
+        "O que é descrito por 94fcf0f4?",
+        "O que é descrito por d5acfa2c?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d2",
+      "prefixes": [
+        "7f087e5f",
+        "fc8f99c4"
+      ],
+      "stems": [
+        "O que é descrito por 7f087e5f?",
+        "O que é descrito por fc8f99c4?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d3",
+      "prefixes": [
+        "d4a84180",
+        "5fd095a3"
+      ],
+      "stems": [
+        "O que é descrito por d4a84180?",
+        "O que é descrito por 5fd095a3?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d4",
+      "prefixes": [
+        "c30f0130",
+        "2f2fa32e"
+      ],
+      "stems": [
+        "O que é descrito por c30f0130?",
+        "O que é descrito por 2f2fa32e?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d5",
+      "prefixes": [
+        "e03ff38f",
+        "515422ea"
+      ],
+      "stems": [
+        "O que é descrito por e03ff38f?",
+        "O que é descrito por 515422ea?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d6",
+      "prefixes": [
+        "013ebc79",
+        "f2dbc097"
+      ],
+      "stems": [
+        "O que é descrito por 013ebc79?",
+        "O que é descrito por f2dbc097?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d7",
+      "prefixes": [
+        "e081bcd8",
+        "2f72fa4a"
+      ],
+      "stems": [
+        "O que é descrito por e081bcd8?",
+        "O que é descrito por 2f72fa4a?"
+      ],
+      "similarity": 0.8333333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d8",
+      "prefixes": [
+        "2a82e47f",
+        "93498ab6"
+      ],
+      "stems": [
+        "O que é descrito por 2a82e47f?",
+        "O que é descrito por 93498ab6?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000d9",
+      "prefixes": [
+        "49807505",
+        "543b4ce5"
+      ],
+      "stems": [
+        "O que é descrito por 49807505?",
+        "O que é descrito por 543b4ce5?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000da",
+      "prefixes": [
+        "e44aa456",
+        "44eb4850"
+      ],
+      "stems": [
+        "O que é descrito por e44aa456?",
+        "O que é descrito por 44eb4850?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000db",
+      "prefixes": [
+        "e208c18f",
+        "c9d2db5b"
+      ],
+      "stems": [
+        "O que é descrito por e208c18f?",
+        "O que é descrito por c9d2db5b?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000dc",
+      "prefixes": [
+        "2bbc01a9",
+        "57aba8b4"
+      ],
+      "stems": [
+        "O que é descrito por 2bbc01a9?",
+        "O que é descrito por 57aba8b4?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000dd",
+      "prefixes": [
+        "b955eaa3",
+        "f59c1c0b"
+      ],
+      "stems": [
+        "O que é descrito por b955eaa3?",
+        "O que é descrito por f59c1c0b?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000de",
+      "prefixes": [
+        "7d18f885",
+        "559672b8"
+      ],
+      "stems": [
+        "O que é descrito por 7d18f885?",
+        "O que é descrito por 559672b8?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000df",
+      "prefixes": [
+        "66023e9c",
+        "39aa63e6"
+      ],
+      "stems": [
+        "O que é descrito por 66023e9c?",
+        "O que é descrito por 39aa63e6?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e0",
+      "prefixes": [
+        "58e5022f",
+        "a166ef7b"
+      ],
+      "stems": [
+        "O que é descrito por 58e5022f?",
+        "O que é descrito por a166ef7b?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e1",
+      "prefixes": [
+        "ceca8e7d",
+        "a8de574c"
+      ],
+      "stems": [
+        "O que é descrito por ceca8e7d?",
+        "O que é descrito por a8de574c?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e2",
+      "prefixes": [
+        "e8e11769",
+        "1dd4dc39"
+      ],
+      "stems": [
+        "O que é descrito por e8e11769?",
+        "O que é descrito por 1dd4dc39?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e3",
+      "prefixes": [
+        "109e841e",
+        "87af0b4d"
+      ],
+      "stems": [
+        "O que é descrito por 109e841e?",
+        "O que é descrito por 87af0b4d?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e4",
+      "prefixes": [
+        "f8b81ea9",
+        "5333bdd0"
+      ],
+      "stems": [
+        "O que é descrito por f8b81ea9?",
+        "O que é descrito por 5333bdd0?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e5",
+      "prefixes": [
+        "94155b4e",
+        "6b020152"
+      ],
+      "stems": [
+        "O que é descrito por 94155b4e?",
+        "O que é descrito por 6b020152?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e6",
+      "prefixes": [
+        "15d54a75",
+        "f9645646"
+      ],
+      "stems": [
+        "O que é descrito por 15d54a75?",
+        "O que é descrito por f9645646?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e7",
+      "prefixes": [
+        "b5b5742e",
+        "a343fd7e"
+      ],
+      "stems": [
+        "O que é descrito por b5b5742e?",
+        "O que é descrito por a343fd7e?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e8",
+      "prefixes": [
+        "dcf345e6",
+        "b58f1bab"
+      ],
+      "stems": [
+        "O que é descrito por dcf345e6?",
+        "O que é descrito por b58f1bab?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000e9",
+      "prefixes": [
+        "586247db",
+        "0045ce9f"
+      ],
+      "stems": [
+        "O que é descrito por 586247db?",
+        "O que é descrito por 0045ce9f?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ea",
+      "prefixes": [
+        "e76373db",
+        "a1bdd378"
+      ],
+      "stems": [
+        "O que é descrito por e76373db?",
+        "O que é descrito por a1bdd378?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000eb",
+      "prefixes": [
+        "c998c7b7",
+        "86b2a2b5"
+      ],
+      "stems": [
+        "O que é descrito por c998c7b7?",
+        "O que é descrito por 86b2a2b5?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ec",
+      "prefixes": [
+        "3928790e",
+        "62c0173b"
+      ],
+      "stems": [
+        "O que é descrito por 3928790e?",
+        "O que é descrito por 62c0173b?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ed",
+      "prefixes": [
+        "1120f434",
+        "bba8c4ac"
+      ],
+      "stems": [
+        "O que é descrito por 1120f434?",
+        "O que é descrito por bba8c4ac?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ee",
+      "prefixes": [
+        "26dafbad",
+        "874dd64d"
+      ],
+      "stems": [
+        "O que é descrito por 26dafbad?",
+        "O que é descrito por 874dd64d?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ef",
+      "prefixes": [
+        "2ca1d159",
+        "6096e739"
+      ],
+      "stems": [
+        "O que é descrito por 2ca1d159?",
+        "O que é descrito por 6096e739?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f0",
+      "prefixes": [
+        "70cb0674",
+        "2af8d233"
+      ],
+      "stems": [
+        "O que é descrito por 70cb0674?",
+        "O que é descrito por 2af8d233?"
+      ],
+      "similarity": 0.8333333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f1",
+      "prefixes": [
+        "0dd90592",
+        "c8399561"
+      ],
+      "stems": [
+        "O que é descrito por 0dd90592?",
+        "O que é descrito por c8399561?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f2",
+      "prefixes": [
+        "84c804de",
+        "ef294521"
+      ],
+      "stems": [
+        "O que é descrito por 84c804de?",
+        "O que é descrito por ef294521?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f3",
+      "prefixes": [
+        "1c64b93c",
+        "73710321"
+      ],
+      "stems": [
+        "O que é descrito por 1c64b93c?",
+        "O que é descrito por 73710321?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f4",
+      "prefixes": [
+        "14e942bd",
+        "124e7221"
+      ],
+      "stems": [
+        "O que é descrito por 14e942bd?",
+        "O que é descrito por 124e7221?"
+      ],
+      "similarity": 0.9166666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": false,
+        "motivo": "duplicata",
+        "detalhe": "quase idêntico a outro item"
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f5",
+      "prefixes": [
+        "23f8ca25",
+        "4084b8b7"
+      ],
+      "stems": [
+        "O que é descrito por 23f8ca25?",
+        "O que é descrito por 4084b8b7?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f6",
+      "prefixes": [
+        "60a920a2",
+        "ece48004"
+      ],
+      "stems": [
+        "O que é descrito por 60a920a2?",
+        "O que é descrito por ece48004?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f7",
+      "prefixes": [
+        "2a4cfb92",
+        "afeabd61"
+      ],
+      "stems": [
+        "O que é descrito por 2a4cfb92?",
+        "O que é descrito por afeabd61?"
+      ],
+      "similarity": 0.8958333333333334,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f8",
+      "prefixes": [
+        "a7352e85",
+        "1298d74f"
+      ],
+      "stems": [
+        "O que é descrito por a7352e85?",
+        "O que é descrito por 1298d74f?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000f9",
+      "prefixes": [
+        "177818c4",
+        "9651dab0"
+      ],
+      "stems": [
+        "O que é descrito por 177818c4?",
+        "O que é descrito por 9651dab0?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000fa",
+      "prefixes": [
+        "fb872d00",
+        "39608065"
+      ],
+      "stems": [
+        "O que é descrito por fb872d00?",
+        "O que é descrito por 39608065?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000fb",
+      "prefixes": [
+        "f873bf92",
+        "98d46887"
+      ],
+      "stems": [
+        "O que é descrito por f873bf92?",
+        "O que é descrito por 98d46887?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000fc",
+      "prefixes": [
+        "4d889e4a",
+        "a2662e87"
+      ],
+      "stems": [
+        "O que é descrito por 4d889e4a?",
+        "O que é descrito por a2662e87?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000fd",
+      "prefixes": [
+        "b219363e",
+        "3f4bc5a9"
+      ],
+      "stems": [
+        "O que é descrito por b219363e?",
+        "O que é descrito por 3f4bc5a9?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000fe",
+      "prefixes": [
+        "4b212a9c",
+        "6cfc3697"
+      ],
+      "stems": [
+        "O que é descrito por 4b212a9c?",
+        "O que é descrito por 6cfc3697?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-0000000000ff",
+      "prefixes": [
+        "b80f7b0e",
+        "fe9241dc"
+      ],
+      "stems": [
+        "O que é descrito por b80f7b0e?",
+        "O que é descrito por fe9241dc?"
+      ],
+      "similarity": 0.875,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    },
+    {
+      "version": "00000000-0000-4000-8000-000000000100",
+      "prefixes": [
+        "f07d60f5",
+        "50d01e50"
+      ],
+      "stems": [
+        "O que é descrito por f07d60f5?",
+        "O que é descrito por 50d01e50?"
+      ],
+      "similarity": 0.8541666666666666,
+      "verdict": {
+        "item_index": 0,
+        "aprovado": true,
+        "motivo": null,
+        "detalhe": null
+      }
+    }
+  ],
+  "experiment_counts": {
+    "accepted": 244,
+    "duplicate": 12
+  }
+}

@@ -20,3 +20,4 @@
 | REG-014 | ING-FMT-001 | isolamento | `packages/ingestion/tests/test_ingestion.py` (gerador reproduz fixtures em tmp_path sem sobrescrever as fontes) | T-017, revisão Anthropic achado 5 |
 
 Falha histórica r2/run3 sem traceback: causa **Bloqueado**, sem atribuição retroativa. HTTP 429 e HTTP 503 observados nas integrações T-017 têm categoria/status sanitizados nos artefatos próprios e continuam falhando a prova real, sem retry ou resultado fictício.
+| REG-015 | RAG-CLS-002 | geração | `packages/generation/tests/test_chat_integration.py::test_new_request_resets_explicitly_then_more_uses_new_mode_type` (dublê de questões deriva enunciado do UUID do chunk; ~4,7% das execuções geram duplicata rejeitada no E9 e o terceiro turno sai vazio) | T-025, diagnóstico `ctx_3180416e643d` — correção do dublê pendente |

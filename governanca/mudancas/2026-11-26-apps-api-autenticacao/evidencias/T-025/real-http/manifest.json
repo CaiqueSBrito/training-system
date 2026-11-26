@@ -1,0 +1,69 @@
+{
+  "run_id": "t025-4a75c21ee67c4d048215f37fef93ee9c",
+  "status": "Passou",
+  "database_name": "test_t025_4a75c21ee67c4d048215f37fef93ee9c",
+  "container_name": "t025-4a75c21ee67c4d048215f37fef93ee9c-qdrant",
+  "chat_requests": 1,
+  "retry": false,
+  "langfuse": "desligado; tracing OTel local",
+  "cleanup": {
+    "http_stopped": true,
+    "database_removed": true,
+    "container_removed": true
+  },
+  "register_http_status": 201,
+  "owner_id": "7890f4a2-019e-4855-b8a2-7ea5c43b1255",
+  "login_http_status": 200,
+  "document_version_id": "05a8001d-9980-4086-a0d2-b207f7e7652b",
+  "source_sha256": "50c06b7411ed89c4613f1b45d74f0986ad69f3765bfb5c2e1dbf8db07c0f198e",
+  "chat_http_status": 200,
+  "headers": {
+    "content-type": "text/event-stream; charset=utf-8",
+    "cache-control": "no-cache",
+    "x-accel-buffering": "no"
+  },
+  "response_status": "ok",
+  "chat_turn_id": "c95507a0f31f49e294054ce309bc183e",
+  "trace_id": "7d2b54ab7f3d41c7ff11a111f906e4ff",
+  "delivered_items": 5,
+  "progress": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5",
+    "E6",
+    "E7",
+    "E8",
+    "E9",
+    "E10",
+    "E11",
+    "E12"
+  ],
+  "commit_verified": true,
+  "turn_lineage_http_status": 200,
+  "item_lineage_http_status": [
+    200,
+    200,
+    200,
+    200,
+    200
+  ],
+  "snapshot_sha256": {
+    "apps/api/src/training_api/limits.py": "7c8cb202622467e2a0d457766d9d3a45b34d9995bde8910b289587f2dea2a094",
+    "apps/api/src/training_api/app.py": "98ce0422b92ecf81057c092b7aca6c3af2f65b76ea001feac2c9980db05d1ce1",
+    "apps/api/src/training_api/csrf.py": "9be5ca8842e6ae2c7c525149a10d40b725e5afb1776e69e737f1afb3d9d1a09b",
+    "apps/api/src/training_api/chat_runtime.py": "d02d9ebc40f4d92eb9aba576a539716e3b74a2dfd0d701eb1b0842b36cd026ef",
+    "apps/api/src/training_api/__init__.py": "bb4dd03c2981c384ffeafbac4612bd2a0dd21bfe646172b1d8c34febf9762d43",
+    "apps/api/src/training_api/config.py": "dd137f08815243d16e59fc5e8759849f4d496634a2f2947916591df62edb04bb",
+    "apps/api/src/training_api/chat_routes.py": "b4fb1a3f8a59d38c26821e3fb771815b283316d939008941d7c72263064ad173",
+    "apps/api/src/training_api/auth.py": "5ebb4aea862f50bdf89d42244761026fc64e9726a76b590e57b534ac16488099",
+    "apps/api/src/training_api/database.py": "477d5d1899660296d813e59e2e1dbf8c72eb9e84f958ce15cc9cdea5904d8614",
+    "apps/api/src/training_api/browser.py": "696f522b9ae91ebdd0ebc23837fd355ece671b4b4925d0e3fe29de39f0411590",
+    "packages/generation/src/training_generation/chat.py": "2dee289079572fb8341ed8f0e18faddaca85fa0b157fd998aa760907546f9760"
+  },
+  "files": {
+    "response.sse": "f78998f0bb4665527a01e74580bdc8e9f5f4c286a50ad75f0899d2a13226cc88",
+    "source.md": "50c06b7411ed89c4613f1b45d74f0986ad69f3765bfb5c2e1dbf8db07c0f198e"
+  }
+}

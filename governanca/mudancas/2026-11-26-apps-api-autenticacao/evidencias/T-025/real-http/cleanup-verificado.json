@@ -1,0 +1,6 @@
+{
+  "status": "Passou",
+  "database_absent": true,
+  "container_absent": true,
+  "production_snapshot_matches": true
+}

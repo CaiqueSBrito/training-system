@@ -1,0 +1,384 @@
+Diagnóstico de gerar_mais — ctx_3180416e643d
+
+Estado da execução isolada: Passou — uma única execução do teste solicitado com -vv, 1 passed in 3.58s, exit 0. Saída completa em diagnostico-gerar-mais-pytest.txt. Não executei o teste repetidamente para tentar reproduzir nem o alterei. Instrumentação opt-in em apps/api/tests/api_chat_mais_diagnostic.py lê estado por transação curta, delega para ChatPipeline.run original e grava resultados sem modificar argumentos/respostas; removida automaticamente ao encerrar pytest.
+
+Antes do terceiro turno (registro completo, cursor/scope/used_chunk_ids):
+{
+  "scope": {
+    "document_version_ids": [
+      "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3"
+    ],
+    "section_prefix": []
+  },
+  "cursor": {
+    "binding": "bb1f49fa8d3d594a6cd383f4b2aa4c264ea89e9e01e62209718cc587c1265682",
+    "version": 1,
+    "remaining": 2,
+    "used_chunk_ids": [
+      "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56"
+    ]
+  },
+  "quantity": 1,
+  "used_chunk_ids": [
+    "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56"
+  ],
+  "chat_turn_id": "3f1b0fc55399487aad88a9afd1360f8b"
+}
+
+Resposta do terceiro turno e motivos das omissões nesta única execução:
+{
+  "status": "ok",
+  "mensagem": "1 item(ns) gerado(s).",
+  "itens": [
+    {
+      "item_id": "9ebeae23d1414c8d81d3ecf4b1a5c2e7",
+      "conteudo": {
+        "tipo": "question",
+        "stem": "O que é descrito por ec2707aa?",
+        "options": [
+          "Membrana celular",
+          "Estrela distante"
+        ],
+        "correct_index": 0,
+        "explanation": "A mitocôndria produz ATP pela respiração celular.",
+        "bloom_level": "lembrar",
+        "citations": [
+          {
+            "chunk_ref": "C1",
+            "evidence": "A mitocôndria produz ATP pela respiração celular"
+          }
+        ]
+      }
+    }
+  ],
+  "omissoes": [],
+  "fontes": [
+    {
+      "chunk_ref": "C1",
+      "chunk_id": "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+      "document_id": "7c0733c3-f8aa-4b2c-8506-05a36955d391",
+      "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+      "page": null,
+      "section_path": [
+        "Biologia",
+        "Energia"
+      ]
+    }
+  ],
+  "motivo_recusa": null,
+  "chat_turn_id": "0b752ee9bdf040e599e46023a3ea7098",
+  "trace_id": "f02625e367d21d28438893852bf61929"
+}
+
+A rodada isolada teve omissoes=[] e um item, portanto não atribuo retroativamente um motivo específico à omissão da falha histórica: o pytest anterior não preservou esse campo por inteiro e seu banco descartável foi removido. O diagnóstico atual mantém todos os registros de turno/itens/recuperação e estado antes/depois em diagnostico-gerar-mais-dados.json.
+
+Conferência da possível regressão do callback:
+- Diff integral contra b3b2969 segue ao fim deste arquivo.
+- Comparação AST do corpo antigo ChatPipeline.run com o corpo atual _run: idênticos (true); não há mudança de alocação, cursor, escopo ou used_chunk_ids.
+- O wrapper novo apenas configura/restaura ContextVar e delega sem modificar argumentos nem resposta; no teste, progress=None nos três turnos. O callback E5/E6/E7 não é invocado, pois o ContextVar tem valor None. _StageLatencies continua somando as mesmas durações; o trecho novo só lê nome e tempo do span.
+
+Mecanismo de não determinismo demonstrado no dublê e E9 real:
+- LineageRepository.reserve atribui document_version_id=uuid4() na primeira ingestão (repository.py:341).
+- DoclingParser._adapt incorpora esse UUID ao canonical_id (core.py:144); Chunker.emit incorpora versão/canonical_id à identidade SHA-256 (core.py:268). Receita reconstruída validou exatamente os três chunk_ids observados na rodada isolada.
+- APIs.generate do teste T-021 faz todas as questões com stem='O que é descrito por {chunk_id[:8]}?', as MESMAS opções e índice correto. No reparo, não modifica essa forma da questão. O objetivo de verificar continuação fica acoplado aos prefixos aleatórios dos hashes.
+- E9 real usa a similaridade de stem + alternativa correta, com DUPLICATE_RATIO=0.9. Assim, o texto fixo e a opção correta fixa dominam a chave; dependendo dos prefixos gerados pelo UUID, fontes diferentes podem produzir questões quase idênticas e ser rejeitadas como duplicata. Esse comportamento do produto está presente em b3b2969 e foi preservado.
+- Experimento fechado OFFLINE (não é repetição do teste): 256 UUIDs versão 4 fixados a priori para o experimento final (UUID(int=i, version=4), i=1..256), textos/offsets/configuração do corpus observado mantidos, hashes reconstruídos pela mesma receita do produto, execução do MESMO APIs.generate existente e do MESMO validate_items real; nenhuma chamada de LLM, PG ou Qdrant nessa análise. Todos os 256 resultados estão em diagnostico-gerar-mais-analise.json. Resultado final: 244 aprovados e 12 rejeitados, exclusivamente motivo='duplicata' e detalhe='quase idêntico a outro item', sem alteração de limiar ou modelo. Isso comprova o acoplamento do teste ao UUID, sem concluir apenas a partir de um novo teste verde.
+
+Par observado na rodada isolada:
+{
+  "version": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+  "prefixes": [
+    "46191423",
+    "ec2707aa"
+  ],
+  "stems": [
+    "O que é descrito por 46191423?",
+    "O que é descrito por ec2707aa?"
+  ],
+  "similarity": 0.8541666666666666,
+  "verdict": {
+    "item_index": 0,
+    "aprovado": true,
+    "motivo": null,
+    "detalhe": null
+  }
+}
+
+Contraexemplos determinísticos com a MESMA fonte/configuração:
+[
+  {
+    "version": "00000000-0000-4000-8000-000000000012",
+    "prefixes": [
+      "50b7ee74",
+      "60db7e63"
+    ],
+    "stems": [
+      "O que é descrito por 50b7ee74?",
+      "O que é descrito por 60db7e63?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  },
+  {
+    "version": "00000000-0000-4000-8000-000000000015",
+    "prefixes": [
+      "25abf094",
+      "2bfc9573"
+    ],
+    "stems": [
+      "O que é descrito por 25abf094?",
+      "O que é descrito por 2bfc9573?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  },
+  {
+    "version": "00000000-0000-4000-8000-00000000002c",
+    "prefixes": [
+      "d01abd52",
+      "fd8b5294"
+    ],
+    "stems": [
+      "O que é descrito por d01abd52?",
+      "O que é descrito por fd8b5294?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  },
+  {
+    "version": "00000000-0000-4000-8000-00000000003c",
+    "prefixes": [
+      "42ec4613",
+      "d654461e"
+    ],
+    "stems": [
+      "O que é descrito por 42ec4613?",
+      "O que é descrito por d654461e?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  },
+  {
+    "version": "00000000-0000-4000-8000-00000000003f",
+    "prefixes": [
+      "6a140261",
+      "61e3b4c0"
+    ],
+    "stems": [
+      "O que é descrito por 6a140261?",
+      "O que é descrito por 61e3b4c0?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  },
+  {
+    "version": "00000000-0000-4000-8000-000000000054",
+    "prefixes": [
+      "0bf91813",
+      "6b79e83e"
+    ],
+    "stems": [
+      "O que é descrito por 0bf91813?",
+      "O que é descrito por 6b79e83e?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  },
+  {
+    "version": "00000000-0000-4000-8000-00000000005f",
+    "prefixes": [
+      "12b35ff8",
+      "4a1d2581"
+    ],
+    "stems": [
+      "O que é descrito por 12b35ff8?",
+      "O que é descrito por 4a1d2581?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  },
+  {
+    "version": "00000000-0000-4000-8000-00000000006c",
+    "prefixes": [
+      "a1160ff5",
+      "03f7f513"
+    ],
+    "stems": [
+      "O que é descrito por a1160ff5?",
+      "O que é descrito por 03f7f513?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  },
+  {
+    "version": "00000000-0000-4000-8000-000000000090",
+    "prefixes": [
+      "8bdec6f2",
+      "b36f2a0e"
+    ],
+    "stems": [
+      "O que é descrito por 8bdec6f2?",
+      "O que é descrito por b36f2a0e?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  },
+  {
+    "version": "00000000-0000-4000-8000-00000000009b",
+    "prefixes": [
+      "e81f1882",
+      "c815f22f"
+    ],
+    "stems": [
+      "O que é descrito por e81f1882?",
+      "O que é descrito por c815f22f?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  },
+  {
+    "version": "00000000-0000-4000-8000-0000000000da",
+    "prefixes": [
+      "e44aa456",
+      "44eb4850"
+    ],
+    "stems": [
+      "O que é descrito por e44aa456?",
+      "O que é descrito por 44eb4850?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  },
+  {
+    "version": "00000000-0000-4000-8000-0000000000f4",
+    "prefixes": [
+      "14e942bd",
+      "124e7221"
+    ],
+    "stems": [
+      "O que é descrito por 14e942bd?",
+      "O que é descrito por 124e7221?"
+    ],
+    "similarity": 0.9166666666666666,
+    "verdict": {
+      "item_index": 0,
+      "aprovado": false,
+      "motivo": "duplicata",
+      "detalhe": "quase idêntico a outro item"
+    }
+  }
+]
+
+Conclusão: não foi encontrada alteração de E1–E12 pelo callback; há prova concreta de instabilidade do dublê em função dos UUIDs e do filtro E9 existente. Não foi modificada a aplicação para enfraquecer a deduplicação, e não foi alterado teste/caso congelado. Estabilizar o dublê de T-021 exige aprovação específica; a única execução final desta rodada foi preservada em pytest-r2.txt, sem repetição. A causa exata da omissão da execução histórica permanece não recuperável dos artefatos antigos; o mecanismo equivalente demonstrado é duplicata.
+
+Diff contra b3b2969:
+diff --git a/packages/generation/src/training_generation/chat.py b/packages/generation/src/training_generation/chat.py
+index e6ce0d8..0dda12f 100644
+--- a/packages/generation/src/training_generation/chat.py
++++ b/packages/generation/src/training_generation/chat.py
+@@ -2,6 +2,7 @@
+ from __future__ import annotations
+ import asyncio
+ from contextlib import contextmanager
++from contextvars import ContextVar
+ from dataclasses import dataclass, field
+ from datetime import datetime, timezone
+ import logging
+@@ -101,6 +102,9 @@ def _evidence_range(text,evidence):
+     return matches[0]
+ 
+ 
++_EXECUTION_PROGRESS = ContextVar('training_chat_progress', default=None)
++
++
+ class _StageLatencies(SpanProcessor):
+     """Um por TracerProvider (o SDK não remove processors); traces não coletados são limitados."""
+     MAX_TRACES=256
+@@ -118,6 +122,11 @@ class _StageLatencies(SpanProcessor):
+     def on_start(self,span,parent_context=None): pass
+     def on_end(self,span):
+         if span.name not in {'E5_retrieval','E6_rerank','E7_context'}: return
++        callback = _EXECUTION_PROGRESS.get()
++        seconds = (span.end_time-span.start_time)/1e9
++        if callback is not None:
++            try: callback({'stage': span.name.split('_', 1)[0], 'seconds': seconds})
++            except Exception: log.warning('Falha de telemetria de progresso; resposta preservada')
+         trace_id=f'{span.context.trace_id:032x}'
+         with self.lock:
+             values=self.traces.setdefault(trace_id,{})
+@@ -248,6 +257,16 @@ class ChatPipeline:
+         return [dict(entry,item_id=ids[index]) for index,entries in state.attempts.items() if index in ids for entry in entries]
+ 
+     async def run(self,owner_id,session_id,message,*,document_version_ids,section_prefix=(),count=5):
++        # ContextVar é copiada por asyncio.to_thread, isolada por execução e
++        # restaurada mesmo no cancelamento; nenhum callback global por provider.
++        token = _EXECUTION_PROGRESS.set(self.progress)
++        try:
++            return await self._run(owner_id,session_id,message,document_version_ids=document_version_ids,
++                                   section_prefix=section_prefix,count=count)
++        finally:
++            _EXECUTION_PROGRESS.reset(token)
++
++    async def _run(self,owner_id,session_id,message,*,document_version_ids,section_prefix=(),count=5):
+         for value in (owner_id,session_id):
+             if not isinstance(value,str) or not value.strip(): raise ValueError('Identidade e sessão explícitas obrigatórias')
+         if not isinstance(message,str): raise ValueError('Mensagem deve ser texto')
+
+Nota de análise: a similaridade registrada usa a mesma direção de SequenceMatcher de _is_duplicate (item novo, item anterior); a razão pode ser assimétrica. A primeira exploração offline usou 32 UUIDs genéricos (30 aprovações, 2 duplicatas), depois foi corrigida a direção apenas do campo de similaridade. Para garantir IDs da mesma versão produzida por uuid4(), a prova final usa o conjunto fixo de 256 UUIDs versão 4 descrito acima (244/12). Esses cálculos puros não reexecutam o teste, não chamam serviços e não alteram o corpus, a geração ou o E9.
+
+Resultado final da suíte autorizada, sem correção de produto nem alteração do dublê: Passou — 384 passed, 2 skipped, 12 warnings in 107.58s (0:01:47); exit 0. Os dois smokes reais ficaram Não executado intencionalmente para não repetir chamadas reais; prova HTTP anterior preservada. O resultado verde não estabiliza o dublê nem elimina o mecanismo demonstrado.

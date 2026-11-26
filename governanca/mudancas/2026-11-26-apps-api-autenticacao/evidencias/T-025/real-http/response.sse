@@ -1,0 +1,41 @@
+event: progress
+data: {"stage": "E1", "label": "entendendo", "sequence": 1, "seconds": 0.006999581999480142}
+
+event: progress
+data: {"stage": "E2", "label": "entendendo", "sequence": 2, "seconds": 2.8807089219990303}
+
+event: progress
+data: {"stage": "E3", "label": "entendendo", "sequence": 3, "seconds": 1.1352284730000974}
+
+event: progress
+data: {"stage": "E4", "label": "entendendo", "sequence": 4, "seconds": 3.122448260000965}
+
+: keepalive
+
+event: progress
+data: {"stage": "E5", "label": "buscando", "sequence": 5, "seconds": 15.455544863}
+
+event: progress
+data: {"stage": "E6", "label": "buscando", "sequence": 6, "seconds": 8.564049845}
+
+event: progress
+data: {"stage": "E7", "label": "buscando", "sequence": 7, "seconds": 0.029097738}
+
+event: progress
+data: {"stage": "E8", "label": "gerando", "sequence": 8, "seconds": 4.579102218998742}
+
+event: progress
+data: {"stage": "E9", "label": "verificando", "sequence": 9, "seconds": 0.14325499600090552}
+
+event: progress
+data: {"stage": "E10", "label": "verificando", "sequence": 10, "seconds": 3.3220350000010512}
+
+event: progress
+data: {"stage": "E11", "label": "verificando", "sequence": 11, "seconds": 0.0006167550000100164}
+
+event: progress
+data: {"stage": "E12", "label": "verificando", "sequence": 12, "seconds": 0.0798564990000159}
+
+event: final
+data: {"status": "ok", "mensagem": "5 item(ns) gerado(s).", "itens": [{"item_id": "61c6e9e7bdd0419480e8dcb8e60b5ea3", "conteudo": {"tipo": "flashcard", "front": "Qual é a principal função da membrana celular em relação ao ambiente interno da célula?", "back": "A membrana celular delimita a célula e controla a entrada e a saída de substâncias, utilizando sua permeabilidade seletiva para manter o equilíbrio interno.", "bloom_level": "compreender", "citations": [{"chunk_ref": "C1", "evidence": "A membrana celular delimita a célula e controla a entrada e a saída de substâncias. Sua permeabilidade seletiva ajuda a manter o equilíbrio interno"}]}}, {"item_id": "17d8394f2ccf4c2188ba492244ef7ad0", "conteudo": {"tipo": "flashcard", "front": "Como a difusão se diferencia do transporte ativo em relação ao gradiente de concentração?", "back": "A difusão permite o movimento de partículas a favor do gradiente de concentração, enquanto o transporte ativo utiliza energia para mover substâncias contra esse gradiente.", "bloom_level": "compreender", "citations": [{"chunk_ref": "C1", "evidence": "A difusão permite o movimento de partículas a favor do gradiente de concentração. O transporte ativo utiliza energia para mover substâncias contra esse gradiente"}]}}, {"item_id": "0ad2912d5e7f4d86bdb24473533fc8f7", "conteudo": {"tipo": "flashcard", "front": "Qual é o papel das proteínas presentes na membrana celular?", "back": "As proteínas da membrana são responsáveis por transportar moléculas e receber sinais.", "bloom_level": "compreender", "citations": [{"chunk_ref": "C1", "evidence": "Proteínas da membrana transportam moléculas e recebem sinais"}]}}, {"item_id": "a05d9ef7d22042e78ef8171915b76838", "conteudo": {"tipo": "flashcard", "front": "O que forma a barreira flexível da membrana celular?", "back": "A bicamada de fosfolipídios.", "bloom_level": "compreender", "citations": [{"chunk_ref": "C1", "evidence": "A bicamada de fosfolipídios forma uma barreira flexível"}]}}, {"item_id": "c2f6786cc2f04cc78d7d351cfe49915a", "conteudo": {"tipo": "flashcard", "front": "O transporte ativo requer gasto de energia?", "back": "Sim, o transporte ativo utiliza energia para mover substâncias contra o gradiente de concentração.", "bloom_level": "compreender", "citations": [{"chunk_ref": "C1", "evidence": "O transporte ativo utiliza energia para mover substâncias contra esse gradiente"}]}}], "omissoes": [], "fontes": [{"chunk_ref": "C1", "chunk_id": "2fd5d1b55d84da8e88033d7863e2e56ce828573952add885a61fb854f0e678ab", "document_id": "6423ce4b-229b-4124-b472-85559b5206d6", "document_version_id": "05a8001d-9980-4086-a0d2-b207f7e7652b", "page": null, "section_path": ["Membrana celular"]}], "motivo_recusa": null, "chat_turn_id": "c95507a0f31f49e294054ce309bc183e", "trace_id": "7d2b54ab7f3d41c7ff11a111f906e4ff"}
+

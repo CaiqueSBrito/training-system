@@ -1,0 +1,815 @@
+[
+  {
+    "ordinal": 1,
+    "owner": "owner",
+    "session": "session",
+    "message": "Gere flashcards",
+    "run_kwargs": {
+      "document_version_ids": [
+        "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3"
+      ],
+      "count": 1
+    },
+    "progress_is_none": true,
+    "continuation_before": null,
+    "prior_items_before": [],
+    "chunks_before": [
+      {
+        "chunk_id": "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+        "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+        "chunker_version": "structure-v3:canonical-v2:utf8-4-v1:t18:m38:last-paragraph-or-fragment-v2:o0:h1-occurrence",
+        "page": null,
+        "section_path": [
+          "Biologia"
+        ],
+        "start_offset": 0,
+        "end_offset": 74,
+        "text": "Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia\n\n",
+        "injection_flagged": false,
+        "injection_reason": null
+      },
+      {
+        "chunk_id": "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+        "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+        "chunker_version": "structure-v3:canonical-v2:utf8-4-v1:t18:m38:last-paragraph-or-fragment-v2:o0:h1-occurrence",
+        "page": null,
+        "section_path": [
+          "Biologia",
+          "Energia"
+        ],
+        "start_offset": 74,
+        "end_offset": 169,
+        "text": "A mitocôndria produz ATP pela respiração celular.\n\nNúcleo\n\nO núcleo armazena o DNA da célula.\n\n",
+        "injection_flagged": false,
+        "injection_reason": null
+      },
+      {
+        "chunk_id": "f203164b696a7e884a480b75397f642951e9b96c5c0641dd434727092e969bfb",
+        "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+        "chunker_version": "structure-v3:canonical-v2:utf8-4-v1:t18:m38:last-paragraph-or-fragment-v2:o0:h1-occurrence",
+        "page": null,
+        "section_path": [
+          "Biologia",
+          "Citosol"
+        ],
+        "start_offset": 169,
+        "end_offset": 213,
+        "text": "Citosol\n\nO citosol contém enzimas e solutos.",
+        "injection_flagged": false,
+        "injection_reason": null
+      }
+    ],
+    "response": {
+      "status": "ok",
+      "mensagem": "1 item(ns) gerado(s).",
+      "itens": [
+        {
+          "item_id": "d411676f0cad4e8fb7b2652966d5b245",
+          "conteudo": {
+            "tipo": "flashcard",
+            "front": "Qual propriedade 0 de 46191423?",
+            "back": "Propriedade descrita: Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+            "bloom_level": "lembrar",
+            "citations": [
+              {
+                "chunk_ref": "C1",
+                "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia"
+              }
+            ]
+          }
+        }
+      ],
+      "omissoes": [],
+      "fontes": [
+        {
+          "chunk_ref": "C1",
+          "chunk_id": "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+          "document_id": "7c0733c3-f8aa-4b2c-8506-05a36955d391",
+          "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+          "page": null,
+          "section_path": []
+        }
+      ],
+      "motivo_recusa": null,
+      "chat_turn_id": "fec465a4ad4a40739dcfe33e7a44be3f",
+      "trace_id": "874726df06346fa88559f40c21672ba4"
+    },
+    "execution": {
+      "chat_turn_id": "fec465a4ad4a40739dcfe33e7a44be3f",
+      "trace_id": "874726df06346fa88559f40c21672ba4",
+      "durations_seconds": {
+        "E1": 0.005860817000211682,
+        "E3": 8.418899960815907e-05,
+        "E2": 0.010406678999061114,
+        "E4": 0.000130880000142497,
+        "E5_E7": 0.03708530299991253,
+        "E8": 0.00012846999925386626,
+        "E9": 0.008818268999675638,
+        "E10": 0.00013721100003749598,
+        "E11": 0.0002678660002857214,
+        "E12": 0.0371775660005369,
+        "E5_retrieval": 0.022374325,
+        "E6_rerank": 2.569e-05,
+        "E7_context": 0.014002457
+      },
+      "models": {
+        "E2": "test-external-model",
+        "E3": "test-external-model",
+        "E4": "test-external-model",
+        "E8": "test-external-model",
+        "E10": "test-external-model"
+      },
+      "prompt_versions": {
+        "input_judge": "test-v1",
+        "classifier": "test-v1",
+        "pedagogue": "test-v1",
+        "generation": "test-v1",
+        "output_judge": "test-v1",
+        "output_rubric": "test-v1"
+      },
+      "status": "ok",
+      "errors": []
+    },
+    "continuation_after": {
+      "scope": {
+        "document_version_ids": [
+          "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3"
+        ],
+        "section_prefix": []
+      },
+      "cursor": {
+        "binding": "a5c86ee6103fccbec271fc607abd4dcf687422228a87d171c025804e0de6f753",
+        "version": 1,
+        "remaining": 0,
+        "used_chunk_ids": [
+          "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+          "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+          "f203164b696a7e884a480b75397f642951e9b96c5c0641dd434727092e969bfb"
+        ]
+      },
+      "quantity": 1,
+      "used_chunk_ids": [
+        "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+        "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+        "f203164b696a7e884a480b75397f642951e9b96c5c0641dd434727092e969bfb"
+      ],
+      "chat_turn_id": "fec465a4ad4a40739dcfe33e7a44be3f"
+    },
+    "items_after": [
+      {
+        "motivo": null,
+        "status": "entregue",
+        "content": {
+          "back": "Propriedade descrita: Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+          "tipo": "flashcard",
+          "front": "Qual propriedade 0 de 46191423?",
+          "citations": [
+            {
+              "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar"
+        },
+        "item_id": "d411676f0cad4e8fb7b2652966d5b245",
+        "raw_content": {
+          "back": "Propriedade descrita: Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+          "tipo": "flashcard",
+          "front": "Qual propriedade 0 de 46191423?",
+          "citations": [
+            {
+              "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar"
+        },
+        "chat_turn_id": "fec465a4ad4a40739dcfe33e7a44be3f"
+      }
+    ],
+    "retrieval_after": [
+      {
+        "modo": "consulta",
+        "cutoff": 0.5,
+        "candidates": [
+          {
+            "chunk_id": "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+            "selected": true,
+            "rrf_score": 1.0,
+            "rerank_score": 0.99
+          },
+          {
+            "chunk_id": "f203164b696a7e884a480b75397f642951e9b96c5c0641dd434727092e969bfb",
+            "selected": true,
+            "rrf_score": 0.33333334,
+            "rerank_score": 0.99
+          },
+          {
+            "chunk_id": "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+            "selected": true,
+            "rrf_score": 0.25,
+            "rerank_score": 0.99
+          }
+        ],
+        "chat_turn_id": "fec465a4ad4a40739dcfe33e7a44be3f",
+        "retrieval_run_id": "retrieval-724776a9e7fd4a1bba684e3835285535"
+      }
+    ]
+  },
+  {
+    "ordinal": 2,
+    "owner": "owner",
+    "session": "session",
+    "message": "Faça um questionário cobrindo o documento",
+    "run_kwargs": {
+      "document_version_ids": [
+        "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3"
+      ],
+      "count": 1
+    },
+    "progress_is_none": true,
+    "continuation_before": {
+      "scope": {
+        "document_version_ids": [
+          "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3"
+        ],
+        "section_prefix": []
+      },
+      "cursor": {
+        "binding": "a5c86ee6103fccbec271fc607abd4dcf687422228a87d171c025804e0de6f753",
+        "version": 1,
+        "remaining": 0,
+        "used_chunk_ids": [
+          "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+          "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+          "f203164b696a7e884a480b75397f642951e9b96c5c0641dd434727092e969bfb"
+        ]
+      },
+      "quantity": 1,
+      "used_chunk_ids": [
+        "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+        "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+        "f203164b696a7e884a480b75397f642951e9b96c5c0641dd434727092e969bfb"
+      ],
+      "chat_turn_id": "fec465a4ad4a40739dcfe33e7a44be3f"
+    },
+    "prior_items_before": [
+      {
+        "motivo": null,
+        "status": "entregue",
+        "content": {
+          "back": "Propriedade descrita: Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+          "tipo": "flashcard",
+          "front": "Qual propriedade 0 de 46191423?",
+          "citations": [
+            {
+              "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar"
+        },
+        "item_id": "d411676f0cad4e8fb7b2652966d5b245",
+        "raw_content": {
+          "back": "Propriedade descrita: Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+          "tipo": "flashcard",
+          "front": "Qual propriedade 0 de 46191423?",
+          "citations": [
+            {
+              "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar"
+        },
+        "chat_turn_id": "fec465a4ad4a40739dcfe33e7a44be3f"
+      }
+    ],
+    "chunks_before": [
+      {
+        "chunk_id": "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+        "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+        "chunker_version": "structure-v3:canonical-v2:utf8-4-v1:t18:m38:last-paragraph-or-fragment-v2:o0:h1-occurrence",
+        "page": null,
+        "section_path": [
+          "Biologia"
+        ],
+        "start_offset": 0,
+        "end_offset": 74,
+        "text": "Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia\n\n",
+        "injection_flagged": false,
+        "injection_reason": null
+      },
+      {
+        "chunk_id": "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+        "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+        "chunker_version": "structure-v3:canonical-v2:utf8-4-v1:t18:m38:last-paragraph-or-fragment-v2:o0:h1-occurrence",
+        "page": null,
+        "section_path": [
+          "Biologia",
+          "Energia"
+        ],
+        "start_offset": 74,
+        "end_offset": 169,
+        "text": "A mitocôndria produz ATP pela respiração celular.\n\nNúcleo\n\nO núcleo armazena o DNA da célula.\n\n",
+        "injection_flagged": false,
+        "injection_reason": null
+      },
+      {
+        "chunk_id": "f203164b696a7e884a480b75397f642951e9b96c5c0641dd434727092e969bfb",
+        "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+        "chunker_version": "structure-v3:canonical-v2:utf8-4-v1:t18:m38:last-paragraph-or-fragment-v2:o0:h1-occurrence",
+        "page": null,
+        "section_path": [
+          "Biologia",
+          "Citosol"
+        ],
+        "start_offset": 169,
+        "end_offset": 213,
+        "text": "Citosol\n\nO citosol contém enzimas e solutos.",
+        "injection_flagged": false,
+        "injection_reason": null
+      }
+    ],
+    "response": {
+      "status": "ok",
+      "mensagem": "1 item(ns) gerado(s).",
+      "itens": [
+        {
+          "item_id": "1958add1eb1b4c1885f4e6cebcf7119f",
+          "conteudo": {
+            "tipo": "question",
+            "stem": "O que é descrito por 46191423?",
+            "options": [
+              "Membrana celular",
+              "Estrela distante"
+            ],
+            "correct_index": 0,
+            "explanation": "Biologia\n\nA membrana celular controla a entrada de substâncias.",
+            "bloom_level": "lembrar",
+            "citations": [
+              {
+                "chunk_ref": "C1",
+                "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias"
+              }
+            ]
+          }
+        }
+      ],
+      "omissoes": [],
+      "fontes": [
+        {
+          "chunk_ref": "C1",
+          "chunk_id": "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+          "document_id": "7c0733c3-f8aa-4b2c-8506-05a36955d391",
+          "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+          "page": null,
+          "section_path": []
+        }
+      ],
+      "motivo_recusa": null,
+      "chat_turn_id": "3f1b0fc55399487aad88a9afd1360f8b",
+      "trace_id": "2f340526d65250e359c63b37d1b6bf96"
+    },
+    "execution": {
+      "chat_turn_id": "3f1b0fc55399487aad88a9afd1360f8b",
+      "trace_id": "2f340526d65250e359c63b37d1b6bf96",
+      "durations_seconds": {
+        "E1": 0.005346015001123305,
+        "E3": 8.264499956567306e-05,
+        "E2": 0.010360115000366932,
+        "E4": 0.00013278100050229114,
+        "E5_E7": 0.03855887399913627,
+        "E8": 0.0001105760002246825,
+        "E9": 0.008497901000737329,
+        "E10": 0.00010084700079460163,
+        "E11": 0.00024033400040934794,
+        "E12": 0.02792665900051361,
+        "E5_retrieval": 0.0198033,
+        "E7_context": 0.018144707
+      },
+      "models": {
+        "E2": "test-external-model",
+        "E3": "test-external-model",
+        "E4": "test-external-model",
+        "E8": "test-external-model",
+        "E10": "test-external-model"
+      },
+      "prompt_versions": {
+        "input_judge": "test-v1",
+        "classifier": "test-v1",
+        "pedagogue": "test-v1",
+        "generation": "test-v1",
+        "output_judge": "test-v1",
+        "output_rubric": "test-v1"
+      },
+      "status": "ok",
+      "errors": []
+    },
+    "continuation_after": {
+      "scope": {
+        "document_version_ids": [
+          "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3"
+        ],
+        "section_prefix": []
+      },
+      "cursor": {
+        "binding": "bb1f49fa8d3d594a6cd383f4b2aa4c264ea89e9e01e62209718cc587c1265682",
+        "version": 1,
+        "remaining": 2,
+        "used_chunk_ids": [
+          "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56"
+        ]
+      },
+      "quantity": 1,
+      "used_chunk_ids": [
+        "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56"
+      ],
+      "chat_turn_id": "3f1b0fc55399487aad88a9afd1360f8b"
+    },
+    "items_after": [
+      {
+        "motivo": null,
+        "status": "entregue",
+        "content": {
+          "stem": "O que é descrito por 46191423?",
+          "tipo": "question",
+          "options": [
+            "Membrana celular",
+            "Estrela distante"
+          ],
+          "citations": [
+            {
+              "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar",
+          "explanation": "Biologia\n\nA membrana celular controla a entrada de substâncias.",
+          "correct_index": 0
+        },
+        "item_id": "1958add1eb1b4c1885f4e6cebcf7119f",
+        "raw_content": {
+          "stem": "O que é descrito por 46191423?",
+          "tipo": "question",
+          "options": [
+            "Membrana celular",
+            "Estrela distante"
+          ],
+          "citations": [
+            {
+              "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias.",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar",
+          "explanation": "Biologia\n\nA membrana celular controla a entrada de substâncias.",
+          "correct_index": 0
+        },
+        "chat_turn_id": "3f1b0fc55399487aad88a9afd1360f8b"
+      }
+    ],
+    "retrieval_after": [
+      {
+        "modo": "cobertura",
+        "cutoff": null,
+        "candidates": [
+          {
+            "chunk_id": "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+            "selected": true,
+            "rrf_score": null,
+            "rerank_score": null
+          },
+          {
+            "chunk_id": "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+            "selected": false,
+            "rrf_score": null,
+            "rerank_score": null
+          },
+          {
+            "chunk_id": "f203164b696a7e884a480b75397f642951e9b96c5c0641dd434727092e969bfb",
+            "selected": false,
+            "rrf_score": null,
+            "rerank_score": null
+          }
+        ],
+        "chat_turn_id": "3f1b0fc55399487aad88a9afd1360f8b",
+        "retrieval_run_id": "retrieval-d54970945a5f4c81bd350ba2ad1ab494"
+      }
+    ]
+  },
+  {
+    "ordinal": 3,
+    "owner": "owner",
+    "session": "session",
+    "message": "Gere mais questões",
+    "run_kwargs": {
+      "document_version_ids": [
+        "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3"
+      ],
+      "count": 1
+    },
+    "progress_is_none": true,
+    "continuation_before": {
+      "scope": {
+        "document_version_ids": [
+          "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3"
+        ],
+        "section_prefix": []
+      },
+      "cursor": {
+        "binding": "bb1f49fa8d3d594a6cd383f4b2aa4c264ea89e9e01e62209718cc587c1265682",
+        "version": 1,
+        "remaining": 2,
+        "used_chunk_ids": [
+          "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56"
+        ]
+      },
+      "quantity": 1,
+      "used_chunk_ids": [
+        "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56"
+      ],
+      "chat_turn_id": "3f1b0fc55399487aad88a9afd1360f8b"
+    },
+    "prior_items_before": [
+      {
+        "motivo": null,
+        "status": "entregue",
+        "content": {
+          "back": "Propriedade descrita: Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+          "tipo": "flashcard",
+          "front": "Qual propriedade 0 de 46191423?",
+          "citations": [
+            {
+              "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar"
+        },
+        "item_id": "d411676f0cad4e8fb7b2652966d5b245",
+        "raw_content": {
+          "back": "Propriedade descrita: Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+          "tipo": "flashcard",
+          "front": "Qual propriedade 0 de 46191423?",
+          "citations": [
+            {
+              "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar"
+        },
+        "chat_turn_id": "fec465a4ad4a40739dcfe33e7a44be3f"
+      },
+      {
+        "motivo": null,
+        "status": "entregue",
+        "content": {
+          "stem": "O que é descrito por 46191423?",
+          "tipo": "question",
+          "options": [
+            "Membrana celular",
+            "Estrela distante"
+          ],
+          "citations": [
+            {
+              "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar",
+          "explanation": "Biologia\n\nA membrana celular controla a entrada de substâncias.",
+          "correct_index": 0
+        },
+        "item_id": "1958add1eb1b4c1885f4e6cebcf7119f",
+        "raw_content": {
+          "stem": "O que é descrito por 46191423?",
+          "tipo": "question",
+          "options": [
+            "Membrana celular",
+            "Estrela distante"
+          ],
+          "citations": [
+            {
+              "evidence": "Biologia\n\nA membrana celular controla a entrada de substâncias.",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar",
+          "explanation": "Biologia\n\nA membrana celular controla a entrada de substâncias.",
+          "correct_index": 0
+        },
+        "chat_turn_id": "3f1b0fc55399487aad88a9afd1360f8b"
+      }
+    ],
+    "chunks_before": [
+      {
+        "chunk_id": "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+        "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+        "chunker_version": "structure-v3:canonical-v2:utf8-4-v1:t18:m38:last-paragraph-or-fragment-v2:o0:h1-occurrence",
+        "page": null,
+        "section_path": [
+          "Biologia"
+        ],
+        "start_offset": 0,
+        "end_offset": 74,
+        "text": "Biologia\n\nA membrana celular controla a entrada de substâncias.\n\nEnergia\n\n",
+        "injection_flagged": false,
+        "injection_reason": null
+      },
+      {
+        "chunk_id": "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+        "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+        "chunker_version": "structure-v3:canonical-v2:utf8-4-v1:t18:m38:last-paragraph-or-fragment-v2:o0:h1-occurrence",
+        "page": null,
+        "section_path": [
+          "Biologia",
+          "Energia"
+        ],
+        "start_offset": 74,
+        "end_offset": 169,
+        "text": "A mitocôndria produz ATP pela respiração celular.\n\nNúcleo\n\nO núcleo armazena o DNA da célula.\n\n",
+        "injection_flagged": false,
+        "injection_reason": null
+      },
+      {
+        "chunk_id": "f203164b696a7e884a480b75397f642951e9b96c5c0641dd434727092e969bfb",
+        "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+        "chunker_version": "structure-v3:canonical-v2:utf8-4-v1:t18:m38:last-paragraph-or-fragment-v2:o0:h1-occurrence",
+        "page": null,
+        "section_path": [
+          "Biologia",
+          "Citosol"
+        ],
+        "start_offset": 169,
+        "end_offset": 213,
+        "text": "Citosol\n\nO citosol contém enzimas e solutos.",
+        "injection_flagged": false,
+        "injection_reason": null
+      }
+    ],
+    "response": {
+      "status": "ok",
+      "mensagem": "1 item(ns) gerado(s).",
+      "itens": [
+        {
+          "item_id": "9ebeae23d1414c8d81d3ecf4b1a5c2e7",
+          "conteudo": {
+            "tipo": "question",
+            "stem": "O que é descrito por ec2707aa?",
+            "options": [
+              "Membrana celular",
+              "Estrela distante"
+            ],
+            "correct_index": 0,
+            "explanation": "A mitocôndria produz ATP pela respiração celular.",
+            "bloom_level": "lembrar",
+            "citations": [
+              {
+                "chunk_ref": "C1",
+                "evidence": "A mitocôndria produz ATP pela respiração celular"
+              }
+            ]
+          }
+        }
+      ],
+      "omissoes": [],
+      "fontes": [
+        {
+          "chunk_ref": "C1",
+          "chunk_id": "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+          "document_id": "7c0733c3-f8aa-4b2c-8506-05a36955d391",
+          "document_version_id": "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3",
+          "page": null,
+          "section_path": [
+            "Biologia",
+            "Energia"
+          ]
+        }
+      ],
+      "motivo_recusa": null,
+      "chat_turn_id": "0b752ee9bdf040e599e46023a3ea7098",
+      "trace_id": "f02625e367d21d28438893852bf61929"
+    },
+    "execution": {
+      "chat_turn_id": "0b752ee9bdf040e599e46023a3ea7098",
+      "trace_id": "f02625e367d21d28438893852bf61929",
+      "durations_seconds": {
+        "E1": 0.004233248000673484,
+        "E3": 5.0570000894367695e-05,
+        "E2": 0.01024434799910523,
+        "E5_E7": 0.03172513100071228,
+        "E8": 0.00010769000073196366,
+        "E9": 0.008230972998717334,
+        "E10": 9.870200119621586e-05,
+        "E11": 0.00013240299995231908,
+        "E12": 0.02625430100124504,
+        "E5_retrieval": 0.016865239,
+        "E7_context": 0.014293148
+      },
+      "models": {
+        "E2": "test-external-model",
+        "E3": "test-external-model",
+        "E8": "test-external-model",
+        "E10": "test-external-model"
+      },
+      "prompt_versions": {
+        "input_judge": "test-v1",
+        "classifier": "test-v1",
+        "generation": "test-v1",
+        "output_judge": "test-v1",
+        "output_rubric": "test-v1"
+      },
+      "status": "ok",
+      "errors": []
+    },
+    "continuation_after": {
+      "scope": {
+        "document_version_ids": [
+          "8ae2b725-21af-4ed9-975f-a85c1fc5b2b3"
+        ],
+        "section_prefix": []
+      },
+      "cursor": {
+        "binding": "bb1f49fa8d3d594a6cd383f4b2aa4c264ea89e9e01e62209718cc587c1265682",
+        "version": 1,
+        "remaining": 1,
+        "used_chunk_ids": [
+          "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+          "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180"
+        ]
+      },
+      "quantity": 2,
+      "used_chunk_ids": [
+        "46191423041b137bab322a671d1d6112aea632115201f7c446747627930dce56",
+        "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180"
+      ],
+      "chat_turn_id": "0b752ee9bdf040e599e46023a3ea7098"
+    },
+    "items_after": [
+      {
+        "motivo": null,
+        "status": "entregue",
+        "content": {
+          "stem": "O que é descrito por ec2707aa?",
+          "tipo": "question",
+          "options": [
+            "Membrana celular",
+            "Estrela distante"
+          ],
+          "citations": [
+            {
+              "evidence": "A mitocôndria produz ATP pela respiração celular",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar",
+          "explanation": "A mitocôndria produz ATP pela respiração celular.",
+          "correct_index": 0
+        },
+        "item_id": "9ebeae23d1414c8d81d3ecf4b1a5c2e7",
+        "raw_content": {
+          "stem": "O que é descrito por ec2707aa?",
+          "tipo": "question",
+          "options": [
+            "Membrana celular",
+            "Estrela distante"
+          ],
+          "citations": [
+            {
+              "evidence": "A mitocôndria produz ATP pela respiração celular.",
+              "chunk_ref": "C1"
+            }
+          ],
+          "bloom_level": "lembrar",
+          "explanation": "A mitocôndria produz ATP pela respiração celular.",
+          "correct_index": 0
+        },
+        "chat_turn_id": "0b752ee9bdf040e599e46023a3ea7098"
+      }
+    ],
+    "retrieval_after": [
+      {
+        "modo": "cobertura",
+        "cutoff": null,
+        "candidates": [
+          {
+            "chunk_id": "ec2707aa4a1cb89af04bcc15815a6a5a65b41035c52b01039e1b1fb636fcc180",
+            "selected": true,
+            "rrf_score": null,
+            "rerank_score": null
+          },
+          {
+            "chunk_id": "f203164b696a7e884a480b75397f642951e9b96c5c0641dd434727092e969bfb",
+            "selected": false,
+            "rrf_score": null,
+            "rerank_score": null
+          }
+        ],
+        "chat_turn_id": "0b752ee9bdf040e599e46023a3ea7098",
+        "retrieval_run_id": "retrieval-3bd553532b66465eb4492cd9179e0724"
+      }
+    ]
+  }
+]

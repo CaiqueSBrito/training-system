@@ -61,7 +61,7 @@ class Models:
             raise GenerationError('timeout', stage='E8')
         chunk = context.chunks[0]
         return RawGenerationOutput(itens=[dict(tipo='flashcard', front='Qual a função da membrana celular?',
-            back=chunk.text, bloom_level='lembrar', citations=[dict(chunk_ref=chunk.ref, evidence=chunk.text)])])
+            back=chunk.text, bloom_level='lembrar', citations=[dict(chunk_ref=chunk.ref, evidence='A membrana celular controla a entrada de substâncias.')])])
 
     async def judge(self, items, context):
         return OutputJudgeResult(vereditos=[dict(item_index=i, fundamentado=True, conforme_rubrica=True)

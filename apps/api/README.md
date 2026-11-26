@@ -1,9 +1,7 @@
 # training-api
 
 Autenticação própria com FastAPI, fastapi-users, Argon2id e sessões opacas no
-Postgres da aplicação (ADR-0017). O chat SSE e a consulta de linhagem entram na
-T-025; esta implementação monta somente cadastro, login, logout, usuário atual e
-troca de senha. Recuperação por e-mail e edição genérica de usuários ficam fora
+Postgres da aplicação (ADR-0017), chat por SSE e consultas de linhagem do dono autenticado (T-025). Recuperação por e-mail e edição genérica de usuários ficam fora
 desta versão.
 
 Configure `APP_POSTGRES_*` e `API_*` a partir de `.env.example`. Aplique as migrações
@@ -105,3 +103,31 @@ distinta de falha de credencial. Login e troca de senha desfazem a transação e
 removem suas reservas nessa recusa, sem consumir os limites por conta/origem.
 Erros de senha efetivamente verificados continuam registrados. O rollback ocorre
 antes da sessão curta de limpeza, protegida de cancelamento.
+
+## Chat e linhagem
+
+`POST /chat` recebe `ChatRequest` (`session_id`, `mensagem`) com cookie e
+`X-CSRF-Token`. A identidade vem da sessão; os documentos disponíveis são
+resolvidos no Postgres por owner e estado ready do protocolo de ingestão.
+`GET /lineage/items/{item_id}` e `GET /lineage/turns/{chat_turn_id}` consultam
+a linhagem do dono; outro dono e inexistente recebem o mesmo 404.
+
+No lifespan, a composição real exige a configuração da CLI em `.env`
+(modelos/chaves, `PROMPT_SOURCE=offline`, índice Qdrant e banco da aplicação),
+mais `CHAT_RERANKER_CALIBRATION` apontando ao manifesto calibrado existente.
+Não há mudança de modelo ou calibração automática. Ausência ou falha de
+configuração deixa `POST /chat` explicitamente indisponível (503), preservando
+autenticação e GET de linhagem. O workspace completo deve estar instalado
+(`uv sync --all-packages`); nenhuma biblioteca nova é necessária.
+
+A composição mantém índice, clientes e reranker no lifespan e cria pipeline e
+orçamento de chamadas por turno via `app.state.chat_pipeline_factory`. Tracing
+local sem exportação Langfuse; embeddings e agentes usam uma tentativa.
+
+SSE usa `progress` (`stage`, `sequence`, `label`, `seconds`) e um único `final`
+com `ChatResponse` após persistência. Etapas paralelas são ordenadas e reparos
+são agregados; etapas E8–E12 aguardam o encerramento para impedir duplicação.
+Cabeçalhos: `Cache-Control: no-cache` e `X-Accel-Buffering: no`; configurar o
+proxy sem buffering/compressão e com timeout acima da duração de um turno.
+Desconexão cancela a task e aguarda o tratamento de cancelamento do domínio.
+Não há retomada do stream na v1.

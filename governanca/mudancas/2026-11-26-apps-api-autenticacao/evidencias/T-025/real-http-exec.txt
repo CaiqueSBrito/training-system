@@ -1,0 +1,4 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 6124.50it/s]
+{"run_id": "t025-4a75c21ee67c4d048215f37fef93ee9c", "status": "Passou", "chat_requests": 1, "response_status": "ok", "delivered_items": 5, "error_kind": null, "cleanup": {"http_stopped": true, "database_removed": true, "container_removed": true}}

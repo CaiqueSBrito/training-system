@@ -2,6 +2,7 @@
 from __future__ import annotations
 import asyncio
 from contextlib import contextmanager
+from contextvars import ContextVar
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 import logging
@@ -101,6 +102,9 @@ def _evidence_range(text,evidence):
     return matches[0]
 
 
+_EXECUTION_PROGRESS = ContextVar('training_chat_progress', default=None)
+
+
 class _StageLatencies(SpanProcessor):
     """Um por TracerProvider (o SDK não remove processors); traces não coletados são limitados."""
     MAX_TRACES=256
@@ -118,6 +122,11 @@ class _StageLatencies(SpanProcessor):
     def on_start(self,span,parent_context=None): pass
     def on_end(self,span):
         if span.name not in {'E5_retrieval','E6_rerank','E7_context'}: return
+        callback = _EXECUTION_PROGRESS.get()
+        seconds = (span.end_time-span.start_time)/1e9
+        if callback is not None:
+            try: callback({'stage': span.name.split('_', 1)[0], 'seconds': seconds})
+            except Exception: log.warning('Falha de telemetria de progresso; resposta preservada')
         trace_id=f'{span.context.trace_id:032x}'
         with self.lock:
             values=self.traces.setdefault(trace_id,{})
@@ -248,6 +257,16 @@ class ChatPipeline:
         return [dict(entry,item_id=ids[index]) for index,entries in state.attempts.items() if index in ids for entry in entries]
 
     async def run(self,owner_id,session_id,message,*,document_version_ids,section_prefix=(),count=5):
+        # ContextVar é copiada por asyncio.to_thread, isolada por execução e
+        # restaurada mesmo no cancelamento; nenhum callback global por provider.
+        token = _EXECUTION_PROGRESS.set(self.progress)
+        try:
+            return await self._run(owner_id,session_id,message,document_version_ids=document_version_ids,
+                                   section_prefix=section_prefix,count=count)
+        finally:
+            _EXECUTION_PROGRESS.reset(token)
+
+    async def _run(self,owner_id,session_id,message,*,document_version_ids,section_prefix=(),count=5):
         for value in (owner_id,session_id):
             if not isinstance(value,str) or not value.strip(): raise ValueError('Identidade e sessão explícitas obrigatórias')
         if not isinstance(message,str): raise ValueError('Mensagem deve ser texto')

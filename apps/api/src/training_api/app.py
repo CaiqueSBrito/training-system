@@ -11,7 +11,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from fastapi_users import exceptions
 from fastapi_users.authentication.strategy.db import DatabaseStrategy
 from pydantic import BaseModel, ConfigDict
-from sqlalchemy import delete, select
+from sqlalchemy import create_engine, delete, select
 from sqlalchemy.engine import make_url
 from sqlalchemy.exc import DBAPIError, IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
@@ -49,14 +49,33 @@ def create_app(settings: ApiSettings) -> FastAPI:
 
     @asynccontextmanager
     async def lifespan(app):
+        from anyio import to_thread
+        from .chat_runtime import ChatRuntime
+        runtime = None
         try:
+            # Auth e GET de linhagem continuam disponíveis se modelos não estiverem
+            # configurados; POST /chat informa 503, sem implementação alternativa.
+            if getattr(app.state, 'chat_pipeline_factory', None) is None:
+                try:
+                    runtime = await to_thread.run_sync(ChatRuntime, url)
+                    app.state.chat_pipeline_factory = runtime.factory
+                except Exception:
+                    import logging
+                    logging.getLogger(__name__).warning('Chat indisponível: configuração ou infraestrutura')
             yield
         finally:
+            if runtime is not None:
+                await to_thread.run_sync(runtime.close)
+            app.state.lineage_engine.dispose()
             await engine.dispose()
 
     app = FastAPI(title='Training System API', lifespan=lifespan,
                   docs_url='/docs' if settings.docs_enabled else None,
                   redoc_url='/redoc' if settings.docs_enabled else None)
+    app.state.lineage_engine = create_engine(url, pool_pre_ping=True, hide_parameters=True,
+        connect_args={'connect_timeout': 5, 'options': '-c timezone=UTC'})
+    from .chat_routes import router
+    app.include_router(router)
     app.state.settings = settings
     app.state.password_budget = PasswordBudget(settings)
     app.state.auth_purge_lock = Lock()
