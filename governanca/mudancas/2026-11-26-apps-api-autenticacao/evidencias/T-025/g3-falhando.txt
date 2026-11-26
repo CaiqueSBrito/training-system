@@ -1,0 +1,214 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: langsmith-0.15.0, anyio-4.16.0, Faker-40.54.0
+collecting ... collected 18 items
+
+apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[ok-stages0-ok] FAILED [  5%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[recusa-stages1-recusa] FAILED [ 11%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[erro-stages2-erro] FAILED [ 16%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/chat-POST] FAILED [ 22%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/lineage/items/unknown-GET] FAILED [ 27%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/lineage/turns/unknown-GET] FAILED [ 33%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/chat-POST] FAILED [ 38%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/items/unknown-GET] FAILED [ 44%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/turns/unknown-GET] FAILED [ 50%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[missing] FAILED [ 55%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[invalid] FAILED [ 61%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[other-session] FAILED [ 66%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_body_owner_never_selected FAILED [ 72%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_query_owner_cannot_select_another_owner FAILED [ 77%]
+apps/api/tests/test_api_chat.py::test_api_lin_001_owner_sources_and_equal_404[items] FAILED [ 83%]
+apps/api/tests/test_api_chat.py::test_api_lin_001_owner_sources_and_equal_404[turns] FAILED [ 88%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_auth_transaction_released_before_models FAILED [ 94%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_disconnect_cancels_and_persists_error FAILED [100%]
+
+=================================== FAILURES ===================================
+_ test_api_cht_001_order_headers_single_final_and_committed_graph[ok-stages0-ok] _
+apps/api/tests/test_api_chat.py:54: in test_api_cht_001_order_headers_single_final_and_committed_graph
+    frames = events(post_chat(api, chat_box, message='x' * 8001 if mode == 'recusa' else 'Gere um flashcard'))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+apps/api/tests/api_chat_support.py:137: in events
+    assert response.status_code == 200, response.text
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: {"detail":"Not Found"}
+_ test_api_cht_001_order_headers_single_final_and_committed_graph[recusa-stages1-recusa] _
+apps/api/tests/test_api_chat.py:54: in test_api_cht_001_order_headers_single_final_and_committed_graph
+    frames = events(post_chat(api, chat_box, message='x' * 8001 if mode == 'recusa' else 'Gere um flashcard'))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+apps/api/tests/api_chat_support.py:137: in events
+    assert response.status_code == 200, response.text
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: {"detail":"Not Found"}
+_ test_api_cht_001_order_headers_single_final_and_committed_graph[erro-stages2-erro] _
+apps/api/tests/test_api_chat.py:54: in test_api_cht_001_order_headers_single_final_and_committed_graph
+    frames = events(post_chat(api, chat_box, message='x' * 8001 if mode == 'recusa' else 'Gere um flashcard'))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+apps/api/tests/api_chat_support.py:137: in events
+    assert response.status_code == 200, response.text
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: {"detail":"Not Found"}
+_____ test_aut_own_001_data_routes_require_valid_session[None-/chat-POST] ______
+apps/api/tests/test_api_chat.py:84: in test_aut_own_001_data_routes_require_valid_session
+    assert response.status_code == 401, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 401
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_ test_aut_own_001_data_routes_require_valid_session[None-/lineage/items/unknown-GET] _
+apps/api/tests/test_api_chat.py:84: in test_aut_own_001_data_routes_require_valid_session
+    assert response.status_code == 401, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 401
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_ test_aut_own_001_data_routes_require_valid_session[None-/lineage/turns/unknown-GET] _
+apps/api/tests/test_api_chat.py:84: in test_aut_own_001_data_routes_require_valid_session
+    assert response.status_code == 401, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 401
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_ test_aut_own_001_data_routes_require_valid_session[invalid-session-/chat-POST] _
+apps/api/tests/test_api_chat.py:84: in test_aut_own_001_data_routes_require_valid_session
+    assert response.status_code == 401, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 401
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_ test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/items/unknown-GET] _
+apps/api/tests/test_api_chat.py:84: in test_aut_own_001_data_routes_require_valid_session
+    assert response.status_code == 401, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 401
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_ test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/turns/unknown-GET] _
+apps/api/tests/test_api_chat.py:84: in test_aut_own_001_data_routes_require_valid_session
+    assert response.status_code == 401, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 401
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_____________ test_api_cht_001_csrf_rejected_without_turn[missing] _____________
+apps/api/tests/test_api_chat.py:96: in test_api_cht_001_csrf_rejected_without_turn
+    assert response.status_code == 403, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 403
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_____________ test_api_cht_001_csrf_rejected_without_turn[invalid] _____________
+apps/api/tests/test_api_chat.py:96: in test_api_cht_001_csrf_rejected_without_turn
+    assert response.status_code == 403, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 403
+E    +  where 404 = <Response [404 Not Found]>.status_code
+__________ test_api_cht_001_csrf_rejected_without_turn[other-session] __________
+apps/api/tests/test_api_chat.py:96: in test_api_cht_001_csrf_rejected_without_turn
+    assert response.status_code == 403, response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 403
+E    +  where 404 = <Response [404 Not Found]>.status_code
+__________________ test_aut_own_001_body_owner_never_selected __________________
+apps/api/tests/test_api_chat.py:104: in test_aut_own_001_body_owner_never_selected
+    assert response.status_code in (200, 422), response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 in (200, 422)
+E    +  where 404 = <Response [404 Not Found]>.status_code
+___________ test_aut_own_001_query_owner_cannot_select_another_owner ___________
+apps/api/tests/test_api_chat.py:119: in test_aut_own_001_query_owner_cannot_select_another_owner
+    assert response.status_code in (200, 422), response.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 in (200, 422)
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_____________ test_api_lin_001_owner_sources_and_equal_404[items] ______________
+apps/api/tests/test_api_chat.py:143: in test_api_lin_001_owner_sources_and_equal_404
+    assert own.status_code == 200, own.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+_____________ test_api_lin_001_owner_sources_and_equal_404[turns] ______________
+apps/api/tests/test_api_chat.py:143: in test_api_lin_001_owner_sources_and_equal_404
+    assert own.status_code == 200, own.text
+E   AssertionError: {"detail":"Not Found"}
+E   assert 404 == 200
+E    +  where 404 = <Response [404 Not Found]>.status_code
+___________ test_api_cht_001_auth_transaction_released_before_models ___________
+apps/api/tests/test_api_chat.py:187: in test_api_cht_001_auth_transaction_released_before_models
+    final = ChatResponse.model_validate(events(post_chat(api, chat_box))[-1][1])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+apps/api/tests/api_chat_support.py:137: in events
+    assert response.status_code == 200, response.text
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: {"detail":"Not Found"}
+____________ test_api_cht_001_disconnect_cancels_and_persists_error ____________
+.venv/lib/python3.13/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+.venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+.venv/lib/python3.13/site-packages/starlette/routing.py:683: in __call__
+    await self.middleware_stack(scope, receive, send)
+.venv/lib/python3.13/site-packages/fastapi/routing.py:2886: in app
+    await self.default(scope, receive, send)
+.venv/lib/python3.13/site-packages/starlette/routing.py:639: in not_found
+    raise HTTPException(status_code=404)
+E   starlette.exceptions.HTTPException: 404: Not Found
+
+During handling of the above exception, another exception occurred:
+apps/api/tests/test_api_chat.py:226: in test_api_cht_001_disconnect_cancels_and_persists_error
+    api.client().portal.call(exercise)
+.venv/lib/python3.13/site-packages/anyio/from_thread.py:347: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py:460: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py:402: in __get_result
+    raise self._exception
+.venv/lib/python3.13/site-packages/anyio/from_thread.py:272: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+apps/api/tests/test_api_chat.py:220: in exercise
+    await asyncio.wait_for(app(scope, receive, send), 8)
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/asyncio/tasks.py:514: in wait_for
+    return await fut
+           ^^^^^^^^^
+.venv/lib/python3.13/site-packages/fastapi/applications.py:1194: in __call__
+    await super().__call__(scope, receive, send)
+.venv/lib/python3.13/site-packages/starlette/applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+.venv/lib/python3.13/site-packages/starlette/middleware/errors.py:186: in __call__
+    raise exc
+.venv/lib/python3.13/site-packages/starlette/middleware/errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+.venv/lib/python3.13/site-packages/fastapi/telemetry/_asgi.py:151: in __call__
+    await self.app(scope, receive, send)
+.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+.venv/lib/python3.13/site-packages/starlette/_exception_handler.py:63: in wrapped_app
+    await response(scope, receive, sender)
+.venv/lib/python3.13/site-packages/starlette/responses.py:171: in __call__
+    await send({"type": "http.response.start", "status": self.status_code, "headers": self.raw_headers})
+.venv/lib/python3.13/site-packages/starlette/_exception_handler.py:39: in sender
+    await send(message)
+.venv/lib/python3.13/site-packages/starlette/middleware/errors.py:161: in _send
+    await send(message)
+apps/api/tests/test_api_chat.py:211: in send
+    assert message['status'] == 200, 'POST /chat deve existir antes de testar desconexão'
+E   AssertionError: POST /chat deve existir antes de testar desconexão
+E   assert 404 == 200
+=========================== short test summary info ============================
+FAILED apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[ok-stages0-ok]
+FAILED apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[recusa-stages1-recusa]
+FAILED apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[erro-stages2-erro]
+FAILED apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/chat-POST]
+FAILED apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/lineage/items/unknown-GET]
+FAILED apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/lineage/turns/unknown-GET]
+FAILED apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/chat-POST]
+FAILED apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/items/unknown-GET]
+FAILED apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/turns/unknown-GET]
+FAILED apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[missing]
+FAILED apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[invalid]
+FAILED apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[other-session]
+FAILED apps/api/tests/test_api_chat.py::test_aut_own_001_body_owner_never_selected
+FAILED apps/api/tests/test_api_chat.py::test_aut_own_001_query_owner_cannot_select_another_owner
+FAILED apps/api/tests/test_api_chat.py::test_api_lin_001_owner_sources_and_equal_404[items]
+FAILED apps/api/tests/test_api_chat.py::test_api_lin_001_owner_sources_and_equal_404[turns]
+FAILED apps/api/tests/test_api_chat.py::test_api_cht_001_auth_transaction_released_before_models
+FAILED apps/api/tests/test_api_chat.py::test_api_cht_001_disconnect_cancels_and_persists_error
+============================= 18 failed in 19.42s ==============================

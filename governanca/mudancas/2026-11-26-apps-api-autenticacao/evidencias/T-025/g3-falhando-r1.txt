@@ -1,0 +1,156 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: langsmith-0.15.0, anyio-4.16.0, Faker-40.54.0
+collecting ... collected 18 items
+
+apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[ok-stages0-ok] ERROR [  5%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[recusa-stages1-recusa] ERROR [ 11%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[erro-stages2-erro] ERROR [ 16%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/chat-POST] ERROR [ 22%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/lineage/items/unknown-GET] ERROR [ 27%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/lineage/turns/unknown-GET] ERROR [ 33%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/chat-POST] ERROR [ 38%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/items/unknown-GET] ERROR [ 44%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/turns/unknown-GET] ERROR [ 50%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[missing] ERROR [ 55%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[invalid] ERROR [ 61%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[other-session] ERROR [ 66%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_body_owner_never_selected ERROR [ 72%]
+apps/api/tests/test_api_chat.py::test_aut_own_001_query_owner_cannot_select_another_owner ERROR [ 77%]
+apps/api/tests/test_api_chat.py::test_api_lin_001_owner_sources_and_equal_404[items] ERROR [ 83%]
+apps/api/tests/test_api_chat.py::test_api_lin_001_owner_sources_and_equal_404[turns] ERROR [ 88%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_auth_transaction_released_before_models ERROR [ 94%]
+apps/api/tests/test_api_chat.py::test_api_cht_001_disconnect_cancels_and_persists_error ERROR [100%]
+
+==================================== ERRORS ====================================
+_ ERROR at setup of test_api_cht_001_order_headers_single_final_and_committed_graph[ok-stages0-ok] _
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+_ ERROR at setup of test_api_cht_001_order_headers_single_final_and_committed_graph[recusa-stages1-recusa] _
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+_ ERROR at setup of test_api_cht_001_order_headers_single_final_and_committed_graph[erro-stages2-erro] _
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+_ ERROR at setup of test_aut_own_001_data_routes_require_valid_session[None-/chat-POST] _
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+_ ERROR at setup of test_aut_own_001_data_routes_require_valid_session[None-/lineage/items/unknown-GET] _
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+_ ERROR at setup of test_aut_own_001_data_routes_require_valid_session[None-/lineage/turns/unknown-GET] _
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+_ ERROR at setup of test_aut_own_001_data_routes_require_valid_session[invalid-session-/chat-POST] _
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+_ ERROR at setup of test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/items/unknown-GET] _
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+_ ERROR at setup of test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/turns/unknown-GET] _
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+____ ERROR at setup of test_api_cht_001_csrf_rejected_without_turn[missing] ____
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+____ ERROR at setup of test_api_cht_001_csrf_rejected_without_turn[invalid] ____
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+_ ERROR at setup of test_api_cht_001_csrf_rejected_without_turn[other-session] _
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+_________ ERROR at setup of test_aut_own_001_body_owner_never_selected _________
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+__ ERROR at setup of test_aut_own_001_query_owner_cannot_select_another_owner __
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+____ ERROR at setup of test_api_lin_001_owner_sources_and_equal_404[items] _____
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+____ ERROR at setup of test_api_lin_001_owner_sources_and_equal_404[turns] _____
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+__ ERROR at setup of test_api_cht_001_auth_transaction_released_before_models __
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+___ ERROR at setup of test_api_cht_001_disconnect_cancels_and_persists_error ___
+apps/api/tests/conftest.py:49: in app
+    settings = config.ApiSettings(
+apps/api/src/training_api/config.py:15: in attempt_secret
+    raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E   ValueError: Defina API_ATTEMPT_KEY_SECRET
+=========================== short test summary info ============================
+ERROR apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[ok-stages0-ok]
+ERROR apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[recusa-stages1-recusa]
+ERROR apps/api/tests/test_api_chat.py::test_api_cht_001_order_headers_single_final_and_committed_graph[erro-stages2-erro]
+ERROR apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/chat-POST]
+ERROR apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/lineage/items/unknown-GET]
+ERROR apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[None-/lineage/turns/unknown-GET]
+ERROR apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/chat-POST]
+ERROR apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/items/unknown-GET]
+ERROR apps/api/tests/test_api_chat.py::test_aut_own_001_data_routes_require_valid_session[invalid-session-/lineage/turns/unknown-GET]
+ERROR apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[missing]
+ERROR apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[invalid]
+ERROR apps/api/tests/test_api_chat.py::test_api_cht_001_csrf_rejected_without_turn[other-session]
+ERROR apps/api/tests/test_api_chat.py::test_aut_own_001_body_owner_never_selected
+ERROR apps/api/tests/test_api_chat.py::test_aut_own_001_query_owner_cannot_select_another_owner
+ERROR apps/api/tests/test_api_chat.py::test_api_lin_001_owner_sources_and_equal_404[items]
+ERROR apps/api/tests/test_api_chat.py::test_api_lin_001_owner_sources_and_equal_404[turns]
+ERROR apps/api/tests/test_api_chat.py::test_api_cht_001_auth_transaction_released_before_models
+ERROR apps/api/tests/test_api_chat.py::test_api_cht_001_disconnect_cancels_and_persists_error
+============================== 18 errors in 4.02s ==============================
