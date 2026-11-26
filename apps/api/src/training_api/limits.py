@@ -36,26 +36,39 @@ def seconds_ago(seconds):
     return func.clock_timestamp() - func.make_interval(0, 0, 0, 0, 0, 0, seconds)
 
 
-async def purge_expired(session, settings, batch_size=100):
-    """Até um lote por tabela; linhas ocupadas são ignoradas sem esperar locks."""
-    await session.execute(text("""
-        DELETE FROM auth_attempt WHERE ctid IN (
-            SELECT ctid FROM auth_attempt
-            WHERE (kind='login_failure' AND created_at <= clock_timestamp()-make_interval(secs => :login_window))
-               OR (kind='register' AND created_at <= clock_timestamp()-make_interval(secs => :register_window))
-            LIMIT :batch_size FOR UPDATE SKIP LOCKED
-        )
-    """), {'login_window': settings.login_window_seconds,
-            'register_window': settings.register_window_seconds, 'batch_size': batch_size})
-    await session.execute(text("""
-        DELETE FROM auth_access_token WHERE ctid IN (
-            SELECT ctid FROM auth_access_token
-            WHERE created_at <= clock_timestamp()-make_interval(secs => :lifetime)
-               OR last_seen_at <= clock_timestamp()-make_interval(secs => :idle)
-            LIMIT :batch_size FOR UPDATE SKIP LOCKED
-        )
-    """), {'lifetime': settings.session_lifetime_seconds,
-            'idle': settings.session_idle_seconds, 'batch_size': batch_size})
+async def purge_expired(session, settings, batch_size=100, time_budget_seconds=0.2):
+    """Repete lotes por até ~200 ms; ocupadas são puladas, sem scan externo por IN."""
+    deadline = monotonic() + time_budget_seconds
+    jobs = [
+        (text("""
+            DELETE FROM auth_attempt WHERE ctid = ANY(ARRAY(
+                SELECT ctid FROM auth_attempt
+                WHERE (kind='login_failure' AND created_at <= clock_timestamp()-make_interval(secs => :login_window))
+                   OR (kind='register' AND created_at <= clock_timestamp()-make_interval(secs => :register_window))
+                LIMIT :batch_size FOR UPDATE SKIP LOCKED
+            ))
+        """), {'login_window': settings.login_window_seconds,
+                'register_window': settings.register_window_seconds, 'batch_size': batch_size}),
+        (text("""
+            DELETE FROM auth_access_token WHERE ctid = ANY(ARRAY(
+                SELECT ctid FROM auth_access_token
+                WHERE created_at <= clock_timestamp()-make_interval(secs => :lifetime)
+                   OR last_seen_at <= clock_timestamp()-make_interval(secs => :idle)
+                LIMIT :batch_size FOR UPDATE SKIP LOCKED
+            ))
+        """), {'lifetime': settings.session_lifetime_seconds,
+                'idle': settings.session_idle_seconds, 'batch_size': batch_size}),
+    ]
+    # Alterna tabelas; só repete aquela cujo lote veio completo.
+    while jobs and monotonic() < deadline:
+        full_batches = []
+        for statement, parameters in jobs:
+            if monotonic() >= deadline:
+                return
+            result = await session.execute(statement, parameters)
+            if result.rowcount == batch_size:
+                full_batches.append((statement, parameters))
+        jobs = full_batches
 
 
 async def maybe_purge_expired(request: Request):

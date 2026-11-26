@@ -1,5 +1,7 @@
 """fastapi-users: política de senha, sessão persistida e dono autenticado."""
 
+from contextlib import contextmanager
+from threading import Lock
 from uuid import UUID
 import secrets
 
@@ -20,6 +22,28 @@ from .database import AccessToken, TokenDatabase, User, UserDatabase, get_sessio
 SESSION_COOKIE = 'training_session'
 
 
+class PasswordBudget:
+    """Conta execução + espera antes do primeiro await, sem corrida na admissão."""
+
+    def __init__(self, settings):
+        self.limiter = CapacityLimiter(settings.password_hash_concurrency)
+        self.maximum = settings.password_hash_concurrency * (1 + settings.password_hash_queue_multiplier)
+        self.pending = 0
+        self.lock = Lock()
+
+    @contextmanager
+    def admit(self):
+        with self.lock:
+            if self.pending >= self.maximum:
+                raise HTTPException(503, 'Password hashing temporarily overloaded')
+            self.pending += 1
+        try:
+            yield
+        finally:
+            with self.lock:
+                self.pending -= 1
+
+
 class UserRead(schemas.BaseUser[UUID]):
     pass
 
@@ -29,10 +53,12 @@ class UserCreate(schemas.BaseUserCreate):
 
 
 class UserManager(UUIDIDMixin, BaseUserManager[User, UUID]):
-    def __init__(self, database, settings, password_limiter=None):
+    def __init__(self, database, settings, password_budget=None):
         super().__init__(database)
         self.settings = settings
-        self.password_limiter = password_limiter or CapacityLimiter(settings.password_hash_concurrency)
+        self.password_budget = password_budget or PasswordBudget(settings)
+        self.password_limiter = self.password_budget.limiter
+        self.verified_nowait = False
         self.password_verified = False
 
     async def validate_password(self, password, user):
@@ -42,10 +68,12 @@ class UserManager(UUIDIDMixin, BaseUserManager[User, UUID]):
             )
 
     async def hash_password(self, password):
-        return await to_thread.run_sync(self.password_helper.hash, password, limiter=self.password_limiter)
+        with self.password_budget.admit():
+            return await to_thread.run_sync(self.password_helper.hash, password, limiter=self.password_limiter)
 
     async def verify_password(self, password, hashed):
-        return await to_thread.run_sync(self.password_helper.verify_and_update, password, hashed, limiter=self.password_limiter)
+        with self.password_budget.admit():
+            return await to_thread.run_sync(self.password_helper.verify_and_update, password, hashed, limiter=self.password_limiter)
 
     async def create(self, user_create, safe=False, request=None):
         await self.validate_password(user_create.password, user_create)
@@ -63,6 +91,7 @@ class UserManager(UUIDIDMixin, BaseUserManager[User, UUID]):
 
     async def authenticate(self, credentials):
         self.password_verified = False
+        self.verified_nowait = False
         if len(credentials.password) > 1024:
             return None
         user = await self.user_db.get_by_email(credentials.username)
@@ -73,9 +102,8 @@ class UserManager(UUIDIDMixin, BaseUserManager[User, UUID]):
             await self.hash_password(credentials.password)
             return None
         valid, upgraded_hash = await self.verify_password(credentials.password, old_hash)
-        if not valid:
+        if not valid or not user.is_active:
             return None
-        self.password_verified = True
         try:
             locked = await self.user_db.session.scalar(
                 select(User).where(User.id == user.id).with_for_update(nowait=True)
@@ -83,11 +111,14 @@ class UserManager(UUIDIDMixin, BaseUserManager[User, UUID]):
             )
         except DBAPIError as exc:
             if getattr(exc.orig, 'sqlstate', None) == '55P03':
+                # Preserva N3: credencial ativa já verificada, sem confundir conta inativa.
+                self.verified_nowait = True
                 raise HTTPException(429, 'Too Many Requests') from None
             raise
         # Uma troca concorrente nunca permite criar sessão com a senha anterior.
-        if locked is None or locked.hashed_password != old_hash:
+        if locked is None or not locked.is_active or locked.hashed_password != old_hash:
             return None
+        self.password_verified = True
         if upgraded_hash:
             await self.user_db.update(locked, {'hashed_password': upgraded_hash})
         return locked
@@ -106,7 +137,7 @@ async def get_user_manager(
     request: Request, session: AsyncSession = Depends(get_session, scope='function'),
 ):
     return UserManager(UserDatabase(session, User), request.app.state.settings,
-                       request.app.state.password_limiter)
+                       request.app.state.password_budget)
 
 
 async def get_strategy(

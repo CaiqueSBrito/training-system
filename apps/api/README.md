@@ -57,7 +57,7 @@ vez por minuto. O relógio de leitura vem do Postgres. A função
 `training_api.limits.purge_expired` remove tentativas fora de suas janelas e sessões
 fora da validade absoluta ou de inatividade. Ela é chamada oportunisticamente antes das
 transações de reserva/cadastro e no uso de sessão válida, em sessão própria e com
-a periodicidade/lotes descritos na R4 abaixo; sem tráfego, a limpeza fica para a
+a periodicidade/lotes descritos nas R4/R5 abaixo; sem tráfego, a limpeza fica para a
 próxima chamada. Não há serviço ou scheduler novo.
 
 `/users/me` e o login enviam `Cache-Control: no-store`.
@@ -74,8 +74,8 @@ e CPU disponíveis (cada Argon2 usa memória própria).
 
 A purga agora roda em sessão própria curta, fora das transações de reserva e de
 autenticação. A execução oportunística ocorre no máximo uma vez por minuto por
-instância de aplicação no processo, com um lote de até 100 linhas por tabela;
-`FOR UPDATE SKIP LOCKED` pula linhas ocupadas. Há índice em `last_seen_at` além de
+instância de aplicação no processo, com lotes de até 100 linhas por tabela, repetidos dentro do orçamento descrito
+na R5; `FOR UPDATE SKIP LOCKED` pula linhas ocupadas. Há índice em `last_seen_at` além de
 `created_at`. Sem tráfego ou com grande acúmulo, o restante fica para os lotes dos
 minutos seguintes. `current_user` e `require_csrf` confirmam sua transação antes
 de retornar, permitindo iniciar SSE sem reter a conexão da autenticação.
@@ -85,3 +85,17 @@ também em disputa NOWAIT, revogação concorrente da sessão ou outro erro post
 Antes dessa remoção, confirmam ou desfazem a transação de autenticação para liberar
 qualquer conexão/lock; a limpeza é protegida de cancelamento. Senhas incorretas
 continuam registradas no orçamento até o vencimento da janela.
+
+Rodada R5: `API_PASSWORD_HASH_QUEUE_MULTIPLIER` limita a espera ao múltiplo das
+vagas do Argon2 (padrão 4). A admissão compartilhada contabiliza execução e espera
+antes do primeiro await; excedente recebe 503 sem chamar hash/verificação e sem
+reter conexão. O contador é liberado em finally também no cancelamento/erro.
+Conta inativa conserva as reservas de login, tanto com senha certa quanto errada;
+apenas credencial de conta ativa permite a limpeza após verificação.
+
+A purga repete lotes completos, alternando as tabelas, até um lote vir incompleto
+ou atingir orçamento aproximado de 200 ms. Usa `ctid = ANY(ARRAY(SELECT ... FOR
+UPDATE SKIP LOCKED))` para localizar as linhas e mantém a sessão própria e a
+periodicidade de um minuto. O orçamento é verificado entre comandos SQL; uma
+consulta já em curso pode ultrapassá-lo. Registros restantes ficam para a execução
+seguinte.

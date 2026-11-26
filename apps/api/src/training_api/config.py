@@ -21,6 +21,7 @@ class ApiSettings:
     database_url: URL | str
     attempt_key_secret: str = field(default_factory=attempt_secret, repr=False)
     password_hash_concurrency: int = field(default_factory=lambda: max(2, os.cpu_count() or 2))
+    password_hash_queue_multiplier: int = 4
     cookie_secure: bool = True
     docs_enabled: bool = True
     session_idle_seconds: int = 3600

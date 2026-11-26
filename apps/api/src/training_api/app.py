@@ -3,7 +3,7 @@
 from contextlib import asynccontextmanager
 from threading import Lock
 
-from anyio import CapacityLimiter, CancelScope
+from anyio import CancelScope
 
 from fastapi import Depends, FastAPI, HTTPException, Request, Response
 from fastapi.responses import JSONResponse
@@ -17,7 +17,7 @@ from sqlalchemy.exc import DBAPIError, IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 from .auth import (
-    SESSION_COOKIE, UserCreate, UserManager, UserRead, cookie_transport,
+    SESSION_COOKIE, PasswordBudget, UserCreate, UserManager, UserRead, cookie_transport,
     current_user, get_strategy, get_user_manager,
 )
 from .config import ApiSettings
@@ -58,7 +58,8 @@ def create_app(settings: ApiSettings) -> FastAPI:
                   docs_url='/docs' if settings.docs_enabled else None,
                   redoc_url='/redoc' if settings.docs_enabled else None)
     app.state.settings = settings
-    app.state.password_limiter = CapacityLimiter(settings.password_hash_concurrency)
+    app.state.password_budget = PasswordBudget(settings)
+    app.state.password_limiter = app.state.password_budget.limiter
     app.state.auth_purge_lock = Lock()
     app.state.next_auth_purge = 0
     app.state.auth_engine = engine
@@ -102,7 +103,7 @@ def create_app(settings: ApiSettings) -> FastAPI:
             response.headers['cache-control'] = 'no-store'
             return response
         finally:
-            if manager.password_verified:
+            if manager.password_verified or manager.verified_nowait:
                 # Libera inclusive após NOWAIT/erro, antes de pedir outra conexão.
                 with CancelScope(shield=True):
                     await manager.user_db.session.rollback()

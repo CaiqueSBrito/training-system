@@ -1,0 +1,63 @@
+T-024 — rodada 5 — correções R4-1/R4-2/R4-3 — 2026-11-26
+Executor: OpenAI/Codex, rag-backend; task_f1658d65aed7 / ctx_e4b6bd20e89e.
+Fonte: revisao-seguranca-llm-r3.md, aprovado com ressalvas.
+Relatório do executor; não constitui revisão independente ou aceite G4.
+
+PROVA FINAL ÚNICA
+Comando: uv run pytest apps/api packages/lineage -q
+Status: Passou
+Resultado: 188 passed, 1 warning in 46.10s; exit 0.
+Saída integral: pytest-r5.txt; nenhuma repetição da suíte nesta rodada.
+Os 183 casos anteriores e 5 novos passaram. O novo arquivo de regressão foi escrito antes das correções do produto.
+Aviso preexistente de serialização Pydantic no teste do chat (enum status como string), preservado.
+Postgres real da infra local, com bancos descartáveis; infra compartilhada preservada.
+Segredo HMAC efêmero de teste fornecido somente ao ambiente do subprocesso, sem gravar seu valor nem alterar .env.
+
+R4-1 — corrigido; Passou.
+Authenticate retorna None e mantém password_verified=False para conta inativa, mesmo quando verify_and_update aceita a senha.
+Só marca password_verified após o lock confirmar conta ativa e o mesmo hash da leitura anterior.
+O caminho de conta inativa inicialmente observado já retorna antes de tentar NOWAIT, evitando diferença de limite pela limpeza da reserva.
+Preservação da correção N3: disputa NOWAIT após verificar uma credencial de conta observada ativa usa um sinal separado (verified_nowait), que permite liberar a reserva sem marcar password_verified. Conta já observada inativa nunca entra nesse caminho; conta inativa observada sob lock mantém a reserva.
+Teste parametrizado de senha certa e errada para conta inativa: ambos retornam 400,400,400,429, com exatamente 3 falhas por conta persistidas e nenhuma sessão criada.
+Os testes de R4 para limpeza após NOWAIT e revogação concorrente também continuam passando.
+
+R4-2 — corrigido; Passou.
+Purga usa ctid = ANY(ARRAY(SELECT ... LIMIT :batch_size FOR UPDATE SKIP LOCKED)) nas duas tabelas.
+Mantém lote de 100 linhas, sessão própria e periodicidade de 60 segundos, mas repete lotes completos, alternando tabelas, até cada tabela produzir lote incompleto ou atingir orçamento aproximado de 200 ms.
+O relógio monotônico é consultado antes de cada comando; o orçamento é cooperativo entre comandos, não um timeout rígido de uma consulta já em andamento. Essa limitação está documentada.
+Teste novo insere 305 tentativas e 205 sessões expiradas: uma única purga remove todas.
+Teste não congelado de R4 atualizado de resto fixo 5 para remoção integral de 105 linhas, conforme o novo comportamento autorizado.
+Continuam passando os testes de SKIP LOCKED, periodicidade e confirmação da sessão antes do retorno das dependências.
+
+R4-3 — corrigido; Passou.
+PasswordBudget, compartilhado pela aplicação e por hash/verify, admite no máximo vagas*(1+multiplicador) trabalhos entre execução e espera.
+API_PASSWORD_HASH_QUEUE_MULTIPLIER é inteiro positivo, padrão 4; fila permitida = vagas*4. A próxima admissão recebe HTTP 503 sem entrar no hash nem na verificação.
+A admissão acontece sob lock local curto antes do primeiro await, para impedir que várias tarefas observem simultaneamente uma fila vazia e ultrapassem o teto. O lock não atravessa await.
+CapacityLimiter continua sendo passado explicitamente ao to_thread.run_sync. Contagem é liberada em finally no sucesso, erro ou cancelamento.
+Teste com dublê lento somente no arquivo de teste usa 2 vagas e multiplicador 1: 2 trabalhos executando e 2 aguardando; o quinto login recebe 503 e o contador de chamadas ao hasher permanece em 2 até a liberação das vagas. Depois, os 4 admitidos terminam com as falhas de credencial esperadas e apenas 4 hashes no total.
+Teste adicional confirma padrão 4, override de ambiente e recusa de zero.
+O teste N1 de R4 mantém os 40 hashes e pico 2; seu multiplicador foi explicitamente elevado no teste para medir concorrência sem acionar o novo teto de espera. O teste R5 cobre a recusa da fila cheia separadamente.
+Wrappers que repetem somente a reserva em disputa 429 e o dublê lento existem exclusivamente nos testes, para isolar admissão do hasher; PostgreSQL, engine, reservas e rotas permanecem reais.
+
+INTEGRIDADE E VALIDAÇÃO
+Passou — 3/3 hashes G3 conferem exatamente com casos_aprovados, valores e caminhos em casos-intactos-r5.txt.
+Passou — uv run validar-governanca: governança OK: 7 mudança(s), 26 tarefa(s), 28 requisito(s) na spec viva; exit 0; validador-r5.txt.
+Passou — git diff --check sem erros.
+Cookie training_session e interface HTTP aprovados preservados, salvo a recusa 503 expressamente solicitada para sobrecarga do hash.
+Sem dependência nova, commit, push, merge, deploy ou alteração da infra.
+Contracts, generation, migrações 0001–0005, frontmatter e evidências anteriores preservados.
+
+ARQUIVOS ALTERADOS
+.env.example
+apps/api/README.md
+apps/api/src/training_api/app.py
+apps/api/src/training_api/auth.py
+apps/api/src/training_api/config.py
+apps/api/src/training_api/limits.py
+apps/api/tests/test_api_auth_r4.py (casos não congelados ajustados ao novo comportamento)
+apps/api/tests/test_api_auth_r5.py (novo)
+Evidências: pytest-r5.txt, casos-intactos-r5.txt, validador-r5.txt e este relatório.
+
+PENDÊNCIAS
+Nova revisão do snapshot e G4 humano, a cargo do orquestrador.
+A7/A11 e configuração do proxy continuam nas decisões humanas/deploy já registradas; não alterados nesta rodada.

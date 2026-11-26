@@ -45,7 +45,7 @@ def test_N1_forty_simultaneous_logins_bound_argon2(app, monkeypatch):
             with mutex:
                 active -= 1
     monkeypatch.setattr(PasswordHelper, 'hash', slow_hash)
-    configured = create_app(replace(app.state.settings, password_hash_concurrency=2,
+    configured = create_app(replace(app.state.settings, password_hash_concurrency=2, password_hash_queue_multiplier=40,
                                     login_max_failures_per_origin=100))
     barrier = Barrier(41)
     with TestClient(configured, base_url='https://testserver', client=ORIGIN_A) as client:
@@ -154,10 +154,10 @@ def test_N1_hash_concurrency_default_and_env(monkeypatch, tmp_path):
         ApiSettings.from_env(env)
 
 
-def test_N2_purge_batch_is_bounded(api, alice, app, database):
+def test_N2_purge_multiple_batches(api, alice, app, database):
     with database.begin() as connection:
         connection.execute(text("INSERT INTO auth_attempt(kind,scope,key,created_at) SELECT 'register','origin',:key,now()-interval '2 days' FROM generate_series(1,105)"), {'key': 'f'*64})
     app.state.next_auth_purge = 0
     assert api.login_response('absent-batch@example.com', 'incorrect-123').status_code == 400
     with database.connect() as connection:
-        assert connection.scalar(text('SELECT count(*) FROM auth_attempt WHERE key=:key'), {'key': 'f'*64}) == 5
+        assert connection.scalar(text('SELECT count(*) FROM auth_attempt WHERE key=:key'), {'key': 'f'*64}) == 0
