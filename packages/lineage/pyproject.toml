@@ -1,0 +1,18 @@
+[project]
+name = "training-lineage"
+version = "0.1.0"
+description = "Persistência da linhagem da ingestão no Postgres da aplicação (ADR-0008)."
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "training-contracts",
+    "psycopg>=3.2,<4",
+    "sqlalchemy>=2.0,<2.1",
+    "alembic>=1.16,<2",
+]
+
+[tool.uv.sources]
+training-contracts = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"

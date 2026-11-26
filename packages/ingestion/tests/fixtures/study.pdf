@@ -1,0 +1,67 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 7 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 420 >>
+stream
+BT /F1 24 Tf 60 750 Td (Biology) Tj ET
+BT /F1 12 Tf 60 700 Td (Cells contain genetic material.) Tj ET
+BT /F1 16 Tf 60 660 Td (Details) Tj ET
+60 620 m 420 620 l S
+60 590 m 420 590 l S
+60 560 m 420 560 l S
+60 560 m 60 620 l S
+240 560 m 240 620 l S
+420 560 m 420 620 l S
+BT /F1 12 Tf 70 600 Td (Part) Tj ET
+BT /F1 12 Tf 250 600 Td (Function) Tj ET
+BT /F1 12 Tf 70 570 Td (Nucleus) Tj ET
+BT /F1 12 Tf 250 570 Td (DNA) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 7 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 412 >>
+stream
+BT /F1 24 Tf 60 750 Td (Chemistry) Tj ET
+BT /F1 12 Tf 60 700 Td (Atoms form molecules.) Tj ET
+BT /F1 16 Tf 60 660 Td (Details) Tj ET
+60 620 m 420 620 l S
+60 590 m 420 590 l S
+60 560 m 420 560 l S
+60 560 m 60 620 l S
+240 560 m 240 620 l S
+420 560 m 420 620 l S
+BT /F1 12 Tf 70 600 Td (Part) Tj ET
+BT /F1 12 Tf 250 600 Td (Function) Tj ET
+BT /F1 12 Tf 70 570 Td (Nucleus) Tj ET
+BT /F1 12 Tf 250 570 Td (DNA) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000000717 00000 n 
+0000000843 00000 n 
+0000001305 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+1375
+%%EOF
