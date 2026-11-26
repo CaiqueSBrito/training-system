@@ -1,0 +1,32 @@
+{
+  "input_judge": {
+    "version": "chat-input-judge-v1",
+    "file": "input_judge.md",
+    "sha256": "ae75f78383956d6cb368bb53bcaa519253a9e61ad74a948d66b3e758adc95510"
+  },
+  "classifier": {
+    "version": "chat-classifier-v1",
+    "file": "classifier.md",
+    "sha256": "ee0644ba6b8c5efa148162fcf6bbbefcea978c0f4e2da8b205b014a9f9cea250"
+  },
+  "pedagogue": {
+    "version": "chat-pedagogue-v1",
+    "file": "pedagogue.md",
+    "sha256": "d8de6a412d10f085d15fc3d173fd342d7c5a78be556e14428825797135ca031d"
+  },
+  "generation": {
+    "version": "chat-generation-v1",
+    "file": "generation.md",
+    "sha256": "b86254c0a6a9117471d887a9af23fc11438603ca22789efbf2432d6212f6a076"
+  },
+  "output_judge": {
+    "version": "chat-output-judge-v1",
+    "file": "output_judge.md",
+    "sha256": "b5073d150c1d0e4cbfa8738612a27ecbab701f8cab4755e15c63ea5a99ef32b4"
+  },
+  "output_rubric": {
+    "version": "chat-output-rubric-v1",
+    "file": "output_rubric.md",
+    "sha256": "9108eff853c5a0ed2109f8a00371fe778061d2574effdd9554099001d92627fd"
+  }
+}

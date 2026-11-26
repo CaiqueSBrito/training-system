@@ -1,0 +1,33 @@
+[project]
+name = "training-generation"
+version = "0.1.0"
+description = "Agentes ADK (E3, E4, E8), juízes de entrada e saída (E2, E10) e validação determinística (E1, E9, E11) do chat."
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "training-contracts",
+    "training-llm",
+    "training-observability",
+    "training-lineage",
+    "training-retrieval",
+    "training-ingestion",
+    "google-adk>=2.10,<3",
+    "google-genai>=2.30,<3",
+    "litellm>=1.109,<2",
+    "opentelemetry-sdk>=1.45,<2",
+    "pydantic>=2.14,<3",
+]
+
+[project.scripts]
+training-chat = "training_generation.cli:main"
+
+[tool.uv.sources]
+training-contracts = { workspace = true }
+training-llm = { workspace = true }
+training-observability = { workspace = true }
+training-lineage = { workspace = true }
+training-retrieval = { workspace = true }
+training-ingestion = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
