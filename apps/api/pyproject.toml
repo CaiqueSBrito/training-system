@@ -1,0 +1,20 @@
+[project]
+name = "training-api"
+version = "0.1.0"
+description = "Adaptador HTTP do chat (ADR-0010, ADR-0011) com autenticação própria (ADR-0017)."
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "training-contracts",
+    "training-lineage",
+    "fastapi>=0.163,<0.164",
+    "uvicorn[standard]>=0.54,<0.55",
+    "fastapi-users[sqlalchemy]>=15.0.5,<16",
+]
+
+[tool.uv.sources]
+training-contracts = { workspace = true }
+training-lineage = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"

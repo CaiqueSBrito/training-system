@@ -1,0 +1,129 @@
+# uv run pytest apps/api -q -rA --tb=line  (2026-11-26T17:19:01-03:00)
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE                                [100%]
+==================================== ERRORS ====================================
+___ ERROR at setup of test_AUT_CAD_001_cadastro_cria_conta_com_hash_argon2id ___
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CAD_001_email_repetido_recusado_sem_dados_da_conta[alice@example.com] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CAD_001_email_repetido_recusado_sem_dados_da_conta[Alice@Example.COM] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CAD_001_senha_abaixo_do_minimo_recusada_sem_criar_conta _
+E   ModuleNotFoundError: No module named 'training_api.config'
+__ ERROR at setup of test_AUT_CAD_001_cadastro_nao_aceita_privilegio_do_corpo __
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_SES_001_login_cria_sessao_no_banco_e_cookie_seguro _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_SES_001_falha_identica_para_email_inexistente_e_senha_errada _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_SES_001_login_sempre_emite_token_novo_sem_fixacao _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_______ ERROR at setup of test_AUT_SES_002_logout_revoga_o_mesmo_cookie ________
+E   ModuleNotFoundError: No module named 'training_api.config'
+_____ ERROR at setup of test_AUT_SES_002_logout_revoga_so_a_propria_sessao _____
+E   ModuleNotFoundError: No module named 'training_api.config'
+__ ERROR at setup of test_AUT_SES_002_troca_de_senha_revoga_todas_as_sessoes ___
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_SES_002_troca_de_senha_exige_senha_atual_e_politica _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_________ ERROR at setup of test_AUT_SES_002_sessao_vencida_recebe_401 _________
+E   ModuleNotFoundError: No module named 'training_api.config'
+_____ ERROR at setup of test_AUT_SES_002_cookie_desconhecido_recebe_401[] ______
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_SES_002_cookie_desconhecido_recebe_401[inexistente] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+__ ERROR at setup of test_AUT_SES_002_cookie_desconhecido_recebe_401[cookie2] __
+E   ModuleNotFoundError: No module named 'training_api.config'
+___ ERROR at setup of test_AUT_SES_002_cookie_desconhecido_recebe_401[x.y.z] ___
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CSR_001_sem_cabecalho_csrf_recebe_403_sem_efeito[logout] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CSR_001_sem_cabecalho_csrf_recebe_403_sem_efeito[troca-de-senha] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-outro-usuario] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-outra-sessao-do-mesmo-usuario] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-aleatorio] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-vazio] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-outro-usuario] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-outra-sessao-do-mesmo-usuario] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-aleatorio] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-vazio] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_________ ERROR at setup of test_AUT_CSR_001_csrf_nao_vale_sem_cookie __________
+E   ModuleNotFoundError: No module named 'training_api.config'
+__________ ERROR at setup of test_AUT_CSR_001_leitura_nao_exige_csrf ___________
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_LIM_001_login_por_conta_429_mesmo_com_senha_correta _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_LIM_001_limite_por_conta_nao_revela_se_a_conta_existe _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_LIM_001_login_por_origem_429_para_qualquer_conta __
+E   ModuleNotFoundError: No module named 'training_api.config'
+___ ERROR at setup of test_AUT_LIM_001_abaixo_do_limite_login_correto_passa ____
+E   ModuleNotFoundError: No module named 'training_api.config'
+__________ ERROR at setup of test_AUT_LIM_001_cadastro_por_origem_429 __________
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[GET-/users/me] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[POST-/auth/logout] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[POST-/auth/change-password] _
+E   ModuleNotFoundError: No module named 'training_api.config'
+_____ ERROR at setup of test_AUT_OWN_001_dono_vem_da_sessao_e_nao_da_query _____
+E   ModuleNotFoundError: No module named 'training_api.config'
+______ ERROR at setup of test_AUT_OWN_001_owner_id_do_corpo_nunca_e_usado ______
+E   ModuleNotFoundError: No module named 'training_api.config'
+___ ERROR at setup of test_AUT_OWN_001_owner_id_e_o_uuid_textual_do_usuario ____
+E   ModuleNotFoundError: No module named 'training_api.config'
+_ ERROR at setup of test_AUT_OWN_001_rotas_de_email_e_edicao_de_usuario_nao_montadas _
+E   ModuleNotFoundError: No module named 'training_api.config'
+=========================== short test summary info ============================
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CAD_001_cadastro_cria_conta_com_hash_argon2id
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CAD_001_email_repetido_recusado_sem_dados_da_conta[alice@example.com]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CAD_001_email_repetido_recusado_sem_dados_da_conta[Alice@Example.COM]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CAD_001_senha_abaixo_do_minimo_recusada_sem_criar_conta
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CAD_001_cadastro_nao_aceita_privilegio_do_corpo
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_001_login_cria_sessao_no_banco_e_cookie_seguro
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_001_falha_identica_para_email_inexistente_e_senha_errada
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_001_login_sempre_emite_token_novo_sem_fixacao
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_logout_revoga_o_mesmo_cookie
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_logout_revoga_so_a_propria_sessao
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_troca_de_senha_revoga_todas_as_sessoes
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_troca_de_senha_exige_senha_atual_e_politica
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_sessao_vencida_recebe_401
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_cookie_desconhecido_recebe_401[]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_cookie_desconhecido_recebe_401[inexistente]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_cookie_desconhecido_recebe_401[cookie2]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_cookie_desconhecido_recebe_401[x.y.z]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_sem_cabecalho_csrf_recebe_403_sem_efeito[logout]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_sem_cabecalho_csrf_recebe_403_sem_efeito[troca-de-senha]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-outro-usuario]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-outra-sessao-do-mesmo-usuario]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-aleatorio]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-vazio]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-outro-usuario]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-outra-sessao-do-mesmo-usuario]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-aleatorio]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-vazio]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_nao_vale_sem_cookie
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_leitura_nao_exige_csrf
+ERROR apps/api/tests/test_api_auth.py::test_AUT_LIM_001_login_por_conta_429_mesmo_com_senha_correta
+ERROR apps/api/tests/test_api_auth.py::test_AUT_LIM_001_limite_por_conta_nao_revela_se_a_conta_existe
+ERROR apps/api/tests/test_api_auth.py::test_AUT_LIM_001_login_por_origem_429_para_qualquer_conta
+ERROR apps/api/tests/test_api_auth.py::test_AUT_LIM_001_abaixo_do_limite_login_correto_passa
+ERROR apps/api/tests/test_api_auth.py::test_AUT_LIM_001_cadastro_por_origem_429
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[GET-/users/me]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[POST-/auth/logout]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[POST-/auth/change-password]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_dono_vem_da_sessao_e_nao_da_query
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_owner_id_do_corpo_nunca_e_usado
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_owner_id_e_o_uuid_textual_do_usuario
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_rotas_de_email_e_edicao_de_usuario_nao_montadas
+41 errors in 5.84s
+exit=1
