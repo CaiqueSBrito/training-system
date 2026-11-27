@@ -590,8 +590,9 @@ class ChatPipeline:
             for index,original in enumerate(raw):
                 item=final.get(index)
                 if item is not None:
-                    safe=sanitize_item(item)
-                    delivered.append(DeliveredItem(item_id=ids[index],conteudo=safe.delivered))
+                    # E11: texto puro; preserva HTML literal e remove só controles.
+                    sanitized=sanitize_item(item)
+                    delivered.append(DeliveredItem(item_id=ids[index],conteudo=sanitized.delivered))
                 else:
                     reason,detail=reasons[index]
                     omissions.append(Omission(item_id=ids[index],motivo=reason,detalhe=detail))

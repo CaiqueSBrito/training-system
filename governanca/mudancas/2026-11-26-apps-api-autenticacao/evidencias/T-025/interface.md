@@ -66,3 +66,34 @@ Estado: Bloqueado na primeira rodada para a prova de falha por rotas ausentes: 1
 Estado: Falhou — esperado nesta fase anterior ao produto. `uv run pytest apps/api/tests/test_api_chat.py -v --tb=short`: exit 1, **18 failed in 19.42s**, todos por HTTP 404 nas rotas ausentes, sem erro de setup. A preparação dos dois testes de linhagem executou com sucesso o domínio real e sua persistência antes da asserção HTTP; isso não é prova das rotas nem aprovação G3. O teste ASGI de desconexão falhou na asserção de HTTP 200 versus 404, antes de aguardar qualquer cancelamento.
 
 Arquivos de casos propostos: `apps/api/tests/test_api_chat.py` (18 combinações) e `apps/api/tests/api_chat_support.py` (fixtures e dublês externos). Hashes finais em `g3-casos.txt`. Nenhum caso congelado, código de produto, contrato, migração, dependência ou .env alterado; nenhuma chamada real de LLM, commit, push ou deploy. Próximo passo: aprovação humana dos casos G3 e despacho da fase 2.
+
+## Decisão humana R4 — texto puro e projeção pública
+
+Autorização humana registrada nas tarefas: **“autorizo”** (A4/I2/A11), aplicada
+após o snapshot f34b4d8. Esta seção atualiza o formato público acima.
+
+Todos os campos textuais de resposta HTTP são **texto puro**: `POST /chat` (SSE),
+`GET /lineage/items/{id}` e `GET /lineage/turns/{id}` não aplicam escape HTML nem
+interpretam entidades. `<script>`, `<img onerror=...>`, aspas, `&` e entidades
+literais como `&amp;` permanecem literais. O frontend deve inserir esses valores
+**sempre com `textContent`**, nunca interpretá-los como HTML. Isso inclui item,
+citação, fonte, título/seção, mensagens, motivos e detalhes de omissões.
+
+E11 preserva a remoção anterior de controles/Unicode (categorias Cf e Cs e Cc,
+exceto `\n` e `\t`) e a revalidação do schema. Ele deixa de escapar HTML nos
+campos do item e na evidência entregue. O original da linhagem permanece literal;
+a sanitização de controles é a única transformação de apresentação do E11.
+O JSON conserva sua própria codificação de transporte; `\u003c`, se presente,
+representa o mesmo caractere após parse e não é uma regra de escape HTML.
+
+No JSON de `GET /lineage/turns/{id}`, `turn.input_verdict` passa a ser `null`,
+quando ausente, ou **somente** `{"categoria": ...}` (categoria pode ser `null`).
+Não expõe `motivo` nem `malicioso`. O registro persistido e o contrato interno
+`ChatTurnRecord` conservam o veredito completo; só a projeção HTTP é reduzida.
+Os demais campos do turno, `response` e `items` seguem iguais.
+
+A sessão usa exclusivamente o cookie **`__Host-training_session`**, com
+`Secure`, `HttpOnly`, `SameSite=Lax`, `Path=/` e sem `Domain`. O nome antigo não é
+aceito como sessão. HTTPS é obrigatório, inclusive para uma prova HTTP futura;
+`cookie_secure=False` é rejeitado na configuração, pois violaria o prefixo Host.
+A prova HTTP antiga é evidência do snapshot anterior, não prova deste cookie.

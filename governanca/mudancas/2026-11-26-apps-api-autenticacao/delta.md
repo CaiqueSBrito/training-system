@@ -67,4 +67,10 @@ A API DEVE publicar no OpenAPI os modelos de `packages/contracts` usados nos end
 
 ## MODIFICA
 
+### RAG-SAI-001 — Saída em texto puro e validada
+O sistema DEVE entregar o conteúdo gerado como texto puro, sem escape HTML, removendo caracteres de controle e invisíveis, e validá-lo contra o schema antes de entregá-lo; todo cliente DEVE renderizar esse conteúdo como texto (`textContent`), nunca como HTML. (Decisão humana A4, 2026-11-26, "autorizo"; §2, E11; §5)
+
+- Cenário: Dado um item cujo verso contém `<script>`, Quando entregue pelo SSE e consultado na linhagem, Então chega idêntico nas duas rotas, sem escape parcial.
+- Cenário: Dado um item com caractere de controle, Quando entregue, Então o caractere foi removido.
+
 ## REMOVE

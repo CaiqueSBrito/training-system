@@ -257,7 +257,7 @@ def test_escape_original_source_and_reject_altered_response(sandbox,tmp_path):
     source=tmp_path/'markup.md';source.write_text('# HTML\n\nO texto `<script>alert("x")</script>` usa & e aspas.',encoding='utf-8')
     result=Ingestor(sandbox.engine,processor=sandbox.processor).ingest(source,'owner')
     response=asyncio.run(sandbox.pipeline.run('owner','markup','Gere flashcard',document_version_ids=[result.version.document_version_id],count=1))
-    assert response.itens and '&lt;script&gt;' in response.itens[0].conteudo.back
+    assert response.itens and '<script>' in response.itens[0].conteudo.back
     assert '&amp;lt;' not in response.itens[0].conteudo.back
     with sandbox.engine.connect() as c:
         lineage=ChatLineageRepository(c).get_item_lineage('owner',response.itens[0].item_id)

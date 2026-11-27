@@ -169,8 +169,8 @@ def test_RAG_SAI_001_script_escapado_e_proveniencia_preservada():
                                              evidence="a <b>luz</b> é absorvida"))
     saida = sanitize_item(original)
     assert saida.original is original
-    assert saida.delivered.back == "&lt;script&gt;alert(1)&lt;/script&gt; &amp; luz"
-    assert saida.delivered.citations[0].evidence == "a &lt;b&gt;luz&lt;/b&gt; é absorvida"
+    assert saida.delivered.back == "<script>alert(1)</script> & luz"
+    assert saida.delivered.citations[0].evidence == "a <b>luz</b> é absorvida"
     # Proveniência: evidência literal pré-escape continua igual à fonte para a linhagem.
     assert saida.original.citations[0].evidence == "a <b>luz</b> é absorvida"
     assert saida.original.citations[0].chunk_ref == saida.delivered.citations[0].chunk_ref
@@ -179,7 +179,7 @@ def test_RAG_SAI_001_script_escapado_e_proveniencia_preservada():
 def test_RAG_SAI_001_questao_escapada_continua_valida():
     original = Question.model_validate(question(options=("<i>ATP</i>", "\"água\"", "Glicose", "O2")))
     saida = sanitize_item(original)
-    assert saida.delivered.options[:2] == ["&lt;i&gt;ATP&lt;/i&gt;", "&quot;água&quot;"]
+    assert saida.delivered.options[:2] == ["<i>ATP</i>", '"água"']
     assert saida.delivered.correct_index == 0
 
 

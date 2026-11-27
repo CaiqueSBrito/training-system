@@ -19,7 +19,7 @@ from .limits import digest, maybe_purge_expired
 
 from .database import AccessToken, TokenDatabase, User, UserDatabase, get_session
 
-SESSION_COOKIE = 'training_session'
+SESSION_COOKIE = '__Host-training_session'
 
 
 class PasswordBudgetExceeded(HTTPException):

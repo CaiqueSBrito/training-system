@@ -185,7 +185,11 @@ def turn_lineage(engine, owner, turn_id):
             return None
         response = ChatResponse.model_validate(row['response'])
         repo = ChatLineageRepository(connection)
-        return {'turn': ChatTurnRecord.model_validate(row['record']), 'response': response,
+        public_turn = ChatTurnRecord.model_validate(row['record']).model_dump(mode='json')
+        verdict = public_turn['input_verdict']
+        if verdict is not None:
+            public_turn['input_verdict'] = {'categoria': verdict['categoria']}
+        return {'turn': public_turn, 'response': response,
                 'items': [repo.get_item_lineage(owner, item.item_id) for item in response.itens]}
 
 

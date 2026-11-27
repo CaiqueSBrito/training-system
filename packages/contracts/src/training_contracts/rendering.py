@@ -1,24 +1,22 @@
-"""Transformação pura de Item original em apresentação HTML segura (E11/E12).
+"""E11/E12: texto puro, preservando HTML literal; clientes usam textContent.
 
-Fontes e proveniência usam sempre o original; renderizar uma vez na fronteira de
-saída. Entidades já presentes no original são conteúdo e também são escapadas.
+Remove somente os controles/Cf/Cs já excluídos pelo E11. Não escapa nem
+interpreta entidades HTML; original e proveniência mantêm seus dados literais.
 """
-import html
 import unicodedata
 from training_contracts.geracao import validar_item
 
 
 def render_item(item):
-    def escape(value):
-        value=''.join(c for c in value if unicodedata.category(c) not in {'Cf','Cs'}
+    def clean(value):
+        return ''.join(c for c in value if unicodedata.category(c) not in {'Cf','Cs'}
             and (unicodedata.category(c)!='Cc' or c in {'\n','\t'}))
-        return html.escape(value,quote=True)
     data=item.model_dump(mode='json')
     for key in ('front','back','stem','explanation'):
         if key in data:
-            data[key]=escape(data[key])
+            data[key]=clean(data[key])
     if 'options' in data:
-        data['options']=[escape(value) for value in data['options']]
+        data['options']=[clean(value) for value in data['options']]
     for citation in data['citations']:
-        citation['evidence']=escape(citation['evidence'])
+        citation['evidence']=clean(citation['evidence'])
     return validar_item(data)

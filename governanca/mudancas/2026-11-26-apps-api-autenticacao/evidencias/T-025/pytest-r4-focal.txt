@@ -1,0 +1,16 @@
+.F................................                                       [100%]
+=================================== FAILURES ===================================
+______ test_A4_controls_still_removed_without_html_or_unicode_conversion _______
+apps/api/tests/test_api_plaintext.py:56: in test_A4_controls_still_removed_without_html_or_unicode_conversion
+    original = Flashcard(tipo='flashcard', front='Pergunta\u200b\x07\n\té',
+packages/contracts/src/training_contracts/geracao.py:58: in __init__
+    super().__init__(**dados)
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for Flashcard
+E   back
+E     Input should be a valid string, unable to parse raw data as a unicode string [type=string_unicode, input_value='<script>alert("x")</scri...)"> &amp; literal\ud800', input_type=str]
+E       For further information visit https://errors.pydantic.dev/2.14/v/string_unicode
+=========================== short test summary info ============================
+FAILED apps/api/tests/test_api_plaintext.py::test_A4_controls_still_removed_without_html_or_unicode_conversion
+1 failed, 33 passed in 5.43s
+
+exit_code=1

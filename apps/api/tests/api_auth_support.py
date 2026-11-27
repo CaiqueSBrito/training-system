@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 from starlette.testclient import TestClient
 
 BASE_URL = "https://testserver"  # cookie Secure só volta por HTTPS
-SESSION_COOKIE = "training_session"
+SESSION_COOKIE = "__Host-training_session"
 CSRF_HEADER = "X-CSRF-Token"
 PASSWORD = "senha-correta-123"  # 17 caracteres, dentro da política
 MIN_PASSWORD = 12

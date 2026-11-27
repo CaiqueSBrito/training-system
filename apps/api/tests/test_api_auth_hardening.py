@@ -28,7 +28,7 @@ def test_A1_concurrent_login_does_not_starve_authenticated_read(api, alice, data
     with ThreadPoolExecutor(max_workers=20) as executor:
         futures = [executor.submit(attempt, index) for index in range(16)]
         barrier.wait(timeout=10)
-        reads = [executor.submit(reader.get, '/users/me', headers={'Cookie': f'training_session={session.token}'})
+        reads = [executor.submit(reader.get, '/users/me', headers={'Cookie': f'__Host-training_session={session.token}'})
                  for _ in range(3)]
         assert all(f.result(timeout=10).status_code == 200 for f in reads)
         statuses = [f.result(timeout=10).status_code for f in futures]

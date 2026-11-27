@@ -1,0 +1,62 @@
+T-024/T-025 R4 — decisões humanas A4/I2/A11, ctx_af3628654e70
+
+Autorização: frase humana “autorizo” registrada nas tarefas T-024/T-025 e no despacho desta rodada. Base de produto f34b4d8; HEAD inicial fae2582 acrescenta apenas a documentação/despacho. Aplicação exclusivamente dessas decisões, sem dependência, prompt, modelo ou limiar novo; sem commit.
+
+A4 — implementação
+- packages/contracts/rendering.py preserva exatamente o filtro anterior de categorias Cf/Cs e Cc, exceto newline/tab, e a revalidação do item. Remove apenas html.escape, sem html.unescape nem normalização nova: HTML e entidades originais são texto literal.
+- O passo E11 em generation/chat.py continua usando sanitize_item e a representação revalidada; comentário/variável esclarecem texto puro. A verificação de entrega E12 usa a mesma função compartilhada, mantendo a igualdade entre resposta e item persistido. Nenhuma mudança em seleção de contexto, prompt, recuperação, geração ou limiar.
+- Documento novo com <script> e <img onerror>, fonte e pipeline/PG/Qdrant reais, dublês de modelo só no teste: teste compara o mesmo texto literal e a mesma evidência em SSE, GET de item, GET de turno e response armazenada. Entidade literal &amp; não é interpretada nem convertida em &amp;amp;.
+- Novos casos em test_api_plaintext.py foram escritos antes do produto. Incluem também remoção dos controles Cf/Cc e preservação de newline/tab/Unicode sem conversão HTML. Um teste inicial tentava construir surrogate Cs inválido: o Pydantic já o recusava antes do E11; a fixture nova foi corrigida para um Item válido com controles que alcançam E11, sem mudar casos congelados. Focal original preservada em pytest-r4-focal.txt (1 falha de fixture nova, 33 passaram); não foi apresentada como verde.
+- Regra documentada no README e interface.md: todas as saídas são texto puro; frontend usa sempre textContent, inclusive em itens/fontes/evidências/mensagens/detalhes. Nenhum campo textual deve ser interpretado como HTML.
+
+I2 — implementação
+- GET /lineage/turns filtra owner como antes, valida o ChatTurnRecord interno e projeta input_verdict para null ou {categoria: ...}. Não expõe motivo nem malicioso, sem alterar o modelo interno ou o registro persistido.
+- Novo caso confirma motivo sentinela ausente da resposta HTTP e integralmente preservado no banco. Categoria permanece pública. Não houve expectativa G3 que dependesse de motivo a alterar: test_api_chat.py permanece intacto.
+
+A11 — implementação
+- SESSION_COOKIE de produto e helper G3 passa a __Host-training_session. CookieTransport já fixa Path=/ e não configura Domain; Secure/HttpOnly/SameSite=Lax preservados. Configuração cookie_secure=False passa a ser recusada para não produzir cookie Host inválido.
+- Novo caso confere prefixo e todos os atributos, sessão válida e rejeição do cookie legado. Não existe fallback para training_session.
+- Host exige HTTPS; o runner histórico de prova em loopback sem TLS foi preservado como artefato histórico e está documentado como incompatível com uma nova execução sem TLS. Não houve chamada real nem nova execução desse runner nesta rodada.
+- Orquestrador atualizou somente o registro G3 do helper na tarefa T-024 (mensagem msg_a7a74642d29c), após envio do novo hash. Nenhum frontmatter foi alterado por este worker.
+
+Auditoria de casos alterados (expectativa afetada somente)
+Todos os hashes abaixo são SHA-256 do arquivo completo antes/depois. Cada linha alterada está listada literalmente, com número antigo/novo; não há alteração de asserção, cenário ou limiar além da expectativa autorizada. Nomes históricos de casos que mencionam escape foram mantidos para preservar IDs e evitar alterações desnecessárias.
+
+Arquivo: apps/api/tests/api_auth_support.py
+SHA-256 antigo: eea4696cb8cfb007bcf7b6f0f60791ad507de44d771ae8713464dabd1591b9ce
+SHA-256 novo: 9e5c12975e4cb0def2029cdf5c3f263820bdf345bbae3d714634cf885ea27717
+- antiga 12: SESSION_COOKIE = "training_session"
++ nova 12: SESSION_COOKIE = "__Host-training_session"
+
+Arquivo: apps/api/tests/test_api_auth_hardening.py
+SHA-256 antigo: fa63ec8bf0f47976d2ad0e56ff9f54498d1e1fadef68805be367711ed708b78b
+SHA-256 novo: fef9e0ae35ea5538e03419f62095212e380949e3eec8d551f35a4a2168f88fc1
+- antiga 31:         reads = [executor.submit(reader.get, '/users/me', headers={'Cookie': f'training_session={session.token}'})
++ nova 31:         reads = [executor.submit(reader.get, '/users/me', headers={'Cookie': f'__Host-training_session={session.token}'})
+
+Arquivo: packages/generation/tests/test_chat_integration.py
+SHA-256 antigo: b29028f783096716fbec44ceb07a845c1df78ed923a063345bcf97374e492454
+SHA-256 novo: 4f3247e6444ae8e7576fcf7d448cfd2a9787c0326893690e390fc7abecc2e185
+- antiga 260:     assert response.itens and '&lt;script&gt;' in response.itens[0].conteudo.back
++ nova 260:     assert response.itens and '<script>' in response.itens[0].conteudo.back
+
+Arquivo: packages/generation/tests/test_geracao_validacao.py
+SHA-256 antigo: 13742ce08f81c363af259a28330b5792f8cefd6013bc631324c4bf76e67fa8e7
+SHA-256 novo: bfa77f897c805d567332703ea9e545600953986c5439b99c6de7c9d47f9770ca
+- antiga 172:     assert saida.delivered.back == "&lt;script&gt;alert(1)&lt;/script&gt; &amp; luz"
+- antiga 173:     assert saida.delivered.citations[0].evidence == "a &lt;b&gt;luz&lt;/b&gt; é absorvida"
++ nova 172:     assert saida.delivered.back == "<script>alert(1)</script> & luz"
++ nova 173:     assert saida.delivered.citations[0].evidence == "a <b>luz</b> é absorvida"
+- antiga 182:     assert saida.delivered.options[:2] == ["&lt;i&gt;ATP&lt;/i&gt;", "&quot;água&quot;"]
++ nova 182:     assert saida.delivered.options[:2] == ["<i>ATP</i>", '"água"']
+
+Total: seis linhas afetadas em quatro arquivos antigos. Só api_auth_support.py é um dos cinco arquivos G3 desta mudança; a alteração de sua constante foi expressamente autorizada. test_api_auth_hardening.py tinha um cabeçalho Cookie literal, ajustado ao novo nome para manter o MESMO cenário concorrente. Os dois arquivos de generation trocam somente quatro expectativas de apresentação HTML para texto puro; nenhuma asserção foi retirada ou afrouxada. Os outros quatro arquivos G3 (test_api_auth.py, conftest.py, test_api_chat.py, api_chat_support.py) permanecem idênticos à base. Arquivo novo: apps/api/tests/test_api_plaintext.py (cinco casos).
+
+Provas finais: Passou — uma execução final de uv run pytest apps/api packages/lineage packages/generation packages/contracts -q, 666 passed, 2 skipped, 12 warnings em 127.26s, exit 0 (pytest-r4.txt). Os dois smokes reais ficaram Não executado, por proibição explícita de chamada real nesta rodada. A suíte final inclui a fixture nova corrigida e todo o snapshot final do produto; nenhuma alteração de produto/caso foi feita após essa execução. casos-intactos-r4.txt contém os cinco G3 e todos os arquivos de teste novos/afetados, com hashes finais. Sem chamada real a LLM; as duas variáveis de chave de modelo são vazias somente no ambiente do subprocesso de pytest, sem editar .env. Sem commit, push, merge ou deploy. Revisões de outro provedor/segurança e aceite humano continuam com o orquestrador.
+
+Integridade e fechamento
+- Passou: quatro arquivos G3 não autorizados a mudar comparados byte a byte ao commit f34b4d8, hashes antigos/novos iguais em g3-preservados-r4.json. O quinto, api_auth_support.py, mudou somente sua linha 12 autorizada; hash atualizado pelo orquestrador na T-024.
+- Passou: sha256sum -c casos-intactos-r4.txt (todos os 9 arquivos listados) e git diff --check.
+- Passou: uv run validar-governanca, 7 mudanças/26 tarefas/28 requisitos, saída validador-r4.txt.
+- Auditoria detalhada legível de todas as seis linhas afetadas está acima; espelho estruturado alteracoes-casos-r4.json. Hashes finais de produto/testes desta rodada em hashes-r4.txt.
+- Restam revisão independente/segurança e aceite humano; esta prova não executa frontend nem LLM real. Política de textContent e HTTPS registrada conforme decisão humana, sem simular validação em navegador.

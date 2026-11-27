@@ -1,0 +1,26 @@
+[
+  {
+    "file": "apps/api/tests/test_api_auth.py",
+    "old_sha256": "cb7be2439cfa093f4f7dea48863fc99eee192e43efd23675964c3531b7d0faf5",
+    "new_sha256": "cb7be2439cfa093f4f7dea48863fc99eee192e43efd23675964c3531b7d0faf5",
+    "status": "Passou"
+  },
+  {
+    "file": "apps/api/tests/conftest.py",
+    "old_sha256": "c770ed17b86b91d3c32a872a14b1c859420b01b33883c228a67429cd78e8c4d5",
+    "new_sha256": "c770ed17b86b91d3c32a872a14b1c859420b01b33883c228a67429cd78e8c4d5",
+    "status": "Passou"
+  },
+  {
+    "file": "apps/api/tests/test_api_chat.py",
+    "old_sha256": "3df89ae3178446301fb0a07b4545acf03ab7793253762fb06e1e36d5e0c7d133",
+    "new_sha256": "3df89ae3178446301fb0a07b4545acf03ab7793253762fb06e1e36d5e0c7d133",
+    "status": "Passou"
+  },
+  {
+    "file": "apps/api/tests/api_chat_support.py",
+    "old_sha256": "3a716b897b4a24b5d30138f61b0ea056aa16cf0fe549abafde5d1a877e8a30e1",
+    "new_sha256": "3a716b897b4a24b5d30138f61b0ea056aa16cf0fe549abafde5d1a877e8a30e1",
+    "status": "Passou"
+  }
+]

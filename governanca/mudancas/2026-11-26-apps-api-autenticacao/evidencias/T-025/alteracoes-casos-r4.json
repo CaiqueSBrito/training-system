@@ -1,0 +1,113 @@
+[
+  {
+    "file": "apps/api/tests/api_auth_support.py",
+    "old_sha256": "eea4696cb8cfb007bcf7b6f0f60791ad507de44d771ae8713464dabd1591b9ce",
+    "new_sha256": "9e5c12975e4cb0def2029cdf5c3f263820bdf345bbae3d714634cf885ea27717",
+    "lines": [
+      {
+        "kind": "replace",
+        "old_lines": [
+          {
+            "line": 12,
+            "text": "SESSION_COOKIE = \"training_session\""
+          }
+        ],
+        "new_lines": [
+          {
+            "line": 12,
+            "text": "SESSION_COOKIE = \"__Host-training_session\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "apps/api/tests/test_api_auth_hardening.py",
+    "old_sha256": "fa63ec8bf0f47976d2ad0e56ff9f54498d1e1fadef68805be367711ed708b78b",
+    "new_sha256": "fef9e0ae35ea5538e03419f62095212e380949e3eec8d551f35a4a2168f88fc1",
+    "lines": [
+      {
+        "kind": "replace",
+        "old_lines": [
+          {
+            "line": 31,
+            "text": "        reads = [executor.submit(reader.get, '/users/me', headers={'Cookie': f'training_session={session.token}'})"
+          }
+        ],
+        "new_lines": [
+          {
+            "line": 31,
+            "text": "        reads = [executor.submit(reader.get, '/users/me', headers={'Cookie': f'__Host-training_session={session.token}'})"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "packages/generation/tests/test_chat_integration.py",
+    "old_sha256": "b29028f783096716fbec44ceb07a845c1df78ed923a063345bcf97374e492454",
+    "new_sha256": "4f3247e6444ae8e7576fcf7d448cfd2a9787c0326893690e390fc7abecc2e185",
+    "lines": [
+      {
+        "kind": "replace",
+        "old_lines": [
+          {
+            "line": 260,
+            "text": "    assert response.itens and '&lt;script&gt;' in response.itens[0].conteudo.back"
+          }
+        ],
+        "new_lines": [
+          {
+            "line": 260,
+            "text": "    assert response.itens and '<script>' in response.itens[0].conteudo.back"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "packages/generation/tests/test_geracao_validacao.py",
+    "old_sha256": "13742ce08f81c363af259a28330b5792f8cefd6013bc631324c4bf76e67fa8e7",
+    "new_sha256": "bfa77f897c805d567332703ea9e545600953986c5439b99c6de7c9d47f9770ca",
+    "lines": [
+      {
+        "kind": "replace",
+        "old_lines": [
+          {
+            "line": 172,
+            "text": "    assert saida.delivered.back == \"&lt;script&gt;alert(1)&lt;/script&gt; &amp; luz\""
+          },
+          {
+            "line": 173,
+            "text": "    assert saida.delivered.citations[0].evidence == \"a &lt;b&gt;luz&lt;/b&gt; é absorvida\""
+          }
+        ],
+        "new_lines": [
+          {
+            "line": 172,
+            "text": "    assert saida.delivered.back == \"<script>alert(1)</script> & luz\""
+          },
+          {
+            "line": 173,
+            "text": "    assert saida.delivered.citations[0].evidence == \"a <b>luz</b> é absorvida\""
+          }
+        ]
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          {
+            "line": 182,
+            "text": "    assert saida.delivered.options[:2] == [\"&lt;i&gt;ATP&lt;/i&gt;\", \"&quot;água&quot;\"]"
+          }
+        ],
+        "new_lines": [
+          {
+            "line": 182,
+            "text": "    assert saida.delivered.options[:2] == [\"<i>ATP</i>\", '\"água\"']"
+          }
+        ]
+      }
+    ]
+  }
+]

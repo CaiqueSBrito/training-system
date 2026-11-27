@@ -15,7 +15,7 @@ Execute da raiz do workspace:
 uv run --package training-api uvicorn training_api.app:app_from_env --factory
 ```
 
-O cookie `training_session` usa HttpOnly, Secure e SameSite=Lax. HTTPS é necessário
+O cookie `__Host-training_session` usa HttpOnly, Secure, SameSite=Lax, Path=/ e nenhum Domain. HTTPS é necessário
 com a configuração padrão; `API_COOKIE_SECURE=false` destina-se apenas ao ambiente
 local HTTP. Login recebe formulário OAuth2 (`username`, `password`) e devolve
 `csrf_token`; logout e troca de senha exigem esse valor em `X-CSRF-Token` junto ao
@@ -61,8 +61,8 @@ próxima chamada. Não há serviço ou scheduler novo.
 `/users/me` e o login enviam `Cache-Control: no-store`.
 `API_DOCS_ENABLED=false` desliga `/docs` e `/redoc`, preservando `/openapi.json`.
 A 0006 foi ajustada antes de aplicação em banco real; bancos descartáveis de teste
-são recriados. O nome do cookie e a decisão sobre lista local de senhas comuns
-permanecem sujeitos à decisão humana registrada na rodada de revisão.
+são recriados. O humano autorizou o prefixo __Host- do cookie; a lista local
+de senhas comuns permanece adiada como risco aceito na tarefa T-024.
 
 Rodada R4: hash e verificação compartilham um `anyio.CapacityLimiter` exclusivo da
 aplicação. `API_PASSWORD_HASH_CONCURRENCY` define o máximo simultâneo; quando não
@@ -177,5 +177,25 @@ inexistente. GETs de linhagem respondem com `Cache-Control: no-store`.
 
 A CLI mantém somente o agregado `E5_E7` no seu callback de progresso, como antes;
 o callback adicional `stage_progress` de E5/E6/E7 é habilitado apenas pela API.
-A regra de escape e os campos públicos da linhagem permanecem conforme o contrato
-atual; A4 e I2 aguardam decisão humana e não foram alterados nesta rodada.
+A decisão humana A4/I2 foi aplicada: as rotas usam texto puro e a projeção de
+input_verdict no GET de turno expõe somente categoria, conforme a seção abaixo.
+
+### Texto puro e cookie Host (decisão humana A4/I2/A11)
+
+SSE e GETs de linhagem retornam **texto puro**, sem escape nem interpretação de
+HTML. O frontend deve usar **sempre `textContent`**, inclusive para itens, fontes,
+evidências, títulos/seções, mensagens e detalhes de omissões. Nunca inserir esses
+campos como HTML. Tags como `<script>` e `<img onerror=...>` e entidades literais
+como `&amp;` conservam o mesmo conteúdo no final SSE e na linhagem. O E11 mantém
+somente sua limpeza de controles/Unicode anterior e revalida o schema.
+
+`GET /lineage/turns/{id}` publica `turn.input_verdict=null` ou
+`{"categoria": ...}`, sem motivo ou malicioso. O veredito interno completo
+continua persistido para auditoria; essa redução pertence só à fronteira HTTP.
+
+O cookie atual é `__Host-training_session`: Secure obrigatório, HttpOnly,
+SameSite=Lax, Path=/, sem Domain. HTTPS é necessário; a configuração
+`API_COOKIE_SECURE=false` é recusada. O nome legado `training_session` não
+autentica. O runner de prova HTTP antigo em loopback sem TLS é histórico e
+precisa de uma conexão HTTPS antes de ser usado com esta política; não foi
+executado novamente nesta rodada.

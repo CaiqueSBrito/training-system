@@ -55,6 +55,8 @@ class ApiSettings:
             raise ValueError('docs_enabled deve ser booleano')
         if type(self.cookie_secure) is not bool:
             raise ValueError('cookie_secure deve ser booleano')
+        if not self.cookie_secure:
+            raise ValueError('__Host-training_session exige Secure; cookie_secure deve ser true')
 
     @classmethod
     def from_env(cls, env_file: str | Path = '.env') -> 'ApiSettings':
