@@ -1,0 +1,65 @@
+T-025 R3 — correções de revisão, ctx_c04e78975335
+Base de revisão: 45f7aa0; retomada em 3333a3a. Sem commit nesta rodada.
+
+Casos primeiro: apps/api/tests/test_api_chat_hardening.py criado antes dos arquivos de execução/middleware e das alterações de produto. 16 combinações novas; as 5 fontes G3 permaneceram byte a byte intactas (casos-intactos-r3.txt, diff vazio e validador). O último reforço da asserção de E12 no timeout também precedeu seu ajuste de drenagem. E1–E12: corpo de ChatPipeline._run idêntico por AST à base 45f7aa0, evidência e1-e12-intactos-r3.json.
+
+M1 / A5 — Passou
+- session_id só com espaços ou maior que o limite configurado retorna 422 antes do stream; ChatRequest não foi alterado.
+- Exceção escapando da pipeline após HTTP 200 é capturada no worker, registra só type(exc).__name__, sem mensagem nem traceback, e termina com um único final erro sanitizado. Falha na criação/finalização do worker também tem final sanitizado sem ID.
+- Quantidade da API limitada ao max_items já configurado, evitando ValueError do default 5 quando max_items < 5; não muda configuração/modelo/limiar.
+- Caso de exceção real injetada depois do retorno do domínio, com sentinela secreta, confirma final erro único, ausência da sentinela nos logs/resposta e categoria RuntimeError sem exc_info.
+
+A1 — Passou
+- Toda pipeline roda em ThreadPoolExecutor próprio, thread training-chat-turn, com event loop privado. Banco síncrono, E9, persistência e confirmação de commit não usam o event loop ASGI.
+- Engine real do chat: pool_size configurável (4), max_overflow=0, pool_timeout=2s; connect_timeout=2s, statement_timeout=5s, lock_timeout=1s. Auth e GETs mantêm pools separados.
+- Teste executa o algoritmo real _evidence_range com 6000 caracteres dentro do E9 (hook de teste em _resolve) e mantém uma barreira de sincronização: /users/me retorna <1s enquanto o turno continua na etapa; confirma nome da thread. O caso exercita custo real de E9 sobre string grande, não uma ingestão nova de documento grande.
+
+A2 — Passou (limites de concorrência locais ao processo)
+- Admissão antes do SSE: padrão 1 turno ativo/dono, 4 globais; 429 por dono e 503 por capacidade global, parâmetros API_CHAT_MAX_ACTIVE_PER_OWNER/GLOBAL. Lease idempotente só libera após cancelamento/drenagem; cobre erro antes do stream e gerador não iniciado.
+- Prazo API_CHAT_TURN_TIMEOUT_SECONDS=180, configurável; timeout tanto no worker quanto na espera ASGI, inclusive quando o envio está bloqueado. Propaga cancelamento com loop.call_soon_threadsafe(task.cancel), grava erro e aguarda a task. Não interrompe CPU/thread à força; a vaga fica ocupada até a drenagem.
+- asyncio.to_thread do domínio usa executor privado do loop do turno (2 workers, training-chat-io), isolando admissão/recuperação do executor padrão ASGI. Não foi necessário alterar RequestAdmission nem a lógica de etapas.
+- genai HttpOptions(timeout=int(LLM_TIMEOUT_SECONDS*1000), retry_options attempts=1). Nenhuma chamada real foi feita nesta rodada; a configuração do cliente/pool foi conferida no código, não por execução real de modelo.
+- Testes: segundo turno do dono -> 429, outro dono com global cheio -> 503, sem abrir stream; vaga reutilizável após conclusão; deadline de 1s cancela modelo e confirma erro sem item por conexão separada.
+- Concorrência por dono/global é por processo; não se afirma exclusão distribuída. Taxa da borda é distribuída via Postgres. README explicita dimensionamento com múltiplos processos.
+
+A3 — Passou
+- Middleware ASGI em POST /chat rejeita Content-Length >256 KiB antes de receber corpo e conta bytes de corpos chunked antes de chamar FastAPI. Acumula em bytearray limitado; JSON não é parseado antes da validação do tamanho.
+- Testes sem sessão com JSON deliberadamente inválido provam 413 antes de parse/autenticação, com Content-Length (zero leituras) e chunked (duas leituras).
+- session_id máximo padrão 256 caracteres na rota; configurável, sem alterar contrato. README inclui client_max_body_size 256k no proxy.
+
+A6 — Passou
+- StreamingResponse com background=BackgroundTask(gen.aclose); gen gerencia o gerador real e a lease, inclusive antes da primeira iteração. Fecha explicitamente sob shield, sem depender do GC.
+- Caso ASGI com send bloqueado em plena drenagem e http.disconnect confirma cancelamento do modelo, erro persistido e vaga liberada para outro POST; registra BackgroundTask de aclose.
+
+A7 — Passou
+- Worker valida a resposta e consulta chat_turn.response por conexão independente, filtrando owner/turno, para confirmar commit antes de anunciar ID.
+- Se erro escapar, tenta persistir um turno erro com trace OTel real; só retorna esse ID após commit confirmado. Cancelamento reutiliza o erro já gravado pelo domínio.
+- Se persistência/confirmação falhar, final erro tem chat_turn_id=null, trace_id=null, sem itens/fontes; nenhum ID inexistente é anunciado. Decisão documentada no README conforme despacho.
+- Falha real de commit injetada no engine apenas após iniciar o trabalho prova final erro sem ID. Não se altera _persist/E1–E12.
+
+A8 — Passou
+- Reserva taxa da API em transação curta antes do SSE, usando pg_try_advisory_xact_lock, janela por dono e namespace api-chat: no chat_rate_event existente. Conta também pedidos que o E1 recusa por tamanho; não duplica a cobrança do domínio na mesma chave nem modifica E1.
+- Padrão 20 pedidos/60s; configuração API_CHAT_MAX_REQUESTS_PER_WINDOW/CHAT_REQUEST_WINDOW_SECONDS. SQL de preflight com lock_timeout 500ms e statement_timeout 2s.
+- Teste janela=1: primeira recusa E1 é gravada; segunda recebe 429 sem novo turno/stream.
+
+I1 — Passou
+- GETs bem-sucedidos de linhagem de item e turno levam Cache-Control: no-store; fontes e dados retornados permanecem iguais ao G3. Testes de ambos endpoints confirmam o cabeçalho.
+
+N2 (Anthropic) — Passou
+- Falha do ChatRuntime registra somente a classe da exceção, sem mensagem/exc_info. Teste injeta ValueError com sentinela e confirma a categoria e ausência do segredo.
+- N2 anterior de auth/CSRF preservado: transações confirmadas antes do trabalho longo; caso G3 continua passando.
+
+M2 — Passou
+- Novo canal opcional stage_progress em ChatPipeline; progress original continua recebendo somente o agregado E5_E7, como a CLI pré-T-025. _EXECUTION_PROGRESS usa apenas stage_progress, habilitado pela factory/API.
+- Teste real de pipeline confirma agregado no consumidor CLI e E5/E6/E7 individuais somente no canal API. CLI, prompts, modelos, parâmetros e E1–E12 não foram alterados.
+
+A4 / I2 — Não executado
+Exclusão explícita do despacho: regra de escape e redução dos campos públicos da linhagem aguardam decisão humana. Não implementadas nesta rodada. ensure_ascii no framing JSON só garante transporte UTF-8 válido (inclusive caracteres substitutos); não altera a regra de HTML/escape nem remove campo de contrato.
+
+Provas e limites
+- Focal antes da suíte: pytest-r3-focal.txt — Passou, 34 passed em 41.71s (16 novos + 18 G3).
+- UMA suíte ampla: uv run pytest apps/api packages/lineage packages/generation -q, pytest-r3.txt — Passou, 400 passed, 2 skipped, 12 warnings em 121.05s, exit 0. Chaves LLM vazias apenas no subprocesso; smokes antigos reais: Não executado, por proibição de chamada real nesta rodada.
+- Durante a conferência final houve um ajuste adicional pequeno na rota: drenar callbacks de persistência/cancelamento (E12) que chegam enquanto se aguarda o worker após timeout. Acrescentada primeiro a asserção E12 no caso novo, depois o código. A suíte ampla já estava em execução com o módulo anterior carregado; não a repeti nem atribuo seu resultado a esse último diff.
+- Verificação complementar específica do último diff: pytest-r3-cancelamento.txt — Passou, 3 passed, 31 deselected em 6.98s (timeout com E12, envio bloqueado com background, desconexão G3). O snapshot final combina a prova ampla e essa focal posterior, não uma segunda suíte ampla.
+- uv run validar-governanca: Passou, saída validador-r3.txt. git diff --check: Passou. Cinco casos congelados: Passou, sem alteração; hashes casos-intactos-r3.txt.
+- Nenhuma chamada real a LLM, dependência nova, alteração de contrato/prompt/modelo/limiar/migração, commit, push ou deploy. Revisão independente/segurança R3 e aceite humano permanecem com o orquestrador.

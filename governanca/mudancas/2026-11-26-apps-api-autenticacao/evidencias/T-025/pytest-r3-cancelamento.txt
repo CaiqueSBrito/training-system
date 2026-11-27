@@ -1,0 +1,5 @@
+Verificação complementar após ajuste mínimo de drenagem E12 na fronteira de timeout; não é repetição da suíte ampla.
+...                                                                      [100%]
+3 passed, 31 deselected in 6.98s
+
+exit_code=0
