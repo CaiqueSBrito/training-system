@@ -97,3 +97,13 @@ A sessão usa exclusivamente o cookie **`__Host-training_session`**, com
 aceito como sessão. HTTPS é obrigatório, inclusive para uma prova HTTP futura;
 `cookie_secure=False` é rejeitado na configuração, pois violaria o prefixo Host.
 A prova HTTP antiga é evidência do snapshot anterior, não prova deste cookie.
+
+## R5 — limpeza de apresentação na linhagem
+
+`GET /lineage/items/{id}` e `GET /lineage/turns/{id}` aplicam a função compartilhada
+`training_contracts.rendering.clean_text` aos textos de apresentação: campos do
+item, evidências, prompt, detalhes de omissões, mensagens/categoria e listas de
+`section_path` (também em fontes/spans/response aninhados). Remove Cf/Cs e Cc,
+exceto newline/tab, conservando HTML e entidades literais conforme ADR-0018.
+A transformação não modifica o persistido, IDs ou offsets; a fonte/proveniência
+original permanece íntegra para auditoria. A projeção de I2 continua só categoria.

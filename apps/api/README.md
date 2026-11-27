@@ -199,3 +199,22 @@ SameSite=Lax, Path=/, sem Domain. HTTPS é necessário; a configuração
 autentica. O runner de prova HTTP antigo em loopback sem TLS é histórico e
 precisa de uma conexão HTTPS antes de ser usado com esta política; não foi
 executado novamente nesta rodada.
+
+### Ajustes de disponibilidade e apresentação (T-025 R5)
+
+O limite de corpo usa a rota relativa do Starlette: continua aplicado a `/chat`
+quando o servidor é montado, por exemplo, com `root_path=/api` (`/api/chat`).
+`API_CHAT_QDRANT_TIMEOUT_SECONDS` configura o timeout explícito do cliente Qdrant
+(padrão 5 segundos, positivo). Se a drenagem de threads ultrapassar o prazo do
+turno, um aviso é emitido durante a espera; a vaga permanece ocupada até a thread
+terminar. Não há interrupção forçada nem promessa de cancelamento de CPU nativa.
+O loop é fechado e removido do contexto da thread ao encerrar o worker.
+
+A seleção do erro persistido após cancelamento compara/ordena `created_at` como
+`timestamptz`, sem depender do formato textual ISO (`Z` ou offset/microssegundos).
+
+Os GETs de linhagem aplicam a mesma limpeza de apresentação do E11 (Cc, exceto
+newline/tab; Cf e Cs) ao conteúdo, evidências, prompt, detalhes de omissões e
+seções, incluindo os campos aninhados em `response` e spans. HTML continua
+literal, para `textContent`. IDs/offsets e o registro persistido permanecem
+intactos: offsets referem-se à fonte original, não ao texto limpo de apresentação.

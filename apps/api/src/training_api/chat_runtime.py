@@ -11,7 +11,9 @@ class ChatRuntime:
         from google import genai
         from google.genai import types
         from training_generation import GenerationService, GenerationSettings
-        from training_ingestion.indexing import IndexingPipeline
+        from training_ingestion.indexing import IndexingPipeline, QdrantIndex
+        from training_llm import GeminiModels, ModelSettings
+        from qdrant_client import QdrantClient
         from training_llm import read_settings
         from training_retrieval import LocalReranker
 
@@ -28,12 +30,16 @@ class ChatRuntime:
                 pool_size=api_settings.chat_pool_size, max_overflow=0, pool_timeout=api_settings.chat_pool_timeout_seconds,
                 connect_args={'connect_timeout': 2, 'options': '-c timezone=UTC -c statement_timeout=5000 -c lock_timeout=1000'})
             self.resources.callback(self.engine.dispose)
-            self.processor = IndexingPipeline.from_env(env_file)
-            self.resources.callback(self.processor.index.client.close)
-            self.processor.model_client.client.close()
-            self.processor.model_client.client = genai.Client(api_key=settings.gemini_api_key,
+            model_settings = ModelSettings.from_env(env_file)
+            client = QdrantClient(url=model_settings.qdrant_url, cloud_inference=True,
+                                  timeout=api_settings.chat_qdrant_timeout_seconds)
+            self.resources.callback(client.close)
+            model_client = GeminiModels(model_settings)
+            model_client.client.close()
+            model_client.client = genai.Client(api_key=settings.gemini_api_key,
                 http_options=types.HttpOptions(timeout=int(settings.timeout_seconds * 1000), retry_options=types.HttpRetryOptions(attempts=1)))
-            self.resources.callback(self.processor.model_client.client.close)
+            self.resources.callback(model_client.client.close)
+            self.processor = IndexingPipeline(model_client, QdrantIndex(client, model_settings))
             self.provider = TracerProvider()  # local: nenhum exportador Langfuse
             self.resources.callback(self.provider.shutdown)
             self.generation = GenerationService(settings, tracer_provider=self.provider)

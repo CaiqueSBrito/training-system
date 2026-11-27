@@ -2,7 +2,7 @@
 
 Nenhuma função aqui chama LLM. A validação é item a item: um item inválido é rejeitado com
 motivo sem derrubar os demais (RAG-VAL-001, RAG-VAL-002). A sanitização gera uma cópia
-escapada para entrega e preserva o item original, cuja evidência literal continua igual ao
+em texto puro para entrega e preserva o item original, cuja evidência literal continua igual ao
 texto do chunk para a linhagem (RAG-SAI-001).
 """
 

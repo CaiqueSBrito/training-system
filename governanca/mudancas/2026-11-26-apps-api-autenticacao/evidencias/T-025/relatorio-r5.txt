@@ -1,0 +1,43 @@
+T-025 R5 — observações R1/R3/R4/R5/N5, ctx_f002cb6f47a6
+
+Base de produto: 512c159; retomada em fd5d42e. Sem commit nesta rodada. Reavaliação de segurança r2 aprovada; correções restritas às observações solicitadas. Casos novos em apps/api/tests/test_api_chat_review_r5.py escritos antes do código; os cinco arquivos G3 não foram modificados.
+
+R1 — Passou na focal
+- ChatBodyLimit compara get_route_path(scope) do Starlette com /chat, respeitando a remoção de root_path feita pelo roteador.
+- Dois casos ASGI com root_path=/api, path=/api/chat: Content-Length acima do limite recebe 413 sem ler corpo; chunked acima do limite recebe 413 depois de contar bytes, antes do parse/auth.
+
+R3 — Passou na focal
+- API_CHAT_QDRANT_TIMEOUT_SECONDS, inteiro positivo, padrão 5s. ChatRuntime constrói QdrantClient(url, cloud_inference=True, timeout=...) explicitamente; os demais componentes e configurações de modelo são preservados. A composição passa a registrar client.close no ExitStack antes de inicializar o índice.
+- Caso cria ChatRuntime real com modelos/SDKs reais apenas CONSTRUÍDOS (chaves literais de teste, nenhuma invocação LLM), Qdrant descartável real e timeout configurado de 7s. Espião de construtor delega ao QdrantClient real; operações de metadados locais confirmam o cliente funcionando. Coleção e recursos próprios fechados.
+- Na drenagem do executor privado, um callback de log é agendado para o prazo restante do turno. Se a espera ultrapassa o prazo, emite aviso DURANTE a drenagem, mesmo se a thread não retornar. Timer é cancelado quando a drenagem termina; vaga continua ocupada até a conclusão, sem interromper thread à força.
+- Caso força trabalho síncrono em asyncio.to_thread por 150ms com prazo de turno 20ms e confirma aviso de Drenagem/prazo, sem exc_info. A espera conclui e o resultado erro é persistido pelo domínio. Não se afirma limite absoluto para CPU nativa travada; há timeout de rede e observação da drenagem.
+
+R4 — Passou na focal
+- Seleção e ordenação do erro de cancelamento fazem CAST do created_at do JSON para TIMESTAMP WITH TIME ZONE e comparam com datetime UTC, nunca com string ISO.
+- Caso real de Postgres sem alteração de história: dois turnos erro no mesmo segundo, um com Z sem microssegundos e outro com .750000Z; início .500000. A comparação textual anterior escolheria o erro velho (Z > ponto). A consulta corrigida devolve current-error e mantém exatamente dois registros, sem fabricar outro turno.
+- Owner/session continuam filtrados. Esta correção aplica a alternativa timestamptz autorizada no despacho; não altera E1–E12 para expor IDs novos.
+
+R5 — Passou na focal
+- Regra de controles/invisíveis extraída para training_contracts.rendering.clean_text. O predicado AST é idêntico ao helper local anterior: Cf/Cs e Cc, exceto newline/tab. E11 usa a mesma função como antes; não há escape HTML nem decodificação de entidades.
+- Os GETs de linhagem aplicam essa limpeza em cópias da saída: front/back/stem/options/explanation, evidence, prompt, detalhe de omissões, section_path (inclusive response/fontes/spans), mensagem e categoria. IDs, offsets e persistência ficam intactos.
+- Caso de apresentação com U+202E cobre todos os campos aninhados e HTML literal, sem mutar o objeto original. Caso HTTP real usa a pipeline para gravar registros legítimos com U+202E no conteúdo original, prompt bruto e detalhe de omissão; os dois GETs removem o caractere e snapshots SQL antes/depois são iguais.
+- A primeira versão da fixture HTTP tentou UPDATE em histórico e foi corretamente barrada pelo trigger de imutabilidade. Não foi desabilitada a proteção: a fixture foi refeita para produzir os registros pelo domínio, com dublês só de modelo. Saída inicial preservada em pytest-r5-focal.txt (1 falha de preparação, 6 passaram); focal corrigida pytest-r5-focal-r2.txt: 7 passed in 6.72s. Nenhum caso existente foi alterado para obter sucesso.
+- README/interface documentam os controles de apresentação e que offsets continuam referentes à fonte original. Texto puro/textContent e projeção I2 só categoria preservados.
+
+N5 (Anthropic) — Passou na focal
+- asyncio.set_event_loop(None) no finally do worker, inclusive se falhar o encerramento/drenagem, seguido de loop.close.
+- No mesmo teste de drenagem, após job.run retornar dentro da thread, asyncio.get_event_loop levanta RuntimeError (sem loop atual), em vez de devolver um loop fechado.
+
+Docstring E11 — Passou
+- Mensagem do coordenador msg_2b9222990e6b solicitou corrigir a docstring de validation.py conforme ADR-0018 recém-publicada. Só o texto “escapada para entrega” passa a “em texto puro para entrega”. Comparação AST do módulo excluindo a docstring confirma todo o código funcional idêntico à base. Evidência limpeza-compartilhada-r5.json também confirma o predicado Unicode preservado.
+
+Prova final: Passou — UMA execução de uv run pytest apps/api packages/lineage packages/generation packages/contracts -q, 673 passed, 2 skipped, 12 warnings em 127.13s, exit 0. Resultado integral pytest-r5.txt. Os dois smokes de modelo reais: Não executado por proibição de chamada real nesta rodada; nenhum produto/caso mudou depois da execução final. Cinco hashes G3 em casos-intactos-r5.txt, sem mudança autorizada/necessária nesta rodada. Nenhuma chamada real a LLM: chaves vazias apenas no subprocesso de pytest; o teste de composição usa chaves literais próprias e não invoca modelos.
+
+Fora do escopo: R2 informativo para servidor ASGI 2.4 não foi solicitado nesta rodada e não foi implementado; o servidor instalado segue o 2.3 coberto pelas provas anteriores. Nenhuma dependência, migração, prompt, modelo ou limiar novo. Sem commit/push/deploy. Restam a reavaliação independente/de segurança e aceite humano.
+
+Fechamento
+- Passou: uv run validar-governanca, 7 mudanças/26 tarefas/28 requisitos, saída validador-r5.txt.
+- Passou: sha256sum -c casos-intactos-r5.txt e comparação dos cinco G3 byte a byte com a base 512c159; nenhum teste antigo alterado.
+- Passou: git diff --check.
+- Snapshot de produto e caso novo em hashes-r5.txt; integridade dos G3 em g3-preservados-r5.json.
+- Os itens R1/R3/R4/R5/N5 estão cobertos pelas focais e pela suíte final; falta reavaliação independente/de segurança e aceite humano. Sem chamada real a LLM nem commit.

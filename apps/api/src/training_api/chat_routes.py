@@ -11,6 +11,7 @@ from fastapi.responses import StreamingResponse
 from starlette.background import BackgroundTask
 from sqlalchemy import select
 from training_contracts import ChatRequest, ChatResponse, ChatTurnRecord
+from training_contracts.rendering import clean_text
 from training_lineage import tables as t
 from training_lineage.chat import ChatLineageRepository
 
@@ -172,6 +173,21 @@ async def chat(body: ChatRequest, request: Request, owner: str = Depends(current
         background=BackgroundTask(gen.aclose))
 
 
+def lineage_output(value):
+    """Projeta só textos de apresentação; IDs, offsets e persistência intactos."""
+    fields = {'front', 'back', 'stem', 'explanation', 'options', 'evidence',
+              'prompt', 'detalhe', 'section_path', 'mensagem', 'categoria'}
+    def clean(data, field=None):
+        if isinstance(data, str):
+            return clean_text(data) if field in fields else data
+        if isinstance(data, list):
+            return [clean(item, field) for item in data]
+        if isinstance(data, dict):
+            return {key: clean(item, key) for key, item in data.items()}
+        return data
+    return clean(jsonable_encoder(value))
+
+
 def item_lineage(engine, owner, item_id):
     with engine.connect() as connection:
         return ChatLineageRepository(connection).get_item_lineage(owner, item_id)
@@ -199,7 +215,7 @@ async def get_item(item_id: str, request: Request, response: Response, owner: st
     result = await to_thread.run_sync(item_lineage, request.app.state.lineage_engine, owner, item_id)
     if result is None:
         raise HTTPException(404, 'Not Found')
-    return jsonable_encoder(result)
+    return lineage_output(result)
 
 
 @router.get('/lineage/turns/{chat_turn_id}')
@@ -208,4 +224,4 @@ async def get_turn(chat_turn_id: str, request: Request, response: Response, owne
     result = await to_thread.run_sync(turn_lineage, request.app.state.lineage_engine, owner, chat_turn_id)
     if result is None:
         raise HTTPException(404, 'Not Found')
-    return jsonable_encoder(result)
+    return lineage_output(result)

@@ -8,7 +8,7 @@ from threading import Lock
 from uuid import uuid4
 
 from fastapi import HTTPException
-from sqlalchemy import func, select, text
+from sqlalchemy import DateTime, cast, func, select, text
 from training_contracts import ChatResponse, ChatTurnRecord
 from training_lineage import tables as t
 from training_lineage.chat import ChatLineageRepository
@@ -102,9 +102,9 @@ class ChatJob:
                 with self.pipeline.engine.connect() as connection:
                     saved = connection.execute(select(t.chat_turn.c.response).where(
                         t.chat_turn.c.owner_id == self.owner, t.chat_turn.c.session_id == self.body.session_id,
-                        t.chat_turn.c.record['created_at'].astext >= self.started.isoformat(),
+                        cast(t.chat_turn.c.record['created_at'].astext, DateTime(timezone=True)) >= self.started,
                         t.chat_turn.c.record['status'].astext == 'erro')
-                        .order_by(t.chat_turn.c.record['created_at'].astext.desc()).limit(1)).scalar_one_or_none()
+                        .order_by(cast(t.chat_turn.c.record['created_at'].astext, DateTime(timezone=True)).desc()).limit(1)).scalar_one_or_none()
                 if saved:
                     return ChatResponse.model_validate(saved)
             turn_id = uuid4().hex
@@ -135,6 +135,7 @@ class ChatJob:
         # SOMENTE este executor do worker; nunca o executor do loop ASGI.
         loop.set_default_executor(ThreadPoolExecutor(max_workers=2, thread_name_prefix='training-chat-io'))
         asyncio.set_event_loop(loop)
+        deadline = loop.time() + self.timeout_seconds
 
         async def execute():
             with self.lock:
@@ -157,9 +158,20 @@ class ChatJob:
         try:
             return loop.run_until_complete(execute())
         finally:
-            loop.run_until_complete(loop.shutdown_asyncgens())
-            # Drena inclusive retrieval já em curso antes de liberar recursos/vaga.
-            loop.run_until_complete(loop.shutdown_default_executor())
-            with self.lock:
-                self.task = self.loop = None
-            loop.close()
+            try:
+                loop.run_until_complete(loop.shutdown_asyncgens())
+                async def drain():
+                    # Aviso ainda DURANTE a espera: registra também uma thread
+                    # que nunca retorna, sem liberar a vaga prematuramente.
+                    warning = loop.call_later(max(0, deadline - loop.time()),
+                        log.warning, 'Drenagem do turno além do prazo configurado')
+                    try:
+                        await loop.shutdown_default_executor()
+                    finally:
+                        warning.cancel()
+                loop.run_until_complete(drain())
+            finally:
+                with self.lock:
+                    self.task = self.loop = None
+                asyncio.set_event_loop(None)
+                loop.close()

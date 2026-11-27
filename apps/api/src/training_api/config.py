@@ -40,6 +40,7 @@ class ApiSettings:
     chat_request_window_seconds: int = 60
     chat_pool_size: int = 4
     chat_pool_timeout_seconds: int = 2
+    chat_qdrant_timeout_seconds: int = 5
 
     def __post_init__(self):
         for field in fields(self):

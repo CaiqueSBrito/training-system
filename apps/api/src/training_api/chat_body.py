@@ -1,5 +1,6 @@
 """Limite ASGI antes de FastAPI carregar/parsear o JSON de POST /chat."""
 from starlette.responses import JSONResponse
+from starlette._utils import get_route_path
 
 
 class ChatBodyLimit:
@@ -9,7 +10,7 @@ class ChatBodyLimit:
         self.app = app
 
     async def __call__(self, scope, receive, send):
-        if scope['type'] != 'http' or scope.get('path') != '/chat' or scope.get('method') != 'POST':
+        if scope['type'] != 'http' or get_route_path(scope) != '/chat' or scope.get('method') != 'POST':
             return await self.app(scope, receive, send)
         async def reject():
             await JSONResponse({'detail': 'Corpo excede 256 KiB'}, status_code=413)(scope, receive, send)
