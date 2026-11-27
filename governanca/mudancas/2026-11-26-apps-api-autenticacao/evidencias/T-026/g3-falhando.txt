@@ -1,0 +1,203 @@
+# T-026 G3 — execução única do caso novo antes da implementação
+# data: 2026-11-26T21:34:54-03:00
+# comando: uv run pytest apps/api/tests/test_openapi_contratos.py -v
+
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /home/caique-brito/Documentos/Caique/Training System/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/caique-brito/Documentos/Caique/Training System
+configfile: pyproject.toml
+plugins: langsmith-0.15.0, anyio-4.16.0, Faker-40.54.0
+collecting ... collected 8 items
+
+apps/api/tests/test_openapi_contratos.py::test_openapi_publica_contrato_igual_ao_model_json_schema[POST /chat corpo = ChatRequest (validation)] PASSED [ 12%]
+apps/api/tests/test_openapi_contratos.py::test_openapi_publica_contrato_igual_ao_model_json_schema[POST /chat 200 = ChatResponse (serialization)] FAILED [ 25%]
+apps/api/tests/test_openapi_contratos.py::test_openapi_publica_contrato_igual_ao_model_json_schema[GET /lineage/items/{item_id} 200 = ItemLineage (serialization)] FAILED [ 37%]
+apps/api/tests/test_openapi_contratos.py::test_openapi_lista_exatamente_os_contratos_usados_pelas_rotas FAILED [ 50%]
+apps/api/tests/test_openapi_contratos.py::test_workspace_sem_json_schema_exportado[packages/contracts/schema/] FAILED [ 62%]
+apps/api/tests/test_openapi_contratos.py::test_workspace_sem_json_schema_exportado[script exportar-schema-contratos] FAILED [ 75%]
+apps/api/tests/test_openapi_contratos.py::test_workspace_sem_json_schema_exportado[packages/contracts/tests/test_schema.py] FAILED [ 87%]
+apps/api/tests/test_openapi_contratos.py::test_workspace_sem_json_schema_exportado[packages/contracts/src/training_contracts/schema.py] FAILED [100%]
+
+=================================== FAILURES ===================================
+_ test_openapi_publica_contrato_igual_ao_model_json_schema[POST /chat 200 = ChatResponse (serialization)] _
+
+openapi = {'openapi': '3.1.0', 'info': {'title': 'Training System API', 'version': '0.1.0'}, 'paths': {'/chat': {'post': {'summa...ord'}}, 'additionalProperties': False, 'type': 'object', 'required': ['current_password', 'new_password'], ...}, ...}}}
+metodo = 'post', rota = '/chat', onde = '200'
+modelo = <class 'training_contracts.chat.ChatResponse'>, modo = 'serialization'
+
+    @pytest.mark.parametrize(
+        ("metodo", "rota", "onde", "modelo", "modo"), USOS,
+        ids=[f"{m.upper()} {r} {o} = {mod.__name__} ({modo})" for m, r, o, mod, modo in USOS],
+    )
+    def test_openapi_publica_contrato_igual_ao_model_json_schema(openapi, metodo, rota, onde, modelo, modo):
+        componentes = openapi.get("components", {}).get("schemas", {})
+        local = local_da_rota(openapi, metodo, rota, onde)
+        candidatos = sorted({nome for nome in refs(local) if nome_base(nome) == modelo.__name__})
+>       assert candidatos, (
+            f"{metodo.upper()} {rota} {onde}: {modelo.__name__} não é referenciado no OpenAPI; "
+            f"referências encontradas: {sorted(set(refs(local)))}"
+        )
+E       AssertionError: POST /chat 200: ChatResponse não é referenciado no OpenAPI; referências encontradas: []
+E       assert []
+
+apps/api/tests/test_openapi_contratos.py:165: AssertionError
+_ test_openapi_publica_contrato_igual_ao_model_json_schema[GET /lineage/items/{item_id} 200 = ItemLineage (serialization)] _
+
+openapi = {'openapi': '3.1.0', 'info': {'title': 'Training System API', 'version': '0.1.0'}, 'paths': {'/chat': {'post': {'summa...ord'}}, 'additionalProperties': False, 'type': 'object', 'required': ['current_password', 'new_password'], ...}, ...}}}
+metodo = 'get', rota = '/lineage/items/{item_id}', onde = '200'
+modelo = <class 'training_contracts.linhagem.ItemLineage'>
+modo = 'serialization'
+
+    @pytest.mark.parametrize(
+        ("metodo", "rota", "onde", "modelo", "modo"), USOS,
+        ids=[f"{m.upper()} {r} {o} = {mod.__name__} ({modo})" for m, r, o, mod, modo in USOS],
+    )
+    def test_openapi_publica_contrato_igual_ao_model_json_schema(openapi, metodo, rota, onde, modelo, modo):
+        componentes = openapi.get("components", {}).get("schemas", {})
+        local = local_da_rota(openapi, metodo, rota, onde)
+        candidatos = sorted({nome for nome in refs(local) if nome_base(nome) == modelo.__name__})
+>       assert candidatos, (
+            f"{metodo.upper()} {rota} {onde}: {modelo.__name__} não é referenciado no OpenAPI; "
+            f"referências encontradas: {sorted(set(refs(local)))}"
+        )
+E       AssertionError: GET /lineage/items/{item_id} 200: ItemLineage não é referenciado no OpenAPI; referências encontradas: []
+E       assert []
+
+apps/api/tests/test_openapi_contratos.py:165: AssertionError
+________ test_openapi_lista_exatamente_os_contratos_usados_pelas_rotas _________
+
+openapi = {'openapi': '3.1.0', 'info': {'title': 'Training System API', 'version': '0.1.0'}, 'paths': {'/chat': {'post': {'summa...ord'}}, 'additionalProperties': False, 'type': 'object', 'required': ['current_password', 'new_password'], ...}, ...}}}
+
+    def test_openapi_lista_exatamente_os_contratos_usados_pelas_rotas(openapi):
+        componentes = openapi.get("components", {}).get("schemas", {})
+        contratos = nomes_de_contrato()
+        esperados = nomes_do_fecho({modelo for *_, modelo, _ in USOS})
+    
+        publicados_de_contrato = {nome_base(n) for n in componentes if nome_base(n) in contratos}
+>       assert publicados_de_contrato == esperados, (
+            f"faltando: {sorted(esperados - publicados_de_contrato)}; "
+            f"sobrando: {sorted(publicados_de_contrato - esperados)}"
+        )
+E       AssertionError: faltando: ['BloomLevel', 'ChatResponse', 'ChatStatus', 'Citation', 'CitationLineage', 'DeliveredItem', 'Flashcard', 'ItemLineage', 'MotivoRecusa', 'MotivoRejeicao', 'Omission', 'Question', 'Source']; sobrando: []
+E       assert {'ChatRequest'} == {'BloomLevel'...Lineage', ...}
+E         
+E         Extra items in the right set:
+E         'ChatResponse'
+E         'Question'
+E         'DeliveredItem'
+E         'BloomLevel'
+E         'MotivoRecusa'...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+apps/api/tests/test_openapi_contratos.py:181: AssertionError
+_____ test_workspace_sem_json_schema_exportado[packages/contracts/schema/] _____
+
+item = 'packages/contracts/schema/'
+
+    @pytest.mark.parametrize(
+        "item",
+        [
+            "packages/contracts/schema/",
+            "script exportar-schema-contratos",
+            "packages/contracts/tests/test_schema.py",
+            "packages/contracts/src/training_contracts/schema.py",
+        ],
+    )
+    def test_workspace_sem_json_schema_exportado(item):
+        if item == "script exportar-schema-contratos":
+            projeto = tomllib.loads((CONTRATOS / "pyproject.toml").read_text(encoding="utf-8"))
+            scripts = projeto.get("project", {}).get("scripts", {})
+            assert "exportar-schema-contratos" not in scripts, f"script ainda declarado: {scripts}"
+            return
+>       assert not (RAIZ / item).exists(), f"{item} ainda existe"
+E       AssertionError: packages/contracts/schema/ ainda existe
+E       assert not True
+E        +  where True = exists()
+E        +    where exists = (PosixPath('/home/caique-brito/Documentos/Caique/Training System') / 'packages/contracts/schema/').exists
+
+apps/api/tests/test_openapi_contratos.py:220: AssertionError
+__ test_workspace_sem_json_schema_exportado[script exportar-schema-contratos] __
+
+item = 'script exportar-schema-contratos'
+
+    @pytest.mark.parametrize(
+        "item",
+        [
+            "packages/contracts/schema/",
+            "script exportar-schema-contratos",
+            "packages/contracts/tests/test_schema.py",
+            "packages/contracts/src/training_contracts/schema.py",
+        ],
+    )
+    def test_workspace_sem_json_schema_exportado(item):
+        if item == "script exportar-schema-contratos":
+            projeto = tomllib.loads((CONTRATOS / "pyproject.toml").read_text(encoding="utf-8"))
+            scripts = projeto.get("project", {}).get("scripts", {})
+>           assert "exportar-schema-contratos" not in scripts, f"script ainda declarado: {scripts}"
+E           AssertionError: script ainda declarado: {'exportar-schema-contratos': 'training_contracts.schema:main'}
+E           assert 'exportar-schema-contratos' not in {'exportar-schema-contratos': 'training_contracts.schema:main'}
+
+apps/api/tests/test_openapi_contratos.py:218: AssertionError
+_ test_workspace_sem_json_schema_exportado[packages/contracts/tests/test_schema.py] _
+
+item = 'packages/contracts/tests/test_schema.py'
+
+    @pytest.mark.parametrize(
+        "item",
+        [
+            "packages/contracts/schema/",
+            "script exportar-schema-contratos",
+            "packages/contracts/tests/test_schema.py",
+            "packages/contracts/src/training_contracts/schema.py",
+        ],
+    )
+    def test_workspace_sem_json_schema_exportado(item):
+        if item == "script exportar-schema-contratos":
+            projeto = tomllib.loads((CONTRATOS / "pyproject.toml").read_text(encoding="utf-8"))
+            scripts = projeto.get("project", {}).get("scripts", {})
+            assert "exportar-schema-contratos" not in scripts, f"script ainda declarado: {scripts}"
+            return
+>       assert not (RAIZ / item).exists(), f"{item} ainda existe"
+E       AssertionError: packages/contracts/tests/test_schema.py ainda existe
+E       assert not True
+E        +  where True = exists()
+E        +    where exists = (PosixPath('/home/caique-brito/Documentos/Caique/Training System') / 'packages/contracts/tests/test_schema.py').exists
+
+apps/api/tests/test_openapi_contratos.py:220: AssertionError
+_ test_workspace_sem_json_schema_exportado[packages/contracts/src/training_contracts/schema.py] _
+
+item = 'packages/contracts/src/training_contracts/schema.py'
+
+    @pytest.mark.parametrize(
+        "item",
+        [
+            "packages/contracts/schema/",
+            "script exportar-schema-contratos",
+            "packages/contracts/tests/test_schema.py",
+            "packages/contracts/src/training_contracts/schema.py",
+        ],
+    )
+    def test_workspace_sem_json_schema_exportado(item):
+        if item == "script exportar-schema-contratos":
+            projeto = tomllib.loads((CONTRATOS / "pyproject.toml").read_text(encoding="utf-8"))
+            scripts = projeto.get("project", {}).get("scripts", {})
+            assert "exportar-schema-contratos" not in scripts, f"script ainda declarado: {scripts}"
+            return
+>       assert not (RAIZ / item).exists(), f"{item} ainda existe"
+E       AssertionError: packages/contracts/src/training_contracts/schema.py ainda existe
+E       assert not True
+E        +  where True = exists()
+E        +    where exists = (PosixPath('/home/caique-brito/Documentos/Caique/Training System') / 'packages/contracts/src/training_contracts/schema.py').exists
+
+apps/api/tests/test_openapi_contratos.py:220: AssertionError
+=========================== short test summary info ============================
+FAILED apps/api/tests/test_openapi_contratos.py::test_openapi_publica_contrato_igual_ao_model_json_schema[POST /chat 200 = ChatResponse (serialization)]
+FAILED apps/api/tests/test_openapi_contratos.py::test_openapi_publica_contrato_igual_ao_model_json_schema[GET /lineage/items/{item_id} 200 = ItemLineage (serialization)]
+FAILED apps/api/tests/test_openapi_contratos.py::test_openapi_lista_exatamente_os_contratos_usados_pelas_rotas
+FAILED apps/api/tests/test_openapi_contratos.py::test_workspace_sem_json_schema_exportado[packages/contracts/schema/]
+FAILED apps/api/tests/test_openapi_contratos.py::test_workspace_sem_json_schema_exportado[script exportar-schema-contratos]
+FAILED apps/api/tests/test_openapi_contratos.py::test_workspace_sem_json_schema_exportado[packages/contracts/tests/test_schema.py]
+FAILED apps/api/tests/test_openapi_contratos.py::test_workspace_sem_json_schema_exportado[packages/contracts/src/training_contracts/schema.py]
+========================= 7 failed, 1 passed in 0.48s ==========================

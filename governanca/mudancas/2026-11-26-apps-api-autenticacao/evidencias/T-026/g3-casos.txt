@@ -1,0 +1,1 @@
+9a37b5c370c5bdd868cb4293e0b316a1481ec169713591b45fc72da908451c48  apps/api/tests/test_openapi_contratos.py
