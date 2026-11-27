@@ -144,7 +144,7 @@ _TRACING_NOTICE=[False]
 
 class ChatPipeline:
     def __init__(self,engine,generation,index,model_client,reranker,*,rate_limit=20,
-                 rate_window_seconds=60,tracer_provider=None,progress=None,admission=None,evaluation_capture=False):
+                 rate_window_seconds=60,tracer_provider=None,progress=None,admission=None,evaluation_capture=False,stage_progress=None):
         if type(rate_limit) is not int or rate_limit<1 or rate_window_seconds<=0:
             raise ValueError('Configuração de limite inválida')
         self.engine,self.generation,self.index=engine,generation,index
@@ -153,6 +153,7 @@ class ChatPipeline:
         self.provider=tracer_provider or getattr(generation,'_tracer_provider',None) or TracerProvider()
         self.telemetry=_StageLatencies.attach(self.provider)
         self.progress=progress
+        self.stage_progress=stage_progress
         self.admission=admission
         self.evaluation_capture=evaluation_capture
         self.last_evaluation={}
@@ -259,7 +260,7 @@ class ChatPipeline:
     async def run(self,owner_id,session_id,message,*,document_version_ids,section_prefix=(),count=5):
         # ContextVar é copiada por asyncio.to_thread, isolada por execução e
         # restaurada mesmo no cancelamento; nenhum callback global por provider.
-        token = _EXECUTION_PROGRESS.set(self.progress)
+        token = _EXECUTION_PROGRESS.set(self.stage_progress)
         try:
             return await self._run(owner_id,session_id,message,document_version_ids=document_version_ids,
                                    section_prefix=section_prefix,count=count)

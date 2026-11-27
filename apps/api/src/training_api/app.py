@@ -57,13 +57,14 @@ def create_app(settings: ApiSettings) -> FastAPI:
             # configurados; POST /chat informa 503, sem implementação alternativa.
             if getattr(app.state, 'chat_pipeline_factory', None) is None:
                 try:
-                    runtime = await to_thread.run_sync(ChatRuntime, url)
+                    runtime = await to_thread.run_sync(lambda: ChatRuntime(url, api_settings=app.state.settings))
                     app.state.chat_pipeline_factory = runtime.factory
-                except Exception:
+                except Exception as exc:
                     import logging
-                    logging.getLogger(__name__).warning('Chat indisponível: configuração ou infraestrutura')
+                    logging.getLogger(__name__).warning('Chat indisponível categoria=%s', type(exc).__name__)
             yield
         finally:
+            await to_thread.run_sync(app.state.chat_workers.close)
             if runtime is not None:
                 await to_thread.run_sync(runtime.close)
             app.state.lineage_engine.dispose()
@@ -72,6 +73,10 @@ def create_app(settings: ApiSettings) -> FastAPI:
     app = FastAPI(title='Training System API', lifespan=lifespan,
                   docs_url='/docs' if settings.docs_enabled else None,
                   redoc_url='/redoc' if settings.docs_enabled else None)
+    from .chat_body import ChatBodyLimit
+    from .chat_execution import ChatWorkers
+    app.add_middleware(ChatBodyLimit)
+    app.state.chat_workers = ChatWorkers(settings.chat_max_active_global)
     app.state.lineage_engine = create_engine(url, pool_pre_ping=True, hide_parameters=True,
         connect_args={'connect_timeout': 5, 'options': '-c timezone=UTC'})
     from .chat_routes import router

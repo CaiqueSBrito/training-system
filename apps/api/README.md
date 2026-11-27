@@ -131,3 +131,51 @@ Cabeçalhos: `Cache-Control: no-cache` e `X-Accel-Buffering: no`; configurar o
 proxy sem buffering/compressão e com timeout acima da duração de um turno.
 Desconexão cancela a task e aguarda o tratamento de cancelamento do domínio.
 Não há retomada do stream na v1.
+
+### Limites e execução do chat (T-025 R3)
+
+Antes de parsear JSON, o middleware ASGI de `POST /chat` impõe **256 KiB**,
+contando também corpo chunked. Configure ainda `client_max_body_size 256k;` no
+nginx/proxy, além de desabilitar buffering e compressão no SSE. A rota recusa
+`session_id` vazio após strip ou acima de 256 caracteres sem mudar ChatRequest.
+
+Parâmetros `API_*` opcionais, inteiros positivos:
+
+| Variável | Padrão | Efeito |
+| --- | --- | --- |
+| `API_CHAT_MAX_ACTIVE_PER_OWNER` | 1 | Turnos ativos por dono neste processo; excedente 429 antes do SSE |
+| `API_CHAT_MAX_ACTIVE_GLOBAL` | 4 | Turnos ativos neste processo; excedente 503 antes do SSE |
+| `API_CHAT_TURN_TIMEOUT_SECONDS` | 180 | Prazo do trabalho; cancela a pipeline e aguarda persistência/drenagem |
+| `API_CHAT_SESSION_ID_MAX_LENGTH` | 256 | Tamanho máximo da sessão de chat |
+| `API_CHAT_MAX_REQUESTS_PER_WINDOW` | 20 | Pedidos aceitos por dono e janela na borda, inclusive recusa E1 |
+| `API_CHAT_REQUEST_WINDOW_SECONDS` | 60 | Janela da taxa na borda |
+| `API_CHAT_POOL_SIZE` | 4 | Conexões do engine do chat, sem overflow |
+| `API_CHAT_POOL_TIMEOUT_SECONDS` | 2 | Espera máxima por conexão do pool do chat |
+
+O limite de taxa na borda é persistido no Postgres em um namespace separado de
+`chat_rate_event`; o E1 mantém o seu próprio limite inalterado. A leitura/reserva
+usa lock não bloqueante e transação curta antes de enviar HTTP 200. Os limites
+de turnos ativos são locais ao processo; ao usar múltiplos processos, dimensione
+o total e a proteção do proxy de acordo. Não há promessa de quota de concorrência
+distribuída nesta implementação.
+
+Cada turno roda em thread dedicada com loop asyncio próprio. Admissão de chamadas
+e recuperação usam o executor privado desse loop, sem ocupar o executor padrão
+do ASGI. O prazo também roda no worker, inclusive enquanto o envio ao cliente
+está bloqueado. Cancelamento é propagado por `call_soon_threadsafe`; cliente
+lento/desconectado fecha explicitamente o gerador pela tarefa de background.
+Trabalho síncrono já em execução não é interrompido à força: a vaga fica ocupada
+até a drenagem. O genai tem timeout explícito baseado em `LLM_TIMEOUT_SECONDS`;
+SQL do engine de chat limita conexão (2s), statement (5s) e lock (1s).
+
+Exceção que escape do domínio após HTTP 200 termina com um único `final` de erro
+sanitizado; os logs guardam só o tipo/categoria da exceção, sem mensagem ou
+traceback. A API confirma o commit por conexão separada antes de anunciar um
+turno. Se nem a persistência de erro for possível, o `final` leva `status=erro`,
+sem itens/fontes e com `chat_turn_id=null` e `trace_id=null`: não anuncia um ID
+inexistente. GETs de linhagem respondem com `Cache-Control: no-store`.
+
+A CLI mantém somente o agregado `E5_E7` no seu callback de progresso, como antes;
+o callback adicional `stage_progress` de E5/E6/E7 é habilitado apenas pela API.
+A regra de escape e os campos públicos da linhagem permanecem conforme o contrato
+atual; A4 e I2 aguardam decisão humana e não foram alterados nesta rodada.

@@ -32,6 +32,14 @@ class ApiSettings:
     login_window_seconds: int = 900
     register_max_per_origin: int = 5
     register_window_seconds: int = 3600
+    chat_max_active_per_owner: int = 1
+    chat_max_active_global: int = 4
+    chat_turn_timeout_seconds: int = 180
+    chat_session_id_max_length: int = 256
+    chat_max_requests_per_window: int = 20
+    chat_request_window_seconds: int = 60
+    chat_pool_size: int = 4
+    chat_pool_timeout_seconds: int = 2
 
     def __post_init__(self):
         for field in fields(self):
