@@ -1,5 +1,7 @@
 # ADR-0004 — Guardrails e modelos juízes
 
+> Trecho de escape do E11 substituído pela [ADR-0018](0018-saida-texto-puro.md).
+
 Estado: **Aceita** (humano, 2026-11-24); o juiz de saída é confirmado após calibração.
 
 ## Contexto

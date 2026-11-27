@@ -12,7 +12,7 @@
 | [0001](adr/0001-orquestracao-adk-geracao-gemini.md) | Google ADK + `gemini-3.1-flash-lite` | Aceita |
 | [0002](adr/0002-embeddings-qdrant-hibrido.md) | `gemini-embedding-2` @ 3072 + Qdrant híbrido | Aceita |
 | [0003](adr/0003-reranker-cross-encoder-local.md) | Reranker `bge-reranker-v2-m3` local | Aceita |
-| [0004](adr/0004-guardrails-e-juizes.md) | Guardrails e modelos juízes | Aceita (juiz de saída a calibrar) |
+| [0004](adr/0004-guardrails-e-juizes.md) | Guardrails e modelos juízes | Aceita (juiz de saída a calibrar; escape do E11 substituído pela 0018) |
 | [0005](adr/0005-observabilidade-langfuse-otel.md) | Langfuse via OpenTelemetry | Aceita |
 | [0006](adr/0006-avaliacao-ragas-litellm.md) | RAGAS + juízes via LiteLLM | Aceita |
 | [0007](adr/0007-monorepo-python-uv.md) | uv workspace, Python 3.13, carência de 7 dias | Aceita |
@@ -26,5 +26,6 @@
 | [0015](adr/0015-canonico-decisoes-indice.md) | Texto canônico, decisões imutáveis e índice derivado reparável | Aprovada para implementação; aceite integral pendente |
 | [0016](adr/0016-prompts-versionados-offline-chat.md) | Prompts reais versionados offline enquanto Langfuse está desligado | Decisão sob autonomia; revisão pendente |
 | [0017](adr/0017-autenticacao-propria.md) | Autenticação própria: `fastapi-users` + Argon2id, sessão no Postgres por cookie, CSRF e limite de tentativas | Aceita |
+| [0018](adr/0018-saida-texto-puro.md) | Saída gerada em texto puro em todas as rotas, cliente com `textContent` (substitui o escape do E11 da 0004) | Aceita |
 
 Nova ADR: próximo número livre, com as seções Estado, Contexto, Decisão, Alternativas e Consequências. Uma ADR aceita não é editada; uma mudança de decisão gera uma ADR nova que a substitui.

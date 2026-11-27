@@ -51,7 +51,7 @@ E2 e E3 rodam **em paralelo**; se E2 reprovar, E3 e o que vier depois são cance
 | **E8 Geração** | agente ADK, `gemini-3.1-flash-lite` | contexto numerado + objetivos/Bloom do plano → itens com citações | JSON inválido → 1 nova tentativa |
 | **E9 Validação determinística** | código | itens → aceitos/rejeitados com motivo | — |
 | **E10 Juiz de saída** | LLM `anthropic/claude-haiku-5.5` (OpenRouter), **uma** chamada com duas rubricas | itens + chunks citados → veredito por item | reprovado → 1 nova tentativa só dos reprovados; persistindo, item omitido com motivo |
-| **E11 Determinístico de saída** | código | itens → itens sanitizados e validados contra o schema | violação → item omitido |
+| **E11 Determinístico de saída** | código | itens → itens em texto puro (sem controles nem invisíveis) e validados contra o schema | violação → item omitido |
 | **E12 Disponibilização** | código | itens finais → resposta no chat com fontes; linhagem e `trace_id` gravados | falha ao gravar linhagem → a resposta não é entregue |
 
 ### 2.1 Modos de recuperação (decididos em E3)
@@ -107,7 +107,7 @@ Uma chamada `query_points` ao Qdrant com dois `prefetch` (dense e BM25) e fusão
 | Ingestão, passo 4 | barra injeção indireta vinda dos documentos | — |
 | Prompt da geração | contexto delimitado e marcado como dado; system prompt sem segredos (OWASP LLM07) | — |
 | E9 + E10 | groundedness por item e rubrica de viés/padrão | — |
-| E11 determinístico de saída | sanitização e escape para renderização web (OWASP LLM05: HTML/markdown/script dentro dos cards vira XSS), validação de schema | — |
+| E11 determinístico de saída | texto puro: remove caracteres de controle (exceto `\n` e `\t`) e invisíveis (Unicode Cc, Cf, Cs), validação de schema; contra XSS (OWASP LLM05), todo cliente renderiza o conteúdo com `textContent`, nunca como HTML ([ADR-0018](../adr/0018-saida-texto-puro.md)) | **não escapa HTML**: o conteúdo sai igual no SSE e na linhagem |
 
 A rubrica de viés/padrão do E10 é um documento versionado, mantido como prompt no Langfuse e aprovado pelo humano. Sem rubrica escrita, o juiz não tem critério reprodutível.
 
@@ -191,7 +191,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | `apps/api` | FastAPI assíncrono, servido por Uvicorn; ADK via `run_async` | recebe o chat, executa E1–E12, envia o progresso por SSE e o evento final com a `ChatResponse`; enfileira ingestão e avaliação; publica o OpenAPI | [0011](../adr/0011-api-fastapi-sse.md), [0014](../adr/0014-contratos-openapi.md) |
 | `apps/worker` | Procrastinate sobre o Postgres da aplicação | executa a ingestão assíncrona (§3) e a avaliação online por amostragem (§9) como jobs duráveis | [0012](../adr/0012-fila-procrastinate-postgres.md) |
-| `apps/web` | Next.js, React e TypeScript estrito; tipos gerados do OpenAPI | interface do chat; mostra o progresso e renderiza itens e fontes sempre escapados (RAG-SAI-001) | [0013](../adr/0013-front-nextjs-typescript.md) |
+| `apps/web` | Next.js, React e TypeScript estrito; tipos gerados do OpenAPI | interface do chat; mostra o progresso e renderiza itens e fontes sempre como texto (`textContent`), nunca como HTML (RAG-SAI-001, [ADR-0018](../adr/0018-saida-texto-puro.md)) | [0013](../adr/0013-front-nextjs-typescript.md), [0018](../adr/0018-saida-texto-puro.md) |
 
 Contratos: o OpenAPI da `apps/api` é o artefato publicado dos modelos de `packages/contracts` que cruzam a fronteira HTTP ([ADR-0014](../adr/0014-contratos-openapi.md)). O JSON Schema exportado em `packages/contracts/schema/` continua até a mudança que criar a `apps/api`.
 

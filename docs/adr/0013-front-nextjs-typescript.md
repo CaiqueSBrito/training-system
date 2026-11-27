@@ -2,6 +2,8 @@
 
 Estado: **Aceita** (humano, 2026-11-24)
 
+> A premissa de que o E11 escapa o conteúdo no servidor foi substituída pela [ADR-0018](0018-saida-texto-puro.md): o conteúdo chega como texto puro e o front o renderiza só como texto (`textContent`/texto do React), o que mantém a regra do item 3.
+
 ## Contexto
 
 A `apps/web` é a interface do chat: envia a mensagem, mostra o progresso por etapa vindo por SSE (ADR-0011) e renderiza flashcards, questionários e as fontes de cada item. Ela só fala com a `apps/api` (ADR-0010).
