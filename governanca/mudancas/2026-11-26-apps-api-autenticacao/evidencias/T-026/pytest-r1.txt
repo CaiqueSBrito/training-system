@@ -1,0 +1,2672 @@
+# comando: uv run pytest apps/api packages/contracts packages/lineage packages/generation -q
+# data: 2026-11-26T22:25:54-03:00
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE.EEEEEEEEEEFEEE [ 11%]
+EEFEEE.................................................................. [ 22%]
+........................................................................ [ 33%]
+........................................................................ [ 44%]
+........................................................................ [ 55%]
+........................................................................ [ 66%]
+........................................................................ [ 77%]
+........................................................................ [ 88%]
+..............FF........................................................ [ 99%]
+..                                                                       [100%]
+==================================== ERRORS ====================================
+___ ERROR at setup of test_AUT_CAD_001_cadastro_cria_conta_com_hash_argon2id ___
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_bd63dab6036e43a795a99009c9f7c22e)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CAD_001_email_repetido_recusado_sem_dados_da_conta[alice@example.com] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_b7cb00da68644315a8ff574e640357ec)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CAD_001_email_repetido_recusado_sem_dados_da_conta[Alice@Example.COM] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_5ee1d0676bbe4f4c960db270f027334b)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CAD_001_senha_abaixo_do_minimo_recusada_sem_criar_conta _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_b6e145938da64c04a4fb5c42b26ca754)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+__ ERROR at setup of test_AUT_CAD_001_cadastro_nao_aceita_privilegio_do_corpo __
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_1428153cf1a746c7bd428290554abe8e)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_SES_001_login_cria_sessao_no_banco_e_cookie_seguro _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_41fe8319b5d64191a3bcde519e5b4a3a)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_SES_001_falha_identica_para_email_inexistente_e_senha_errada _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_fc07ebc8d4064c9bba3bbfcf67374bce)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_SES_001_login_sempre_emite_token_novo_sem_fixacao _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_c978a99a3b6143b0b488cc9c9623c416)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_______ ERROR at setup of test_AUT_SES_002_logout_revoga_o_mesmo_cookie ________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_ffbd27b41cc840f2af2bc8982b1ebb55)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_____ ERROR at setup of test_AUT_SES_002_logout_revoga_so_a_propria_sessao _____
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_12a2a8a5189d4143b3bb920e5798887a)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+__ ERROR at setup of test_AUT_SES_002_troca_de_senha_revoga_todas_as_sessoes ___
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_eff538fa977e4d20a35330b1d4c17c71)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_SES_002_troca_de_senha_exige_senha_atual_e_politica _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_62e4b3c90c8947269601e615c84955ef)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_________ ERROR at setup of test_AUT_SES_002_sessao_vencida_recebe_401 _________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_92504ee70899499eb77b4ae63929a0ab)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_____ ERROR at setup of test_AUT_SES_002_cookie_desconhecido_recebe_401[] ______
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_afb8efc08bd34346a30ff8b0c8d1e7a1)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_SES_002_cookie_desconhecido_recebe_401[inexistente] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_9b12cc95e0354bc39cffceab9c9c7d9a)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+__ ERROR at setup of test_AUT_SES_002_cookie_desconhecido_recebe_401[cookie2] __
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_a61fd6a479b64d44af5855ef93a08334)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+___ ERROR at setup of test_AUT_SES_002_cookie_desconhecido_recebe_401[x.y.z] ___
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_6a177361b78e4ee1978a80cb3c411936)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CSR_001_sem_cabecalho_csrf_recebe_403_sem_efeito[logout] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_1902e99490ea4538b718de9b1e481363)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CSR_001_sem_cabecalho_csrf_recebe_403_sem_efeito[troca-de-senha] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_286a80ae7a994ab69ee3be429ba6094a)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-outro-usuario] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_42b888e26dab4ec7b9abb2c259f0a4f8)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-outra-sessao-do-mesmo-usuario] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_2b72f4c2022141c5b2815984cb6a403e)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-aleatorio] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_451b01b5a7284cf78e27ce241d22894c)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-vazio] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_3e8c23adf5bd459384a1b0a25cd1da97)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-outro-usuario] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_495c6b97beea4654bd2a79e231922617)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-outra-sessao-do-mesmo-usuario] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_17f823afe9da45679684af2ba24f959c)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-aleatorio] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_c4bf2a0c2669480e926ed15231efc059)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-vazio] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_7b02168f7ba44c0caed307bdf37e8715)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_________ ERROR at setup of test_AUT_CSR_001_csrf_nao_vale_sem_cookie __________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_4e189758dbe64d2986744014d3b4f0f1)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+__________ ERROR at setup of test_AUT_CSR_001_leitura_nao_exige_csrf ___________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_67d0772b49864eb4869e5339ebf28ca3)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_LIM_001_login_por_conta_429_mesmo_com_senha_correta _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_743964f20fb24e5688a6c8d1fe379bc8)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_LIM_001_limite_por_conta_nao_revela_se_a_conta_existe _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_072c983c09ea4a23905a2bdb54aee0e5)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_LIM_001_login_por_origem_429_para_qualquer_conta __
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_7ba939c02eb64f2d8c1550ed0ba580f6)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+___ ERROR at setup of test_AUT_LIM_001_abaixo_do_limite_login_correto_passa ____
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_7ffae1ef59c54e3d90efde1becd0324e)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+__________ ERROR at setup of test_AUT_LIM_001_cadastro_por_origem_429 __________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_f14eb13799584122b21a0b03919cc034)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[GET-/users/me] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_35377c8ec10a49b18c071a0793cf6e13)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[POST-/auth/logout] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_9a74921261b2428fbe2a32f81cd08358)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[POST-/auth/change-password] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_b87cd8808c3249a7bffce6b91a1add0d)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_____ ERROR at setup of test_AUT_OWN_001_dono_vem_da_sessao_e_nao_da_query _____
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_bf00a52263f44840a55d7c9257e87c69)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+______ ERROR at setup of test_AUT_OWN_001_owner_id_do_corpo_nunca_e_usado ______
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_ac3ca8481d8e44a3a48f41de005aadac)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+___ ERROR at setup of test_AUT_OWN_001_owner_id_e_o_uuid_textual_do_usuario ____
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_1c197d88819c46eabb4ac204e9741500)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_AUT_OWN_001_rotas_de_email_e_edicao_de_usuario_nao_montadas _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_7569aebfa4dc4ded978640c21db6be69)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_A1_concurrent_login_does_not_starve_authenticated_read _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_60da357f0f94417d8d763331be73d77a)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_______ ERROR at setup of test_A2_ipv6_prefix_shares_registration_limit ________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_2ca20b9c75e14cf19e074322ec8e849c)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+____________ ERROR at setup of test_A3_missing_client_fails_closed _____________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_b2e0f64327f7466fa4f3aaa93284cbc5)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+____ ERROR at setup of test_A4_password_change_failures_share_login_budget _____
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_b01cc0ea35114b17a340781393a3e903)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+______ ERROR at setup of test_A5_account_hmac_uses_postgres_normalization ______
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_e00dea63f51d431e8b6a55f63bff4ae7)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+___ ERROR at setup of test_A6_cross_site_auth_rejected[headers0-/auth/login] ___
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_e46fb1384ad8458283a639254256e288)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_A6_cross_site_auth_rejected[headers0-/auth/register] __
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_1e0f7d8a69ac40b58ab947cc124d3539)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+___ ERROR at setup of test_A6_cross_site_auth_rejected[headers1-/auth/login] ___
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_1bc3269e8f674716ab0e64a3f95b5d09)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_A6_cross_site_auth_rejected[headers1-/auth/register] __
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_a81d762feaf94d04a2f31f452013c5be)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+___ ERROR at setup of test_A6_cross_site_auth_rejected[headers2-/auth/login] ___
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_19276e4bd0d74b4e86ac46ee8dc664d0)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_A6_cross_site_auth_rejected[headers2-/auth/register] __
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_040daed5dc9047ee86c4a5b68adb39a4)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+______________ ERROR at setup of test_A6_same_origin_auth_allowed ______________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_53942b3fb7ee4b189f30df925b39a6e7)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+____________ ERROR at setup of test_A8_hashing_yields_to_event_loop ____________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_432dc16ff2ef45ea9cfdae1e0cb708bf)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+________________ ERROR at setup of test_maximum_password_length ________________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_502a622ad7e14d9aaa86707974a62dc7)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+__________ ERROR at setup of test_A9_idle_expiry_and_throttled_touch ___________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_e8308bb4192648bea175a394bad76ae4)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_______ ERROR at setup of test_A10_only_session_and_csrf_digests_stored ________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_0c6cec69cdea4b18861fda27d5372eb7)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+________________ ERROR at setup of test_A10_opportunistic_purge ________________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_95519dcf7b7744f9a3680d66e7efd325)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+___________ ERROR at setup of test_I1_no_store_and_I2_docs_optional ____________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_26730400fb11491fa031275832fbe111)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+__ ERROR at setup of test_A8_all_credential_flows_hash_and_verify_in_threads ___
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_4edd74247d154deb933cbffcf0cb7008)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_______ ERROR at setup of test_N1_forty_simultaneous_logins_bound_argon2 _______
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_c6daa7fb453547aa8828bb652d6cc2e0)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+______ ERROR at setup of test_N2_purge_skips_locked_rows_and_is_periodic _______
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_bedaeae0243e480f801302881f88425c)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_N2_authentication_dependencies_commit_before_return[False] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_b453751b0c634f25959ae60909a3ef9e)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_N2_authentication_dependencies_commit_before_return[True] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_bea3d269ebdf496b957fb683706ee0aa)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_____ ERROR at setup of test_N3_login_nowait_releases_verified_reservation _____
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_79ba2a4313d543f4b196e0a5b7f50ae5)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_N3_password_change_nowait_releases_verified_reservation _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_c472a8cdd12247f6afdc5b0480e5c13b)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_N3_revoked_session_after_verification_releases_reservation _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_7f8ceff743ca4fb5af8c49b0798aefea)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_______________ ERROR at setup of test_N2_purge_multiple_batches _______________
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_060ad617f9df410482e8c67f4d18ca96)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_R4_1_inactive_account_correct_and_wrong_password_exhaust_same_budget[senha-correta-123] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_0012b68b8ccc4903a15b33064c7de402)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_R4_1_inactive_account_correct_and_wrong_password_exhaust_same_budget[incorrect-password-123] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_4b6ff244b854404bad2bd2fb1ce89b01)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+__ ERROR at setup of test_R4_2_multiple_expired_batches_removed_in_one_purge ___
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_2b6de2315e40473cbcdaa08aa0160834)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_____ ERROR at setup of test_R4_3_queue_overflow_returns_503_without_hash ______
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_797b1e6c2ac045759759f21d89292b8b)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_R5_1_repeated_overload_releases_reservations[existing_login] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_3929d9caa34646b39cab51c20bc51e51)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_R5_1_repeated_overload_releases_reservations[missing_login] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_99947eb18b344e3482799b3effe51955)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_ ERROR at setup of test_R5_1_repeated_overload_releases_reservations[change_password] _
+
+database = Engine(postgresql+psycopg://training_app:***@127.0.0.1:5432/test_api_0f14234b66be4635b3b96141a457733b)
+
+    @pytest.fixture
+    def app(database):
+        """App real da apps/api com limites pequenos e explícitos para os testes."""
+        config = import_module("training_api.config")
+        factory = import_module("training_api.app")
+>       settings = config.ApiSettings(
+            database_url=database.url,
+            cookie_secure=True,
+            session_lifetime_seconds=SESSION_LIFETIME,
+            password_min_length=MIN_PASSWORD,
+            login_max_failures_per_account=LOGIN_FAILURES_PER_ACCOUNT,
+            login_max_failures_per_origin=LOGIN_FAILURES_PER_ORIGIN,
+            login_window_seconds=LOGIN_WINDOW,
+            register_max_per_origin=REGISTRATIONS_PER_ORIGIN,
+            register_window_seconds=REGISTRATION_WINDOW,
+        )
+
+apps/api/tests/conftest.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+=================================== FAILURES ===================================
+___________________ test_N1_hash_concurrency_default_and_env ___________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x76c34b7f3e10>
+tmp_path = PosixPath('/tmp/pytest-of-caique-brito/pytest-25/test_N1_hash_concurrency_defau0')
+
+    def test_N1_hash_concurrency_default_and_env(monkeypatch, tmp_path):
+        from training_api.config import ApiSettings
+        monkeypatch.setattr('training_api.config.os.cpu_count', lambda: 1)
+>       assert ApiSettings(database_url='postgresql+psycopg://localhost/test').password_hash_concurrency == 2
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+apps/api/tests/test_api_auth_r4.py:144: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+<string>:4: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+_________________ test_R4_3_queue_multiplier_from_environment __________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x76c34b014830>
+tmp_path = PosixPath('/tmp/pytest-of-caique-brito/pytest-25/test_R4_3_queue_multiplier_fro0')
+
+    def test_R4_3_queue_multiplier_from_environment(monkeypatch, tmp_path):
+        from training_api.config import ApiSettings
+        for key, value in {'APP_POSTGRES_DB': 'test', 'APP_POSTGRES_USER': 'test', 'APP_POSTGRES_PASSWORD': 'test'}.items():
+            monkeypatch.setenv(key, value)
+>       assert ApiSettings(database_url='postgresql+psycopg://localhost/test').password_hash_queue_multiplier == 4
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+apps/api/tests/test_api_auth_r5.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+<string>:4: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def attempt_secret():
+        value = os.environ.get('API_ATTEMPT_KEY_SECRET', '')
+        if not value.strip():
+>           raise ValueError('Defina API_ATTEMPT_KEY_SECRET')
+E           ValueError: Defina API_ATTEMPT_KEY_SECRET
+
+apps/api/src/training_api/config.py:15: ValueError
+___________________ test_smoke_real_adk_classifica_e_planeja ___________________
+
+real_service = <training_generation.agents.GenerationService object at 0x76c1ccddf0d0>
+real_budget = <function real_budget.<locals>.admitir at 0x76c1cce4d800>
+
+    def test_smoke_real_adk_classifica_e_planeja(real_service, real_budget):
+        async def fluxo():
+            await real_budget()
+            classificacao = await real_service.classify("Crie 3 flashcards sobre fotossíntese")
+            assert isinstance(classificacao, Classification)
+            assert classificacao.intencao is Intent.GERAR_FLASHCARDS
+            await real_budget()
+            plano = await real_service.plan("Crie 3 flashcards sobre fotossíntese", classificacao)
+            assert isinstance(plano, SearchPlan) and 1 <= len(plano.consultas) <= 3
+>       asyncio.run(fluxo())
+
+packages/generation/tests/test_geracao_real.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py:196: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py:119: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py:726: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+packages/generation/tests/test_geracao_real.py:50: in fluxo
+    classificacao = await real_service.classify("Crie 3 flashcards sobre fotossíntese")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/generation/src/training_generation/agents.py:447: in classify
+    return await self._traced("E3", executar())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/generation/src/training_generation/agents.py:346: in _traced
+    return await coro
+           ^^^^^^^^^^
+packages/generation/src/training_generation/agents.py:442: in executar
+    texto = await self._run_agent("E3", "E3", _json({"mensagem_do_usuario": prompt}))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <training_generation.agents.GenerationService object at 0x76c1ccddf0d0>
+stage = 'E3', chave = 'E3'
+payload = '{"mensagem_do_usuario": "Crie 3 flashcards sobre fotossíntese"}'
+
+    async def _run_agent(self, stage: Stage, chave: str, payload: str) -> str:
+        from google.genai import types
+    
+        guard_logging()
+        runner = self._runners[chave]
+        session_id = uuid4().hex
+        await self._session_service.create_session(app_name=_APP_NAME, user_id=_ADK_SESSION_USER,
+                                                   session_id=session_id)
+        texto: str | None = None
+        try:
+            async with asyncio.timeout(self.settings.timeout_seconds):
+                mensagem = types.Content(role="user", parts=[types.Part(text=payload)])
+                eventos = runner.run_async(user_id=_ADK_SESSION_USER, session_id=session_id,
+                                           new_message=mensagem)
+                async with aclosing(eventos) as stream:
+                    async for evento in stream:
+                        if evento.error_code:
+>                           raise _event_error(str(evento.error_code), stage) from None
+E                           training_generation.agents.GenerationError: Falha na etapa E3: provider (unknown)
+
+packages/generation/src/training_generation/agents.py:374: GenerationError
+___________________ test_smoke_real_juiz_de_saida_openrouter ___________________
+
+real_service = <training_generation.agents.GenerationService object at 0x76c1ccddf0d0>
+real_budget = <function real_budget.<locals>.admitir at 0x76c1cce4d800>
+
+    def test_smoke_real_juiz_de_saida_openrouter(real_service, real_budget):
+        contexto = NumberedContext(chunks=[ContextChunk(
+            ref="C1", chunk_id="smoke-c1", page=1, section_path=["Fotossíntese"],
+            text="Na fase clara da fotossíntese, a luz é absorvida pela clorofila.")])
+        item = Flashcard(front="O que absorve a luz na fase clara da fotossíntese?", back="A clorofila.",
+                         bloom_level="lembrar",
+                         citations=[{"chunk_ref": "C1", "evidence": "a luz é absorvida pela clorofila"}])
+    
+        async def fluxo():
+            await real_budget()
+            resultado = await real_service.judge([item], contexto)
+            assert [v.item_index for v in resultado.vereditos] == [0]
+            print(f"veredito_real fundamentado={resultado.vereditos[0].fundamentado} "
+                  f"conforme_rubrica={resultado.vereditos[0].conforme_rubrica}")
+>       asyncio.run(fluxo())
+
+packages/generation/tests/test_geracao_real.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py:196: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py:119: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py:726: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+packages/generation/tests/test_geracao_real.py:69: in fluxo
+    resultado = await real_service.judge([item], contexto)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/generation/src/training_generation/agents.py:550: in judge
+    return await self._traced("E10", executar(), itens=len(items))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+packages/generation/src/training_generation/agents.py:346: in _traced
+    return await coro
+           ^^^^^^^^^^
+packages/generation/src/training_generation/agents.py:541: in executar
+    texto = await self._completion("E10", self.settings.output_judge_model, self._judge_system,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <training_generation.agents.GenerationService object at 0x76c1ccddf0d0>
+stage = 'E10', model = 'openrouter/anthropic/claude-haiku-5.5'
+system = 'Você é o juiz de saída (E10) de um assistente que gera flashcards e questões a partir do material de estudo do usuári...urto, iniciado pelo critério (R1–R4) e apontando o trecho ou a afirmação problemática. Item aprovado não tem motivo.\n'
+user = '<<<DADOS_JULGAMENTO_9106cf5b56f0331767861c6a>>>\n{"itens": [{"item_index": 0, "item": {"tipo": "flashcard", "front": ...se clara da fotossíntese, a luz é absorvida pela clorofila."}]}]}\n<<<FIM_DADOS_JULGAMENTO_9106cf5b56f0331767861c6a>>>'
+schema_name = 'output_judge_result'
+schema_model = <class 'training_contracts.vereditos.OutputJudgeResult'>
+
+    async def _completion(self, stage: Stage, model: str, system: str, user: str,
+                          schema_name: str, schema_model: type[BaseModel]) -> str:
+        guard_logging()
+        import litellm
+    
+        guard_logging()
+        chave = self.settings.litellm_api_key(model)
+        try:
+            async with asyncio.timeout(self.settings.timeout_seconds):
+                resposta = await litellm.acompletion(
+                    model=model,
+                    api_key=chave,
+                    messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
+                    temperature=0,
+                    timeout=self.settings.timeout_seconds,
+                    num_retries=0,
+                    # Sem retentativa no cliente HTTP interno (AsyncOpenAI usa 2 por padrão): orçamento real = 1.
+                    max_retries=0,
+                    response_format={"type": "json_schema", "json_schema": {
+                        "name": schema_name, "strict": True, "schema": _strict_json_schema(schema_model)}},
+                    **{"no-log": True},
+                )
+        except TimeoutError:
+            raise GenerationError("timeout", stage=stage) from None
+        except Exception as exc:
+>           raise _provider_error(exc, stage) from None
+E           training_generation.agents.GenerationError: Falha na etapa E10: provider (APIConnectionError)
+
+packages/generation/src/training_generation/agents.py:415: GenerationError
+=============================== warnings summary ===============================
+packages/lineage/tests/test_chat.py::test_e1_error_and_final_failure_atomic
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/main.py:520: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `enum` - serialized value may not be as expected [field_name='status', input_value='erro', input_type=str])
+    return self.__pydantic_serializer__.to_python(
+
+packages/generation/tests/test_chat_integration.py::test_invalid_initial_envelope_repair_is_attempt_two_persisted_and_t022_consumable
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/ragas/llms/base.py:32: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+    from langchain_community.chat_models.vertexai import ChatVertexAI
+
+packages/generation/tests/test_geracao_real.py::test_smoke_real_adk_classifica_e_planeja
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/google/genai/_api_client.py:1305: DeprecationWarning: Inheritance class AiohttpClientSession from ClientSession is discouraged
+    class AiohttpClientSession(aiohttp.ClientSession):  # type: ignore[misc]
+
+packages/generation/tests/test_geracao_real.py::test_smoke_real_juiz_de_saida_openrouter
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Items 'device_code', 'user_code', 'verification_uri' on TypedDict class '_DeviceCode' are using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_real.py::test_smoke_real_juiz_de_saida_openrouter
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Items 'access_token', 'error' on TypedDict class '_AccessTokenPoll' are using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_real.py::test_smoke_real_juiz_de_saida_openrouter
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Items 'token', 'expires_at', 'endpoints' on TypedDict class '_CopilotTokenPayload' are using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_real.py::test_smoke_real_juiz_de_saida_openrouter
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Items 'device_code', 'user_code', 'verification_uri', 'expires_in', 'interval' on TypedDict class '_DeviceCodePayload' are using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_real.py::test_smoke_real_juiz_de_saida_openrouter
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Items 'access_token', 'error', 'error_description', 'interval' on TypedDict class '_AccessTokenPollPayload' are using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_real.py::test_smoke_real_juiz_de_saida_openrouter
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'login' on TypedDict class '_GithubUserPayload' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_real.py::test_smoke_real_juiz_de_saida_openrouter
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'api' on TypedDict class '_CopilotEndpointsPayload' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_real.py::test_smoke_real_juiz_de_saida_openrouter
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'index' on TypedDict class 'ChatCompletionThinkingBlock' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_real.py::test_smoke_real_juiz_de_saida_openrouter
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'index' on TypedDict class 'ChatCompletionRedactedThinkingBlock' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+packages/generation/tests/test_geracao_real.py::test_smoke_real_juiz_de_saida_openrouter
+  /home/caique-brito/Documentos/Caique/Training System/.venv/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py:1574: UserWarning: Item 'summary' on TypedDict class 'ChatCompletionReasoningItem' is using the `ReadOnly` qualifier. Pydantic will not protect items from any mutation on dictionary instances.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED apps/api/tests/test_api_auth_r4.py::test_N1_hash_concurrency_default_and_env
+FAILED apps/api/tests/test_api_auth_r5.py::test_R4_3_queue_multiplier_from_environment
+FAILED packages/generation/tests/test_geracao_real.py::test_smoke_real_adk_classifica_e_planeja
+FAILED packages/generation/tests/test_geracao_real.py::test_smoke_real_juiz_de_saida_openrouter
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CAD_001_cadastro_cria_conta_com_hash_argon2id
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CAD_001_email_repetido_recusado_sem_dados_da_conta[alice@example.com]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CAD_001_email_repetido_recusado_sem_dados_da_conta[Alice@Example.COM]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CAD_001_senha_abaixo_do_minimo_recusada_sem_criar_conta
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CAD_001_cadastro_nao_aceita_privilegio_do_corpo
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_001_login_cria_sessao_no_banco_e_cookie_seguro
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_001_falha_identica_para_email_inexistente_e_senha_errada
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_001_login_sempre_emite_token_novo_sem_fixacao
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_logout_revoga_o_mesmo_cookie
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_logout_revoga_so_a_propria_sessao
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_troca_de_senha_revoga_todas_as_sessoes
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_troca_de_senha_exige_senha_atual_e_politica
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_sessao_vencida_recebe_401
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_cookie_desconhecido_recebe_401[]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_cookie_desconhecido_recebe_401[inexistente]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_cookie_desconhecido_recebe_401[cookie2]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_SES_002_cookie_desconhecido_recebe_401[x.y.z]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_sem_cabecalho_csrf_recebe_403_sem_efeito[logout]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_sem_cabecalho_csrf_recebe_403_sem_efeito[troca-de-senha]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-outro-usuario]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-outra-sessao-do-mesmo-usuario]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-aleatorio]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[logout-vazio]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-outro-usuario]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-outra-sessao-do-mesmo-usuario]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-aleatorio]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_de_outra_sessao_ou_invalido_recebe_403[troca-de-senha-vazio]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_csrf_nao_vale_sem_cookie
+ERROR apps/api/tests/test_api_auth.py::test_AUT_CSR_001_leitura_nao_exige_csrf
+ERROR apps/api/tests/test_api_auth.py::test_AUT_LIM_001_login_por_conta_429_mesmo_com_senha_correta
+ERROR apps/api/tests/test_api_auth.py::test_AUT_LIM_001_limite_por_conta_nao_revela_se_a_conta_existe
+ERROR apps/api/tests/test_api_auth.py::test_AUT_LIM_001_login_por_origem_429_para_qualquer_conta
+ERROR apps/api/tests/test_api_auth.py::test_AUT_LIM_001_abaixo_do_limite_login_correto_passa
+ERROR apps/api/tests/test_api_auth.py::test_AUT_LIM_001_cadastro_por_origem_429
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[GET-/users/me]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[POST-/auth/logout]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_rota_de_dados_sem_sessao_recebe_401[POST-/auth/change-password]
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_dono_vem_da_sessao_e_nao_da_query
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_owner_id_do_corpo_nunca_e_usado
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_owner_id_e_o_uuid_textual_do_usuario
+ERROR apps/api/tests/test_api_auth.py::test_AUT_OWN_001_rotas_de_email_e_edicao_de_usuario_nao_montadas
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A1_concurrent_login_does_not_starve_authenticated_read
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A2_ipv6_prefix_shares_registration_limit
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A3_missing_client_fails_closed
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A4_password_change_failures_share_login_budget
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A5_account_hmac_uses_postgres_normalization
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A6_cross_site_auth_rejected[headers0-/auth/login]
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A6_cross_site_auth_rejected[headers0-/auth/register]
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A6_cross_site_auth_rejected[headers1-/auth/login]
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A6_cross_site_auth_rejected[headers1-/auth/register]
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A6_cross_site_auth_rejected[headers2-/auth/login]
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A6_cross_site_auth_rejected[headers2-/auth/register]
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A6_same_origin_auth_allowed
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A8_hashing_yields_to_event_loop
+ERROR apps/api/tests/test_api_auth_hardening.py::test_maximum_password_length
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A9_idle_expiry_and_throttled_touch
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A10_only_session_and_csrf_digests_stored
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A10_opportunistic_purge
+ERROR apps/api/tests/test_api_auth_hardening.py::test_I1_no_store_and_I2_docs_optional
+ERROR apps/api/tests/test_api_auth_hardening.py::test_A8_all_credential_flows_hash_and_verify_in_threads
+ERROR apps/api/tests/test_api_auth_r4.py::test_N1_forty_simultaneous_logins_bound_argon2
+ERROR apps/api/tests/test_api_auth_r4.py::test_N2_purge_skips_locked_rows_and_is_periodic
+ERROR apps/api/tests/test_api_auth_r4.py::test_N2_authentication_dependencies_commit_before_return[False]
+ERROR apps/api/tests/test_api_auth_r4.py::test_N2_authentication_dependencies_commit_before_return[True]
+ERROR apps/api/tests/test_api_auth_r4.py::test_N3_login_nowait_releases_verified_reservation
+ERROR apps/api/tests/test_api_auth_r4.py::test_N3_password_change_nowait_releases_verified_reservation
+ERROR apps/api/tests/test_api_auth_r4.py::test_N3_revoked_session_after_verification_releases_reservation
+ERROR apps/api/tests/test_api_auth_r4.py::test_N2_purge_multiple_batches - Va...
+ERROR apps/api/tests/test_api_auth_r5.py::test_R4_1_inactive_account_correct_and_wrong_password_exhaust_same_budget[senha-correta-123]
+ERROR apps/api/tests/test_api_auth_r5.py::test_R4_1_inactive_account_correct_and_wrong_password_exhaust_same_budget[incorrect-password-123]
+ERROR apps/api/tests/test_api_auth_r5.py::test_R4_2_multiple_expired_batches_removed_in_one_purge
+ERROR apps/api/tests/test_api_auth_r5.py::test_R4_3_queue_overflow_returns_503_without_hash
+ERROR apps/api/tests/test_api_auth_r6.py::test_R5_1_repeated_overload_releases_reservations[existing_login]
+ERROR apps/api/tests/test_api_auth_r6.py::test_R5_1_repeated_overload_releases_reservations[missing_login]
+ERROR apps/api/tests/test_api_auth_r6.py::test_R5_1_repeated_overload_releases_reservations[change_password]
+4 failed, 571 passed, 13 warnings, 75 errors in 127.01s (0:02:07)
+# exit: 1

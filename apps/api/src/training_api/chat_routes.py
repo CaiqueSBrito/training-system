@@ -7,10 +7,10 @@ import math
 from anyio import CancelScope, to_thread
 from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from fastapi.encoders import jsonable_encoder
-from fastapi.responses import StreamingResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 from starlette.background import BackgroundTask
 from sqlalchemy import select
-from training_contracts import ChatRequest, ChatResponse, ChatTurnRecord
+from training_contracts import ChatRequest, ChatResponse, ChatTurnRecord, ItemLineage
 from training_contracts.rendering import clean_text
 from training_lineage import tables as t
 from training_lineage.chat import ChatLineageRepository
@@ -42,7 +42,24 @@ def versions(engine, owner):
             .order_by(t.document_version.c.created_at, t.document_version.c.document_version_id)).scalars())
 
 
-@router.post('/chat', dependencies=[Depends(require_csrf)])
+class ChatEventStreamDoc(JSONResponse):
+    """Só declara no OpenAPI o 200 de POST /chat como text/event-stream (ADR-0014).
+
+    A rota sempre devolve a própria StreamingResponse (ou levanta HTTPException),
+    então esta classe nunca serializa nada. Ela é subclasse de JSONResponse porque
+    só assim o FastAPI publica o schema do `responses` sem `"type": "string"` ao lado.
+    """
+    media_type = 'text/event-stream'
+
+
+CHAT_RESPONSES = {200: {
+    'model': ChatResponse,
+    'description': 'Eventos SSE `progress`, em ordem, e um único `final` cujo `data` é a ChatResponse.',
+}}
+
+
+@router.post('/chat', dependencies=[Depends(require_csrf)],
+             response_class=ChatEventStreamDoc, responses=CHAT_RESPONSES)
 async def chat(body: ChatRequest, request: Request, owner: str = Depends(current_owner_id)):
     settings = request.app.state.settings
     if not body.session_id.strip() or len(body.session_id) > settings.chat_session_id_max_length:
@@ -209,7 +226,7 @@ def turn_lineage(engine, owner, turn_id):
                 'items': [repo.get_item_lineage(owner, item.item_id) for item in response.itens]}
 
 
-@router.get('/lineage/items/{item_id}')
+@router.get('/lineage/items/{item_id}', responses={200: {'model': ItemLineage}})
 async def get_item(item_id: str, request: Request, response: Response, owner: str = Depends(current_owner_id)):
     response.headers['Cache-Control'] = 'no-store'
     result = await to_thread.run_sync(item_lineage, request.app.state.lineage_engine, owner, item_id)

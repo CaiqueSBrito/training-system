@@ -193,7 +193,7 @@ flowchart LR
 | `apps/worker` | Procrastinate sobre o Postgres da aplicação | executa a ingestão assíncrona (§3) e a avaliação online por amostragem (§9) como jobs duráveis | [0012](../adr/0012-fila-procrastinate-postgres.md) |
 | `apps/web` | Next.js, React e TypeScript estrito; tipos gerados do OpenAPI | interface do chat; mostra o progresso e renderiza itens e fontes sempre como texto (`textContent`), nunca como HTML (RAG-SAI-001, [ADR-0018](../adr/0018-saida-texto-puro.md)) | [0013](../adr/0013-front-nextjs-typescript.md), [0018](../adr/0018-saida-texto-puro.md) |
 
-Contratos: o OpenAPI da `apps/api` é o artefato publicado dos modelos de `packages/contracts` que cruzam a fronteira HTTP ([ADR-0014](../adr/0014-contratos-openapi.md)). O JSON Schema exportado em `packages/contracts/schema/` continua até a mudança que criar a `apps/api`.
+Contratos: o OpenAPI da `apps/api` é o artefato publicado dos modelos de `packages/contracts` que cruzam a fronteira HTTP ([ADR-0014](../adr/0014-contratos-openapi.md)). Não há JSON Schema exportado à parte; quando o schema é necessário em tempo de execução, vem de `model_json_schema()` do modelo.
 
 ### 10.2 Latência no chat
 

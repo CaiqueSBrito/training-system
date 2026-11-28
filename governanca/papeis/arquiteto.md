@@ -13,7 +13,7 @@ Decisões técnicas que valem para o projeto e os contratos entre os pacotes.
 ## Faz
 
 - Escreve ADRs (próximo número livre; ADR aceita não é editada, é substituída por outra).
-- Mantém `packages/contracts`: modelos Pydantic e JSON Schema compartilhados. É a interface entre os papéis; mudança de contrato é trilha Padrão no mínimo e avisa os donos dos pacotes consumidores.
+- Mantém `packages/contracts`: modelos Pydantic compartilhados, publicados pela API no OpenAPI (ADR-0014). É a interface entre os papéis; mudança de contrato é trilha Padrão no mínimo e avisa os donos dos pacotes consumidores.
 - Escreve `design.md` de mudanças com decisão técnica.
 
 ## Não faz

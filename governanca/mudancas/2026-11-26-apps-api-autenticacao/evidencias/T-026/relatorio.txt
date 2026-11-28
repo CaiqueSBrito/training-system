@@ -1,0 +1,45 @@
+T-026 fase 2 — relatório (papel arquiteto, dispatch ctx_90e365443e9b)
+
+Requisito: API-CTR-001 (ADR-0014). G3: humano, "aprovo retirando o schema.py" (8 casos de apps/api/tests/test_openapi_contratos.py, sha256 9a37b5c3…51c48, inclusive a ausência de training_contracts/schema.py). Escopo ampliado pelo humano ("aprovo"): o arquiteto pode fazer o ajuste mínimo de declaração nas rotas de apps/api.
+
+1. Rotas (apps/api/src/training_api/chat_routes.py) — só declaração no OpenAPI, sem mudança de comportamento
+- POST /chat: response_class=ChatEventStreamDoc e responses={200: {model: ChatResponse, description}}. O 200 é publicado como text/event-stream com $ref ChatResponse.
+  ChatEventStreamDoc é uma subclasse de JSONResponse com media_type 'text/event-stream'. O FastAPI 0.163 só publica o schema de `responses` sem acrescentar "type": "string" ao lado do $ref quando a classe é JSONResponse (fastapi/openapi/utils.py, ramo route_response_media_type). A classe nunca serializa nada: a rota sempre devolve a própria StreamingResponse ou levanta HTTPException, e os erros continuam saindo pelo handler padrão em JSON. Status, headers (Cache-Control: no-cache, X-Accel-Buffering: no), frames e serialização ficam iguais.
+- GET /lineage/items/{item_id}: responses={200: {model: ItemLineage}}. Usei `responses` em vez de `response_model` para o FastAPI não validar nem re-serializar o retorno. lineage_output (a limpeza de controles da linhagem) continua sendo exatamente o que sai.
+- GET /lineage/turns/{chat_turn_id}: sem mudança. A resposta é composta e não tem modelo de contrato (registrado no interface.md do G3).
+- Escolha não-óbvia: a alternativa nativa do FastAPI para SSE (fastapi.sse com itemSchema) exige endpoint gerador e mudaria o comportamento da rota, por isso não foi usada.
+
+2. Remoções (git rm, sem alias)
+- packages/contracts/schema/ (32 arquivos *.schema.json)
+- packages/contracts/tests/test_schema.py
+- packages/contracts/src/training_contracts/schema.py
+- Script exportar-schema-contratos retirado de packages/contracts/pyproject.toml. A description deixou de citar "JSON Schema" e passou a citar o OpenAPI (ADR-0014).
+- `uv sync --all-packages`: o entry point antigo saiu do .venv; uv.lock não mudou; nenhuma dependência nova.
+
+3. Referências
+- docs/arquitetura/pipeline-rag.md §contratos: a frase "o JSON Schema exportado … continua até a mudança que criar a apps/api" virou: não há JSON Schema exportado à parte; em tempo de execução, o schema vem de model_json_schema().
+- training_contracts/__init__.py e README: não havia referência (não existe README em packages/contracts).
+- ADR-0014 cita os itens removidos como histórico; ADR aceita não é editada.
+- governanca/papeis/arquiteto.md: o orquestrador disse que atualiza (o arquivo aparece modificado no git status, mas a edição não é deste worker).
+- Busca final sem resto: grep de "training_contracts.schema|exportar-schema|MODELOS" em apps, packages, tools e docs só encontra o caso G3 (que confere a ausência) e a ADR-0014 (histórico).
+
+4. Caso protegido editado com aprovação humana
+- packages/contracts/tests/test_ressalvas_contratos.py (T-010, REG-005), caso test_ING_CAN_001_todos_contratos_novos_exportados_e_schema_registrado: retiradas só duas linhas, `from training_contracts.schema import MODELOS` e `assert model in MODELOS`. Ficam mantidos o assert de export (`getattr(training_contracts, nome) is model`) e o de additionalProperties=False. O nome do caso não foi alterado.
+- Aprovação: o humano escolheu a opção A ("aprovo"), via orquestrador (msg_382f691d3388).
+- sha256 antes: f7b933871407da588a1cfeb6c6aca686cd8303a1fe3b393e91ea4a0a27c6e99e
+- sha256 depois: 514efb9d1c8c994344cf98b75b3338e7c6e3b7b377ff785758f60c967f25f2f3
+
+5. Prova
+- Rodada 1 (pytest-r1.txt): Bloqueado por ambiente, não vale como prova. Sem API_ATTEMPT_KEY_SECRET no shell, 75 erros e 2 falhas vieram de "Defina API_ATTEMPT_KEY_SECRET". Com as chaves LLM do .env presentes, os 2 smokes reais de packages/generation tentaram chamar os provedores e falharam por conexão (APIConnectionError / provider unknown). Resultado: 4 failed, 571 passed, 75 errors. Nenhum produto nem caso mudou entre a rodada 1 e a rodada final.
+- Rodada final (pytest.txt): Passou. `uv run pytest apps/api packages/contracts packages/lineage packages/generation -q` com a mesma convenção da prova final da T-025: API_ATTEMPT_KEY_SECRET descartável (token aleatório, só no ambiente do subprocesso) e GEMINI_API_KEY/OPENROUTER_API_KEY vazias só no subprocesso, sem tocar o .env. Resultado: 648 passed, 2 skipped, 12 warnings em 176.23s, exit 0.
+  Conta: T-025 tinha 673 passed; saem os 33 casos de test_schema.py (1 + 32 parametrizados) e entram os 8 de test_openapi_contratos.py, o que dá 648.
+  Os 8 casos G3 da T-026 passaram.
+- Smokes reais de modelo (2 skipped): Não executado. Chaves vazias de propósito, sem chamada real a LLM; ficam fora do escopo de API-CTR-001.
+- Casos congelados (casos-intactos.txt): Passou. sha256sum -c OK nos 6 arquivos: conftest.py, api_auth_support.py e test_api_auth.py (T-024); test_api_chat.py e api_chat_support.py (T-025); test_openapi_contratos.py (T-026).
+- Validador (validador.txt): Passou. "governança OK: 7 mudança(s), 26 tarefa(s), 28 requisito(s) na spec viva", exit 0.
+
+6. Pendências
+- Revisão google (revisor da T-026) e leitura do rag-backend sobre a mudança nas rotas.
+- O orquestrador deve registrar na T-010 (ou no índice REG-005) o novo sha256 de test_ressalvas_contratos.py.
+- O front deve gerar tipos do OpenAPI: ChatResponse está no 200 de POST /chat (text/event-stream), e ItemLineage no 200 de GET /lineage/items/{item_id}.
+- Sem commit (só com o humano). Trailer previsto: Refs: T-026.

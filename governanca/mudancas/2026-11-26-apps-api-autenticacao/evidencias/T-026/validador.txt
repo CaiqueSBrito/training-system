@@ -1,0 +1,3 @@
+# comando: uv run validar-governanca
+governança OK: 7 mudança(s), 26 tarefa(s), 28 requisito(s) na spec viva
+# exit: 0

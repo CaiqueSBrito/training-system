@@ -332,11 +332,9 @@ def test_ING_REP_001_inventario_nao_prova_fixture_por_prefixo_ou_antijoin():
 
 def test_ING_CAN_001_todos_contratos_novos_exportados_e_schema_registrado():
     import training_contracts
-    from training_contracts.schema import MODELOS
     models = (CanonicalTextRecord, CanonicalSpan, ChunkProvenanceRecord,
         CitationSpanSelection, EmbeddingInputRecord, IngestionReservation,
         IngestionAuditEvent, EffectiveChunkDecision, ReconciliationJob, OrphanInventoryEntry)
     for model in models:
         assert getattr(training_contracts, model.__name__) is model
-        assert model in MODELOS
         assert model.model_json_schema()["additionalProperties"] is False
